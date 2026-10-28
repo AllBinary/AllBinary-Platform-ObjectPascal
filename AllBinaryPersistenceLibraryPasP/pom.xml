@@ -1,0 +1,41 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.allbinary</groupId>
+    <artifactId>AllBinaryPersistenceLibraryPPas</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0.0-SNAPSHOT</version>
+    <name>AllBinaryPersistenceLibraryPPas</name>
+    <url>http://www.allbinary.com/</url>
+    <distributionManagement>
+        <snapshotRepository>
+            <id>nexus-snapshots</id>
+            <name>AllBinary Snapshots Nexus</name>
+            <url>https://nexus-allbinary.rhcloud.com/nexus/content/repositories/snapshots/</url>
+        </snapshotRepository>
+        <repository>
+            <id>nexus-releases</id>
+            <name>AllBinary Releases Nexus</name>
+            <url>https://nexus-allbinary.rhcloud.com/nexus/content/repositories/releases/</url>
+        </repository>
+    </distributionManagement>
+    <modules>
+        <module>../allbinary_src/cache/AllBinaryCacheLibraryPasM</module>
+        <module>../allbinary_src/PermutationsJavaLibraryPasM</module>
+        <module>../allbinary_src/logic/BasePreloaderFileJavaLibraryPasM</module>
+        <module>../allbinary_src/logic/data/file/FileJavaLibraryPasM</module>
+        <module>../allbinary_src/logic/data/file/FileJ2SEJavaLibraryPasM</module>
+        <module>../allbinary_src/data/DataJavaLibraryPasM</module>
+        <module>../allbinary_src/logic/data/file/FileUnamedJavaLibraryPasM</module>
+        <module>../allbinary_src/logic/data/file/FileAdvancedJavaLibraryPasM</module>
+        <module>../allbinary_src/PreLoaderJavaLibraryPasM</module>
+        <module>../allbinary_src/FileInitInfoJavaLibraryPasM</module>
+        <module>../allbinary_src/PreLoaderFileJavaLibraryPasM</module>
+        <module>../allbinary_src/PreLoaderLicenseJavaLibraryPasM</module>
+        <module>../j2me/PCResourceLibraryPasM</module>
+        <module>../j2me/ProgressJ2MEJavaLibraryPasM</module>
+        <module>../allbinary_src/licensing/ClientInfoBaseJavaLibraryPasM</module>
+        <module>../allbinary_src/licensing/RemoteXmlRpcJavaLibraryPasM</module>
+        <module>../allbinary_src/licensing/LicenseClientJavaLibraryPasM</module>
+    </modules>
+</project>

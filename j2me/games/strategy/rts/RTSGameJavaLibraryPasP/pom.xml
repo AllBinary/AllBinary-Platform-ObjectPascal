@@ -1,0 +1,31 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.allbinary.game.strategy.realtime</groupId>
+    <artifactId>RTSGameJavaLibraryPPas</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0.0-SNAPSHOT</version>
+    <name>RTSGameJavaLibraryPPas</name>
+    <url>http://www.allbinary.com/</url>
+    <distributionManagement>
+        <snapshotRepository>
+            <id>nexus-snapshots</id>
+            <name>AllBinary Snapshots Nexus</name>
+            <url>https://nexus-allbinary.rhcloud.com/nexus/content/repositories/snapshots/</url>
+        </snapshotRepository>
+        <repository>
+            <id>nexus-releases</id>
+            <name>AllBinary Releases Nexus</name>
+            <url>https://nexus-allbinary.rhcloud.com/nexus/content/repositories/releases/</url>
+        </repository>
+    </distributionManagement>
+    <modules>
+        <module>../../../../../j2me/games/PreGameSelectionJavaLibraryPasM</module>
+        <module>../../../../../j2me/games/MapSelectionGameJavaLibraryPasM</module>
+        <module>../RTSGameSoundsJavaLibraryPasM</module>
+        <module>../RTSTouchJavaLibraryPasM</module>
+        <module>../RTSGameJavaLibraryPasM</module>
+        <module>../AdvancedRTSGameSoundsJavaLibraryPasM</module>
+        <module>../AdvancedRTSGameJavaLibraryPasM</module>
+    </modules>
+</project>

@@ -1,0 +1,61 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.allbinary</groupId>
+    <artifactId>AllBinaryBaseLibraryPOMPas</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0.0-SNAPSHOT</version>
+    <name>AllBinaryBaseLibraryPOMPas</name>
+    <url>http://www.allbinary.com/</url>
+    <distributionManagement>
+        <snapshotRepository>
+            <id>nexus-snapshots</id>
+            <name>AllBinary Snapshots Nexus</name>
+            <url>https://nexus-allbinary.rhcloud.com/nexus/content/repositories/snapshots/</url>
+        </snapshotRepository>
+        <repository>
+            <id>nexus-releases</id>
+            <name>AllBinary Releases Nexus</name>
+            <url>https://nexus-allbinary.rhcloud.com/nexus/content/repositories/releases/</url>
+        </repository>
+    </distributionManagement>
+    <modules>
+        <module>../CommonJavaLibraryPasM</module>
+        <module>../TempBaseJavaLibraryPasM</module>
+        <module>../../allbinary_src/LogPasM</module>
+        <module>../../allbinary_src/allbinary_src_designpatterns_srcPasM</module>
+        <module>../../allbinary_src/data/BaseDataJavaLibraryPasM</module>
+        <module>../../allbinary_src/cache/BaseCacheJavaLibraryPasM</module>
+        <module>../../allbinary_src/logic/BasePreloaderJavaLibraryPasM</module>
+        <module>../../allbinary_src/logic/BasePreloaderJ2MEJavaLibraryPasM</module>
+        <module>../ExceptionHTMLJavaLibraryPasM</module>
+        <module>../J2MEExceptionLibraryPasM</module>
+        <module>../../allbinary_src/J2SEExceptionLibraryPasM</module>
+        <module>../J2MEUtilJavaLibraryPasM</module>
+        <module>../J2MEColorJavaLibraryPasM</module>
+        <module>../EventJ2MELibraryPasM</module>
+        <module>../../allbinary_src/LogNoPlatformJavaLibraryPasM</module>
+        <module>../../allbinary_src/LogJ2MEJavaLibraryPasM</module>
+        <module>../../allbinary_src/LogJ2SEJavaLibraryPasM</module>
+<!--        <module>../../allbinary_src/LogAndroidJavaLibraryPasM</module>-->
+        <module>../logging/LoggingNonePasM</module>
+        <module>../logging/LoggingJ2MEAllPasM</module>
+        <module>../logging/LoggingJ2MEExceptionPasM</module>
+<!--        <module>../logging/LoggingAndroidAllPasM</module>-->
+        <module>../J2MEWindowingJavaLibraryPasM</module>
+        <module>../lib/BaseMathLibraryPasM</module>
+        <module>../lib/BasicMathLibraryPasM</module>
+        <module>../../allbinary_src/ThreadLibraryPasM</module>
+<!--        <module>../../allbinary_src/ThreadHTMLLibraryPasM</module>-->
+        <module>../../replace_these_stub_projects/allbinary_src/NoneOnlyJavaLibraryPasM</module>
+        <module>../../allbinary_src/ThreadJ2MELibraryPasM</module>
+        <module>../time/TimeJavaLibraryPasM</module>
+        <module>../statistics/ApplicationStatisticsJ2SELibraryPasM</module>
+        <module>../statistics/ApplicationStatisticsJ2MELibraryPasM</module>
+        <module>../statistics/ApplicationStatisticsJavaLibraryPasM</module>
+        <module>../../allbinary_src/logging/BasicLogConfigTypeJavaLibraryPasM</module>
+        <module>../../allbinary_src/logging/LogConfigTypeGameClientJavaLibraryPasM</module>
+        <module>../../allbinary_src/hardware/HardwareLibraryPOPasM</module>
+        <module>../lib/TrigBaseLibraryPasM</module>
+    </modules>
+</project>

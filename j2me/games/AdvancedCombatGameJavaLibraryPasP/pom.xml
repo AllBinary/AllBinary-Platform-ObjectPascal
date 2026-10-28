@@ -1,0 +1,33 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.allbinary</groupId>
+    <artifactId>AdvancedCombatGameJavaLibraryPOMPas</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0.0-SNAPSHOT</version>
+    <name>AdvancedCombatGameJavaLibraryPOMPas</name>
+    <url>http://www.allbinary.com/</url>
+    <distributionManagement>
+        <snapshotRepository>
+            <id>nexus-snapshots</id>
+            <name>AllBinary Snapshots Nexus</name>
+            <url>https://nexus-allbinary.rhcloud.com/nexus/content/repositories/snapshots/</url>
+        </snapshotRepository>
+        <repository>
+            <id>nexus-releases</id>
+            <name>AllBinary Releases Nexus</name>
+            <url>https://nexus-allbinary.rhcloud.com/nexus/content/repositories/releases/</url>
+        </repository>
+    </distributionManagement>
+    <modules>
+        <module>../../../graphics/opengl/OpenGLJOGLJavaLibraryPasM</module>
+        <module>../../../graphics/opengl/OpenGLESBaseJavaLibraryPasM</module>
+        <module>../licensing/LicensingJavaLibraryPasP</module>
+        <module>../../../allbinary_src/allbinary_src_generic_event_srcPasM</module>
+        <module>../../android/AllBinaryAndroidLibraryPasP</module>
+        <module>../CommonPickupJavaLibraryPasM</module>
+        <module>../../../physics/FrictionJavaLibraryPasM</module>
+        <module>../Resources/images/GameImageLowResourcesJavaLibraryPasM</module>
+        <module>../Resources/images/GameImageMediumResourcesJavaLibraryPasM</module>
+    </modules>
+</project>

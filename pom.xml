@@ -1,0 +1,34 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.allbinary</groupId>
+    <artifactId>AllBinaryPlatformPOMPas</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0.0-SNAPSHOT</version>
+    <name>AllBinaryPlatformPOMPas</name>
+    <url>http://www.allbinary.com/</url>
+    <distributionManagement>
+        <snapshotRepository>
+            <id>nexus-snapshots</id>
+            <name>AllBinary Snapshots Nexus</name>
+            <url>https://nexus-allbinary.rhcloud.com/nexus/content/repositories/snapshots/</url>
+        </snapshotRepository>
+        <repository>
+            <id>nexus-releases</id>
+            <name>AllBinary Releases Nexus</name>
+            <url>https://nexus-allbinary.rhcloud.com/nexus/content/repositories/releases/</url>
+        </repository>
+    </distributionManagement>
+    <modules>
+        <module>./j2me/AllBinaryBaseLibraryPOPasM</module>
+        <module>./j2me/AllBinaryJ2MELibraryPasP</module>
+        <module>./AllBinaryPersistenceLibraryPasP</module>
+        <module>./automation/InputAutomationToolsPasP</module>
+        <module>./graphics/GraphicsToolsPasP</module>
+        <module>./allbinary_src/FreeblisketJavaLibraryPasP</module>
+        <module>./j2me/games/platform/AllBinaryOnAllPlatformsJavaLibraryPasP</module>
+        <module>./j2me/media/graphics/animation/image/AllBinaryJ2SEImageAnimationRotationJavaLibraryPasM</module>
+        <module>./j2me/games/Resources/sounds/release/GameSoundsJ2SEOggResourcesJavaLibraryPasM</module>
+        <module>./graphics/opengl/AllBinaryJOGLResourcesJavaLibraryPasM</module>
+    </modules>
+</project>

@@ -1,0 +1,39 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.allbinary</groupId>
+    <artifactId>InputAutomationToolsPas</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0.0-SNAPSHOT</version>
+    <name>InputAutomationToolsPas</name>
+    <url>http://www.allbinary.com/</url>
+    <distributionManagement>
+        <snapshotRepository>
+            <id>nexus-snapshots</id>
+            <name>AllBinary Snapshots Nexus</name>
+            <url>https://nexus-allbinary.rhcloud.com/nexus/content/repositories/snapshots/</url>
+        </snapshotRepository>
+        <repository>
+            <id>nexus-releases</id>
+            <name>AllBinary Releases Nexus</name>
+            <url>https://nexus-allbinary.rhcloud.com/nexus/content/repositories/releases/</url>
+        </repository>
+    </distributionManagement>
+    <modules>
+        <module>../../replace_these_stub_projects/osgi/YourOSGIComponentLibraryPasM</module>
+        <module>../../allbinary_src/AllBinaryOSGIJavaLibraryPasM</module>
+        <module>../../graphics/ColorJavaLibraryPasM</module>
+        <module>../../graphics/ImageJavaLibraryPasM</module>
+        <module>../../graphics/ImageComparisonJavaLibraryPasM</module>
+        <module>../../graphics/AdvancedImageJ2SEJavaLibraryPasM</module>
+        <module>../InputAutomationModuleJavaLibraryPasM</module>
+        <module>../InputAutomationActionScriptJavaLibraryPasM</module>
+        <module>../InputAutomationGenericModuleJavaLibraryPasM</module>
+        <module>../InputAutomationGeneric2ModuleJavaLibraryPasM</module>
+        <module>../../allbinary_src/HelpJavaLibraryPasM</module>
+        <module>../InputAutomationJavaLibraryPasM</module>
+        <module>../InputAutomationJavaApplicationPasM</module>
+        <module>../../game/InputAutomationGameModulesJavaLibraryPasM</module>
+        <module>../AllBinaryCoreJavaLibraryPasM</module>
+    </modules>
+</project>
