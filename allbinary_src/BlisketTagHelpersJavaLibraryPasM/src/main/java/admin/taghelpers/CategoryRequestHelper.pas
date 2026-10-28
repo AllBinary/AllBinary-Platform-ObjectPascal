@@ -681,7 +681,7 @@ begin
                 if Torg.allbinary.logic.communication.log.config.type_.LogConfigTypes.LOGGING.contains(Torg.allbinary.logic.communication.log.config.type_.LogConfigTypeFactory.getInstance().TAGHELPER) then begin
                     Self.logUtil.putF(xmlRequest, Self, 'getXmlData()');
                 end;
-                document := TDomDocumentHelper.create(xmlRequest);
+                document := TDomDocumentHelper.create_(xmlRequest);
                 requestNode := TDomSearchHelper.getNode(categoryData.REQUEST, document.getChildNodes());
                 if Torg.allbinary.logic.communication.log.config.type_.LogConfigTypes.LOGGING.contains(Torg.allbinary.logic.communication.log.config.type_.LogConfigTypeFactory.getInstance().TAGHELPER) then begin
                     Self.logUtil.putF(TXmlDocumentHelper.toString(document), Self, 'getXmlData()');

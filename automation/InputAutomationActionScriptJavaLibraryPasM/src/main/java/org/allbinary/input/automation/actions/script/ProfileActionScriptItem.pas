@@ -117,7 +117,7 @@ type
     commonStrings: TCommonStrings;
     jPopupMenu: TJPopupMenu;
     class var EDIT: string;
-    class var DELETE: string;
+    class var DELETE_: string;
     class var NEW_CONDITION: string;
     class var NEW_INPUT: string;
     class var NEW_OUTPUT: string;
@@ -658,7 +658,7 @@ var
 begin
         Self.setJPopupMenu(TJPopupMenu.Create());
         jMenuItemEdit := TJMenuItem.Create(TProfileActionScriptItem.EDIT);
-        jMenuItemDelete := TJMenuItem.Create(TProfileActionScriptItem.DELETE);
+        jMenuItemDelete := TJMenuItem.Create(TProfileActionScriptItem.DELETE_);
         jMenuItemEdit.addActionListener(Self);
         jMenuItemDelete.addActionListener(Self);
         Self.getJPopupMenu().add(jMenuItemEdit);
@@ -700,7 +700,7 @@ end;
 
 initialization
   TProfileActionScriptItem.EDIT := 'Edit';
-  TProfileActionScriptItem.DELETE := 'Delete';
+  TProfileActionScriptItem.DELETE_ := 'Delete';
   TProfileActionScriptItem.NEW_CONDITION := 'New Condition';
   TProfileActionScriptItem.NEW_INPUT := 'New Input';
   TProfileActionScriptItem.NEW_OUTPUT := 'New Output';

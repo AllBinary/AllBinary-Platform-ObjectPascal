@@ -124,7 +124,7 @@ type
     class var X: string;
     class var Y: string;
     class var ZOOM: string;
-    class var GRID: string;
+    class var GRID_: string;
     class var ENABLED: string;
     class var POSSIBLE: string;
     class var GRAPHICITEMS: string;
@@ -692,7 +692,7 @@ begin
             zoomNode := TDomHelper.getInstance().searchNodeList(Self.ZOOM, canvasNode.getChildNodes());
             zoomTextNode := zoomNode.getFirstChild();
             Self.grid.setZoom(zoomTextNode.getNodeValue().intValue());
-            gridNode := TDomHelper.getInstance().searchNodeList(Self.GRID, canvasNode.getChildNodes());
+            gridNode := TDomHelper.getInstance().searchNodeList(Self.GRID_, canvasNode.getChildNodes());
             gridSizeNode := TDomHelper.getInstance().searchNodeList(Self.SIZE, gridNode.getChildNodes());
             gridXNode := TDomHelper.getInstance().searchNodeList(Self.X, gridSizeNode.getChildNodes());
             gridXTextNode := gridXNode.getFirstChild();
@@ -821,7 +821,7 @@ begin
         zoomNode := TNode(document.createElement(Self.ZOOM));
         zoomTextNode := TNode(document.createTextNode(Self.getGrid().getZoom().toString()));
         zoomNode.appendChild(zoomTextNode);
-        gridNode := TNode(document.createElement(Self.GRID));
+        gridNode := TNode(document.createElement(Self.GRID_));
         gridSizeNode := TNode(Self.getPointNode(Self.getGrid().grid, Self.SIZE));
         gridNode.appendChild(gridSizeNode);
         enableNode := TNode(document.createElement(Self.ENABLED));
@@ -888,7 +888,7 @@ initialization
   TCanvasDom.X := 'X';
   TCanvasDom.Y := 'Y';
   TCanvasDom.ZOOM := 'zoom';
-  TCanvasDom.GRID := 'grid';
+  TCanvasDom.GRID_ := 'grid';
   TCanvasDom.ENABLED := 'enabled';
   TCanvasDom.POSSIBLE := 'possible';
   TCanvasDom.GRAPHICITEMS := 'graphicItems';

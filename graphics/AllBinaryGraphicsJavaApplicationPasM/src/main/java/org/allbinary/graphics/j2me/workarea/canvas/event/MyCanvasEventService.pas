@@ -114,7 +114,7 @@ type
   TMyCanvasEventService = class(TObject)
   public
     class var listenerList: TEventListenerList;
-    class var DELETE: string;
+    class var DELETE_: string;
     class var DUPLICATE: string;
     class var SELECT: string;
     class var ROTATE: string;
@@ -654,7 +654,7 @@ begin
         i := 0;
         while (i) < (System.Length(listeners)) do begin
             if (listeners[i]) = (listeners[(i) + (1)].ClassType) then begin
-                if (evt.getCommand().compareTo(TMyCanvasEventService.DELETE)) = (0) then begin
+                if (evt.getCommand().compareTo(TMyCanvasEventService.DELETE_)) = (0) then begin
                     (TMyCanvasEventListener(listeners[(i) + (1)])).delete_(evt);
                 end else if (evt.getCommand().compareTo(TMyCanvasEventService.DUPLICATE)) = (0) then begin
                     (TMyCanvasEventListener(listeners[(i) + (1)])).duplicate(evt);
@@ -679,7 +679,7 @@ end;
 
 initialization
   TMyCanvasEventService.listenerList := TEventListenerList.Create();
-  TMyCanvasEventService.DELETE := 'delete';
+  TMyCanvasEventService.DELETE_ := 'delete';
   TMyCanvasEventService.DUPLICATE := 'duplicate';
   TMyCanvasEventService.SELECT := 'select';
   TMyCanvasEventService.ROTATE := 'rotate';

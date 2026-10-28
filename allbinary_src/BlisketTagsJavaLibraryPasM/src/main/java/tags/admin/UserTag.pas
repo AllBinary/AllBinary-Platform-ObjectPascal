@@ -643,7 +643,7 @@ begin
                 end else if ((Self.getCommand().compareTo(Self.commonStrings.UPDATE)) = (0)) or ((Self.getCommand().compareTo(TSqlStrings.getInstance().UPDATE)) = (0)) then begin
                     Self.setName('Update Validation User View');
                     Self.setObjectFile('views.admin.user.UpdateValidationUserView');
-                end else if (Self.getCommand().compareTo(Self.commonStrings.DELETE)) = (0) then begin
+                end else if (Self.getCommand().compareTo(Self.commonStrings.DELETE_)) = (0) then begin
                     Self.setName('Delete Validation User View');
                     Self.setObjectFile('views.admin.user.DeleteValidationUserView');
                 end else if (Self.getCommand().compareTo(Torg.allbinary.globals.GLOBALS2.BACKUP)) = (0) then begin

@@ -114,7 +114,7 @@ type
   THtmlLengthInput = class(THtmlValueInput)
   public
     MAXLENGTH: string;
-    SIZE: string;
+    SIZE_: string;
     length: string;
     size: string;
     procedure InitFields;
@@ -609,7 +609,7 @@ end;
 procedure THtmlLengthInput.InitFields;
 begin
   Self.MAXLENGTH := 'MAXLENGTH';
-  Self.SIZE := 'SIZE';
+  Self.SIZE_ := 'SIZE';
   
   
 end;

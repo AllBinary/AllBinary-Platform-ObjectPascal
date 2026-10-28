@@ -630,7 +630,7 @@ var
   result_: string;
 begin
         inputStream := TAbFileLocalInputStream.Create(TAbFile.createAbFileFromAbPath(Self.xsltFilePath));
-        document := TDomDocumentHelper.create(TAbFileLocalInputStream.Create(TAbFile.createAbFileFromAbPath(Self.dataFilePath)));
+        document := TDomDocumentHelper.create_(TAbFileLocalInputStream.Create(TAbFile.createAbFileFromAbPath(Self.dataFilePath)));
         result_ := TXslHelper.getInstance().translate(TStreamSource.Create(inputStream), TStreamSource.Create(TStringBufferInputStream.Create(TXmlDocumentHelper.toString(document))));
         Exit(result_);
 end;

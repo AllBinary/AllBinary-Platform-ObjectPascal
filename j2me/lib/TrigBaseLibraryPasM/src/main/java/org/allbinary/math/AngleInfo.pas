@@ -116,7 +116,7 @@ type
     angleIncrementInfo: TAngleIncrementInfo;
     angle: SmallInt;
     frameUtil: TFrameUtil;
-    class var ANGLE: string;
+    class var ANGLE_: string;
     procedure InitFields;
         class function getInstance(angleIncrement: SmallInt): TAngleInfo; static;
         constructor Create(angleIncrementInfo: TAngleIncrementInfo);
@@ -667,7 +667,7 @@ var
   stringBuffer: TStringMaker;
 begin
         stringBuffer := TStringMaker.Create();
-        stringBuffer.append(TAngleInfo.ANGLE);
+        stringBuffer.append(TAngleInfo.ANGLE_);
         stringBuffer.appendshort(Self.angle);
         stringBuffer.append(TCommonSeps.getInstance().SPACE);
         stringBuffer.append(TStringUtil.getInstance().toString(Self.getAngleIncrementInfo()));
@@ -675,7 +675,7 @@ begin
 end;
 
 initialization
-  TAngleInfo.ANGLE := 'Angle: ';
+  TAngleInfo.ANGLE_ := 'Angle: ';
 
 end.
 

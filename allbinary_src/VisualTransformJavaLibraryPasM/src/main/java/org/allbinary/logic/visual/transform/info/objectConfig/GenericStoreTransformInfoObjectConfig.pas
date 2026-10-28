@@ -728,7 +728,7 @@ var
   newObjectConfigDocument: TDocument;
 begin
         replace := TReplace.Create(hashMap);
-        newObjectConfigDocument := TDomDocumentHelper.create(replace.all(objectConfigDocumentString));
+        newObjectConfigDocument := TDomDocumentHelper.create_(replace.all(objectConfigDocumentString));
         if Torg.allbinary.logic.communication.log.config.type_.LogConfigTypes.LOGGING.contains(Torg.allbinary.logic.communication.log.config.type_.LogConfigTypeFactory.getInstance().VIEW) then begin
             Self.logUtil.putF('Final ObjectConfig: ' + TXmlDocumentHelper.toString(newObjectConfigDocument), Self, 'generate()');
         end;

@@ -623,7 +623,7 @@ var
   profileActionScriptConditionInterface: IProfileActionScriptConditionInterface;
 begin
         inherited actionPerformed(actionEvent);
-        if (actionEvent.getActionCommand().compareTo(DELETE)) = (0) then begin
+        if (actionEvent.getActionCommand().compareTo(DELETE_)) = (0) then begin
             if (Self.getParent() is IProfileActionScriptConditionInterface) then begin
                 profileActionScriptConditionInterface := IProfileActionScriptConditionInterface(Pointer(Self.getParent()));
                 profileActionScriptConditionInterface.removeProcessor(IProfileActionScriptProcessorInterface(Pointer(Self)));

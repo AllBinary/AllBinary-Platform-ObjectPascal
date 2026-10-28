@@ -663,7 +663,7 @@ begin
         stringBuffer.append(TShippingMethodsFactory.SHIPPINGMETHODSFILEPATHSTRING);
         abPath := TAbPath(TAbPath.Create(stringBuffer.toString(), Self.SHIPPINGMETHODSFILENAME));
         data := TCryptFileReader.Create(TTransformInfoObjectConfigData.getInstance().UNCRYPTED_EXTENSION, TTransformInfoObjectConfigData.getInstance().ENCRYPTED_EXTENSION).get(abPath);
-        Self.document := TDomDocumentHelper.create(data);
+        Self.document := TDomDocumentHelper.create_(data);
         Self.shippingVector := TBasicArrayListD.Create();
         nodeList := Self.document.getElementsByTagName(TShippingMethodsData.NAME);
         for index := 0 to nodeList.getLength() - 1 do begin

@@ -713,7 +713,7 @@ begin
         end;
         transformInfoEntityInterface := TTransformInfoEntityBuilder.getInstance();
         allViewsToBeModified := Self.getTransformInfoObjectConfigGroupComponentNodes(transformInfoInterface);
-        document := TDomDocumentHelper.create();
+        document := TDomDocumentHelper.create_();
         document.appendChild(domNodeInterface.toXmlNode(document));
         documentString := TXmlDocumentHelper.toString(document);
         stringBuffer := TStringMaker.Create();

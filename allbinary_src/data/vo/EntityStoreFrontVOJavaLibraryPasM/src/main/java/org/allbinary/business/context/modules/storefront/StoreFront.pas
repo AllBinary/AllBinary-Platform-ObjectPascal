@@ -160,7 +160,7 @@ type
         function createPath(key: string; hashMap: TJavaHashMap): TAbPath; overload;
         function createPath(append: string; key: string; hashMap: TJavaHashMap): TAbPath; overload;
         function get(key: string; hashMap: TJavaHashMap): string;
-        function create(append: string; key: string; hashMap: TJavaHashMap): string;
+        function create_(append: string; key: string; hashMap: TJavaHashMap): string;
         procedure getFormData(storeHashMap: TJavaHashMap);
         function isNameValid: Boolean; virtual;
         function isValid: Boolean; virtual;
@@ -796,7 +796,7 @@ begin
         Self.getFormData(hashMap);
         domDocumentString := string(hashMap.get(TStoreFrontData.getInstance().CONFIGURATION));
         if (domDocumentString) = ('') then begin
-            document := TDomDocumentHelper.create(domDocumentString);
+            document := TDomDocumentHelper.create_(domDocumentString);
             Self.setContextConfigurationInterface(TContextConfigurationInterfaceFactory.getInstance().getInstance(document));
         end;
 end;
@@ -815,24 +815,24 @@ end;
 // throws Exception
 function TStoreFront.createPath(key: string; hashMap: TJavaHashMap): TAbPath;
 begin
-        Exit(TAbPath.Create(Self.create(Self.EMPTY_STRING, key, hashMap), TStringUtil.getInstance().EMPTY_STRING));
+        Exit(TAbPath.Create(Self.create_(Self.EMPTY_STRING, key, hashMap), TStringUtil.getInstance().EMPTY_STRING));
 end;
     
 
 // throws Exception
 function TStoreFront.createPath(append: string; key: string; hashMap: TJavaHashMap): TAbPath;
 begin
-        Exit(TAbPath.Create(Self.create(append, key, hashMap), TStringUtil.getInstance().EMPTY_STRING));
+        Exit(TAbPath.Create(Self.create_(append, key, hashMap), TStringUtil.getInstance().EMPTY_STRING));
 end;
     
 
 function TStoreFront.get(key: string; hashMap: TJavaHashMap): string;
 begin
-        Exit(Self.create(Self.EMPTY_STRING, key, hashMap));
+        Exit(Self.create_(Self.EMPTY_STRING, key, hashMap));
 end;
     
 
-function TStoreFront.create(append: string; key: string; hashMap: TJavaHashMap): string;
+function TStoreFront.create_(append: string; key: string; hashMap: TJavaHashMap): string;
 var
   path: string;
 begin
@@ -1537,13 +1537,13 @@ var
   storeAbPath: TAbPath;
 begin
         storeAbPath := TAbPath.Create((URLGLOBALS.getWebappPath()) + (Self.getCurrentHomeHostNamePath()), TStringUtil.getInstance().EMPTY_STRING);
-        if not (Self.directory.create(storeAbPath)) then begin
+        if not (Self.directory.create_(storeAbPath)) then begin
             Exit(False);
         end;
-        if not (Self.directory.create(TAbPath.Create((storeAbPath) + (Self.getCategoryPath()), TStringUtil.getInstance().EMPTY_STRING))) then begin
+        if not (Self.directory.create_(TAbPath.Create((storeAbPath) + (Self.getCategoryPath()), TStringUtil.getInstance().EMPTY_STRING))) then begin
             Exit(False);
         end;
-        if not (Self.directory.create(TAbPath.Create((storeAbPath) + (Self.getStaticPath()), TStringUtil.getInstance().EMPTY_STRING))) then begin
+        if not (Self.directory.create_(TAbPath.Create((storeAbPath) + (Self.getStaticPath()), TStringUtil.getInstance().EMPTY_STRING))) then begin
             Exit(False);
         end;
         Exit(True);
@@ -1587,7 +1587,7 @@ begin
             stringBuffer.append(TAbPathData.getInstance().SEPARATOR);
             toDirectoryAbPath := TAbPath.Create(stringBuffer.toString(), TStringUtil.getInstance().EMPTY_STRING);
             if (current) = (0) then begin
-                if not (Self.directory.create(toDirectoryAbPath)) then begin
+                if not (Self.directory.create_(toDirectoryAbPath)) then begin
                     raise SysUtils.Exception.Create('Unable to create store view directory: ' + toDirectoryAbPath.toString());
                 end;
             end;

@@ -636,7 +636,7 @@ begin
         try
             transformInfoObjectConfigData := TTransformInfoObjectConfigData.getInstance();
             data := TCryptFileReader.Create(transformInfoObjectConfigData.UNCRYPTED_EXTENSION, transformInfoObjectConfigData.getInstance().ENCRYPTED_EXTENSION).get(objectConfigFileAbPath);
-            Exit(TTransformInfoObjectConfig.Create(transformInfoInterface, TDomDocumentHelper.create(data)));
+            Exit(TTransformInfoObjectConfig.Create(transformInfoInterface, TDomDocumentHelper.create_(data)));
         except
             on e: SysUtils.Exception do begin
             commonStrings := TCommonStrings.getInstance();

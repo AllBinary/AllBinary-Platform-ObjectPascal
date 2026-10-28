@@ -114,7 +114,7 @@ type
   TMyGraphicItemEventService = class(TObject)
   public
     class var listenerList: TEventListenerList;
-    class var DELETE: string;
+    class var DELETE_: string;
     class var DESELECT: string;
     class var SELECT: string;
     class var DUPLICATE: string;
@@ -656,7 +656,7 @@ begin
                     (TMyGraphicItemEventListener(listeners[(i) + (1)])).highlight(evt);
                 end else if (evt.getCommand().compareTo(TMyGraphicItemEventService.DESELECT)) = (0) then begin
                     (TMyGraphicItemEventListener(listeners[(i) + (1)])).deselect(evt);
-                end else if (evt.getCommand().compareTo(TMyGraphicItemEventService.DELETE)) = (0) then begin
+                end else if (evt.getCommand().compareTo(TMyGraphicItemEventService.DELETE_)) = (0) then begin
                     (TMyGraphicItemEventListener(listeners[(i) + (1)])).delete_(evt);
                 end else if (evt.getCommand().compareTo(TMyGraphicItemEventService.DUPLICATE)) = (0) then begin
                     (TMyGraphicItemEventListener(listeners[(i) + (1)])).duplicate(evt);
@@ -673,7 +673,7 @@ end;
 
 initialization
   TMyGraphicItemEventService.listenerList := TEventListenerList.Create();
-  TMyGraphicItemEventService.DELETE := 'delete';
+  TMyGraphicItemEventService.DELETE_ := 'delete';
   TMyGraphicItemEventService.DESELECT := 'deselect';
   TMyGraphicItemEventService.SELECT := 'select';
   TMyGraphicItemEventService.DUPLICATE := 'duplicate';

@@ -126,7 +126,7 @@ type
     threadObjectUtil: TThreadObjectUtil;
     SET_RUNNING: string;
     IS_RUNNING: string;
-    THREAD: string;
+    THREAD_: string;
     NOT_EQUAL: string;
     PAUSE_SLEEP: string;
     START_PAUSE: string;
@@ -660,7 +660,7 @@ begin
   Self.threadObjectUtil := TThreadObjectUtil.getInstance();
   Self.SET_RUNNING := 'setRunning';
   Self.IS_RUNNING := 'isRunning';
-  Self.THREAD := 'Thread: ';
+  Self.THREAD_ := 'Thread: ';
   Self.NOT_EQUAL := ' != ';
   Self.PAUSE_SLEEP := 'pause sleep';
   Self.START_PAUSE := 'start pause - game thread sleep at: ';
@@ -733,7 +733,7 @@ begin
             Exit(Self.running);
         end else begin
             stringBuffer := TStringMaker.Create();
-            stringBuffer.append(Self.THREAD);
+            stringBuffer.append(Self.THREAD_);
             if (Self.thread) <> (nil) then begin
                 stringBuffer.append(Self.thread.toString());
             end;

@@ -119,7 +119,7 @@ type
     procedure InitFields;
     constructor Create;
         class function getInstance: TZipFileUtil; static;
-        procedure create(outFilename: string; fileBasicArrayList: TBasicArrayList); virtual;
+        procedure create_(outFilename: string; fileBasicArrayList: TBasicArrayList); virtual;
         procedure unzip(path: string; zipFile: TAbFile; fileName: string); virtual;
   end;
 
@@ -625,7 +625,7 @@ begin
 end;
     
 
-procedure TZipFileUtil.create(outFilename: string; fileBasicArrayList: TBasicArrayList);
+procedure TZipFileUtil.create_(outFilename: string; fileBasicArrayList: TBasicArrayList);
 var
   zipFile: TAbFile;
   outputStream: TZipOutputStream;

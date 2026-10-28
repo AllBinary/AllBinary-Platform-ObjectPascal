@@ -113,7 +113,7 @@ type
 
   TTouchButtonFactory = class(TObject)
   public
-    LIST: TBasicArrayList;
+    LIST_: TBasicArrayList;
     list: TBasicArrayList;
     savedList: TBasicArrayList;
     saved: Boolean;
@@ -612,9 +612,9 @@ end;
 
 procedure TTouchButtonFactory.InitFields;
 begin
-  Self.LIST := TBasicArrayListUtil.getInstance().getImmutableInstance();
-  Self.list := Self.LIST;
-  Self.savedList := Self.LIST;
+  Self.LIST_ := TBasicArrayListUtil.getInstance().getImmutableInstance();
+  Self.list := Self.LIST_;
+  Self.savedList := Self.LIST_;
   Self.saved := False;
 end;
     
@@ -634,8 +634,8 @@ end;
 
 procedure TTouchButtonFactory.defaultList;
 begin
-        Self.list := Self.LIST;
-        Self.toggle(False, Self.LIST);
+        Self.list := Self.LIST_;
+        Self.toggle(False, Self.LIST_);
 end;
     
 
@@ -653,7 +653,7 @@ begin
                 if not (Self.saved) then begin
                     Self.saved := True;
                     Self.savedList := Self.list;
-                    Self.list := Self.LIST;
+                    Self.list := Self.LIST_;
                 end else begin
                 end;
             end else begin

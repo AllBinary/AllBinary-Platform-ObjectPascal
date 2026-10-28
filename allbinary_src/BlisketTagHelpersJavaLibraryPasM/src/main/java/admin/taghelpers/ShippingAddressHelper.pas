@@ -124,7 +124,7 @@ type
         constructor Create(hashMap: TJavaHashMap; pageContext: TPageContext);
         procedure getAddressForm;
         function drop: string; virtual;
-        function create: string; virtual;
+        function create_: string; virtual;
         function restore: string; virtual;
         function backup: string; virtual;
         function insert: string; virtual;
@@ -673,7 +673,7 @@ begin
 end;
     
 
-function TShippingAddressHelper.create: string;
+function TShippingAddressHelper.create_: string;
 var
   success: string;
   error: string;

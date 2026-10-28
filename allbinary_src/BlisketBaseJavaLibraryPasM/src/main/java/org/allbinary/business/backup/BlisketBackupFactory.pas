@@ -825,7 +825,7 @@ begin
             stringBuffer.append(' BasicArrayList: ');
             stringBuffer.appendint(fileBasicArrayList.size());
             TPreLogUtil.put('Creating Backup Zip File: ' + stringBuffer.toString(), Self, 'backup()');
-            TZipFileUtil.getInstance().create(zipFile, fileBasicArrayList);
+            TZipFileUtil.getInstance().create_(zipFile, fileBasicArrayList);
             Self.logUtil.putF('Created Backup Zip File', Self, 'backup()');
         except
             on e: SysUtils.Exception do begin

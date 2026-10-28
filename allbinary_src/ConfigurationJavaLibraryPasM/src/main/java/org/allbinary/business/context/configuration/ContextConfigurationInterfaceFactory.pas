@@ -642,7 +642,7 @@ begin
         abPath := TContextConfigurationPathUtil.getAbPath(contextName);
         contextConfigurationData := TContextConfigurationData.getInstance();
         documentString := TCryptFileReader.Create(contextConfigurationData.UNCRYPTED_EXTENSION, contextConfigurationData.ENCRYPTED_EXTENSION).get(abPath);
-        document := TDomDocumentHelper.create(documentString);
+        document := TDomDocumentHelper.create_(documentString);
         Exit(Self.getInstance(document));
 end;
 

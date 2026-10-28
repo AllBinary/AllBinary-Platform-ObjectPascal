@@ -616,7 +616,7 @@ var
 begin
         logUtil := TLogUtil.getInstance();
         commonStrings := TCommonStrings.getInstance();
-        logUtil.putF(TStringMaker.Create().append('Start - Processing Mouse Input at: ').append(mouseActionScriptInputInterface.getPoint().toString()).append(' clicks: ').appendint(Integer(Trunc(mouseActionScriptInputInterface.getButtonClicks()))).toString(), 'MouseInputAutomationProcessor', commonStrings.PROCESS);
+        logUtil.putFS(TStringMaker.Create().append('Start - Processing Mouse Input at: ').append(mouseActionScriptInputInterface.getPoint().toString()).append(' clicks: ').appendint(Integer(Trunc(mouseActionScriptInputInterface.getButtonClicks()))).toString(), 'MouseInputAutomationProcessor', commonStrings.PROCESS);
         inputRobotInterface := mouseActionScriptInputInterface.getInputRobotInterface();
         if ((mouseActionScriptInputInterface.getPoint().x) <> (-1)) and ((mouseActionScriptInputInterface.getPoint().y) <> (-1)) then begin
             inputRobotInterface.mouseMove(mouseActionScriptInputInterface.getPoint());

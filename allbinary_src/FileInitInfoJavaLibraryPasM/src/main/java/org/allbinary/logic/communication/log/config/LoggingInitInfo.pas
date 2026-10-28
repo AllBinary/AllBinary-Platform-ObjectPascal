@@ -638,7 +638,7 @@ begin
         path := (URLGLOBALS.getWebappPath()) + (TLoggingInitInfo.PACKAGE);
         FILEABPATH := TAbPath.Create(path, TLoggingInitInfo.INITFILENAME);
         file_ := TAbFile.createAbFileFromAbPath(FILEABPATH);
-        document := TDomDocumentHelper.create(TAbFileLocalInputStream.Create(file_));
+        document := TDomDocumentHelper.create_(TAbFileLocalInputStream.Create(file_));
         Exit(document);
     finally
     TJava.MonitorExit(nil);

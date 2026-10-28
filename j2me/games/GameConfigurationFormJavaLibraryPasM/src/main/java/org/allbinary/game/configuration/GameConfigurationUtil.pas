@@ -665,7 +665,7 @@ begin
         gameConfigurationSingleton := TGameConfigurationSingleton.getInstance();
         gameConfiguration := gameConfigurationSingleton.getInstanceByName(gauge.getLabel());
         smallIntegerSingletonFactory := TSmallIntegerSingletonFactory.getInstance();
-        value := smallIntegerSingletonFactory.getAt((gauge.getValue()) + (gameConfiguration.getMinValue().intValue()));
+        value := smallIntegerSingletonFactory.getAt(Integer(Trunc((gauge.getValue()) + (gameConfiguration.getMinValue().intValue()))));
         stringBuffer := TStringMaker.Create();
         stringBuffer.append(Self.GAUGE_UPDATE);
         stringBuffer.append(gameConfiguration.getName());

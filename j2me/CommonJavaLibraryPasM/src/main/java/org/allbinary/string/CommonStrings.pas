@@ -135,7 +135,7 @@ type
     CREATE_: string;
     REMOVE: string;
     UPDATE: string;
-    DELETE: string;
+    DELETE__: string;
     delete_: string;
     LOAD: string;
     SAVE: string;
@@ -678,7 +678,7 @@ begin
   Self.CREATE_ := 'Create';
   Self.REMOVE := 'Remove';
   Self.UPDATE := 'Update';
-  Self.DELETE := 'Delete';
+  Self.DELETE__ := 'Delete';
   Self.delete_ := 'delete';
   Self.LOAD := 'load';
   Self.SAVE := 'save';

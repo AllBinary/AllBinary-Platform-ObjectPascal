@@ -113,9 +113,9 @@ type
 
   TInitInfo = class(TObject)
   public
-    TESTING: string;
-    MAINPATH: string;
-    TESTHTMLPATH: string;
+    TESTING_: string;
+    MAINPATH_: string;
+    TESTHTMLPATH_: string;
     testing: string;
     mainPath: TAbPath;
     testHtmlPath: TAbPath;
@@ -630,9 +630,9 @@ end;
 
 procedure TInitInfo.InitFields;
 begin
-  Self.TESTING := 'TESTING';
-  Self.MAINPATH := 'MAINPATH';
-  Self.TESTHTMLPATH := 'TESTHTMLPATH';
+  Self.TESTING_ := 'TESTING';
+  Self.MAINPATH_ := 'MAINPATH';
+  Self.TESTHTMLPATH_ := 'TESTHTMLPATH';
   Self.testing := nil;
   Self.mainPath := nil;
   Self.testHtmlPath := nil;
@@ -695,9 +695,9 @@ begin
     TJava.MonitorEnter(Self);
     try
         try
-            Self.testing := string(hashMap.get(Self.TESTING));
-            Self.mainPath := TAbPath.Create(string(hashMap.get(Self.MAINPATH)), TStringUtil.getInstance().EMPTY_STRING);
-            Self.testHtmlPath := TAbPath.Create(string(hashMap.get(Self.TESTHTMLPATH)), TStringUtil.getInstance().EMPTY_STRING);
+            Self.testing := string(hashMap.get(Self.TESTING_));
+            Self.mainPath := TAbPath.Create(string(hashMap.get(Self.MAINPATH_)), TStringUtil.getInstance().EMPTY_STRING);
+            Self.testHtmlPath := TAbPath.Create(string(hashMap.get(Self.TESTHTMLPATH_)), TStringUtil.getInstance().EMPTY_STRING);
         except
             on e: SysUtils.Exception do begin
             if TLogConfigTypes.LOGGING.contains(TLogConfigTypeFactory.getInstance().PRELOADERERROR) then begin
@@ -858,9 +858,9 @@ var
   hashMap: TJavaHashMap;
 begin
         hashMap := TStdUtil.getInstance().createHashMap();
-        hashMap.put(Self.TESTING, Self.getTesting());
-        hashMap.put(Self.MAINPATH, Self.getMainPath());
-        hashMap.put(Self.TESTHTMLPATH, Self.getTestHtmlPath());
+        hashMap.put(Self.TESTING_, Self.getTesting());
+        hashMap.put(Self.MAINPATH_, Self.getMainPath());
+        hashMap.put(Self.TESTHTMLPATH_, Self.getTestHtmlPath());
         Exit(hashMap);
 end;
 

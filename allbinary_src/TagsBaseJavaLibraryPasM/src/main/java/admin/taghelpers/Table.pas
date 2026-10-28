@@ -117,7 +117,7 @@ type
     procedure InitFields;
     constructor Create;
         function drop: string; virtual;
-        function create: string; virtual;
+        function create_: string; virtual;
         function restore: string; virtual;
         function backup: string; virtual;
         function insert: string; virtual;
@@ -628,7 +628,7 @@ end;
     
 
 // throws Exception
-function TTable.create: string;
+function TTable.create_: string;
 begin
         raise SysUtils.Exception.Create('');
 end;

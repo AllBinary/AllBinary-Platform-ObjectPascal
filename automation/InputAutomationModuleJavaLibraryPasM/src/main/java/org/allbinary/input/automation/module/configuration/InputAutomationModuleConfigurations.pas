@@ -637,7 +637,7 @@ begin
         length := idFile.read(bytes);
         data := TJava.NewString(bytes);
         endIndex := (RPos(TJava.ToString('>'), data) - 1);
-        document := TDomDocumentHelper.create(Copy(data, (0) + 1, ((endIndex) + (1)) - (0)));
+        document := TDomDocumentHelper.create_(Copy(data, (0) + 1, ((endIndex) + (1)) - (0)));
         nodeList := document.getElementsByTagName(TNewInputAutomationModulesData.NAME);
         if (nodeList.getLength()) > (0) then begin
             nameNodeList := document.getElementsByTagName(TInputAutomationModuleData.NAME);

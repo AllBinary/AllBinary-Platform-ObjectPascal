@@ -115,7 +115,7 @@ type
   public
     list: TBasicArrayList;
     CREATE_: string;
-    DELETE: string;
+    DELETE_: string;
     class var instance: TLayerManagerEventHandler;
     procedure InitFields;
         class function getInstance: TLayerManagerEventHandler; static;
@@ -618,7 +618,7 @@ procedure TLayerManagerEventHandler.InitFields;
 begin
   Self.list := TBasicArrayListD.Create();
   Self.CREATE_ := 'Create';
-  Self.DELETE := 'Delete';
+  Self.DELETE_ := 'Delete';
 end;
     
 

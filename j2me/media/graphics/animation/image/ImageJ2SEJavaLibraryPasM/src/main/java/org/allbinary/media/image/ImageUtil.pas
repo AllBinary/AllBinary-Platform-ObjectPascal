@@ -122,7 +122,7 @@ type
         class function getInstance: TImageUtil; static;
         constructor Create;
         function getDefaultConfiguration: TGraphicsConfiguration;
-        function create(width: Integer; height: Integer): TBufferedImage; virtual;
+        function create_(width: Integer; height: Integer): TBufferedImage; virtual;
         function createBufferedImageForResize(bufferedImageArray: TArray<TBufferedImage>; percent: Integer; scale: Boolean): TArray<TBufferedImage>; virtual;
         function createBufferedImage2(bufferedImageArray: TArray<TBufferedImage>; percent: Single; scale: Boolean): TArray<TBufferedImage>; virtual;
         function createBufferedImage3(bufferedImageArray: TArray<TBufferedImage>; width: Integer; height: Integer; scale: Boolean): TArray<TBufferedImage>; virtual;
@@ -651,7 +651,7 @@ begin
 end;
     
 
-function TImageUtil.create(width: Integer; height: Integer): TBufferedImage;
+function TImageUtil.create_(width: Integer; height: Integer): TBufferedImage;
 var
   graphicsConfiguration: TGraphicsConfiguration;
 begin

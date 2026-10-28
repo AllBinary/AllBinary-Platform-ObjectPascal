@@ -620,7 +620,7 @@ procedure TAllBinaryLayerManager.InitFields;
 begin
   Self.layerManagerEventHandler := TLayerManagerEventHandler.getInstance();
   Self.createLayerManagerEvent := TLayerManagerEvent.Create(Self, Self.layerManagerEventHandler.CREATE_);
-  Self.deleteLayerManagerEvent := TLayerManagerEvent.Create(Self, Self.layerManagerEventHandler.DELETE);
+  Self.deleteLayerManagerEvent := TLayerManagerEvent.Create(Self, Self.layerManagerEventHandler.DELETE_);
   Self.basicLayerProcessorArray := TJava.NewArray<TLayerProcessor>(0);
 end;
     

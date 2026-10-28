@@ -632,7 +632,7 @@ begin
                 end else if (Self.getCommand().compareTo(Self.commonStrings.INSERT)) = (0) then begin
                     Self.setName('Basic Shipping Address View');
                     Self.setObjectFile('views.generic.address.shipping.AddShippingAddressesView');
-                end else if (Self.getCommand().compareTo(Self.commonStrings.DELETE)) = (0) then begin
+                end else if (Self.getCommand().compareTo(Self.commonStrings.DELETE_)) = (0) then begin
                     Self.setName('Basic Shipping Address View');
                     Self.setObjectFile('views.generic.address.shipping.DeleteShippingAddressesView');
                 end else if (Self.getCommand().compareTo(TShippingAddressData.SELECT)) = (0) then begin

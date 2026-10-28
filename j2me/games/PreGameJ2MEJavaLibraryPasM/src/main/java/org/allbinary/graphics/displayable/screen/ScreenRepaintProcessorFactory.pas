@@ -116,7 +116,7 @@ type
     class var instance: TScreenRepaintProcessorFactory;
         class function getInstance: TScreenRepaintProcessorFactory; static;
         constructor Create;
-        function create(displayable: TDisplayable): TProcessor; virtual;
+        function create_(displayable: TDisplayable): TProcessor; virtual;
   end;
 
 implementation
@@ -618,7 +618,7 @@ begin
 end;
     
 
-function TScreenRepaintProcessorFactory.create(displayable: TDisplayable): TProcessor;
+function TScreenRepaintProcessorFactory.create_(displayable: TDisplayable): TProcessor;
 begin
         if not (TJ2MEUtil.isJ2ME()) then begin
             Exit(TScreenRepaintProcessor.Create(displayable));

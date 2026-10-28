@@ -630,7 +630,7 @@ begin
     InitFields;
         try
             contentType := TAcceptableResponseGenerator.getInstance().get(THttpServletRequest(pageContext.getRequest()));
-            Self.document := TDomDocumentHelper.create();
+            Self.document := TDomDocumentHelper.create_();
             contentTypeNode := Self.document.createElement(contentType);
             languageTypeNode := Self.document.createElement(TTransformHttpRequestDocument.language);
             localTypeNode := Self.document.createElement(TTransformHttpRequestDocument.local);
@@ -663,7 +663,7 @@ begin
     InitFields;
         try
             contentType := searchRequest.getContentType();
-            Self.document := TDomDocumentHelper.create();
+            Self.document := TDomDocumentHelper.create_();
             contentTypeNode := Self.document.createElement(contentType);
             languageTypeNode := Self.document.createElement(TTransformHttpRequestDocument.language);
             localTypeNode := Self.document.createElement(TTransformHttpRequestDocument.local);

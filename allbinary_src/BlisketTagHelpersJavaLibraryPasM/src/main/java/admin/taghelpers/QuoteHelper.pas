@@ -124,7 +124,7 @@ type
         procedure emailAdmins(quoteRequest: TQuoteRequest);
         function email: string; virtual;
         function drop: string; virtual;
-        function create: string; virtual;
+        function create_: string; virtual;
         function restore: string; virtual;
         function backup: string; virtual;
   end;
@@ -765,7 +765,7 @@ begin
 end;
     
 
-function TQuoteHelper.create: string;
+function TQuoteHelper.create_: string;
 var
   success: string;
   error: string;

@@ -116,9 +116,9 @@ type
     class var instance: TDirectory;
         class function getInstance: TDirectory; static;
         constructor Create;
-        function create(directoryAbPath: TAbPath): Boolean; overload; virtual;
+        function create_(directoryAbPath: TAbPath): Boolean; overload; virtual;
         procedure remove(existingDirectoryAbPath: TAbPath); overload; virtual;
-        function create(directory: string): Boolean; overload;
+        function create_(directory: string): Boolean; overload;
         procedure remove(existingDirectory: string); overload;
         function search(fileFilter: TFileFilter; file_: TAbFile): TBasicArrayList; overload; virtual;
         function search(fileFilter: TFileFilter; file_: TAbFile; isRecursiveSearch: Boolean): TBasicArrayList; overload; virtual;
@@ -626,9 +626,9 @@ begin
 end;
     
 
-function TDirectory.create(directoryAbPath: TAbPath): Boolean;
+function TDirectory.create_(directoryAbPath: TAbPath): Boolean;
 begin
-        Exit(Self.create(directoryAbPath.toFileSystemString()));
+        Exit(Self.create_(directoryAbPath.toFileSystemString()));
 end;
     
 
@@ -639,7 +639,7 @@ begin
 end;
     
 
-function TDirectory.create(directory: string): Boolean;
+function TDirectory.create_(directory: string): Boolean;
 var
   directoryFile: TAbFile;
 begin

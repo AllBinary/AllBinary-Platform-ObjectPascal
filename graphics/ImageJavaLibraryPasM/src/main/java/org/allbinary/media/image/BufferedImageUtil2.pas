@@ -632,7 +632,7 @@ begin
         if ((System.Length(bufferedImageArray)) mod (columns)) <> (0) then begin
             Inc(rows);
         end;
-        bufferedImage := Self.imageUtil.create((bufferedImageArray[0].getWidth(nil)) * (columns), (bufferedImageArray[0].getHeight(nil)) * (rows));
+        bufferedImage := Self.imageUtil.create_((bufferedImageArray[0].getWidth(nil)) * (columns), (bufferedImageArray[0].getHeight(nil)) * (rows));
         g := bufferedImage.createGraphics();
         columnIndex := 0;
         rowIndex := 0;

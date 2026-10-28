@@ -654,7 +654,7 @@ begin
         abPath := TAbPath.Create(stringBuffer.toString(), Self.TAXATIONFILENAME);
         transformInfoObjectConfigData := TTransformInfoObjectConfigData.getInstance();
         data := TCryptFileReader.Create(transformInfoObjectConfigData.UNCRYPTED_EXTENSION, transformInfoObjectConfigData.ENCRYPTED_EXTENSION).get(abPath);
-        document := TDomDocumentHelper.create(data);
+        document := TDomDocumentHelper.create_(data);
         taxNameNodeList := document.getElementsByTagName(TTaxData.NAME);
         for index := 0 to taxNameNodeList.getLength() - 1 do begin
             node := taxNameNodeList.item(index);

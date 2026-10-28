@@ -639,7 +639,7 @@ begin
         Self.storeName := string(hashMap.get(TStoreFrontData.getInstance().NAME));
         Self.description := string(hashMap.get(TAdvertisementAreaData.getInstance().DESCRIPTION));
         constraintsDomString := string(hashMap.get(TAdvertisementAreaData.getInstance().CONSTRAINTS));
-        document := TDomDocumentHelper.create(constraintsDomString);
+        document := TDomDocumentHelper.create_(constraintsDomString);
         Self.advertisementAreaConstraintsInterface := TAdvertisementAreaConstraints.Create(document);
         Self.campaign := string(hashMap.get(TAdvertisementCampaignData.getInstance().NAME));
 end;

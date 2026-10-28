@@ -658,7 +658,7 @@ var
   jaxbContext: TJAXBContext;
   marshaller: TMarshaller;
 begin
-        document := TDomDocumentHelper.create();
+        document := TDomDocumentHelper.create_();
         file_ := TFile.Create(TInputAutomationConfiguration.FILENAME);
         TFileUtil.getInstance().copy(TAbPath.Create(file_.getAbsolutePath(), TStringUtil.getInstance().EMPTY_STRING), TAbPath.Create(TJava.ToString(file_.getAbsolutePath()) + '.bak.xml', TStringUtil.getInstance().EMPTY_STRING));
         jaxbContext := TJAXBContext.newInstance(TInputAutomationConfiguration);

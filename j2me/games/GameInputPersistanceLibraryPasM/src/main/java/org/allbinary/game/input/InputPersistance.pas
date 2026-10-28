@@ -761,11 +761,11 @@ begin
                 gameActionInput := TInput(inputObjectArray[index]);
                 list := TBasicArrayList(hashtable.get(TObject(inputObjectArray[index])));
                 for index2 := 0 to list.size() - 1 do begin
-                    gameActionInputIdAsString := smallIntegerSingletonFactory.getAt(gameActionInput.getId()).toString();
+                    gameActionInputIdAsString := smallIntegerSingletonFactory.getAt(Integer(Trunc(gameActionInput.getId()))).toString();
                     outputStream.writeUTF(gameActionInputIdAsString);
                     outputStream.writeUTF(commonSeps.EQUALS);
                     input := TInput(list.objectArray[index2]);
-                    inputIdAsString := smallIntegerSingletonFactory.getAt(input.getId()).toString();
+                    inputIdAsString := smallIntegerSingletonFactory.getAt(Integer(Trunc(input.getId()))).toString();
                     outputStream.writeUTF(inputIdAsString);
                 end;
             end;

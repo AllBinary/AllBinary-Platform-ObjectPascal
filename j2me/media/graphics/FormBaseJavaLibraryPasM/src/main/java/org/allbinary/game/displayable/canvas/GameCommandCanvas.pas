@@ -647,7 +647,7 @@ end;
 
 procedure TGameCommandCanvas.InitFields;
 begin
-  Self.repaintProcessor := TScreenRepaintProcessorFactory.getInstance().create(Self);
+  Self.repaintProcessor := TScreenRepaintProcessorFactory.getInstance().create_(Self);
   Self.gameInputStrings := TGameInputStrings.getInstance();
   
   

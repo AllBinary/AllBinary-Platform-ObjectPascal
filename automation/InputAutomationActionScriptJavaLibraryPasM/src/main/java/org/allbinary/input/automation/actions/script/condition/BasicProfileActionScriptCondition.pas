@@ -829,7 +829,7 @@ var
 begin
         try
             inherited actionPerformed(actionEvent);
-            if (actionEvent.getActionCommand().compareTo(DELETE)) = (0) then begin
+            if (actionEvent.getActionCommand().compareTo(DELETE_)) = (0) then begin
                 if (Self.getParent() is IProfileActionScriptNodeInterface) then begin
                     profileActionScriptNodeInterface := IProfileActionScriptNodeInterface(Pointer(Self.getParent()));
                     profileActionScriptNodeInterface.removeCondition(Self);

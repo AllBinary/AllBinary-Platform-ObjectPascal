@@ -116,8 +116,8 @@ type
     END_: string;
     START: string;
     ENDTAG: string;
-    HEIGHT: string;
-    WIDTH: string;
+    HEIGHT_: string;
+    WIDTH_: string;
     height: string;
     width: string;
     before: string;
@@ -617,8 +617,8 @@ begin
   Self.END_ := '>';
   Self.START := '<td ';
   Self.ENDTAG := '</td>';
-  Self.HEIGHT := 'height';
-  Self.WIDTH := 'width';
+  Self.HEIGHT_ := 'height';
+  Self.WIDTH_ := 'width';
   
   
   
@@ -635,8 +635,8 @@ begin
         Self.after := TJava.NewString(after);
         Self.height := TJava.NewString(height);
         Self.width := TJava.NewString(width);
-        Self.addAttribute(Self.HEIGHT, Self.height);
-        Self.addAttribute(Self.WIDTH, Self.width);
+        Self.addAttribute(Self.HEIGHT_, Self.height);
+        Self.addAttribute(Self.WIDTH_, Self.width);
 end;
     
 

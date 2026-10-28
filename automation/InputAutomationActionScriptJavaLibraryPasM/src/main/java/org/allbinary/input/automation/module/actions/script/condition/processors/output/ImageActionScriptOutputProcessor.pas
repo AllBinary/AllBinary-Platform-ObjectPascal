@@ -632,7 +632,7 @@ var
 begin
         logUtil := TLogUtil.getInstance();
         commonStrings := TCommonStrings.getInstance();
-        logUtil.putF('Start - Processing at: ' + TJava.InterfaceToString(Pointer(imageActionScriptOutputInterface)), 'ImageActionScriptOutputProcessor', commonStrings.PROCESS);
+        logUtil.putFS('Start - Processing at: ' + TJava.InterfaceToString(Pointer(imageActionScriptOutputInterface)), 'ImageActionScriptOutputProcessor', commonStrings.PROCESS);
         imageTypes := imageActionScriptOutputInterface.getImageTypes();
         vector := imageTypes.getVector();
         size := vector.size();

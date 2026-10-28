@@ -775,7 +775,7 @@ begin
         if (Self.styleValidationInterface) = (nil) then begin
             cssStyleFileAbPath := TAbPath.Create(Self.fileAbPath.toString(), Self.themeName + TJava.ToString(TAbPathData.getInstance().EXTENSION_SEP) + TJava.ToString(TCategoryData.getInstance().UNCRYPTED_EXTENSION));
             cryptFileReader := TCryptFileReader.Create(TCategoryData.getInstance().UNCRYPTED_EXTENSION, TCategoryData.getInstance().ENCRYPTED_EXTENSION);
-            document := TDomDocumentHelper.create(cryptFileReader.get(cssStyleFileAbPath));
+            document := TDomDocumentHelper.create_(cryptFileReader.get(cssStyleFileAbPath));
             Self.styleValidationInterface := TCssStyleValidation.Create(document);
         end;
         Exit(TCssStyleValidation(Self.styleValidationInterface));

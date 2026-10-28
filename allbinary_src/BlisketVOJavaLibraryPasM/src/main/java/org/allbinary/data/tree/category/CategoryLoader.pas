@@ -647,7 +647,7 @@ begin
                 end;
                 fileAbPath := categoryInterface.getFilePath();
                 cryptFileReader := TCryptFileReader.Create(TCategoryData.getInstance().UNCRYPTED_EXTENSION, TCategoryData.getInstance().ENCRYPTED_EXTENSION);
-                document := TDomDocumentHelper.create(cryptFileReader.get(fileAbPath));
+                document := TDomDocumentHelper.create_(cryptFileReader.get(fileAbPath));
                 Exit(document);
             end else begin
                 raise SysUtils.Exception.Create('Null Category');

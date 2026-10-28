@@ -115,7 +115,7 @@ type
   public
     class var NULL_PATH_FINDING_NODE_COST_INFO_FACTORY_BASE: TPathFindingNodeCostInfoFactoryBase;
     constructor Create;
-        procedure create(geographicMapInterface: TBasicGeographicMap; comingFromGeographicMapCellPosition: TGeographicMapCellPosition; geographicMapCellPosition: TGeographicMapCellPosition; costFromStart: Int64; costToEnd: Int64); virtual;
+        procedure create_(geographicMapInterface: TBasicGeographicMap; comingFromGeographicMapCellPosition: TGeographicMapCellPosition; geographicMapCellPosition: TGeographicMapCellPosition; costFromStart: Int64; costToEnd: Int64); virtual;
         function getTotalCost(geographicMapInterface: TBasicGeographicMap; comingFromGeographicMapCellPosition: TGeographicMapCellPosition; geographicMapCellPosition: TGeographicMapCellPosition): Int64; virtual;
   end;
 
@@ -609,7 +609,7 @@ end;
     
 
 // throws Exception
-procedure TPathFindingNodeCostInfoFactoryBase.create(geographicMapInterface: TBasicGeographicMap; comingFromGeographicMapCellPosition: TGeographicMapCellPosition; geographicMapCellPosition: TGeographicMapCellPosition; costFromStart: Int64; costToEnd: Int64);
+procedure TPathFindingNodeCostInfoFactoryBase.create_(geographicMapInterface: TBasicGeographicMap; comingFromGeographicMapCellPosition: TGeographicMapCellPosition; geographicMapCellPosition: TGeographicMapCellPosition; costFromStart: Int64; costToEnd: Int64);
 begin
         raise SysUtils.Exception.Create('');
 end;

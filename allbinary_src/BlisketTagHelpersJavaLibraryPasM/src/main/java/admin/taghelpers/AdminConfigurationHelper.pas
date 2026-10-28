@@ -116,7 +116,7 @@ type
     logUtil: TLogUtil;
     procedure InitFields;
         constructor Create(hashMap: TJavaHashMap; pageContext: TPageContext);
-        function create: string; virtual;
+        function create_: string; virtual;
         function drop: string; virtual;
         function restore: string; virtual;
         function backup: string; virtual;
@@ -618,7 +618,7 @@ begin
 end;
     
 
-function TAdminConfigurationHelper.create: string;
+function TAdminConfigurationHelper.create_: string;
 var
   success: string;
   error: string;

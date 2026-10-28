@@ -122,7 +122,7 @@ type
     class var SUBTOTAL: string;
     class var ISEMPTY: string;
     class var INSERT: string;
-    class var DELETE: string;
+    class var DELETE_: string;
     class var ADJUST: string;
         constructor Create;
   end;
@@ -626,7 +626,7 @@ initialization
   TBasketData.SUBTOTAL := 'BASKET_SUBTOTAL';
   TBasketData.ISEMPTY := 'BASKET_ISEMPTY';
   TBasketData.INSERT := 'BASKET_INSERT';
-  TBasketData.DELETE := 'BASKET_DELETE';
+  TBasketData.DELETE_ := 'BASKET_DELETE';
   TBasketData.ADJUST := 'BASKET_ADJUST';
 
 end.

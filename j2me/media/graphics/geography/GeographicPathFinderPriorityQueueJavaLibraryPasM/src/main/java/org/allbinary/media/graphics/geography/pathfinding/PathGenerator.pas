@@ -119,7 +119,7 @@ type
         procedure init(geographicMapInterface: TObject; totalPaths: Integer); virtual;
         function getInstanceNoCache(geographicMapInterface: TBasicGeographicMap; pathFindingInfo: TPathFindingInfo; totalPaths: Integer): TBasicArrayList; virtual;
         function createList(geographicMapInterface: TBasicGeographicMap; geographicMapCellHistory: TGeographicMapCellHistory; pathFindingInfo: TPathFindingInfo; totalPaths: Integer): TBasicArrayList; virtual;
-        function create(geographicMapInterface: TBasicGeographicMap; pathFindingInfo: TPathFindingInfo; totalPaths: Integer): TBasicArrayList;
+        function create_(geographicMapInterface: TBasicGeographicMap; pathFindingInfo: TPathFindingInfo; totalPaths: Integer): TBasicArrayList;
         function createN(geographicMapInterface: TBasicGeographicMap; pathFindingInfo: TPathFindingInfo; totalPaths: Integer; multipassState: TMultipassState): TBasicArrayList; virtual;
         function isValid(pathList: TBasicArrayList; geographicMapCellHistory: TGeographicMapCellHistory): Boolean;
   end;
@@ -634,7 +634,7 @@ function TPathGenerator.getInstanceNoCache(geographicMapInterface: TBasicGeograp
 var
   geographicMapCellPositionBasicArrayList: TBasicArrayList;
 begin
-        geographicMapCellPositionBasicArrayList := Self.create(geographicMapInterface, pathFindingInfo, totalPaths);
+        geographicMapCellPositionBasicArrayList := Self.create_(geographicMapInterface, pathFindingInfo, totalPaths);
         Exit(geographicMapCellPositionBasicArrayList);
 end;
     
@@ -647,7 +647,7 @@ end;
     
 
 // throws Exception
-function TPathGenerator.create(geographicMapInterface: TBasicGeographicMap; pathFindingInfo: TPathFindingInfo; totalPaths: Integer): TBasicArrayList;
+function TPathGenerator.create_(geographicMapInterface: TBasicGeographicMap; pathFindingInfo: TPathFindingInfo; totalPaths: Integer): TBasicArrayList;
 var
   startPathFindingNodeList: TBasicArrayList;
   endPathFindingNodeList: TBasicArrayList;

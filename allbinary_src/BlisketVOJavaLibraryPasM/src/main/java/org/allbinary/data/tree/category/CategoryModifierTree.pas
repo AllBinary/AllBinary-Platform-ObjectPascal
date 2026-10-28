@@ -636,7 +636,7 @@ begin
             if parentCategoryInterface.isValid().booleanValue() then begin
                 parentCategoryInterface.addChild(newChildCategoryInterface);
                 directoryToBeCreatedAbPath := TAbPath.Create(newChildCategoryInterface.getRootFilePath().toString() + newChildCategoryInterface.getPath().toString(), TStringUtil.getInstance().EMPTY_STRING);
-                Self.directory.create(directoryToBeCreatedAbPath);
+                Self.directory.create_(directoryToBeCreatedAbPath);
                 if Torg.allbinary.logic.communication.log.config.type_.LogConfigTypes.LOGGING.contains(Torg.allbinary.logic.communication.log.config.type_.LogConfigTypeFactory.getInstance().CATEGORY) then begin
                     Self.logUtil.putF('Saving', Self, 'insert()');
                 end;

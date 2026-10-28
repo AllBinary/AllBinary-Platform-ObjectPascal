@@ -636,7 +636,7 @@ begin
             Self.bundleContext := bundleContext;
             TInputAutomationBundleActivator.moduleManagementThread := TThread.Create(True);
             TInputAutomationBundleActivator.moduleManagementThread.start();
-            TInputAutomationJFrame.create(Self);
+            TInputAutomationJFrame.create_(Self);
         except
             on e: SysUtils.Exception do begin
             Self.logUtil.put(Self.commonStrings.EXCEPTION, Self, Self.commonStrings.START, e);

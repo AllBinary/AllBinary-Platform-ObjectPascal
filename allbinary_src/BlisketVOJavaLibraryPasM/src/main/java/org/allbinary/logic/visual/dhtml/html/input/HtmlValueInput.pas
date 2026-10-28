@@ -114,7 +114,7 @@ type
   THtmlValueInput = class(THtmlInput)
   public
     value: string;
-    VALUE: string;
+    VALUE_: string;
     procedure InitFields;
         constructor Create(before: string; type_: string; name: string; value: string; after: string);
   end;
@@ -605,7 +605,7 @@ end;
 procedure THtmlValueInput.InitFields;
 begin
   
-  Self.VALUE := 'VALUE';
+  Self.VALUE_ := 'VALUE';
 end;
     
 
@@ -617,7 +617,7 @@ begin
         InitFields;
         stringUtil := TStringUtil.getInstance();
         Self.value := stringUtil.EMPTY_STRING;
-        Self.addAttribute(Self.VALUE, value);
+        Self.addAttribute(Self.VALUE_, value);
 end;
 
 initialization

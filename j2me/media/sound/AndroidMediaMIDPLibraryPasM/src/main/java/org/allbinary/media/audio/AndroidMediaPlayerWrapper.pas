@@ -646,7 +646,7 @@ begin
             if (resource) = (TStringUtil.getInstance().EMPTY_STRING) then begin
             end else begin
                 resourceUtil := TResourceUtil.getInstance();
-                mediaPlayer := TMediaPlayer.create(resourceUtil.getContext(), resourceUtil.getResourceId(resource).intValue());
+                mediaPlayer := TMediaPlayer.create_(resourceUtil.getContext(), resourceUtil.getResourceId(resource).intValue());
                 if (mediaPlayer) = (nil) then begin
                     raise SysUtils.Exception.Create(TStringMaker.Create().append('Failed to create media player for: ').append(resource).append(' with id: ').append(resourceUtil.getResourceId(resource).toString()).toString());
                 end;

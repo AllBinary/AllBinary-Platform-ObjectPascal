@@ -622,9 +622,9 @@ begin
         STATIC_BLOCK := 'Static Block';
         instance := 'ColorDeltaFactory';
         try
-            logUtil.putF(commonStrings.START, instance, STATIC_BLOCK);
+            logUtil.putFS(commonStrings.START, instance, STATIC_BLOCK);
             TColorDeltaFactory.cacheInterface := IAutomaticCacheInterface(Pointer(TCacheInterfaceFactory.getInstance(TCacheTypeFactory.getInstance().CACHE, TCachePolicyFactory.getInstance().THIRTY_MINUTES_TEN_THOUSAND_MAX)));
-            logUtil.putF(commonStrings.END_, instance, STATIC_BLOCK);
+            logUtil.putFS(commonStrings.END_, instance, STATIC_BLOCK);
         except
             on e: SysUtils.Exception do begin
             logUtil.put(commonStrings.EXCEPTION, instance, STATIC_BLOCK, e);

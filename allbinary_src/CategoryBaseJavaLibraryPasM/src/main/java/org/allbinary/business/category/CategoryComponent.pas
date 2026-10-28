@@ -652,7 +652,7 @@ function TCategoryComponent.toXmlDoc: TDocument;
 var
   document: TDocument;
 begin
-        document := TDomDocumentHelper.create();
+        document := TDomDocumentHelper.create_();
         document.appendChild(TCategoryView.Create(Self.getCategoryInterface()).toXmlNode(document));
         Exit(document);
 end;

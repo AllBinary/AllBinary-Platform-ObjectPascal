@@ -119,7 +119,7 @@ type
     titleProgressDialogSetProgressRunnable: TARunnable;
     midletActivity: TActivity;
     portion: Integer;
-    IMAGE: TArray<TImage>;
+    IMAGE_: TArray<TImage>;
     image: TImage;
     animation: TAnimation;
     class var RESOURCE: string;
@@ -645,7 +645,7 @@ begin
   Self.titleProgressDialogSetProgressRunnable := TNullRunnable.getInstance();
   Self.midletActivity := TAndroidUtil.NULL_ACTIVITY;
   Self.portion := 0;
-  Self.IMAGE := TJava.NewArray<TImage>(4);
+  Self.IMAGE_ := TJava.NewArray<TImage>(4);
   Self.image := TNullImage.NULL_IMAGE;
   Self.animation := TNullAnimationFactory.getFactoryInstance().getInstance(0);
 end;
@@ -660,9 +660,9 @@ begin
         InitFields;
         Self.init();
         TDisplayChangeEventHandler.getInstance().addListenerInterface(Self);
-        size := System.Length(Self.IMAGE);
+        size := System.Length(Self.IMAGE_);
         for index := 0 to size - 1 do begin
-            Self.IMAGE[index] := TNullImage.NULL_IMAGE;
+            Self.IMAGE_[index] := TNullImage.NULL_IMAGE;
         end;
 end;
     
@@ -890,13 +890,13 @@ begin
         image := Self.image;
         if (image) <> (TNullImage.NULL_IMAGE) then begin
             if TFeatures.getInstance().isFeature(TMainFeatureFactory.getInstance().FULL_SCREEN) then begin
-                if (Self.IMAGE[index]) = (TNullImage.NULL_IMAGE) then begin
-                    Self.IMAGE[index] := TImageScaleUtil.getInstance().createImage2(TImageCacheFactory.getInstance(), image, lastWidth, Single(image.getWidth()), (lastHeight) - (20.0), Single(image.getHeight()), False);
+                if (Self.IMAGE_[index]) = (TNullImage.NULL_IMAGE) then begin
+                    Self.IMAGE_[index] := TImageScaleUtil.getInstance().createImage2(TImageCacheFactory.getInstance(), image, lastWidth, Single(image.getWidth()), (lastHeight) - (20.0), Single(image.getHeight()), False);
                 end;
             end else begin
                 nextIndex := (index) + (1);
-                if (Self.IMAGE[nextIndex]) = (TNullImage.NULL_IMAGE) then begin
-                    Self.IMAGE[nextIndex] := TImageScaleUtil.getInstance().createImage2(TImageCacheFactory.getInstance(), image, lastWidth, Single(image.getWidth()), (lastHeight) - (28.0), Single(image.getHeight()), False);
+                if (Self.IMAGE_[nextIndex]) = (TNullImage.NULL_IMAGE) then begin
+                    Self.IMAGE_[nextIndex] := TImageScaleUtil.getInstance().createImage2(TImageCacheFactory.getInstance(), image, lastWidth, Single(image.getWidth()), (lastHeight) - (28.0), Single(image.getHeight()), False);
                 end;
             end;
         end;
@@ -913,10 +913,10 @@ begin
         Self.logUtil.putF(Self.commonStrings.START, Self, Self.commonStrings.INIT);
         Self.image := TGameFeatureImageCacheFactory.getInstance().getWithKey(TAndroidBasicTitleProgressBar.RESOURCE);
         preResourceImageUtil := TPreResourceImageUtil.getInstance();
-        size := System.Length(Self.IMAGE);
+        size := System.Length(Self.IMAGE_);
         for index := 0 to size - 1 do begin
-            if (Self.IMAGE[index]) <> (TNullImage.NULL_IMAGE) then begin
-                Self.IMAGE[index] := preResourceImageUtil.encapsulate(Self.IMAGE[index]);
+            if (Self.IMAGE_[index]) <> (TNullImage.NULL_IMAGE) then begin
+                Self.IMAGE_[index] := preResourceImageUtil.encapsulate(Self.IMAGE_[index]);
             end;
         end;
         Self.updateCurrent();
@@ -934,10 +934,10 @@ begin
         Self.initOpenGL(graphics);
         Self.image := TGameFeatureImageCacheFactory.getInstance().getWithKey(TAndroidBasicTitleProgressBar.RESOURCE);
         preResourceImageUtil := TPreResourceImageUtil.getInstance();
-        size := System.Length(Self.IMAGE);
+        size := System.Length(Self.IMAGE_);
         for index := 0 to size - 1 do begin
-            if (Self.IMAGE[index]) <> (TNullImage.NULL_IMAGE) then begin
-                preResourceImageUtil.update(graphics, Self.IMAGE[index]);
+            if (Self.IMAGE_[index]) <> (TNullImage.NULL_IMAGE) then begin
+                preResourceImageUtil.update(graphics, Self.IMAGE_[index]);
             end;
         end;
 end;
@@ -950,9 +950,9 @@ var
 begin
         image := TNullImage.NULL_IMAGE;
         if TFeatures.getInstance().isFeature(TMainFeatureFactory.getInstance().FULL_SCREEN) then begin
-            image := Self.IMAGE[index];
+            image := Self.IMAGE_[index];
         end else begin
-            image := Self.IMAGE[(index) + (1)];
+            image := Self.IMAGE_[(index) + (1)];
         end;
         Exit(image);
 end;

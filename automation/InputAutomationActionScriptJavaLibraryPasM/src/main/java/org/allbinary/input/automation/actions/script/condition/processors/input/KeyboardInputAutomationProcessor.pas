@@ -620,7 +620,7 @@ var
 begin
         logUtil := TLogUtil.getInstance();
         commonStrings := TCommonStrings.getInstance();
-        logUtil.putF(TJava.ToString(TCommonLabels.getInstance().START) + TJava.InterfaceToString(Pointer(keyActionScriptInputInterface)), 'KeyInputAutomationProcessor', commonStrings.PROCESS);
+        logUtil.putFS(TJava.ToString(TCommonLabels.getInstance().START) + TJava.InterfaceToString(Pointer(keyActionScriptInputInterface)), 'KeyInputAutomationProcessor', commonStrings.PROCESS);
         inputRobotInterface := keyActionScriptInputInterface.getInputRobotInterface();
         integer_ := keyActionScriptInputInterface.getKeyArray();
         if (keyActionScriptInputInterface.getDelayBetweenKeys()) = (0) then begin

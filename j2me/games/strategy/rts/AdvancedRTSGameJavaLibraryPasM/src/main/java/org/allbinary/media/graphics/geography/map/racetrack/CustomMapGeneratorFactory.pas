@@ -114,7 +114,7 @@ type
   TCustomMapGeneratorFactory = class(TCustomMapGeneratorBaseFactory)
   public
     constructor Create;
-        function create(raceTrackGeographicMap: TRaceTrackGeographicMap): TCustomMapGeneratorBase; override;
+        function create_(raceTrackGeographicMap: TRaceTrackGeographicMap): TCustomMapGeneratorBase; override;
   end;
 
 implementation
@@ -610,7 +610,7 @@ end;
     
 
 // throws Exception
-function TCustomMapGeneratorFactory.create(raceTrackGeographicMap: TRaceTrackGeographicMap): TCustomMapGeneratorBase;
+function TCustomMapGeneratorFactory.create_(raceTrackGeographicMap: TRaceTrackGeographicMap): TCustomMapGeneratorBase;
 begin
         Exit(TCustomMapGenerator.Create(raceTrackGeographicMap));
 end;

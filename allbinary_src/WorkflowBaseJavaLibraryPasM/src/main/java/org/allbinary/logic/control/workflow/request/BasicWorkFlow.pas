@@ -635,7 +635,7 @@ begin
     inherited Create;
     InitFields;
         Self.workFlowName := TStringUtil.getInstance().EMPTY_STRING;
-        Self.workFlowDoc := TDomDocumentHelper.create();
+        Self.workFlowDoc := TDomDocumentHelper.create_();
         workFlowNode := Self.workFlowDoc.createElement(TWorkFlowData.getInstance().WORKFLOW);
         Self.workFlowDoc.appendChild(workFlowNode);
 end;
@@ -652,7 +652,7 @@ begin
         Self.storeName := weblisketSession.getStoreName();
         requestHashMap := TRequestParams.Create(pageContext).toHashMap();
         Self.workFlowName := string(requestHashMap.get(TWorkFlowData.getInstance().NAME));
-        Self.workFlowDoc := TDomDocumentHelper.create(string(requestHashMap.get(TWorkFlowData.getInstance().DATA)));
+        Self.workFlowDoc := TDomDocumentHelper.create_(string(requestHashMap.get(TWorkFlowData.getInstance().DATA)));
 end;
     
 
@@ -662,7 +662,7 @@ begin
     InitFields;
         Self.workFlowName := string(hashMap.get(TWorkFlowData.getInstance().NAME));
         Self.storeName := string(hashMap.get(TStoreFrontData.getInstance().NAME));
-        Self.workFlowDoc := TDomDocumentHelper.create(string(hashMap.get(TWorkFlowData.getInstance().DATA)));
+        Self.workFlowDoc := TDomDocumentHelper.create_(string(hashMap.get(TWorkFlowData.getInstance().DATA)));
 end;
     
 

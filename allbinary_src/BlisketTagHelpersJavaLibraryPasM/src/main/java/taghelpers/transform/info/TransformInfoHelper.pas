@@ -118,7 +118,7 @@ type
     procedure InitFields;
         constructor Create(hashMap: TJavaHashMap; pageContext: TPageContext);
         function drop: string; virtual;
-        function create: string; virtual;
+        function create_: string; virtual;
         function restore: string; virtual;
         function backup: string; virtual;
   end;
@@ -639,7 +639,7 @@ begin
 end;
     
 
-function TTransformInfoHelper.create: string;
+function TTransformInfoHelper.create_: string;
 var
   error: string;
 begin

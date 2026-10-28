@@ -739,7 +739,7 @@ begin
         stringBuffer.append(PATH_GLOBALS.getInstance().INIT_PATH);
         stringBuffer.append(Self.getFileName());
         file_ := TAbFile.createAbFile(stringBuffer.toString());
-        document := TDomDocumentHelper.create(TAbFileLocalInputStream.Create(file_));
+        document := TDomDocumentHelper.create_(TAbFileLocalInputStream.Create(file_));
         Exit(document);
 end;
     

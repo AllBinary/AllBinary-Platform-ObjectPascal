@@ -657,7 +657,7 @@ begin
         Self.initInputProcessors();
         Self.rtsPlayerLayerInterface := rtsPlayerLayerInterface;
         Self.list := list;
-        Self.selectRTSLayerVisitorInterface := selectRTSLayerVisitorFactoryInterface.create(Self);
+        Self.selectRTSLayerVisitorInterface := selectRTSLayerVisitorFactoryInterface.create_(Self);
         smallIntegerSingletonFactory := TSmallIntegerSingletonFactory.getInstance();
         basicColorFactory := TBasicColorFactory.getInstance();
         Self.upgradeGameNotificationEvent := TGameNotificationEvent.Create(Self, TRTSGameStrings.getInstance().UPGRADE, smallIntegerSingletonFactory.getAt(2), basicColorFactory.PINK, TBooleanFactory.getInstance().FALSE_);

@@ -115,9 +115,9 @@ type
   public
         constructor Create;
         class procedure init; static;
-        class function create: TDocument; overload; static;
-        class function create(inputStream: TInputStream): TDocument; overload; static;
-        class function create(xmlString: string): TDocument; overload; static;
+        class function create_: TDocument; overload; static;
+        class function create_(inputStream: TInputStream): TDocument; overload; static;
+        class function create_(xmlString: string): TDocument; overload; static;
   end;
 
 implementation
@@ -623,7 +623,7 @@ begin
 end;
     
 
-class function TDomDocumentHelper.create: TDocument;
+class function TDomDocumentHelper.create_: TDocument;
 var
   factory: TDocumentBuilderFactory;
   builder: TDocumentBuilder;
@@ -643,7 +643,7 @@ end;
     
 
 // throws Exception
-class function TDomDocumentHelper.create(inputStream: TInputStream): TDocument;
+class function TDomDocumentHelper.create_(inputStream: TInputStream): TDocument;
 var
   factory: TDocumentBuilderFactory;
   builder: TDocumentBuilder;
@@ -663,7 +663,7 @@ end;
     
 
 // throws Exception
-class function TDomDocumentHelper.create(xmlString: string): TDocument;
+class function TDomDocumentHelper.create_(xmlString: string): TDocument;
 var
   factory: TDocumentBuilderFactory;
   builder: TDocumentBuilder;

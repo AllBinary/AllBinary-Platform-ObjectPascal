@@ -672,7 +672,7 @@ end;
 
 procedure TBaseMusicService.start;
 begin
-        Self.player := TMediaPlayer.create(Self, Self.songId);
+        Self.player := TMediaPlayer.create_(Self, Self.songId);
         Self.player.setVolume(((Self.leftVolume)) / (100.0), ((Self.rightVolume)) / (100.0));
         Self.player.setLooping(False);
         Self.player.start();

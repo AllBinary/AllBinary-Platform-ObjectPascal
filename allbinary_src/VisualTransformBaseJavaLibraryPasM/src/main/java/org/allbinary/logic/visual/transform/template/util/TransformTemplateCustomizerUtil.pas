@@ -646,7 +646,7 @@ begin
         Self.TITLE_VIEWNAMEKEY := SPACE + TJava.ToString(TTitleData.getInstance().VIEWNAMEKEY);
         Self.GLOBALS_NEW := TJava.ToString(GLOBALS2.NEW_) + SPACE;
         Self.GLOBALS_INSERT := commonStrings.INSERT + SPACE;
-        Self.GLOBALS_DELETE := commonStrings.DELETE + SPACE;
+        Self.GLOBALS_DELETE := commonStrings.DELETE_ + SPACE;
         Self.GLOBALS_EDIT := TJava.ToString(GLOBALS2.EDIT) + SPACE;
         Self.GLOBALS_UPDATE := commonStrings.UPDATE + SPACE;
 end;

@@ -118,7 +118,7 @@ type
     abeClientInformation: IAbeClientInformationInterface;
     softwareInformation: TSoftwareInformation;
     ascending: Boolean;
-    ASCENDING: string;
+    ASCENDING_: string;
     class var hashTable: TABHashtable<TObject, TObject>;
     procedure InitFields;
         constructor Create(abeClientInformation: IAbeClientInformationInterface; softwareInformation: TSoftwareInformation; gameInfo: TGameInfo; heading: string; columnTwoHeading: string; ascending: Boolean; preload: Boolean);
@@ -624,7 +624,7 @@ begin
   
   
   
-  Self.ASCENDING := 'ASCENDING';
+  Self.ASCENDING_ := 'ASCENDING';
 end;
     
 

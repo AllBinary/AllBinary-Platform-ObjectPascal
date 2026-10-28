@@ -629,7 +629,7 @@ begin
         if (Self.fileName) = ('') then begin
             raise SysUtils.Exception.Create('Image File Name Was Null');
         end;
-        if not (Self.directory.create(Self.imageFileAbPath)) then begin
+        if not (Self.directory.create_(Self.imageFileAbPath)) then begin
             raise SysUtils.Exception.Create('Unable to save file to non creatable directory');
         end;
         originalImageFile := TAbFile.createAbFile(Self.imageFileAbPath.toString() + Self.fileName);

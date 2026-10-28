@@ -121,7 +121,7 @@ type
     timeDelayHelper: TTimeDelayHelper;
     secondaryPlayerQueue: TPlayerQueue;
     sound: TSound;
-    class var SOUND: Integer;
+    class var SOUND_: Integer;
     procedure InitFields;
         constructor Create(hashtable: TABHashtable<TObject, TObject>; ownerLayerInterface: TAllBinaryLayer; gameInput: TGameInput);
         procedure processAI(allBinaryLayerManager: TAllBinaryLayerManager); override;
@@ -628,7 +628,7 @@ constructor THorizontalScreenPatrolAI.Create(hashtable: TABHashtable<TObject, TO
 begin
         inherited Create(ownerLayerInterface, gameInput);
         InitFields;
-        Self.sound := TSound(hashtable.get(THorizontalScreenPatrolAI.SOUND));
+        Self.sound := TSound(hashtable.get(THorizontalScreenPatrolAI.SOUND_));
         if (Self.sound) = (nil) then begin
             raise SysUtils.Exception.Create('No Sound Provided!!');
         end;
@@ -677,7 +677,7 @@ begin
 end;
 
 initialization
-  THorizontalScreenPatrolAI.SOUND := TSmallIntegerSingletonFactory.getInstance().getAt(433);
+  THorizontalScreenPatrolAI.SOUND_ := TSmallIntegerSingletonFactory.getInstance().getAt(433);
 
 end.
 

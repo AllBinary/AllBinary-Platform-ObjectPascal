@@ -635,7 +635,7 @@ var
 begin
         try
             data := TCryptFileReader.Create(TTransformInfoObjectConfigData.getInstance().UNCRYPTED_EXTENSION, TTransformInfoObjectConfigData.getInstance().ENCRYPTED_EXTENSION).get(objectConfigFileAbPath);
-            Exit(Self.getInstance(abeClientInformation, transformInfoInterface, TDomDocumentHelper.create(data)));
+            Exit(Self.getInstance(abeClientInformation, transformInfoInterface, TDomDocumentHelper.create_(data)));
         except
             on e: SysUtils.Exception do begin
             if Torg.allbinary.logic.communication.log.config.type_.LogConfigTypes.LOGGING.contains(Torg.allbinary.logic.communication.log.config.type_.LogConfigTypeFactory.getInstance().VIEWERROR) then begin

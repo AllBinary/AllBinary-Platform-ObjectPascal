@@ -624,7 +624,7 @@ begin
                 end else if (Self.getCommand().compareTo(Self.commonStrings.INSERT)) = (0) then begin
                     Self.setName('Basic Billing Address View');
                     Self.setObjectFile('views.generic.address.billing.AddValidationView');
-                end else if (Self.getCommand().compareTo(Self.commonStrings.DELETE)) = (0) then begin
+                end else if (Self.getCommand().compareTo(Self.commonStrings.DELETE_)) = (0) then begin
                     Self.setName('Basic Billing Address View');
                     Self.setObjectFile('views.generic.address.billing.DeleteValidationView');
                 end else if (Self.getCommand().compareTo(TBillingAddressData.SELECT)) = (0) then begin

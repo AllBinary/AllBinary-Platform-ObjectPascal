@@ -193,7 +193,7 @@ type
         function getNextRandom: Integer; virtual;
         function createGameLayerManager(randomValue: Integer): TAllBinaryGameLayerManager; virtual;
         function createRunnable(randomLevel: Integer): IGameCanvasRunnableInterface; virtual;
-        procedure create; virtual;
+        procedure create_; virtual;
         procedure start; virtual;
         procedure preDemoProcess; virtual;
         procedure process; virtual;
@@ -1205,7 +1205,7 @@ end;
     
 
 // throws Exception
-procedure TDemoCanvas.create;
+procedure TDemoCanvas.create_;
 var
   randomLevel: Integer;
   gameInfo: TGameInfo;

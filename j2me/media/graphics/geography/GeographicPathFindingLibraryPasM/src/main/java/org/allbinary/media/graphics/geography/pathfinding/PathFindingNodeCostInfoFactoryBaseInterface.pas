@@ -112,7 +112,7 @@ type
   end;
 
   IPathFindingNodeCostInfoFactoryBaseInterface = interface
-        procedure create(geographicMapInterface: TBasicGeographicMap; comingFromGeographicMapCellPosition: TGeographicMapCellPosition; geographicMapCellPosition: TGeographicMapCellPosition; costFromStart: Int64; costToEnd: Int64);
+        procedure create_(geographicMapInterface: TBasicGeographicMap; comingFromGeographicMapCellPosition: TGeographicMapCellPosition; geographicMapCellPosition: TGeographicMapCellPosition; costFromStart: Int64; costToEnd: Int64);
         function getTotalCost(geographicMapInterface: TBasicGeographicMap; comingFromGeographicMapCellPosition: TGeographicMapCellPosition; geographicMapCellPosition: TGeographicMapCellPosition): Int64;
   end;
 

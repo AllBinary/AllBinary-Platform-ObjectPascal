@@ -112,7 +112,7 @@ type
   end;
 
   ISelectRTSLayerVisitorFactoryInterface = interface
-        function create(selectedRTSLayersPlayerGameInput: TSelectedRTSLayersPlayerGameInput): TVisitor;
+        function create_(selectedRTSLayersPlayerGameInput: TSelectedRTSLayersPlayerGameInput): TVisitor;
   end;
 
 implementation

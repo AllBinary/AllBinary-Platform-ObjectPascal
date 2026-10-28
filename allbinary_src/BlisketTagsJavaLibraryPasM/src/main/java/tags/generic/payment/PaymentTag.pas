@@ -616,7 +616,7 @@ begin
             if (Self.getCommand()) <> (nil) then begin
                 if (((Self.getCommand().compareTo(TPaymentData.VIEW)) = (0)) or ((Self.getCommand().compareTo(TPaymentData.CHANGE)) = (0))) or ((Self.getCommand().compareTo(TPaymentData.ADDNEW)) = (0)) then begin
                 end else if (Self.getCommand().compareTo(Self.commonStrings.INSERT)) = (0) then begin
-                end else if (Self.getCommand().compareTo(Self.commonStrings.DELETE)) = (0) then begin
+                end else if (Self.getCommand().compareTo(Self.commonStrings.DELETE_)) = (0) then begin
                     Exit(Self.EVAL_BODY_INCLUDE);
                 end else if (Self.getCommand().compareTo(TPaymentData.SELECT)) = (0) then begin
                     Exit(Self.EVAL_BODY_INCLUDE);

@@ -123,7 +123,7 @@ type
         function getContentType: string; virtual;
         procedure start; virtual;
         procedure start2;
-        function create(audioInputStream: TAudioInputStream): TClip;
+        function create_(audioInputStream: TAudioInputStream): TClip;
         procedure stop; virtual;
         procedure stop2;
         function getControl(controlType: string): TControl; virtual;
@@ -640,7 +640,7 @@ begin
         clip := TNullClip.Create();
         try
             audioInputStream := TAudioSystem.getAudioInputStream(inputStream);
-            clip := Self.create(audioInputStream);
+            clip := Self.create_(audioInputStream);
             if (clip) = (nil) then begin
                 Self.logUtil.put('Clip was null', Self, Self.commonStrings.CONSTRUCTOR_, SysUtils.Exception.Create(''));
                 raise SysUtils.Exception.Create('');
@@ -725,7 +725,7 @@ end;
     
 
 // throws Exception
-function TPCClipWavPlayer.create(audioInputStream: TAudioInputStream): TClip;
+function TPCClipWavPlayer.create_(audioInputStream: TAudioInputStream): TClip;
 var
   clip: TClip;
 begin

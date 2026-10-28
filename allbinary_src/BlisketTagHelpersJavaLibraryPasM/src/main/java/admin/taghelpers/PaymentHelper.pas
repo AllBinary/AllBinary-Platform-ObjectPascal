@@ -125,7 +125,7 @@ type
         function select: string; virtual;
         function delete_: string; virtual;
         function drop: string; virtual;
-        function create: string; virtual;
+        function create_: string; virtual;
         function restore: string; virtual;
         function backup: string; virtual;
         function update: string; virtual;
@@ -752,7 +752,7 @@ begin
 end;
     
 
-function TPaymentHelper.create: string;
+function TPaymentHelper.create_: string;
 var
   paymentEntity: TPaymentEntity;
   success: string;

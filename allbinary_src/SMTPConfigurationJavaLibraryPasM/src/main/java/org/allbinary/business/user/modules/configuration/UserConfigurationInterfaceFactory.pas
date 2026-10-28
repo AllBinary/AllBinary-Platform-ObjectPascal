@@ -632,7 +632,7 @@ var
 begin
         abPath := TAbPath.Create((URLGLOBALS.getMainPath()) + (FREEBLISKET_PATH_GLOBALS.getInstance().USERCONFIGURATIONPATH), TJava.ToString(TUserConfigurationInterfaceFactory.configurationName) + userRole.toString() + TJava.ToString(TAbPathData.getInstance().EXTENSION_SEP) + TJava.ToString(TUserConfigurationData.UNCRYPTED_EXTENSION));
         documentString := TCryptFileReader.Create(TUserConfigurationData.UNCRYPTED_EXTENSION, TUserConfigurationData.ENCRYPTED_EXTENSION).get(abPath);
-        document := TDomDocumentHelper.create(documentString);
+        document := TDomDocumentHelper.create_(documentString);
         Exit(TUserConfigurationInterfaceFactory.getInstance(document));
 end;
     

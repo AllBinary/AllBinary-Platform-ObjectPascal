@@ -111,7 +111,7 @@ type
     UPDATE: string;
     SET_: string;
     SELECT_ALL_FROM: string;
-    DELETE: string;
+    DELETE_: string;
     LIKE_QUOTE: string;
     INSERT_INTO: string;
     VALUES: string;
@@ -637,7 +637,7 @@ begin
   Self.UPDATE := 'UPDATE ';
   Self.SET_ := ' SET ';
   Self.SELECT_ALL_FROM := Self.SELECT_ALL + Self.FROM;
-  Self.DELETE := 'DELETE';
+  Self.DELETE_ := 'DELETE';
   Self.LIKE_QUOTE := ' LIKE "';
   Self.INSERT_INTO := 'INSERT INTO ';
   Self.VALUES := ' VALUES (''';

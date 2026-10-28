@@ -635,9 +635,9 @@ begin
         STATIC_BLOCK := 'Static Block';
         instance := 'CapturedBufferedImagesCacheSingleton';
         try
-            logUtil.putF(commonStrings.START, instance, STATIC_BLOCK);
+            logUtil.putFS(commonStrings.START, instance, STATIC_BLOCK);
             TCapturedBufferedImagesCacheSingleton.cacheInterface := IAutomaticCacheInterface(Pointer(TCacheInterfaceFactory.getInstance((TCacheTypeFactory.getInstance().SET_), (TCachePolicyFactory.getInstance().ONE_MINUTE_FIVE_MAX))));
-            logUtil.putF(commonStrings.END_, instance, STATIC_BLOCK);
+            logUtil.putFS(commonStrings.END_, instance, STATIC_BLOCK);
         except
             on e: SysUtils.Exception do begin
             logUtil.put(commonStrings.EXCEPTION, instance, STATIC_BLOCK, e);

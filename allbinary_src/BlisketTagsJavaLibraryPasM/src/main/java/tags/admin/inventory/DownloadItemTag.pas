@@ -617,7 +617,7 @@ begin
                 end else if (Self.getCommand().compareTo(Self.commonStrings.INSERT)) = (0) then begin
                     Self.setName('Add Inventory Item Validation View');
                     Self.setObjectFile('views.admin.inventory.download.AddFileValidationView');
-                end else if (Self.getCommand().compareTo(Self.commonStrings.DELETE)) = (0) then begin
+                end else if (Self.getCommand().compareTo(Self.commonStrings.DELETE_)) = (0) then begin
                     Self.setName('Delete Inventory Item Validation View');
                     Self.setObjectFile('views.admin.inventory.download.DeleteFileValidationView');
                 end else if (Self.getCommand().compareTo(Torg.allbinary.globals.GLOBALS2.EDIT)) = (0) then begin

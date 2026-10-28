@@ -120,12 +120,12 @@ type
     staticPages: TStaticPagesEntity;
     inventory: TInventoryEntity;
     searchRequest: TSearchRequest;
-    INVENTORY: string;
+    INVENTORY_: string;
     procedure InitFields;
         constructor Create(searchRequest: TSearchRequest);
         function getHashSet(storeFront: IStoreFrontInterface): THashSet;
         procedure savePage(file_: string; data: string);
-        procedure create(keywordData: string; keywordFilenameHashMap: TJavaHashMap; vector: TBasicArrayList; staticPath: TAbPath);
+        procedure create_(keywordData: string; keywordFilenameHashMap: TJavaHashMap; vector: TBasicArrayList; staticPath: TAbPath);
         procedure addStaticPageInfoToDatabase(storeFront: IStoreFrontInterface; keywordFilenameHashMap: TJavaHashMap);
         function generateAll: string; overload; virtual;
         function generateAll(storeName: string): string; overload; virtual;
@@ -623,7 +623,7 @@ begin
   
   
   
-  Self.INVENTORY := '.InventoryView';
+  Self.INVENTORY_ := '.InventoryView';
 end;
     
 
@@ -695,7 +695,7 @@ end;
     
 
 // throws Exception
-procedure TProductListing.create(keywordData: string; keywordFilenameHashMap: TJavaHashMap; vector: TBasicArrayList; staticPath: TAbPath);
+procedure TProductListing.create_(keywordData: string; keywordFilenameHashMap: TJavaHashMap; vector: TBasicArrayList; staticPath: TAbPath);
 var
   stringBuffer: TStringMaker;
   hashMap: TJavaHashMap;
@@ -739,7 +739,7 @@ begin
             stringBuffer.append(TAbPathData.getInstance().EXTENSION_SEP);
             stringBuffer.append(TInputOutputTypeData.getInstance().DEFAULT);
             file_ := stringBuffer.toString();
-            if not (Self.directory.create(staticPath)) then begin
+            if not (Self.directory.create_(staticPath)) then begin
                 raise SysUtils.Exception.Create('Could Not Create Directory: ' + TJava.ToString(staticPath));
             end;
             Self.savePage(file_, productListingPages[index]);
@@ -814,7 +814,7 @@ begin
             for index := 0 to size - 1 do begin
                 keywordData := string(keywordArray[index]);
                 if (System.Length(keywordData)) > (1) then begin
-                    Self.create(keywordData, keywordFilenameHashMap, vector, staticPath);
+                    Self.create_(keywordData, keywordFilenameHashMap, vector, staticPath);
                 end;
             end;
             Self.addStaticPageInfoToDatabase(storeFront, keywordFilenameHashMap);
@@ -823,7 +823,7 @@ begin
             stringBuffer.append(storeFront.getName());
             stringBuffer.append(' it used packages ');
             stringBuffer.append(storeFront.getPackageLocation());
-            stringBuffer.append(Self.INVENTORY);
+            stringBuffer.append(Self.INVENTORY_);
             Exit(stringBuffer.toString());
         except
             on e: SysUtils.Exception do begin

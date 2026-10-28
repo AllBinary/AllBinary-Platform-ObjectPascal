@@ -746,14 +746,14 @@ end;
 // throws Exception
 procedure TWorkAreaJTreeJPanel.removeGraphicItem(node: TDefaultMutableTreeNode);
 begin
-        TMyGraphicItemEventService.fire(TMyGraphicItemEvent.Create(TObject(TMyGraphicItemEventSource.Create(TMyGraphicItemEventService.DELETE, node))));
+        TMyGraphicItemEventService.fire(TMyGraphicItemEvent.Create(TObject(TMyGraphicItemEventSource.Create(TMyGraphicItemEventService.DELETE_, node))));
 end;
     
 
 // throws Exception
 procedure TWorkAreaJTreeJPanel.removeCanvas(node: TDefaultMutableTreeNode);
 begin
-        TMyCanvasEventService.fire(TMyCanvasEvent.Create(TObject(TMyCanvasEventSource.Create(TMyCanvasEventService.DELETE, node))));
+        TMyCanvasEventService.fire(TMyCanvasEvent.Create(TObject(TMyCanvasEventSource.Create(TMyCanvasEventService.DELETE_, node))));
 end;
     
 

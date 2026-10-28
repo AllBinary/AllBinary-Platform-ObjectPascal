@@ -698,7 +698,7 @@ begin
         end;
         commonLabels := TCommonLabels.getInstance();
         Self.logUtil.putF(commonLabels.WIDTH_LABEL + TJava.ToString(bufferedImage.getWidth()) + ' newWidth: ' + IntToStr(newWidth) + commonLabels.HEIGHT_LABEL + TJava.ToString(bufferedImage.getHeight()) + ' newHeight: ' + IntToStr(newHeight) + ' needed ratio: ' + FloatToStr(((newWidth) / (newHeight))), Self, 'fudge');
-        newBufferedImage := Self.imageUtil.create(newWidth, newHeight);
+        newBufferedImage := Self.imageUtil.create_(newWidth, newHeight);
         g := newBufferedImage.createGraphics();
         if (point.x) > (0) then begin
             firstColumnBufferedImage := bufferedImage.getSubimage(0, 0, 1, bufferedImage.getHeight());

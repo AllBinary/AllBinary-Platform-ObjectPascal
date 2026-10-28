@@ -122,7 +122,7 @@ type
     procedure InitFields;
         class function getInstance: TImageUtil; static;
         constructor Create;
-        function create(width: Integer; height: Integer): TImage; virtual;
+        function create_(width: Integer; height: Integer): TImage; virtual;
         function createBufferedImage(bufferedImageArray: TArray<TImage>; percent: Integer; scale: Boolean): TArray<TImage>; virtual;
         function createBufferedImage2(bufferedImageArray: TArray<TImage>; percent: Single; scale: Boolean): TArray<TImage>; virtual;
         function createBufferedImage3(bufferedImageArray: TArray<TImage>; width: Integer; height: Integer; scale: Boolean): TArray<TImage>; virtual;
@@ -646,7 +646,7 @@ begin
 end;
     
 
-function TImageUtil.create(width: Integer; height: Integer): TImage;
+function TImageUtil.create_(width: Integer; height: Integer): TImage;
 var
   display: TDisplay;
 begin

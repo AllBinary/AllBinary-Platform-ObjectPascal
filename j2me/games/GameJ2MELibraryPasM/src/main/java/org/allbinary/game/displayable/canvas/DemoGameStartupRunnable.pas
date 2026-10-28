@@ -627,7 +627,7 @@ begin
         try
             Self.setRunning(True);
             Self.demoCanvas.stopGameDemo();
-            Self.demoCanvas.create();
+            Self.demoCanvas.create_();
             Self.demoCanvas.start();
             Self.setRunning(False);
         except

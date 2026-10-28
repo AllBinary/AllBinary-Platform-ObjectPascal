@@ -915,7 +915,7 @@ procedure TTransformInfo.setObjectConfig(value: string);
 var
   document: TDocument;
 begin
-        document := TDomDocumentHelper.create(value);
+        document := TDomDocumentHelper.create_(value);
         Self.setObjectConfigInterface(TTransformInfoObjectConfigAndManipulatorFactory.getInstance().getInstance(Self.abeClientInformation, Self, document));
 end;
     
@@ -1018,7 +1018,7 @@ begin
         try
             if not ((Self.data = '')) then begin
                 if Torg.allbinary.logic.communication.log.config.type_.LogConfigTypes.LOGGING.contains(Torg.allbinary.logic.communication.log.config.type_.LogConfigTypeFactory.getInstance().VIEWERROR) then begin
-                    Self.logUtil.putF('Data: ' + TXmlDocumentHelper.toString(TDomDocumentHelper.create(Self.data)), Self, 'getData()');
+                    Self.logUtil.putF('Data: ' + TXmlDocumentHelper.toString(TDomDocumentHelper.create_(Self.data)), Self, 'getData()');
                 end;
             end else begin
                 if Torg.allbinary.logic.communication.log.config.type_.LogConfigTypes.LOGGING.contains(Torg.allbinary.logic.communication.log.config.type_.LogConfigTypeFactory.getInstance().VIEWERROR) then begin
@@ -1058,9 +1058,9 @@ begin
             if Torg.allbinary.logic.communication.log.config.type_.LogConfigTypes.LOGGING.contains(Torg.allbinary.logic.communication.log.config.type_.LogConfigTypeFactory.getInstance().VIEWERROR) then begin
                 Self.logUtil.putF('No Data So Creating New Document', Self, 'getDataDocument()');
             end;
-            Exit(TDomDocumentHelper.create());
+            Exit(TDomDocumentHelper.create_());
         end else begin
-            document := TDomDocumentHelper.create(localData);
+            document := TDomDocumentHelper.create_(localData);
             Exit(document);
         end;
 end;

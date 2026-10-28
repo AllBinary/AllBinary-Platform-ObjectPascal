@@ -116,8 +116,8 @@ type
     END_: string;
     STARTINPUT: string;
     ENDINPUT: string;
-    TYPE_: string;
-    NAME: string;
+    TYPE__: string;
+    NAME_: string;
     before: string;
     type_: string;
     name: string;
@@ -615,8 +615,8 @@ begin
   Self.END_ := '>';
   Self.STARTINPUT := '<INPUT ';
   Self.ENDINPUT := '</INPUT>';
-  Self.TYPE_ := 'TYPE="';
-  Self.NAME := 'NAME="';
+  Self.TYPE__ := 'TYPE="';
+  Self.NAME_ := 'NAME="';
   
   
   
@@ -651,10 +651,10 @@ begin
         attributeSize := System.Length(attributeKeys);
         result_ := Self.before;
         result_ := result_ + Self.STARTINPUT;
-        result_ := result_ + Self.TYPE_;
+        result_ := result_ + Self.TYPE__;
         result_ := result_ + Self.type_;
         result_ := result_ + '" ';
-        result_ := result_ + Self.NAME;
+        result_ := result_ + Self.NAME_;
         result_ := result_ + Self.name;
         result_ := result_ + '" ';
         for i := 0 to attributeSize - 1 do begin

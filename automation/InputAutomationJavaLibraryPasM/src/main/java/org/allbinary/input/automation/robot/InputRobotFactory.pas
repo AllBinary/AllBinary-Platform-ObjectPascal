@@ -717,7 +717,7 @@ var
   iterator: IIterator;
 begin
         logUtil := TLogUtil.getInstance();
-        logUtil.putF('Loading Libraries', 'InputRobotFactory', 'loadLibraries');
+        logUtil.putFS('Loading Libraries', 'InputRobotFactory', 'loadLibraries');
         iterator := collection.iterator();
         while iterator.hasNext() do begin
             TInputRobotFactory.loadLibrary(IInputRobotInterface(Pointer(iterator.next())));
@@ -733,7 +733,7 @@ var
 begin
         logUtil := TLogUtil.getInstance();
         if TInterfaceUtil.isImplemented(ISecuredNativeLibraryInterface, inputRobotInterface) then begin
-            logUtil.putF('Loading Library: ' + inputRobotInterface.getName(), 'InputRobotFactory', 'loadLibraries');
+            logUtil.putFS('Loading Library: ' + inputRobotInterface.getName(), 'InputRobotFactory', 'loadLibraries');
             securedNativeLibraryInterface := ISecuredNativeLibraryInterface(Pointer(inputRobotInterface));
             securedNativeLibraryInterface.load();
         end;

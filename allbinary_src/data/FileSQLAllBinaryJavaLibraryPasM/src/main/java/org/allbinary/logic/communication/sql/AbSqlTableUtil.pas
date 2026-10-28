@@ -743,7 +743,7 @@ begin
                 stringBuffer.append(fileName);
                 Self.logUtil.putF(stringBuffer.toString(), Self, Self.METHOD_BACKUP_FILE);
             end;
-            TDirectory.create(backupAbPath);
+            TDirectory.create_(backupAbPath);
             backupFileBak := TAbFile.createAbFile(backupAbPath.toFileSystemString());
             backupFileBak.createNewFile();
             TFileUtil.getInstance().copy(path, backupAbPath);
@@ -813,7 +813,7 @@ begin
             count := 0;
             sqlStatement := TJava.ToString(Self.sqlStrings.SELECT_ALL_FROM) + tableName;
             path := (Torg.allbinary.globals.URLGLOBALS.getMainPath()) + (PATH_GLOBALS.getInstance().BACKUP_PATH);
-            if not (TDirectory.create(TAbPath.Create(path))) then begin
+            if not (TDirectory.create_(TAbPath.Create(path))) then begin
                 if Torg.allbinary.logic.communication.log.config.type_.LogConfigTypes.LOGGING.contains(Torg.allbinary.logic.communication.log.config.type_.LogConfigTypeFactory.getInstance().SQLLOGGING) then begin
                     Self.logUtil.putF(Self.ERROR_CREATING + TJava.ToString(path), Self, Self.METHOD_BACKUP_TABLE);
                 end;
@@ -877,7 +877,7 @@ begin
             path := (Torg.allbinary.globals.URLGLOBALS.getMainPath()) + (PATH_GLOBALS.getInstance().BACKUP_PATH);
             current := portion.getCurrent().intValue();
             if (current) = (0) then begin
-                if TDirectory.create(TAbPath.Create(path)) then begin
+                if TDirectory.create_(TAbPath.Create(path)) then begin
                     if Torg.allbinary.logic.communication.log.config.type_.LogConfigTypes.LOGGING.contains(Torg.allbinary.logic.communication.log.config.type_.LogConfigTypeFactory.getInstance().SQLLOGGING) then begin
                         Self.logUtil.putF(Self.ERROR_CREATING + TJava.ToString(path), Self, Self.METHOD_RESTORE_TABLE);
                     end;

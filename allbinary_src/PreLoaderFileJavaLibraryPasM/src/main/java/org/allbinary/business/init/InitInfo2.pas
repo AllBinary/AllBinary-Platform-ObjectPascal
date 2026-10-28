@@ -625,13 +625,13 @@ end;
 
 function TInitInfo2.isTestHtmlPathValid(value: TAbPath): Boolean;
 begin
-        Exit(Self.directory.create(value));
+        Exit(Self.directory.create_(value));
 end;
     
 
 function TInitInfo2.isMainPathValid(value: TAbPath): Boolean;
 begin
-        Exit(Self.directory.create(value));
+        Exit(Self.directory.create_(value));
 end;
 
 initialization

@@ -125,7 +125,7 @@ type
         function insert: string; virtual;
         function update: string; virtual;
         function drop: string; virtual;
-        function create: string; virtual;
+        function create_: string; virtual;
         function restore: string; virtual;
         function backup: string; virtual;
   end;
@@ -756,7 +756,7 @@ begin
 end;
     
 
-function TUserHelper.create: string;
+function TUserHelper.create_: string;
 var
   success: string;
   error: string;

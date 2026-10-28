@@ -635,10 +635,10 @@ begin
         Self.angleIncrement := angleIncrement;
         angleFactory := TAngleFactory.getInstance();
         smallIntegerSingletonFactory := TSmallIntegerSingletonFactory.getInstance();
-        Self.DOWN_FRAME := smallIntegerSingletonFactory.getAt((angleFactory.DOWN.getValue()) / (Self.angleIncrement));
+        Self.DOWN_FRAME := smallIntegerSingletonFactory.getAt(Integer(Trunc((angleFactory.DOWN.getValue()) / (Self.angleIncrement))));
         Self.UP_FRAME := smallIntegerSingletonFactory.getAt(Integer(Trunc(angleFactory.UP.getValue())));
-        Self.LEFT_FRAME := smallIntegerSingletonFactory.getAt((angleFactory.LEFT.getValue()) / (Self.angleIncrement));
-        Self.RIGHT_FRAME := smallIntegerSingletonFactory.getAt((angleFactory.RIGHT.getValue()) / (Self.angleIncrement));
+        Self.LEFT_FRAME := smallIntegerSingletonFactory.getAt(Integer(Trunc((angleFactory.LEFT.getValue()) / (Self.angleIncrement))));
+        Self.RIGHT_FRAME := smallIntegerSingletonFactory.getAt(Integer(Trunc((angleFactory.RIGHT.getValue()) / (Self.angleIncrement))));
 end;
     
 

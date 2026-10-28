@@ -714,7 +714,7 @@ begin
         end;
         firstBufferedImage := bufferedImageArray[0];
         imageData := firstBufferedImage.getImageData();
-        bufferedImage := Self.imageUtil.create((imageData.width) * (columns), (imageData.height) * (rows));
+        bufferedImage := Self.imageUtil.create_((imageData.width) * (columns), (imageData.height) * (rows));
         gc := TGC.Create(bufferedImage);
         gc.setAntialias(TSWT.ON_);
         gc.setInterpolation(TSWT.HIGH);

@@ -645,13 +645,13 @@ begin
         INPUT_AUTOMATION_CONFIGURATION := 'InputAutomationConfiguration';
         file_ := TInputAutomationConfiguration.getFile();
         if file_.isFile() then begin
-            logUtil.putF('LoadingConfiguration', INPUT_AUTOMATION_CONFIGURATION, commonStrings.INIT);
+            logUtil.putFS('LoadingConfiguration', INPUT_AUTOMATION_CONFIGURATION, commonStrings.INIT);
             jaxbContext := TJAXBContext.newInstance(TInputAutomationConfiguration);
             unmarshaller := jaxbContext.createUnmarshaller();
             root := unmarshaller.unmarshal(TStreamSource.Create(TFileInputStream.Create(file_)), TInputAutomationConfiguration);
             Self.inputAutomationConfiguration := TInputAutomationConfiguration(root.getValue());
             inputAutomationModuleConfigurationList := Self.inputAutomationConfiguration.getInputAutomationModuleConfigurationList();
-            logUtil.putF('isInstalled: ' + TJava.ToString(Self.inputAutomationConfiguration.isInstalled()) + ' inputAutomationModuleConfigurationList: ' + TJava.ToString(inputAutomationModuleConfigurationList), INPUT_AUTOMATION_CONFIGURATION, commonStrings.INIT);
+            logUtil.putFS('isInstalled: ' + TJava.ToString(Self.inputAutomationConfiguration.isInstalled()) + ' inputAutomationModuleConfigurationList: ' + TJava.ToString(inputAutomationModuleConfigurationList), INPUT_AUTOMATION_CONFIGURATION, commonStrings.INIT);
             if (inputAutomationModuleConfigurationList) <> (nil) then begin
                 size := inputAutomationModuleConfigurationList.size();
                 
@@ -660,9 +660,9 @@ begin
                     inputAutomationModuleConfiguration.init(abeClientInformation);
                 end;
             end;
-            logUtil.putF('LoadedConfiguration', INPUT_AUTOMATION_CONFIGURATION, commonStrings.INIT);
+            logUtil.putFS('LoadedConfiguration', INPUT_AUTOMATION_CONFIGURATION, commonStrings.INIT);
         end else begin
-            logUtil.putF('New Configuration', INPUT_AUTOMATION_CONFIGURATION, commonStrings.INIT);
+            logUtil.putFS('New Configuration', INPUT_AUTOMATION_CONFIGURATION, commonStrings.INIT);
             Self.inputAutomationConfiguration := TInputAutomationConfiguration.Create();
         end;
 end;

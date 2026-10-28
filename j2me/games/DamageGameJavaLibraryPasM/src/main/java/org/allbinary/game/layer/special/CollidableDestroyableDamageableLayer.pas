@@ -127,7 +127,7 @@ type
     isDragged: Boolean;
     isDropped: Boolean;
     class var NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER: TObject;
-    class var READYFOREXPLOSION: string;
+    class var READYFOREXPLOSION_: string;
     procedure InitFields;
         class function getNullInstance: TCollidableDestroyableDamageableLayer; static;
         constructor Create(groupInterface: TArray<TGroup>; name: string; layerInfo: TRectangle; viewPosition: TViewPositionBase);
@@ -964,7 +964,7 @@ begin
             stringBuffer.append(pickupBehavior.toString());
         end;
         stringBuffer.append(commonSeps.NEW_LINE);
-        stringBuffer.append(TCollidableDestroyableDamageableLayer.READYFOREXPLOSION);
+        stringBuffer.append(TCollidableDestroyableDamageableLayer.READYFOREXPLOSION_);
         stringBuffer.appendboolean(Self.readyForExplosion);
         stringBuffer.append(commonSeps.NEW_LINE);
         stringBuffer.append(Self.commonStrings.INIT);
@@ -989,7 +989,7 @@ end;
 
 initialization
   TCollidableDestroyableDamageableLayer.NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER := TNullUtil.getInstance().NULL_OBJECT;
-  TCollidableDestroyableDamageableLayer.READYFOREXPLOSION := 'ReadyForExplosion: ';
+  TCollidableDestroyableDamageableLayer.READYFOREXPLOSION_ := 'ReadyForExplosion: ';
 
 end.
 

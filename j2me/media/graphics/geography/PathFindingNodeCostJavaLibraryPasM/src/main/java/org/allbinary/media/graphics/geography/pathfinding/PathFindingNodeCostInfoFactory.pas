@@ -116,7 +116,7 @@ type
     pathFindingNodeCostInfoAdjacencyList: TArray<TArray<TPathFindingNodeCostInfo>>;
     procedure InitFields;
         constructor Create(max: Integer);
-        procedure create(geographicMapInterface: TBasicGeographicMap; goingToGeographicMapCellPosition: TGeographicMapCellPosition; geographicMapCellPosition: TGeographicMapCellPosition; costFromStart: Int64; costToEnd: Int64); override;
+        procedure create_(geographicMapInterface: TBasicGeographicMap; goingToGeographicMapCellPosition: TGeographicMapCellPosition; geographicMapCellPosition: TGeographicMapCellPosition; costFromStart: Int64; costToEnd: Int64); override;
         function getInstance(goingToGeographicMapCellPosition: TGeographicMapCellPosition; geographicMapCellPosition: TGeographicMapCellPosition; costFromStart: Int64; costToEnd: Int64): TPathFindingNodeCostInfo; overload; virtual;
         function getInstance(goingToFromGeographicMapCellPosition: TGeographicMapCellPosition; geographicMapCellPosition: TGeographicMapCellPosition): TPathFindingNodeCostInfo; overload; virtual;
         function getTotalCost(geographicMapInterface: TBasicGeographicMap; comingFromGeographicMapCellPosition: TGeographicMapCellPosition; geographicMapCellPosition: TGeographicMapCellPosition): Int64; override;
@@ -620,7 +620,7 @@ end;
     
 
 // throws Exception
-procedure TPathFindingNodeCostInfoFactory.create(geographicMapInterface: TBasicGeographicMap; goingToGeographicMapCellPosition: TGeographicMapCellPosition; geographicMapCellPosition: TGeographicMapCellPosition; costFromStart: Int64; costToEnd: Int64);
+procedure TPathFindingNodeCostInfoFactory.create_(geographicMapInterface: TBasicGeographicMap; goingToGeographicMapCellPosition: TGeographicMapCellPosition; geographicMapCellPosition: TGeographicMapCellPosition; costFromStart: Int64; costToEnd: Int64);
 begin
         Self.getInstance(goingToGeographicMapCellPosition, geographicMapCellPosition, costFromStart, costToEnd);
 end;

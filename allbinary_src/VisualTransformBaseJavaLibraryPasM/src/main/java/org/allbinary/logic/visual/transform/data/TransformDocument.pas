@@ -623,7 +623,7 @@ begin
     inherited Create;
     InitFields;
         try
-            Self.document := TDomDocumentHelper.create();
+            Self.document := TDomDocumentHelper.create_();
             allbinaryNode := Self.document.createElement('allbinary');
             Self.baseNode := allbinaryNode;
             Self.document.appendChild(Self.baseNode);

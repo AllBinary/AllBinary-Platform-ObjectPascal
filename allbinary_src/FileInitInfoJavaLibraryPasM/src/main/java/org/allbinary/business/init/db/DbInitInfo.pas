@@ -674,7 +674,7 @@ var
   cryptedPort: TArray<ShortInt>;
 begin
         PATH := TAbPath.Create(TJava.ToString(URLGLOBALS.getWebappPath()) + Self.PACKAGE, TStringUtil.getInstance().EMPTY_STRING);
-        Self.directory.create(PATH);
+        Self.directory.create_(PATH);
         FILEABPATH := TAbPath.Create(TJava.ToString(URLGLOBALS.getWebappPath()) + Self.PACKAGE, Self.initFileName);
         try
             newFile := TAbFile.createAbFileFromAbPath(FILEABPATH);

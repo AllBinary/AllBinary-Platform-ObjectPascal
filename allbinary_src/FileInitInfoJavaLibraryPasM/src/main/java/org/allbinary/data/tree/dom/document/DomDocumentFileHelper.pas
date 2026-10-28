@@ -615,7 +615,7 @@ end;
 class function TDomDocumentFileHelper.createDocument(xmlFile: TAbFile): TDocument;
 begin
         try
-            Exit(TDomDocumentHelper.create(TAbFileInputStream.Create(xmlFile)));
+            Exit(TDomDocumentHelper.create_(TAbFileInputStream.Create(xmlFile)));
         except
             on e: SysUtils.Exception do begin
             raise e;

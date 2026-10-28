@@ -726,7 +726,7 @@ begin
         endIndex := file_.getPath().indexOf(file_.getName());
         fixedPathString := TJava.ToString(realPath.toFileSystemString()) + file_.getPath().substring(beginIndex, endIndex);
         fixedPath := TAbPath.Create(fixedPathString, TStringUtil.getInstance().EMPTY_STRING);
-        Self.directory.create(fixedPath);
+        Self.directory.create_(fixedPath);
         string_ := fixedPath.toFileSystemString();
         if Torg.allbinary.logic.communication.log.config.type_.LogConfigTypes.LOGGING.contains(Self.logConfigTypeFactory.FILE_) then begin
             Self.logUtil.putF(string_, Self, 'fixPath');
@@ -1031,7 +1031,7 @@ begin
             end;
             newDirectory := TFileUtil.getNewDirectory(fromFile);
             newDirectoryAbPath := TAbPath.Create(TJava.ToString((to_.getPath()) + (TAbPathData.getInstance().SEPARATOR)) + newDirectory, TStringUtil.getInstance().EMPTY_STRING);
-            if not (Self.directory.create(newDirectoryAbPath)) then begin
+            if not (Self.directory.create_(newDirectoryAbPath)) then begin
                 raise SysUtils.Exception.Create('Failed to create directory: ' + TJava.ToString(newDirectoryAbPath));
             end;
             fileArray := TFileWrapperUtil.wrapFiles(fromFile.listFiles());

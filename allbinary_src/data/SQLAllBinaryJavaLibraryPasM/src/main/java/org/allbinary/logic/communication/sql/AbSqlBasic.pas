@@ -141,7 +141,7 @@ type
     procedure InitFields;
         constructor Create(databaseConnectionInfoInterface: TDbConnectionInfo);
         function executeSQLStatement(statement: string): TResultSet; virtual;
-        function create(databaseName: string): string; virtual;
+        function create_(databaseName: string): string; virtual;
         procedure createConnection;
         procedure initialize;
         function getDatabaseConnectionInfoInterface: IDatabaseConnectionInfoInterface; virtual;
@@ -704,7 +704,7 @@ begin
 end;
     
 
-function TAbSqlBasic.create(databaseName: string): string;
+function TAbSqlBasic.create_(databaseName: string): string;
 begin
         try
             Self.executeSQLStatement(TJava.ToString(Self.sqlStrings.CREATE_DATABASE) + databaseName);

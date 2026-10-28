@@ -116,7 +116,7 @@ type
     class var instance: TCustomMapGeneratorBaseFactory;
         class function getInstance: TCustomMapGeneratorBaseFactory; static;
         constructor Create;
-        function create(raceTrackGeographicMap: TRaceTrackGeographicMap): TCustomMapGeneratorBase; virtual;
+        function create_(raceTrackGeographicMap: TRaceTrackGeographicMap): TCustomMapGeneratorBase; virtual;
   end;
 
 implementation
@@ -616,7 +616,7 @@ end;
     
 
 // throws Exception
-function TCustomMapGeneratorBaseFactory.create(raceTrackGeographicMap: TRaceTrackGeographicMap): TCustomMapGeneratorBase;
+function TCustomMapGeneratorBaseFactory.create_(raceTrackGeographicMap: TRaceTrackGeographicMap): TCustomMapGeneratorBase;
 begin
         Exit(TCustomMapGeneratorBase.Create());
 end;

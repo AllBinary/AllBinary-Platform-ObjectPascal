@@ -164,7 +164,7 @@ type
         procedure startJMenuItemActionPerformed(evt: TActionEvent);
         class function getInstance: TInputAutomationJFrame; static;
         class procedure destroy; static;
-        class procedure create(inputAutomationBundleActivatorListenerInterface: IInputAutomationBundleActivatorListenerInterface); static;
+        class procedure create_(inputAutomationBundleActivatorListenerInterface: IInputAutomationBundleActivatorListenerInterface); static;
         class procedure main(args: TArray<string>); static;
         function getAutomationModuleConfigurationJPanel: TJPanel; virtual;
         procedure setAutomationModuleConfigurationJPanel(automationModuleConfigurationJPanel: TJPanel); virtual;
@@ -1100,7 +1100,7 @@ begin
 end;
     
 
-class procedure TInputAutomationJFrame.create(inputAutomationBundleActivatorListenerInterface: IInputAutomationBundleActivatorListenerInterface);
+class procedure TInputAutomationJFrame.create_(inputAutomationBundleActivatorListenerInterface: IInputAutomationBundleActivatorListenerInterface);
 var
   appUrlGlobals: TAppUrlGlobals;
 begin
@@ -1141,7 +1141,7 @@ end;
 // throws Exception
 class procedure TInputAutomationJFrame.main(args: TArray<string>);
 begin
-        TInputAutomationJFrame.create(nil);
+        TInputAutomationJFrame.create_(nil);
 end;
     
 

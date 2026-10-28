@@ -116,7 +116,7 @@ type
     class var instance: TSelectAdvancedRTSLayerVisitorFactory;
         class function getInstance: TSelectAdvancedRTSLayerVisitorFactory; static;
         constructor Create;
-        function create(selectedRTSLayersPlayerGameInput: TSelectedRTSLayersPlayerGameInput): TVisitor; virtual;
+        function create_(selectedRTSLayersPlayerGameInput: TSelectedRTSLayersPlayerGameInput): TVisitor; virtual;
   end;
 
 implementation
@@ -618,7 +618,7 @@ begin
 end;
     
 
-function TSelectAdvancedRTSLayerVisitorFactory.create(selectedRTSLayersPlayerGameInput: TSelectedRTSLayersPlayerGameInput): TVisitor;
+function TSelectAdvancedRTSLayerVisitorFactory.create_(selectedRTSLayersPlayerGameInput: TSelectedRTSLayersPlayerGameInput): TVisitor;
 begin
         Exit(TSelectAdvancedRTSLayerVisitor.Create(selectedRTSLayersPlayerGameInput));
 end;

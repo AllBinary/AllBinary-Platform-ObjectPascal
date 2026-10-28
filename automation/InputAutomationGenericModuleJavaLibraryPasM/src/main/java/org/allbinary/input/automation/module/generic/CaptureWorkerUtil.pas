@@ -626,7 +626,7 @@ var
 begin
         logUtil := TLogUtil.getInstance();
         commonStrings := TCommonStrings.getInstance();
-        logUtil.putF(commonStrings.START, 'CaptureWorkerUtil', 'processProfileActionConditions');
+        logUtil.putFS(commonStrings.START, 'CaptureWorkerUtil', 'processProfileActionConditions');
         size := vector.size();
         for index := 0 to size - 1 do begin
             profileActionConditionInterface := IProfileActionScriptConditionInterface(Pointer(vector.get(index)));

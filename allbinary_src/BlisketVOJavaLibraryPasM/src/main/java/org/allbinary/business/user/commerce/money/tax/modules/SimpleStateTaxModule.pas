@@ -652,7 +652,7 @@ begin
         Self.storeFrontInterface := storeFrontInterface;
         fileAbPath := TAbPath.Create(TJava.ToString((URLGLOBALS.getMainPath()) + (FREEBLISKET_PATH_GLOBALS.getInstance().XSLPATH)) + Self.storeFrontInterface.getName() + Self.STATETAXPATH, Self.STATETAXFILE);
         data := TCryptFileReader.Create(TTransformInfoObjectConfigData.getInstance().UNCRYPTED_EXTENSION, TTransformInfoObjectConfigData.getInstance().ENCRYPTED_EXTENSION).get(fileAbPath);
-        Self.document := TDomDocumentHelper.create(data);
+        Self.document := TDomDocumentHelper.create_(data);
         if Torg.allbinary.logic.communication.log.config.type_.LogConfigTypes.LOGGING.contains(Torg.allbinary.logic.communication.log.config.type_.LogConfigTypeFactory.getInstance().TAX) then begin
             Self.logUtil.putF('Tax Doc: ' + TXmlDocumentHelper.toString(Self.document), Self, 'getTaxRate');
         end;
@@ -700,7 +700,7 @@ begin
             Self.storeFrontInterface := storeFrontInterface;
             fileAbPath := TAbPath.Create(TJava.ToString((URLGLOBALS.getMainPath()) + (FREEBLISKET_PATH_GLOBALS.getInstance().XSLPATH)) + Self.storeFrontInterface.getName() + Self.STATETAXPATH, Self.STATETAXFILE);
             data := TCryptFileReader.Create(TTransformInfoObjectConfigData.getInstance().UNCRYPTED_EXTENSION, TTransformInfoObjectConfigData.getInstance().ENCRYPTED_EXTENSION).get(fileAbPath);
-            Self.document := TDomDocumentHelper.create(data);
+            Self.document := TDomDocumentHelper.create_(data);
             if Torg.allbinary.logic.communication.log.config.type_.LogConfigTypes.LOGGING.contains(Torg.allbinary.logic.communication.log.config.type_.LogConfigTypeFactory.getInstance().TAX) then begin
                 Self.logUtil.putF('Tax Doc: ' + TXmlDocumentHelper.toString(Self.document), Self, Self.commonStrings.IS_VALID);
             end;

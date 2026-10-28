@@ -932,7 +932,7 @@ var
   value: string;
   i: Integer;
 begin
-        document := TDomDocumentHelper.create();
+        document := TDomDocumentHelper.create_();
         hashMap := TStdUtil.getInstance().createHashMap();
         keys := Self.getMap().keySet();
         keyArray := keys.toArray();

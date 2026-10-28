@@ -620,7 +620,7 @@ procedure TCommandForm.InitFields;
 begin
   Self.logUtil := TLogUtil.getInstance();
   Self.commonStrings := TCommonStrings.getInstance();
-  Self.repaintProcessor := TScreenRepaintProcessorFactory.getInstance().create(Self);
+  Self.repaintProcessor := TScreenRepaintProcessorFactory.getInstance().create_(Self);
   
 end;
     

@@ -116,7 +116,7 @@ type
     name: string;
     canvasNodeList: TBasicArrayList;
     class var WORKAREA: string;
-    class var NAME: string;
+    class var NAME_: string;
     class var FRAMES: string;
     procedure InitFields;
         constructor Create(document: TDocument);
@@ -629,7 +629,7 @@ begin
             numberOfworkAreas := workAreaNodeList.getLength();
             if (numberOfworkAreas) = (1) then begin
                 numberOfNodes := workAreaNodeList.getLength();
-                nameNode := TDomHelper.getInstance().searchNodeList(Self.NAME, workAreaNodeList.item(0).getChildNodes());
+                nameNode := TDomHelper.getInstance().searchNodeList(Self.NAME_, workAreaNodeList.item(0).getChildNodes());
                 nameTextNode := nameNode.getFirstChild();
                 Self.name := nameTextNode.getNodeValue();
             end else begin
@@ -655,7 +655,7 @@ end;
 
 initialization
   TWorkAreaDom.WORKAREA := 'workArea';
-  TWorkAreaDom.NAME := 'name';
+  TWorkAreaDom.NAME_ := 'name';
   TWorkAreaDom.FRAMES := 'frames';
 
 end.

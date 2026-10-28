@@ -658,7 +658,7 @@ begin
         pageName := TTransformTemplateCustomizerUtil.getInstance().getPageNameHack(Self.getTransformInfoInterface().getName(), Self.getTransformInfoInterface().getStoreName());
         hashMap.put(VARKEY + TJava.ToString(TTransformInfoData.getInstance().PARTIAL), pageName);
         replace := TReplace.Create(hashMap);
-        newObjectConfigDocument := TDomDocumentHelper.create(replace.all(docString));
+        newObjectConfigDocument := TDomDocumentHelper.create_(replace.all(docString));
         if Torg.allbinary.logic.communication.log.config.type_.LogConfigTypes.LOGGING.contains(Torg.allbinary.logic.communication.log.config.type_.LogConfigTypeFactory.getInstance().VIEW) then begin
             Self.logUtil.putF('Final ObjectConfig: ' + TXmlDocumentHelper.toString(newObjectConfigDocument), Self, 'generate()');
         end;

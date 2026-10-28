@@ -643,7 +643,7 @@ function TImageJ2SERotationUtil.getRotatedImageRadians(bufferedImage: TImage; ra
 var
   newBufferedImage: TBufferedImage;
 begin
-        newBufferedImage := Self.imageUtil.create(bufferedImage.getWidth(nil), bufferedImage.getHeight(nil));
+        newBufferedImage := Self.imageUtil.create_(bufferedImage.getWidth(nil), bufferedImage.getHeight(nil));
         Exit(Self.drawRotatedImageRadians(bufferedImage, newBufferedImage, newBufferedImage.createGraphics(), radians));
 end;
     
@@ -720,7 +720,7 @@ begin
             Inc(rows);
         end;
         firstBufferedImage := bufferedImageArray[0];
-        bufferedImage := Self.imageUtil.create((firstBufferedImage.getWidth(nil)) * (columns), (firstBufferedImage.getHeight(nil)) * (rows));
+        bufferedImage := Self.imageUtil.create_((firstBufferedImage.getWidth(nil)) * (columns), (firstBufferedImage.getHeight(nil)) * (rows));
         g := bufferedImage.createGraphics();
         columnIndex := 0;
         rowIndex := 0;

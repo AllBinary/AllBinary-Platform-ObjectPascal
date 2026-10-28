@@ -123,7 +123,7 @@ type
         function update: string; virtual;
         function delete_: string; virtual;
         function drop: string; virtual;
-        function create: string; virtual;
+        function create_: string; virtual;
         function restore: string; virtual;
         function backup: string; virtual;
   end;
@@ -762,7 +762,7 @@ begin
 end;
     
 
-function TPaymentGatewayHelper.create: string;
+function TPaymentGatewayHelper.create_: string;
 var
   success: string;
   error: string;

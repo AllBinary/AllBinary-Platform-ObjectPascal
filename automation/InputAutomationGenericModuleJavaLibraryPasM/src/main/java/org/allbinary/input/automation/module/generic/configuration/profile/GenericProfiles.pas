@@ -648,7 +648,7 @@ begin
             length := idFile.read(bytes);
             data := TJava.NewString(bytes);
             endIndex := (RPos(TJava.ToString('>'), data) - 1);
-            document := TDomDocumentHelper.create(Copy(data, (0) + 1, ((endIndex) + (1)) - (0)));
+            document := TDomDocumentHelper.create_(Copy(data, (0) + 1, ((endIndex) + (1)) - (0)));
             nodeList := document.getElementsByTagName(TGenericProfilesData.NAME);
             Self.logUtil.putF('Number Of Profiles Specified: ' + TJava.ToString(nodeList.getLength()), Self, 'Contructor');
             if (nodeList) <> (nil) then begin
@@ -753,7 +753,7 @@ var
   document: TDocument;
   node: TNode;
 begin
-        document := TDomDocumentHelper.create();
+        document := TDomDocumentHelper.create_();
         node := Self.toXmlNode(document);
         document.appendChild(node);
         Exit(document);

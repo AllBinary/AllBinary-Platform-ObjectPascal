@@ -115,8 +115,8 @@ type
   public
     logUtil: TLogUtil;
     commonStrings: TCommonStrings;
-    TITLE: string;
-    DESCRIPTION: string;
+    TITLE_: string;
+    DESCRIPTION_: string;
     value: string;
     title: string;
     description: string;
@@ -620,8 +620,8 @@ procedure TCssElementView.InitFields;
 begin
   Self.logUtil := TLogUtil.getInstance();
   Self.commonStrings := TCommonStrings.getInstance();
-  Self.TITLE := 'title';
-  Self.DESCRIPTION := 'description';
+  Self.TITLE_ := 'title';
+  Self.DESCRIPTION_ := 'description';
   
   
   
@@ -658,14 +658,14 @@ begin
         try
             valueNode := TDomSearchHelper.getNode(TDomData.VALUE, node.getChildNodes());
             Self.value := TDomNodeHelper.getTextNodeValue(valueNode);
-            titleValueNode := TDomSearchHelper.getNodeNoThrow(Self.TITLE, node.getChildNodes());
+            titleValueNode := TDomSearchHelper.getNodeNoThrow(Self.TITLE_, node.getChildNodes());
             if (titleValueNode) <> (nil) then begin
                 Self.title := TDomNodeHelper.getTextNodeValue(titleValueNode);
             end else begin
                 stringUtil := TStringUtil.getInstance();
                 Self.title := stringUtil.EMPTY_STRING;
             end;
-            descriptionValueNode := TDomSearchHelper.getNodeNoThrow(Self.DESCRIPTION, node.getChildNodes());
+            descriptionValueNode := TDomSearchHelper.getNodeNoThrow(Self.DESCRIPTION_, node.getChildNodes());
             if (descriptionValueNode) <> (nil) then begin
                 Self.description := TDomNodeHelper.getTextNodeValue(descriptionValueNode);
             end else begin
@@ -704,8 +704,8 @@ var
 begin
         hashMap := TStdUtil.getInstance().createHashMap();
         hashMap.put(TDomData.VALUE, Self.value);
-        hashMap.put(Self.TITLE, Self.title);
-        hashMap.put(Self.DESCRIPTION, Self.description);
+        hashMap.put(Self.TITLE_, Self.title);
+        hashMap.put(Self.DESCRIPTION_, Self.description);
         Exit(hashMap);
 end;
     

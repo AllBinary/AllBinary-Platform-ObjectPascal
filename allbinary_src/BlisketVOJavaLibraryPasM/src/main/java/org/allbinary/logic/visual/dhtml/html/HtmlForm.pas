@@ -116,11 +116,11 @@ type
     FORMBEGIN: string;
     END_: string;
     FORMEND: string;
-    ACTION: string;
+    ACTION_: string;
     GET: string;
     POST: string;
     METHODS: TArray<string>;
-    METHOD: string;
+    METHOD_: string;
     method: string;
     action: string;
     inputs: TBasicArrayList;
@@ -621,11 +621,11 @@ begin
   Self.FORMBEGIN := '<form ';
   Self.END_ := '>';
   Self.FORMEND := '</form>';
-  Self.ACTION := 'ACTION="';
+  Self.ACTION_ := 'ACTION="';
   Self.GET := 'GET"';
   Self.POST := 'POST"';
   Self.METHODS := [Self.GET, Self.POST];
-  Self.METHOD := 'METHOD="';
+  Self.METHOD_ := 'METHOD="';
   
   
   
@@ -678,10 +678,10 @@ begin
         inputArray := Self.inputs.toArray();
         inputSize := System.Length(inputArray);
         result_ := Self.FORMBEGIN;
-        result_ := result_ + Self.METHOD;
+        result_ := result_ + Self.METHOD_;
         result_ := result_ + Self.method;
         result_ := result_ + '" ';
-        result_ := result_ + Self.ACTION;
+        result_ := result_ + Self.ACTION_;
         result_ := result_ + Self.action;
         result_ := result_ + '" ';
         result_ := result_ + Self.END_;

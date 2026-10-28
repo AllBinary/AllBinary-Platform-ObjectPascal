@@ -626,7 +626,7 @@ var
   document: TDocument;
   node: TNode;
 begin
-        document := TDomDocumentHelper.create();
+        document := TDomDocumentHelper.create_();
         node := TContextConfigurationView.Create(Self.contextConfigurationInterface).toXmlNode(document);
         document.appendChild(node);
         Exit(document);

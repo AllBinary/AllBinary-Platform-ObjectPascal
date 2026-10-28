@@ -116,7 +116,7 @@ type
     class var instance: TShaderManagerFactory;
     constructor Create;
         class function getInstance: TShaderManagerFactory; static;
-        function create: TShaderManager; virtual;
+        function create_: TShaderManager; virtual;
   end;
 
 implementation
@@ -614,7 +614,7 @@ begin
 end;
     
 
-function TShaderManagerFactory.create: TShaderManager;
+function TShaderManagerFactory.create_: TShaderManager;
 begin
         Exit(TShaderManager.getInstance());
 end;

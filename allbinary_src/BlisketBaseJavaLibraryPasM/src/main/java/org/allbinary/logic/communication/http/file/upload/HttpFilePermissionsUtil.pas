@@ -116,7 +116,7 @@ type
     class var instance: THttpFilePermissionsUtil;
     constructor Create;
         class function getInstance: THttpFilePermissionsUtil; static;
-        procedure create(path: TAbPath); virtual;
+        procedure create_(path: TAbPath); virtual;
   end;
 
 implementation
@@ -615,7 +615,7 @@ end;
     
 
 // throws Exception
-procedure THttpFilePermissionsUtil.create(path: TAbPath);
+procedure THttpFilePermissionsUtil.create_(path: TAbPath);
 var
   file_: TAbFile;
 begin

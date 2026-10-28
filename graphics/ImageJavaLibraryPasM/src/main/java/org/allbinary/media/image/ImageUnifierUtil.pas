@@ -652,7 +652,7 @@ var
   totalColumnsMinusOne: Integer;
   index: Integer;
 begin
-        newBufferedImage := Self.imageUtil.create(imageUnifierProperties.getWidth(), imageUnifierProperties.getHeight());
+        newBufferedImage := Self.imageUtil.create_(imageUnifierProperties.getWidth(), imageUnifierProperties.getHeight());
         commonLabels := TCommonLabels.getInstance();
         Self.logUtil.putF('Setting Image - ' + commonLabels.WIDTH_LABEL + TJava.ToString(newBufferedImage.getWidth()) + commonLabels.HEIGHT_LABEL + TJava.ToString(newBufferedImage.getHeight()), Self, 'getImage');
         g := newBufferedImage.createGraphics();

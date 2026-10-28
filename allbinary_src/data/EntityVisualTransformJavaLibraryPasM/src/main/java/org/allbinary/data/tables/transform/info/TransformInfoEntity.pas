@@ -718,7 +718,7 @@ begin
         for i := 0 to size - 1 do begin
             objectConfigString := string(objectConfigColumnVector.get(i));
             objectConfigString := TJava.NewString(TEncoder.decode(objectConfigString));
-            objectConfigVector.add(Self.transformInfoObjectConfigAndManipulatorFactoryInterface.getInstance(Self.abeClientInformation, ITransformInfoInterface(Pointer(Self)), TDomDocumentHelper.create(objectConfigString)));
+            objectConfigVector.add(Self.transformInfoObjectConfigAndManipulatorFactoryInterface.getInstance(Self.abeClientInformation, ITransformInfoInterface(Pointer(Self)), TDomDocumentHelper.create_(objectConfigString)));
         end;
         Exit(objectConfigVector);
 end;

@@ -637,7 +637,7 @@ var
   op: TAffineTransformOp;
 begin
         Self.logUtil.putF('Starting', Self, 'getImage');
-        newBufferedImage := Self.imageUtil.create(bufferedImage.getWidth(nil), bufferedImage.getHeight(nil));
+        newBufferedImage := Self.imageUtil.create_(bufferedImage.getWidth(nil), bufferedImage.getHeight(nil));
         g := newBufferedImage.createGraphics();
         if verticle then begin
             tx := TAffineTransform.getScaleInstance(1, -1);

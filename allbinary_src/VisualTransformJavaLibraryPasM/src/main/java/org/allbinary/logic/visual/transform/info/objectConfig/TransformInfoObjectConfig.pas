@@ -727,7 +727,7 @@ procedure TTransformInfoObjectConfig.createDocument;
 var
   objectConfigNode: TNode;
 begin
-        Self.document := TDomDocumentHelper.create();
+        Self.document := TDomDocumentHelper.create_();
         objectConfigNode := Self.document.createElement(TTransformInfoObjectConfigData.getInstance().NAME);
         Self.document.appendChild(objectConfigNode);
 end;

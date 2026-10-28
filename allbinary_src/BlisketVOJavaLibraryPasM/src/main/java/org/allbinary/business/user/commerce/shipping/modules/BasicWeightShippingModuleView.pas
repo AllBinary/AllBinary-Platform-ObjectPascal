@@ -670,7 +670,7 @@ var
   document: TDocument;
 begin
         try
-            document := TDomDocumentHelper.create();
+            document := TDomDocumentHelper.create_();
             Exit(document);
         except
             on e: SysUtils.Exception do begin

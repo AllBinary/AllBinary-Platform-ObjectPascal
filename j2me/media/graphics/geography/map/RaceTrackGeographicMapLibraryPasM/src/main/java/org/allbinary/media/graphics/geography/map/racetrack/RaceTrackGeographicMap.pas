@@ -616,7 +616,7 @@ constructor TRaceTrackGeographicMap.Create(raceTrackInfo: TRaceTrackInfo; raceTr
 begin
         inherited Create(raceTrackInfo, raceTrackData, tiledLayerFactoryInterface.getInstance(raceTrackInfo, raceTrackData), TBasicGeographicMapFactory.Create().getInstance(raceTrackInfo, raceTrackData, tiledLayerFactoryInterface, geographicMapCellPositionFactoryInterface, geographicMapCellTypeFactory), geographicMapCellPositionFactoryInterface, geographicMapCellPositionBaseFactory, geographicMapCellTypeFactory);
         InitFields;
-        Self.customMapGenerator := customMapGeneratorBaseFactory.create(Self);
+        Self.customMapGenerator := customMapGeneratorBaseFactory.create_(Self);
 end;
     
 

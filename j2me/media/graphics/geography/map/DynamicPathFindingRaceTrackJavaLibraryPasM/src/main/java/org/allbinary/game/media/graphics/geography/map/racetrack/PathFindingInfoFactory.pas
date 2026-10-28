@@ -710,7 +710,7 @@ begin
                 goingToGeographicMapCellPosition := geographicMapCellPositionFactory.getAt(column, row);
                 costFromStart := raceTrackGeographicMapCellType.getTravelCost();
                 costToEnd := costFromStart;
-                pathFindingNodeCostInfoFactoryInterface.create(geographicMapInterface, goingToGeographicMapCellPosition, cellPosition, costFromStart, costToEnd);
+                pathFindingNodeCostInfoFactoryInterface.create_(geographicMapInterface, goingToGeographicMapCellPosition, cellPosition, costFromStart, costToEnd);
             end;
         end;
 end;

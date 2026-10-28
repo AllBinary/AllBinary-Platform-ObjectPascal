@@ -724,7 +724,7 @@ begin
                     if Torg.allbinary.logic.communication.log.config.type_.LogConfigTypes.LOGGING.contains(Torg.allbinary.logic.communication.log.config.type_.LogConfigTypeFactory.getInstance().JSPTAGEXTRAOUTPUT) then begin
                         Self.pageContext.getOut().print(output + '<br />');
                     end;
-                end else if (Self.getCommand().compareTo(commonStrings.DELETE)) = (0) then begin
+                end else if (Self.getCommand().compareTo(commonStrings.DELETE_)) = (0) then begin
                     output := Self.delete_();
                     if Torg.allbinary.logic.communication.log.config.type_.LogConfigTypes.LOGGING.contains(Torg.allbinary.logic.communication.log.config.type_.LogConfigTypeFactory.getInstance().JSPTAGEXTRAOUTPUT) then begin
                         Self.pageContext.getOut().print(output + '<br />');

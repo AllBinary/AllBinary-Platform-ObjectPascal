@@ -116,8 +116,8 @@ type
     END_: string;
     STARTSELECT: string;
     ENDSELECT: string;
-    SIZE: string;
-    NAME: string;
+    SIZE_: string;
+    NAME_: string;
     STARTOPTION: string;
     SELETED: string;
     ENDOPTION: string;
@@ -628,8 +628,8 @@ begin
   Self.END_ := '>';
   Self.STARTSELECT := '<SELECT ';
   Self.ENDSELECT := '</SELECT>';
-  Self.SIZE := 'SIZE="';
-  Self.NAME := 'NAME="';
+  Self.SIZE_ := 'SIZE="';
+  Self.NAME_ := 'NAME="';
   Self.STARTOPTION := '<OPTION';
   Self.SELETED := 'SELECTED';
   Self.ENDOPTION := '</OPTION>';
@@ -741,10 +741,10 @@ begin
         attributeSize := System.Length(attributeKeys);
         result_ := Self.before;
         result_ := result_ + Self.STARTSELECT;
-        result_ := result_ + Self.NAME;
+        result_ := result_ + Self.NAME_;
         result_ := result_ + Self.name;
         result_ := result_ + '" ';
-        result_ := result_ + Self.SIZE;
+        result_ := result_ + Self.SIZE_;
         result_ := result_ + Self.size;
         result_ := result_ + '" ';
         for i := 0 to attributeSize - 1 do begin

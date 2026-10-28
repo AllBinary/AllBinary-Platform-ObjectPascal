@@ -133,7 +133,7 @@ type
         procedure setTotal(total: Integer); virtual;
         function getTotal: Integer; virtual;
         function drop: string; virtual;
-        function create: string; virtual;
+        function create_: string; virtual;
         function restore: string; virtual;
         function backup: string; virtual;
         function insert: string; virtual;
@@ -741,7 +741,7 @@ end;
     
 
 // throws LicensingException
-function TTableTag.create: string;
+function TTableTag.create_: string;
 var
   anyType: TObject;
   addressHelperClass: TClass;
@@ -927,12 +927,12 @@ begin
             end;
             if Self.isEnabled() then begin
                 if (Self.getCommand()) <> (nil) then begin
-                    if (((((Self.getCommand().compareTo(Self.commonStrings.INSERT)) = (0)) or ((Self.getCommand().compareTo(TSqlStrings.getInstance().INSERT_INTO)) = (0))) or ((Self.getCommand().compareTo(Self.commonStrings.DELETE)) = (0))) or ((Self.getCommand().compareTo(Self.commonStrings.UPDATE)) = (0))) or ((Self.getCommand().compareTo(TSqlStrings.getInstance().UPDATE)) = (0)) then begin
+                    if (((((Self.getCommand().compareTo(Self.commonStrings.INSERT)) = (0)) or ((Self.getCommand().compareTo(TSqlStrings.getInstance().INSERT_INTO)) = (0))) or ((Self.getCommand().compareTo(Self.commonStrings.DELETE_)) = (0))) or ((Self.getCommand().compareTo(Self.commonStrings.UPDATE)) = (0))) or ((Self.getCommand().compareTo(TSqlStrings.getInstance().UPDATE)) = (0)) then begin
                         Self.requestObject := Self.getTagRequestHelperFactoryInterface().getInstance(Self.getPropertiesHashMap(), Self.pageContext);
                     end;
                     if ((Self.getCommand().compareTo(Self.commonStrings.INSERT)) = (0)) or ((Self.getCommand().compareTo(TSqlStrings.getInstance().INSERT_INTO)) = (0)) then begin
                         Self.insert();
-                    end else if (Self.getCommand().compareTo(Self.commonStrings.DELETE)) = (0) then begin
+                    end else if (Self.getCommand().compareTo(Self.commonStrings.DELETE_)) = (0) then begin
                         Self.delete_();
                     end else if ((Self.getCommand().compareTo(Self.commonStrings.UPDATE)) = (0)) or ((Self.getCommand().compareTo(TSqlStrings.getInstance().UPDATE)) = (0)) then begin
                         Self.update();
@@ -958,7 +958,7 @@ begin
                         end;
                         Exit(SKIP_BODY);
                     end else if (Self.getCommand().compareTo(Self.commonStrings.CREATE_)) = (0) then begin
-                        output := Self.create();
+                        output := Self.create_();
                         if Torg.allbinary.logic.communication.log.config.type_.LogConfigTypes.LOGGING.contains(Torg.allbinary.logic.communication.log.config.type_.LogConfigTypeFactory.getInstance().JSPTAGEXTRAOUTPUT) then begin
                             Self.pageContext.getOut().print(output + '<br />');
                         end;
@@ -968,7 +968,7 @@ begin
                         if Torg.allbinary.logic.communication.log.config.type_.LogConfigTypes.LOGGING.contains(Torg.allbinary.logic.communication.log.config.type_.LogConfigTypeFactory.getInstance().JSPTAGEXTRAOUTPUT) then begin
                             Self.pageContext.getOut().print(output + '<br />');
                         end;
-                    end else if (Self.getCommand().compareTo(Self.commonStrings.DELETE)) = (0) then begin
+                    end else if (Self.getCommand().compareTo(Self.commonStrings.DELETE_)) = (0) then begin
                         output := Self.delete_();
                         if Torg.allbinary.logic.communication.log.config.type_.LogConfigTypes.LOGGING.contains(Torg.allbinary.logic.communication.log.config.type_.LogConfigTypeFactory.getInstance().JSPTAGEXTRAOUTPUT) then begin
                             Self.pageContext.getOut().print(output + '<br />');

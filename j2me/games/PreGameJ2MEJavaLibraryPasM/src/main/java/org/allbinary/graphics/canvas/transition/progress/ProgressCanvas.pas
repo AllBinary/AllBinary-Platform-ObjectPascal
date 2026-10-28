@@ -125,7 +125,7 @@ type
     GAUGE_PAINTABLE: TPaintable;
     maxValue: Single;
     gauge: TABCustomGaugeItem;
-    TEXT: string;
+    TEXT_: string;
     updateMyFontProcessor: TMyFontProcessor;
     myFontProcessor: TMyFontProcessor;
     allbinaryMidlet: TAllBinaryMidlet;
@@ -682,12 +682,12 @@ begin
   Self.GAUGE_PAINTABLE := TProgressPaintable.Create(Self);
   Self.maxValue := 100.0;
   
-  Self.TEXT := Self.commonStrings.LOADING;
+  Self.TEXT_ := Self.commonStrings.LOADING;
   Self.updateMyFontProcessor := TUpdateMyFontProcessor.Create(Self);
   Self.myFontProcessor := Self.updateMyFontProcessor;
   Self.allbinaryMidlet := TAllBinaryMidlet.getNullInstance();
   
-  Self.text := Self.TEXT;
+  Self.text := Self.TEXT_;
   Self.background := True;
   Self.paintable := Self.GAUGE_PAINTABLE;
   Self.inProgress := False;
@@ -758,7 +758,7 @@ begin
         Self.setBackground(True);
         Self.gauge.setHeight(30);
         Self.gauge.setLabel(Self.commonStrings.PLEASE_WAIT);
-        Self.setText(Self.TEXT);
+        Self.setText(Self.TEXT_);
         Self.setValue(0);
         Self.inGameProcessor := TProcessor.getInstance();
         Self.paintable := Self.GAUGE_PAINTABLE;
@@ -772,7 +772,7 @@ begin
         Self.setBackground(background);
         Self.myFontProcessor := Self.updateMyFontProcessor;
         Self.gauge.setLabel(Self.backgroundLabel);
-        Self.setText(Self.TEXT);
+        Self.setText(Self.TEXT_);
         Self.setValue(0);
         Self.inGameProcessor := TProcessor.getInstance();
         Self.paintable := Self.GAUGE_PAINTABLE;

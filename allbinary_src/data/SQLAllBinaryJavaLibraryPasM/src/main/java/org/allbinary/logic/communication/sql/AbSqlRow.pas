@@ -817,7 +817,7 @@ begin
     TJava.MonitorEnter(Self);
     try
         stringBuffer := TStringMaker.Create();
-        stringBuffer.append(Self.sqlStrings.DELETE);
+        stringBuffer.append(Self.sqlStrings.DELETE_);
         stringBuffer.append(Self.sqlStrings.FROM);
         stringBuffer.append(Self.getTableName());
         stringBuffer.append(Self.sqlStrings.WHERE);
@@ -858,7 +858,7 @@ begin
     TJava.MonitorEnter(Self);
     try
         stringBuffer := TStringMaker.Create();
-        stringBuffer.append(Self.sqlStrings.DELETE);
+        stringBuffer.append(Self.sqlStrings.DELETE_);
         stringBuffer.append(Self.sqlStrings.FROM);
         stringBuffer.append(Self.getTableName());
         stringBuffer.append(Self.sqlStrings.WHERE);

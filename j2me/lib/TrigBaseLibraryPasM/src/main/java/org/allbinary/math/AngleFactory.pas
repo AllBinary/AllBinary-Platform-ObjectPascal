@@ -713,7 +713,7 @@ begin
         for index := 0 to 360 - 1 do begin
             stringMaker.appendint(index).append(TCommonSeps.getInstance().FORWARD_SLASH).appendshort(SmallInt(Trunc(angleFactory.getClosestDirection(index).getValue()))).append(TCommonSeps.getInstance().NEW_LINE);
         end;
-        TLogUtil.getInstance().putF(stringMaker.toString(), 'main', 'main');
+        TLogUtil.getInstance().putFS(stringMaker.toString(), 'main', 'main');
 end;
 
 initialization

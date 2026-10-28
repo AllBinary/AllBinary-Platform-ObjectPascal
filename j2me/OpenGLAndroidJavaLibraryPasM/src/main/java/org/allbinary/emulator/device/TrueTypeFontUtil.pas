@@ -734,7 +734,7 @@ begin
                 canvas.drawText(Self.characterArray, 0, 1, (x) - (3.0), (y) - (6.0), paint);
             end;
             canvas.save();
-            image := TAndroidImmutableImage.create(bitmap);
+            image := TAndroidImmutableImage.create_(bitmap);
             Self.fontImage := TOpenGLESImage(Self.preResourceImageUtil.encapsulate(image));
             Exit(Self.fontImage);
         end else begin

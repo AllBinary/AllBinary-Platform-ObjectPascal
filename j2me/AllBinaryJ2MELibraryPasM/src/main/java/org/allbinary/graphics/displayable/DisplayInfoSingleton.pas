@@ -148,8 +148,8 @@ type
     UPDATE_FROM_ORIENTATION_CHANGE: string;
     list: TBasicArrayList;
     DISPLAY_INFO: string;
-    FULL: string;
-    LAST: string;
+    FULL_: string;
+    LAST_: string;
     LAST_HALF: string;
     class var SINGLETON: TDisplayInfoSingleton;
     procedure InitFields;
@@ -710,8 +710,8 @@ begin
   Self.UPDATE_FROM_ORIENTATION_CHANGE := 'Updating from Orientation Change ';
   Self.list := TBasicArrayListD.Create();
   Self.DISPLAY_INFO := 'Display Info: ';
-  Self.FULL := 'full';
-  Self.LAST := 'last';
+  Self.FULL_ := 'full';
+  Self.LAST_ := 'last';
   Self.LAST_HALF := 'lastHalf';
 end;
     
@@ -994,19 +994,19 @@ end;
 function TDisplayInfoSingleton.toStringAppend(stringBuffer: TStringMaker): string;
 begin
         stringBuffer.append(Self.DISPLAY_INFO);
-        stringBuffer.append(Self.FULL);
+        stringBuffer.append(Self.FULL_);
         stringBuffer.append(Self.commonLabels.WIDTH_LABEL);
         stringBuffer.appendint(Self.full[Self.WIDTH]);
         stringBuffer.append(Self.commonSeps.SPACE);
-        stringBuffer.append(Self.FULL);
+        stringBuffer.append(Self.FULL_);
         stringBuffer.append(Self.commonLabels.HEIGHT_LABEL);
         stringBuffer.appendint(Self.full[Self.HEIGHT]);
         stringBuffer.append(Self.commonSeps.SPACE);
-        stringBuffer.append(Self.LAST);
+        stringBuffer.append(Self.LAST_);
         stringBuffer.append(Self.commonLabels.WIDTH_LABEL);
         stringBuffer.appendint(Self.last[Self.WIDTH]);
         stringBuffer.append(Self.commonSeps.SPACE);
-        stringBuffer.append(Self.LAST);
+        stringBuffer.append(Self.LAST_);
         stringBuffer.append(Self.commonLabels.HEIGHT_LABEL);
         stringBuffer.appendint(Self.last[Self.HEIGHT]);
         stringBuffer.append(Self.commonSeps.SPACE);

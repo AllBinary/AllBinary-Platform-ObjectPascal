@@ -638,7 +638,7 @@ begin
             Self.validationInterface := TStoreThemeCategoryPathValidationView.Create(IStoreThemeCategoryInterface(Pointer(storeThemeCategoryInterface)));
             isValid := Self.validationInterface.isValid();
             domNodeInterface := IDomNodeInterface(Pointer(Self.validationInterface));
-            document := TDomDocumentHelper.create();
+            document := TDomDocumentHelper.create_();
             document.appendChild(domNodeInterface.toXmlNode(document));
             documentString := TXmlDocumentHelper.toString(document);
             if Torg.allbinary.logic.communication.log.config.type_.LogConfigTypes.LOGGING.contains(Torg.allbinary.logic.communication.log.config.type_.LogConfigTypeFactory.getInstance().VIEWERROR) then begin

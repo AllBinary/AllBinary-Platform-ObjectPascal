@@ -113,7 +113,7 @@ type
 
   IBasicTableInterface = interface
         function drop: string;
-        function create: string;
+        function create_: string;
         function restore: string;
         function backup: string;
   end;

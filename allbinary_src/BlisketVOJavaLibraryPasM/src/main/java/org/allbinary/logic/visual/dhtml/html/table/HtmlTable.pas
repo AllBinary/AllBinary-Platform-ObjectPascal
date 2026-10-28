@@ -121,14 +121,14 @@ type
     ID: string;
     LANG: string;
     UNITS: string;
-    BORDER: string;
-    CELLPADDING: string;
-    CELLSPACING: string;
+    BORDER_: string;
+    CELLPADDING_: string;
+    CELLSPACING_: string;
     COLS: string;
     FLOAT: string;
     FRAME: string;
     RULES: string;
-    STYLE: string;
+    STYLE_: string;
     BORDERCOLLAPSE: string;
     numberOfColumns: Integer;
     before: string;
@@ -638,14 +638,14 @@ begin
   Self.ID := 'id';
   Self.LANG := 'lang';
   Self.UNITS := 'units';
-  Self.BORDER := 'border';
-  Self.CELLPADDING := 'cellpadding';
-  Self.CELLSPACING := 'cellspacing';
+  Self.BORDER_ := 'border';
+  Self.CELLPADDING_ := 'cellpadding';
+  Self.CELLSPACING_ := 'cellspacing';
   Self.COLS := 'cols';
   Self.FLOAT := 'float';
   Self.FRAME := 'frame';
   Self.RULES := 'rules';
-  Self.STYLE := 'style';
+  Self.STYLE_ := 'style';
   Self.BORDERCOLLAPSE := 'border-collapse: collapse';
   Self.numberOfColumns := 0;
   
@@ -668,10 +668,10 @@ begin
         Self.cellspacing := cellspacing;
         Self.after := after;
         Self.htmlRowsVector := TBasicArrayListD.Create();
-        Self.addAttribute(Self.BORDER, TCommonPhoneStrings.getInstance().ZERO);
-        Self.addAttribute(Self.CELLPADDING, Self.cellpadding);
-        Self.addAttribute(Self.CELLSPACING, Self.cellspacing);
-        Self.addAttribute(Self.STYLE, Self.BORDERCOLLAPSE);
+        Self.addAttribute(Self.BORDER_, TCommonPhoneStrings.getInstance().ZERO);
+        Self.addAttribute(Self.CELLPADDING_, Self.cellpadding);
+        Self.addAttribute(Self.CELLSPACING_, Self.cellspacing);
+        Self.addAttribute(Self.STYLE_, Self.BORDERCOLLAPSE);
 end;
     
 

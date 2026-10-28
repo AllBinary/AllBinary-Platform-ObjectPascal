@@ -683,7 +683,7 @@ begin
                     isValid := False;
                 end;
                 if (isValid) = (True) then begin
-                    document := TDomDocumentHelper.create();
+                    document := TDomDocumentHelper.create_();
                     document.appendChild(pageValidation.toXmlNode(document));
                     documentString := TXmlDocumentHelper.toString(document);
                     if Torg.allbinary.logic.communication.log.config.type_.LogConfigTypes.LOGGING.contains(Torg.allbinary.logic.communication.log.config.type_.LogConfigTypeFactory.getInstance().VIEW) then begin

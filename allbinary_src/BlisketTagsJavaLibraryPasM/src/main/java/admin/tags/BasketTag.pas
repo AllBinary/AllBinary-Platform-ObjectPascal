@@ -760,7 +760,7 @@ begin
                     if not (Self.addItemToBasket()) then begin
                         Self.pageContext.getOut().println('Item is not currently being sold.<p/>');
                     end;
-                end else if (CompareStr(Self.command, TBasketData.DELETE)) = (0) then begin
+                end else if (CompareStr(Self.command, TBasketData.DELETE_)) = (0) then begin
                     Self.removeItemFromBasket();
                 end else if (CompareStr(Self.command, TBasketData.ADJUST)) = (0) then begin
                     Self.adjustBasket();
