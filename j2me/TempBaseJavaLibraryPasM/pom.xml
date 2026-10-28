@@ -33,14 +33,7 @@
     </properties>
 
     <dependencies>
-        <!--
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>3.8.1</version>
-            <scope>test</scope>
-        </dependency>
-        -->
+        
 
         <dependency>
             <groupId>org.allbinary</groupId>
@@ -72,6 +65,8 @@
                                 <argument>${fpc.compiler.flags}</argument>
                                 <argument>${opascal.fail.on.error}</argument>
                                 <argument>${opascal.jsinterop.source.path}</argument>
+                                <!-- Object Pascal dependency source paths start -->
+                                <!-- Object Pascal dependency source paths end -->
                             </arguments>
                         </configuration>
                     </execution>

@@ -33,14 +33,24 @@
     </properties>
 
     <dependencies>
-        <!--
+
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>3.8.1</version>
-            <scope>test</scope>
+            <groupId>org.allbinary</groupId>
+            <artifactId>ThreadLibraryPas</artifactId>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+            <optional>true</optional>
         </dependency>
-        -->
+        
+        <!-- 4.3 is on maven apache server -->
+        <dependency>
+            <groupId>org.eclipse.swt</groupId>
+            <artifactId>org.eclipse.swt.win32.win32.x86_64Pas</artifactId>
+            <version>4.3</version>
+            <optional>true</optional>
+        </dependency>
+        
 
         <dependency>
             <groupId>org.allbinary</groupId>
@@ -73,21 +83,20 @@
                                 <argument>${opascal.fail.on.error}</argument>
                                 <argument>${opascal.jsinterop.source.path}</argument>
                                 <!-- Object Pascal dependency source paths start -->
-                                <argument>G:/mnt/bc/mydev/workingopascal/allbinary_src/J2SEExceptionLibraryPasM/src/main/java</argument>
-                                <argument>G:/mnt/bc/mydev/workingopascal/allbinary_src/LogJ2MEJavaLibraryPasM/src/main/java</argument>
-                                <argument>G:/mnt/bc/mydev/workingopascal/allbinary_src/LogNoPlatformJavaLibraryPasM/src/main/java</argument>
-                                <argument>G:/mnt/bc/mydev/workingopascal/allbinary_src/LogPasM/src/main/java</argument>
-                                <argument>G:/mnt/bc/mydev/workingopascal/allbinary_src/ThreadJ2MELibraryPasM/src/main/java</argument>
-                                <argument>G:/mnt/bc/mydev/workingopascal/allbinary_src/ThreadLibraryPasM/src/main/java</argument>
-                                <argument>G:/mnt/bc/mydev/workingopascal/j2me/CommonJavaLibraryPasM/src/main/java</argument>
-                                <argument>G:/mnt/bc/mydev/workingopascal/j2me/J2MEExceptionLibraryPasM/src/main/java</argument>
-                                <argument>G:/mnt/bc/mydev/workingopascal/j2me/J2MEUtilJavaLibraryPasM/src/main/java</argument>
-                                <argument>G:/mnt/bc/mydev/workingopascal/j2me/lib/BaseMathLibraryPasM/src/main/java</argument>
-                                <argument>G:/mnt/bc/mydev/workingopascal/j2me/lib/BasicMathLibraryPasM/src/main/java</argument>
-                                <argument>G:/mnt/bc/mydev/workingopascal/j2me/logging/LoggingJ2MEAllPasM/src/main/java</argument>
-                                <argument>G:/mnt/bc/mydev/workingopascal/j2me/logging/LoggingJ2MEExceptionPasM/src/main/java</argument>
-                                <argument>G:/mnt/bc/mydev/workingopascal/j2me/TempBaseJavaLibraryPasM/src/main/java</argument>
-                                <argument>G:/mnt/bc/mydev/workingopascal/replace_these_stub_projects/allbinary_src/NoneOnlyJavaLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/allbinary_src/LogJ2MEJavaLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/allbinary_src/LogNoPlatformJavaLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/allbinary_src/LogPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/allbinary_src/ThreadJ2MELibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/allbinary_src/ThreadLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/j2me/CommonJavaLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/j2me/J2MEExceptionLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/j2me/J2MEUtilJavaLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/j2me/TempBaseJavaLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/j2me/lib/BaseMathLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/j2me/lib/BasicMathLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/j2me/logging/LoggingJ2MEAllPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/j2me/logging/LoggingJ2MEExceptionPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/replace_these_stub_projects/allbinary_src/NoneOnlyJavaLibraryPasM/src/main/java</argument>
                                 <!-- Object Pascal dependency source paths end -->
                             </arguments>
                         </configuration>

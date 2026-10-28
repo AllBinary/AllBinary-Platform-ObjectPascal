@@ -33,14 +33,89 @@
     </properties>
 
     <dependencies>
-        <!--
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>3.8.1</version>
             <scope>test</scope>
         </dependency>
-        -->
+
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>LoggingJ2MEAllPas</artifactId>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>LogJ2MEJavaLibraryPas</artifactId>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
+            <optional>true</optional>
+        </dependency>
+                        
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>J2MEOnlyJavaLibraryPas</artifactId>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
+            <optional>true</optional>
+        </dependency>
+                        
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>TokenizerJavaLibraryPas</artifactId>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
+        </dependency>
+
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>ProgressJ2MEJavaLibraryPas</artifactId>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>SimpleCryptLibraryPas</artifactId>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
+        </dependency>
+
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>YourSecurityJavaLibraryPas</artifactId>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>YourXmlRpcJavaLibraryPas</artifactId>            
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
+            <optional>true</optional>
+        </dependency>
 
         <dependency>
             <groupId>org.allbinary</groupId>
@@ -73,26 +148,114 @@
                                 <argument>${opascal.fail.on.error}</argument>
                                 <argument>${opascal.jsinterop.source.path}</argument>
                                 <!-- Object Pascal dependency source paths start -->
-                                <argument>G:/mnt/bc/mydev/AllBinary-Platform-Integrationopascal/embedded/j2me/microemulator/3.0.0/TempMIDPJavaLibraryPasM/src/main/java</argument>
-                                <argument>G:/mnt/bc/mydev/workingopascal/allbinary_src/allbinary_src_designpatterns_srcPasM/src/main/java</argument>
-                                <argument>G:/mnt/bc/mydev/workingopascal/allbinary_src/logic/BasePreloaderJ2MEJavaLibraryPasM/src/main/java</argument>
-                                <argument>G:/mnt/bc/mydev/workingopascal/allbinary_src/LogJ2MEJavaLibraryPasM/src/main/java</argument>
-                                <argument>G:/mnt/bc/mydev/workingopascal/allbinary_src/LogNoPlatformJavaLibraryPasM/src/main/java</argument>
-                                <argument>G:/mnt/bc/mydev/workingopascal/allbinary_src/LogPasM/src/main/java</argument>
-                                <argument>G:/mnt/bc/mydev/workingopascal/allbinary_src/security/SimpleCryptLibraryPasM/src/main/java</argument>
-                                <argument>G:/mnt/bc/mydev/workingopascal/allbinary_src/TokenizerJavaLibraryPasM/src/main/java</argument>
-                                <argument>G:/mnt/bc/mydev/workingopascal/j2me/CommonJavaLibraryPasM/src/main/java</argument>
-                                <argument>G:/mnt/bc/mydev/workingopascal/j2me/J2MEExceptionLibraryPasM/src/main/java</argument>
-                                <argument>G:/mnt/bc/mydev/workingopascal/j2me/J2MEUtilJavaLibraryPasM/src/main/java</argument>
-                                <argument>G:/mnt/bc/mydev/workingopascal/j2me/J2MEWindowingJavaLibraryPasM/src/main/java</argument>
-                                <argument>G:/mnt/bc/mydev/workingopascal/j2me/lib/BaseMathLibraryPasM/src/main/java</argument>
-                                <argument>G:/mnt/bc/mydev/workingopascal/j2me/logging/LoggingJ2MEAllPasM/src/main/java</argument>
-                                <argument>G:/mnt/bc/mydev/workingopascal/j2me/logging/LoggingJ2MEExceptionPasM/src/main/java</argument>
-                                <argument>G:/mnt/bc/mydev/workingopascal/j2me/ProgressJ2MEJavaLibraryPasM/src/main/java</argument>
-                                <argument>G:/mnt/bc/mydev/workingopascal/j2me/TempBaseJavaLibraryPasM/src/main/java</argument>
-                                <argument>G:/mnt/bc/mydev/workingopascal/replace_these_stub_projects/allbinary_src/J2MEOnlyJavaLibraryPasM/src/main/java</argument>
-                                <argument>G:/mnt/bc/mydev/workingopascal/replace_these_stub_projects/communication/YourXmlRpcJavaLibraryPasM/src/main/java</argument>
-                                <argument>G:/mnt/bc/mydev/workingopascal/replace_these_stub_projects/security/YourSecurityJavaLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/AllBinary-Platform-Integrationopascal/embedded/j2me/microemulator/3.0.0/TempMIDPJavaLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/AllBinary-Platform-Integrationopascal/embedded/j2me/microemulator/custom/MicroEmulatorCustomJavaLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/AllBinary-Platform-Integrationopascal/graphics/opengl/min3d/Min3dBaseJavaLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/working_thirdpartyopascal/embedded/j2me/microemulator/2_0_4/microemu-cldcPas/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/working_thirdpartyopascal/embedded/j2me/microemulator/2_0_4/microemu-midpPas/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/allbinary_src/J2SEExceptionLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/allbinary_src/LogJ2MEJavaLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/allbinary_src/LogJ2SEJavaLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/allbinary_src/LogNoPlatformJavaLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/allbinary_src/LogPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/allbinary_src/ThreadJ2MELibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/allbinary_src/ThreadLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/allbinary_src/TokenizerJavaLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/allbinary_src/allbinary_src_designpatterns_srcPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/allbinary_src/cache/BaseCacheJavaLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/allbinary_src/hardware/AndroidSystemJavaLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/allbinary_src/hardware/BaseHardwareJavaLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/allbinary_src/hardware/BaseOperatingSystemJavaLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/allbinary_src/hardware/BaseSystemJavaLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/allbinary_src/hardware/NoHardwareJavaLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/allbinary_src/hardware/NoSystemJavaLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/allbinary_src/licensing/ClientInfoBaseJavaLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/allbinary_src/logic/BasePreloaderFileJavaLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/allbinary_src/logic/BasePreloaderJ2MEJavaLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/allbinary_src/logic/data/file/FileJ2SEJavaLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/allbinary_src/logic/data/file/FileJavaLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/allbinary_src/security/SimpleCryptLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/graphics/opengl/Min3dForNullJavaLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/graphics/opengl/NoSWTJavaLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/graphics/opengl/OpenGLESBaseJavaLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/graphics/opengl/OpenGLESFileConfigurationJavaLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/graphics/opengl/OpenGLESJavaLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/graphics/opengl/OpenGLESNullImageJavaLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/graphics/opengl/OpenGLJ2MENoneJavaLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/graphics/opengl/OpenGLNoneJavaLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/graphics/opengl/OpenGLNoneOtherJavaLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/graphics/opengl/SWTWithoutJOGLJavaLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/j2me/AllBinaryJ2MELibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/j2me/AndroidResourceLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/j2me/CommonJavaLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/j2me/DebugJavaLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/j2me/EventJ2MELibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/j2me/GroupLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/j2me/J2MEColorJavaLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/j2me/J2MEExceptionLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/j2me/J2MEForJ2MEJavaLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/j2me/J2MEUtilJavaLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/j2me/J2MEWindowingJavaLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/j2me/J2SEForJ2MEJavaLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/j2me/NullJ2MELibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/j2me/PCResourceLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/j2me/ProgressJ2MEJavaLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/j2me/TempBaseJavaLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/j2me/TempJavaLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/j2me/android/VirtualKeyboardJavaLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/j2me/games/GameConfigurationJ2MEJavaLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/j2me/games/GameConfigurationJavaLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/j2me/games/GameInputLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/j2me/games/GameInputPersistanceLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/j2me/games/GameSoundsJavaLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/j2me/games/PreGameJ2MEJavaLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/j2me/games/ScreenCaptureJavaLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/j2me/input/AllBinarySensorJavaLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/j2me/input/MotionGestureBaseJavaLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/j2me/input/TouchButtonBaseJavaLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/j2me/input/TouchButtonJavaLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/j2me/input/TouchScreenJavaLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/j2me/input/platform/me/TouchJ2MENoneJavaLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/j2me/input/platform/pc/GameInputPCBaseJavaLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/j2me/input/platform/pc/GameInputPCJavaLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/j2me/input/platform/pc/GameInputPCMotionJavaLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/j2me/lib/BaseMathLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/j2me/lib/BasicMathLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/j2me/lib/TrigBaseLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/j2me/lib/TrigJ2MELibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/j2me/lib/VectorThreeDimensionalLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/j2me/logging/LoggingJ2MEAllPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/j2me/logging/LoggingJ2MEExceptionPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/j2me/media/graphics/FormBaseJavaLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/j2me/media/graphics/FormJMEJavaLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/j2me/media/graphics/FormJavaLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/j2me/media/graphics/FormValidationJavaLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/j2me/media/graphics/GameResourceNoneJavaLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/j2me/media/graphics/ImageCacheBaseJ2MEJavaLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/j2me/media/graphics/ImageCacheJ2MEJavaLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/j2me/media/graphics/ImageCacheOpenGLESJavaLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/j2me/media/graphics/NullCustomUIJavaLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/j2me/media/graphics/NullCustomUIPreJavaLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/j2me/media/graphics/animation/AnimationLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/j2me/media/graphics/animation/AnimationResourceJavaLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/j2me/media/graphics/animation/GameAnimationJavaLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/j2me/media/graphics/animation/RotationAnimationJavaLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/j2me/media/graphics/animation/image/ImageJ2MEJavaLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/j2me/media/graphics/geography/map/GraphBaseJavaLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/j2me/media/graphics/geography/map/LayerPlacementLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/j2me/media/graphics/layer/AllBinaryLayerJavaLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/j2me/media/sound/BasicPlayerJavaLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/j2me/media/sound/NoPlayerJavaLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/j2me/media/sound/NotDeviceSpecificNoMediaMIDP1LibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/j2me/media/sound/SoundJ2MELibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/j2me/statistics/ApplicationStatisticsJ2MELibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/j2me/statistics/ApplicationStatisticsJavaLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/j2me/time/TimeJavaLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/replace_these_stub_projects/allbinary_src/J2MEOnlyJavaLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/replace_these_stub_projects/allbinary_src/NoneOnlyJavaLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/replace_these_stub_projects/communication/YourXmlRpcJavaLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/replace_these_stub_projects/security/YourSecurityJavaLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workopascal/j2me/android/AndroidToNullLibraryPasM/src/main/java</argument>
                                 <!-- Object Pascal dependency source paths end -->
                             </arguments>
                         </configuration>
