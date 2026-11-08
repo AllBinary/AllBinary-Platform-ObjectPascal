@@ -30,7 +30,7 @@
         <module>../../graphics/animation/image/AllBinaryImageAnimationJavaLibraryPasM</module>
         <module>../../graphics/animation/sprite/AllBinarySpriteAnimationJavaLibraryPasM</module>
         <module>../../graphics/animation/image/ImageJ2MEJavaLibraryPasM</module>
-        <module>../../graphics/animation/image/ImageJ2SEJavaLibraryPasM</module>
+        <!--<module>../../graphics/animation/image/ImageJ2SEJavaLibraryPasM</module>-->
         <module>../../graphics/GraphicsBasicImageJavaLibraryPasM</module>
         <module>../../graphics/animation/image/AllBinaryImageAnimationRotationJavaLibraryPasM</module>
     </modules>

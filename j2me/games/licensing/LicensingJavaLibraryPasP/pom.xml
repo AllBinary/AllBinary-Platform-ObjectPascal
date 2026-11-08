@@ -20,7 +20,7 @@
         </repository>
     </distributionManagement>
     <modules>
-        <module>../../platform/android/AndroidResourcesTempJavaLibraryPasM</module>
-        <module>../../../../allbinary_src/licensing/ClientInformationMobileLicensingRegistrationJavaLibraryPasM</module>
+        <!--<module>../../platform/android/AndroidResourcesTempJavaLibraryPasM</module>-->
+        <!--<module>../../../../allbinary_src/licensing/ClientInformationMobileLicensingRegistrationJavaLibraryPasM</module>-->
     </modules>
 </project>

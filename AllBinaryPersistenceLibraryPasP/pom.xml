@@ -25,17 +25,17 @@
         <module>../allbinary_src/logic/BasePreloaderFileJavaLibraryPasM</module>
         <module>../allbinary_src/logic/data/file/FileJavaLibraryPasM</module>
         <module>../allbinary_src/logic/data/file/FileJ2SEJavaLibraryPasM</module>
-        <module>../allbinary_src/data/DataJavaLibraryPasM</module>
-        <module>../allbinary_src/logic/data/file/FileUnamedJavaLibraryPasM</module>
-        <module>../allbinary_src/logic/data/file/FileAdvancedJavaLibraryPasM</module>
-        <module>../allbinary_src/PreLoaderJavaLibraryPasM</module>
-        <module>../allbinary_src/FileInitInfoJavaLibraryPasM</module>
-        <module>../allbinary_src/PreLoaderFileJavaLibraryPasM</module>
-        <module>../allbinary_src/PreLoaderLicenseJavaLibraryPasM</module>
+        <!--<module>../allbinary_src/data/DataJavaLibraryPasM</module>-->
+        <!--<module>../allbinary_src/logic/data/file/FileUnamedJavaLibraryPasM</module>-->
+        <!--<module>../allbinary_src/logic/data/file/FileAdvancedJavaLibraryPasM</module>-->
+        <!--<module>../allbinary_src/PreLoaderJavaLibraryPasM</module>-->
+        <!--<module>../allbinary_src/FileInitInfoJavaLibraryPasM</module>-->
+        <!--<module>../allbinary_src/PreLoaderFileJavaLibraryPasM</module>-->
+        <!--<module>../allbinary_src/PreLoaderLicenseJavaLibraryPasM</module>-->
         <module>../j2me/PCResourceLibraryPasM</module>
         <module>../j2me/ProgressJ2MEJavaLibraryPasM</module>
         <module>../allbinary_src/licensing/ClientInfoBaseJavaLibraryPasM</module>
-        <module>../allbinary_src/licensing/RemoteXmlRpcJavaLibraryPasM</module>
-        <module>../allbinary_src/licensing/LicenseClientJavaLibraryPasM</module>
+        <!--<module>../allbinary_src/licensing/RemoteXmlRpcJavaLibraryPasM</module>-->
+        <!--<module>../allbinary_src/licensing/LicenseClientJavaLibraryPasM</module>-->
     </modules>
 </project>

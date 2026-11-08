@@ -20,10 +20,10 @@
         </repository>
     </distributionManagement>
     <modules>
-        <module>../../media/sound/MusicJ2MEJavaLibraryPasM</module>
-        <module>../../media/sound/NullMusicAndroidJavaLibraryPasM</module>
-        <module>../../media/sound/MusicAndroidJavaLibraryPasM</module>
-        <module>../../../allbinary_src/logic/data/file/FileAndroidJavaLibraryPasM</module>
-        <module>../../input/platform/android/MotionInputAndroidResourcesJavaLibraryPasM</module>
+        <!--<module>../../media/sound/MusicJ2MEJavaLibraryPasM</module>-->
+        <!--<module>../../media/sound/NullMusicAndroidJavaLibraryPasM</module>-->
+        <!--<module>../../media/sound/MusicAndroidJavaLibraryPasM</module>-->
+        <!--<module>../../../allbinary_src/logic/data/file/FileAndroidJavaLibraryPasM</module>-->
+        <!--<module>../../input/platform/android/MotionInputAndroidResourcesJavaLibraryPasM</module>-->
     </modules>
 </project>

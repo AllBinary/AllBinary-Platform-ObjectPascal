@@ -20,15 +20,19 @@
         </repository>
     </distributionManagement>
     <modules>
+        <module>../working_thirdpartyopascal/embedded/j2me/microemulator/2_0_4/microemu-cldcPas</module>
+        <module>../working_thirdpartyopascal/embedded/j2me/microemulator/2_0_4/microemu-midpPas</module>
+        <module>../working_thirdpartyopascal/embedded/j2me/microemulator/2_0_4/microemu-extensions/microemu-jsr-135Pas</module>
+        
         <module>./j2me/AllBinaryBaseLibraryPOPasM</module>
         <module>./j2me/AllBinaryJ2MELibraryPasP</module>
         <module>./AllBinaryPersistenceLibraryPasP</module>
-        <module>./automation/InputAutomationToolsPasP</module>
+        <!--<module>./automation/InputAutomationToolsPasP</module>-->
         <module>./graphics/GraphicsToolsPasP</module>
-        <module>./allbinary_src/FreeblisketJavaLibraryPasP</module>
+        <!--<module>./allbinary_src/FreeblisketJavaLibraryPasP</module>-->
         <module>./j2me/games/platform/AllBinaryOnAllPlatformsJavaLibraryPasP</module>
-        <module>./j2me/media/graphics/animation/image/AllBinaryJ2SEImageAnimationRotationJavaLibraryPasM</module>
-        <module>./j2me/games/Resources/sounds/release/GameSoundsJ2SEOggResourcesJavaLibraryPasM</module>
-        <module>./graphics/opengl/AllBinaryJOGLResourcesJavaLibraryPasM</module>
+        <!--<module>./j2me/media/graphics/animation/image/AllBinaryJ2SEImageAnimationRotationJavaLibraryPasM</module>-->
+        <!--<module>./j2me/games/Resources/sounds/release/GameSoundsJ2SEOggResourcesJavaLibraryPasM</module>-->
+        <!--<module>./graphics/opengl/AllBinaryJOGLResourcesJavaLibraryPasM</module>-->
     </modules>
 </project>

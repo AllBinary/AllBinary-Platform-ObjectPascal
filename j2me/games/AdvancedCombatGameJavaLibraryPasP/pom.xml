@@ -20,7 +20,7 @@
         </repository>
     </distributionManagement>
     <modules>
-        <module>../../../graphics/opengl/OpenGLJOGLJavaLibraryPasM</module>
+        <!--<module>../../../graphics/opengl/OpenGLJOGLJavaLibraryPasM</module>-->
         <module>../../../graphics/opengl/OpenGLESBaseJavaLibraryPasM</module>
         <module>../licensing/LicensingJavaLibraryPasP</module>
         <module>../../../allbinary_src/allbinary_src_generic_event_srcPasM</module>

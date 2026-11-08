@@ -20,11 +20,11 @@
         </repository>
     </distributionManagement>
     <modules>
-        <module>../../android/AndroidUtilJavaLibraryPasM</module>
+        <!--<module>../../android/AndroidUtilJavaLibraryPasM</module>-->
         <module>../../../allbinary_src/security/SimpleCryptLibraryPasM</module>
         <module>../../../allbinary_src/TokenizerJavaLibraryPasM</module>
         <module>../../../allbinary_src/security/BasicSecurityJavaLibraryPasM</module>
-        <module>../../../replace_these_stub_projects/security/YourCryptFileJavaLibraryPasM</module>
+        <!--<module>../../../replace_these_stub_projects/security/YourCryptFileJavaLibraryPasM</module>-->
         <module>../../../replace_these_stub_projects/security/YourSecurityJavaLibraryPasM</module>
         <module>../../../replace_these_stub_projects/communication/YourXmlRpcJavaLibraryPasM</module>
         <module>../../../replace_these_stub_projects/allbinary_src/J2MEOnlyJavaLibraryPasM</module>
@@ -33,8 +33,8 @@
         <module>../../DebugJavaLibraryPasM</module>
         <module>../../ResourceLibraryPasM</module>
         <module>../../ResourceJ2MEJavaLibraryPasM</module>
-        <module>../../AndroidResourceLibraryPasM</module>
-        <module>../../../allbinary_src/hardware/AndroidSystemJavaLibraryPasM</module>
+        <!--<module>../../AndroidResourceLibraryPasM</module>-->
+        <!--<module>../../../allbinary_src/hardware/AndroidSystemJavaLibraryPasM</module>-->
         <module>../../../game/behavior/ArtificialIntelligenceLibraryPasM</module>
         <module>../../media/graphics/PlatformNullImageJavaLibraryPasM</module>
         <module>../../media/graphics/ImageCacheBaseJ2MEJavaLibraryPasM</module>

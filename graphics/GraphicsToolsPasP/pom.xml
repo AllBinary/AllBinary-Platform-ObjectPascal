@@ -20,10 +20,10 @@
         </repository>
     </distributionManagement>
     <modules>
-        <module>../AllBinaryGraphicsUserInterfaceJavaLibraryPasM</module>
+        <!--<module>../AllBinaryGraphicsUserInterfaceJavaLibraryPasM</module>-->
         <module>../../allbinary_src/logging/LogConfigTypeThickClientJavaLibraryPasM</module>
-        <module>../../allbinary_src/logging/GUILoggingPasM</module>
-        <module>../AllBinaryGraphicsJavaApplicationPasM</module>
-        <module>../ImageToolJavaApplicationPasM</module>
+        <!--<module>../../allbinary_src/logging/GUILoggingPasM</module>-->
+        <!--<module>../AllBinaryGraphicsJavaApplicationPasM</module>-->
+        <!--<module>../ImageToolJavaApplicationPasM</module>-->
     </modules>
 </project>

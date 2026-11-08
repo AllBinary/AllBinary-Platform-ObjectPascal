@@ -25,7 +25,7 @@
         <module>../../CombatGameJavaLibraryPOPasM</module>
         <module>../../AdvancedCombatGameJavaLibraryPasP</module>
         <module>../j2me/AllBinaryOnJ2MEBasePlatformJavaLibraryPasM</module>
-        <module>../j2me/AllBinaryOnJ2MEPlatformJavaLibraryPasM</module>
+        <!--<module>../j2me/AllBinaryOnJ2MEPlatformJavaLibraryPasM</module>-->
         <module>../j2se/AllBinaryOnJ2SEBasePlatformJavaLibraryPasM</module>
         <module>../AllBinaryOptionalBasePlatformJavaLibraryPasM</module>
     </modules>
