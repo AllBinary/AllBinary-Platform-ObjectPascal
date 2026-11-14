@@ -4,100 +4,16 @@ unit GL10;
 
 {$mode delphi}{$H+}
 {$interfaces corba}
+{$modeswitch typehelpers}
 
 interface
 
 uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, GL;
+  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, GL;
 
 type
-  TJavaVector<E> = class
-  private
-    FItems: TArray<E>;
-    procedure DeleteAt(const AIndex: Integer);
-  public
-    constructor Create; overload;
-    constructor Create(const AInitialCapacity: Integer); overload;
-    function add(const AItem: E): Boolean; overload;
-    procedure add(const AIndex: Integer; const AItem: E); overload;
-    procedure addElement(const AItem: E);
-    function get(const AIndex: Integer): E;
-    function elementAt(const AIndex: Integer): E;
-    function set_(const AIndex: Integer; const AItem: E): E;
-    procedure setElementAt(const AItem: E; const AIndex: Integer);
-    function remove(const AIndex: Integer): E; overload;
-    function remove(const AObject: TObject): Boolean; overload;
-    function removeElement(const AItem: E): Boolean;
-    procedure removeElementAt(const AIndex: Integer);
-    function contains(const AItem: E): Boolean;
-    function size: Integer;
-    function isEmpty: Boolean;
-    procedure clear;
-    function toArray: TArray<E>;
-  end;
-
-  TJavaRandom = class
-  public
-    constructor Create; overload;
-    constructor Create(const ASeed: Int64); overload;
-    procedure setSeed(const ASeed: Int64);
-    function nextInt: Integer; overload;
-    function nextInt(const ABound: Integer): Integer; overload;
-  end;
-
-  TJava = class
-  public
-    class function NewArray<T>(const ALength: Integer): TArray<T>; static;
-    class function NewArray2<T>(const ALength1, ALength2: Integer): TArray<TArray<T>>; static;
-    class function NewArray3<T>(const ALength1, ALength2, ALength3: Integer): TArray<TArray<TArray<T>>>; static;
-    class procedure ArrayCopy<T>(const ASource: TArray<T>; const ASourcePos: Integer; var ADestination: TArray<T>; const ADestinationPos, ALength: Integer); overload; static;
-    class procedure ArrayCopy(const ASource: TArray<WideChar>; const ASourcePos: Integer; var ADestination: TArray<WideChar>; const ADestinationPos, ALength: Integer); overload; static;
-    class procedure ArrayCopy(const ASource: TObject; const ASourcePos: Integer; ADestination: TObject; const ADestinationPos, ALength: Integer); overload; static;
-    class procedure GetChars(const ASource: string; const ASourceStart, ASourceEnd: Integer; var ADestination: TArray<WideChar>; const ADestinationStart: Integer); static;
-    class function NewString(const AValue: string): string; overload; static;
-    class function NewString(const AValue: TArray<WideChar>; const AOffset: Integer = 0; const ACount: Integer = -1): string; overload; static;
-    class function NewString(const AValue: TArray<ShortInt>; const AOffset: Integer = 0; const ACount: Integer = -1): string; overload; static;
-    class function NewString(const AValue: TArray<ShortInt>; const AEncoding: string): string; overload; static;
-    class function GetBytes(const AValue: string): TArray<ShortInt>; static;
-    class function ToString(const AValue: string): string; overload; static;
-    class function ToString(const AValue: WideChar): string; overload; static;
-    class function ToString(const AValue: Boolean): string; overload; static;
-    class function ToString(const AValue: Integer): string; overload; static;
-    class function ToString(const AValue: Int64): string; overload; static;
-    class function ToString(const AValue: Double): string; overload; static;
-    class function ToString(const AValue: TObject): string; overload; static;
-    class function BoxString(const AValue: string): TObject; static;
-    class function UnboxString(const AValue: TObject): string; static;
-    class function LongBitsToDouble(const ABits: Int64): Double; static;
-    class function IntBitsToFloat(const ABits: Integer): Single; static;
-    class function HashCode(const AValue: TObject): Integer; static;
-    class function GetProperty(const AName: string): string; static;
-    class function FreeMemory: Int64; static;
-    class function TotalMemory: Int64; static;
-    class function MaxMemory: Int64; static;
-    class function SignedRightShift(const AValue, AShift: Integer): Integer; overload; static;
-    class function SignedRightShift(const AValue: Int64; const AShift: Integer): Int64; overload; static;
-    class procedure Wait(const AValue: TObject; const ATimeoutMillis: Int64); static;
-    class procedure MonitorEnter(const AValue: TObject); static;
-    class procedure MonitorExit(const AValue: TObject); static;
-    class procedure PrintStackTrace(const AException: SysUtils.Exception; const AStream: TStringStream); static;
-    class function EnumerationHasMoreElements(const AEnumeration: TObject): Boolean; static;
-    class function EnumerationNextElement(const AEnumeration: TObject): TObject; static;
-    class function InterfaceToString(const AValue: Pointer): string; static;
-    class function Assign<T>(var ADestination: T; const AValue: T): T; static;
-    class function IfThen<T>(const ACondition: Boolean; const ATrue, AFalse: T): T; static;
-    class function PreInc(var AValue: Integer): Integer; overload; static;
-    class function PostInc(var AValue: Integer): Integer; overload; static;
-    class function PreDec(var AValue: Integer): Integer; overload; static;
-    class function PostDec(var AValue: Integer): Integer; overload; static;
-    class function PreInc(var AValue: Int64): Int64; overload; static;
-    class function PostInc(var AValue: Int64): Int64; overload; static;
-    class function PreDec(var AValue: Int64): Int64; overload; static;
-    class function PostDec(var AValue: Int64): Int64; overload; static;
-    class procedure Nothing; static;
-  end;
-
-  IGL10 = interface(IGL)
+  {AB:TYPES}
+  IGL10 = interface(IGL) ['IGL10']
         procedure glActiveTexture(texture: Integer);
         procedure glAlphaFunc(func: Integer; ref: Single);
         procedure glBindTexture(target: Integer; texture: Integer);
@@ -115,8 +31,8 @@ type
         procedure glCopyTexImage2D(target: Integer; level: Integer; internalformat: Integer; x: Integer; y: Integer; width: Integer; height: Integer; border: Integer);
         procedure glCopyTexSubImage2D(target: Integer; level: Integer; xoffset: Integer; yoffset: Integer; x: Integer; y: Integer; width: Integer; height: Integer);
         procedure glCullFace(mode: Integer);
-        procedure glDeleteTextures(n: Integer; textures: TArray<Integer>; offset: Integer);
-        procedure glDeleteTextures(n: Integer; textures: TIntBuffer);
+        procedure glDeleteTextures(n: Integer; textures: TArray<Integer>; offset: Integer); overload;
+        procedure glDeleteTextures(n: Integer; textures: TIntBuffer); overload;
         procedure glDepthFunc(func: Integer);
         procedure glDepthMask(flag: Boolean);
         procedure glDepthRangef(zNear: Single; zFar: Single);
@@ -129,34 +45,34 @@ type
         procedure glFinish;
         procedure glFlush;
         procedure glFogf(pname: Integer; param: Single);
-        procedure glFogfv(pname: Integer; params: TArray<Single>; offset: Integer);
-        procedure glFogfv(pname: Integer; params: TFloatBuffer);
+        procedure glFogfv(pname: Integer; params: TArray<Single>; offset: Integer); overload;
+        procedure glFogfv(pname: Integer; params: TFloatBuffer); overload;
         procedure glFrontFace(mode: Integer);
         procedure glFrustumf(left: Single; right: Single; bottom: Single; top: Single; zNear: Single; zFar: Single);
-        procedure glGenTextures(n: Integer; textures: TArray<Integer>; offset: Integer);
-        procedure glGenTextures(n: Integer; textures: TIntBuffer);
+        procedure glGenTextures(n: Integer; textures: TArray<Integer>; offset: Integer); overload;
+        procedure glGenTextures(n: Integer; textures: TIntBuffer); overload;
         function glGetError: Integer;
-        procedure glGetIntegerv(pname: Integer; params: TArray<Integer>; offset: Integer);
-        procedure glGetIntegerv(pname: Integer; params: TIntBuffer);
+        procedure glGetIntegerv(pname: Integer; params: TArray<Integer>; offset: Integer); overload;
+        procedure glGetIntegerv(pname: Integer; params: TIntBuffer); overload;
         function glGetString(name: Integer): string;
         procedure glHint(target: Integer; mode: Integer);
         procedure glLightModelf(pname: Integer; param: Single);
-        procedure glLightModelfv(pname: Integer; params: TArray<Single>; offset: Integer);
-        procedure glLightModelfv(pname: Integer; params: TFloatBuffer);
+        procedure glLightModelfv(pname: Integer; params: TArray<Single>; offset: Integer); overload;
+        procedure glLightModelfv(pname: Integer; params: TFloatBuffer); overload;
         procedure glLightf(light: Integer; pname: Integer; param: Single);
-        procedure glLightfv(light: Integer; pname: Integer; params: TArray<Single>; offset: Integer);
-        procedure glLightfv(light: Integer; pname: Integer; params: TFloatBuffer);
+        procedure glLightfv(light: Integer; pname: Integer; params: TArray<Single>; offset: Integer); overload;
+        procedure glLightfv(light: Integer; pname: Integer; params: TFloatBuffer); overload;
         procedure glLineWidth(width: Single);
         procedure glLoadIdentity;
-        procedure glLoadMatrixf(m: TArray<Single>; offset: Integer);
-        procedure glLoadMatrixf(m: TFloatBuffer);
+        procedure glLoadMatrixf(m: TArray<Single>; offset: Integer); overload;
+        procedure glLoadMatrixf(m: TFloatBuffer); overload;
         procedure glLogicOp(opcode: Integer);
         procedure glMaterialf(face: Integer; pname: Integer; param: Single);
-        procedure glMaterialfv(face: Integer; pname: Integer; params: TArray<Single>; offset: Integer);
-        procedure glMaterialfv(face: Integer; pname: Integer; params: TFloatBuffer);
+        procedure glMaterialfv(face: Integer; pname: Integer; params: TArray<Single>; offset: Integer); overload;
+        procedure glMaterialfv(face: Integer; pname: Integer; params: TFloatBuffer); overload;
         procedure glMatrixMode(mode: Integer);
-        procedure glMultMatrixf(m: TArray<Single>; offset: Integer);
-        procedure glMultMatrixf(m: TFloatBuffer);
+        procedure glMultMatrixf(m: TArray<Single>; offset: Integer); overload;
+        procedure glMultMatrixf(m: TFloatBuffer); overload;
         procedure glMultiTexCoord4f(target: Integer; s: Single; t: Single; r: Single; q: Single);
         procedure glNormal3f(nx: Single; ny: Single; nz: Single);
         procedure glNormalPointer(type_: Integer; stride: Integer; pointer_: TBuffer);
@@ -179,8 +95,8 @@ type
         procedure glStencilOp(fail: Integer; zfail: Integer; zpass: Integer);
         procedure glTexCoordPointer(size: Integer; type_: Integer; stride: Integer; pointer_: TBuffer);
         procedure glTexEnvf(target: Integer; pname: Integer; param: Single);
-        procedure glTexEnvfv(target: Integer; pname: Integer; params: TArray<Single>; offset: Integer);
-        procedure glTexEnvfv(target: Integer; pname: Integer; params: TFloatBuffer);
+        procedure glTexEnvfv(target: Integer; pname: Integer; params: TArray<Single>; offset: Integer); overload;
+        procedure glTexEnvfv(target: Integer; pname: Integer; params: TFloatBuffer); overload;
         procedure glTexImage2D(target: Integer; level: Integer; internalformat: Integer; width: Integer; height: Integer; border: Integer; format: Integer; type_: Integer; pixels: TBuffer);
         procedure glTexParameterf(target: Integer; pname: Integer; param: Single);
         procedure glTexParameteri(target: Integer; pname: Integer; param: Integer);
@@ -193,491 +109,255 @@ type
         procedure glVertex3f(f: Single; f2: Single; f3: Single);
         procedure glPolygonMode(i: Integer; i1: Integer);
   end;
+  TGL10 = IGL10;
+
+  IGL10Fields = type helper for IGL10
+  public
+    class var GL_ADD: Integer;
+    class var GL_ALIASED_LINE_WIDTH_RANGE: Integer;
+    class var GL_ALIASED_POINT_SIZE_RANGE: Integer;
+    class var GL_ALPHA: Integer;
+    class var GL_ALPHA_BITS: Integer;
+    class var GL_ALPHA_TEST: Integer;
+    class var GL_ALWAYS: Integer;
+    class var GL_AMBIENT: Integer;
+    class var GL_AMBIENT_AND_DIFFUSE: Integer;
+    class var GL_AND: Integer;
+    class var GL_AND_INVERTED: Integer;
+    class var GL_AND_REVERSE: Integer;
+    class var GL_BACK: Integer;
+    class var GL_BLEND: Integer;
+    class var GL_BLUE_BITS: Integer;
+    class var GL_BYTE: Integer;
+    class var GL_CCW: Integer;
+    class var GL_CLAMP_TO_EDGE: Integer;
+    class var GL_CLEAR: Integer;
+    class var GL_COLOR_ARRAY: Integer;
+    class var GL_COLOR_BUFFER_BIT: Integer;
+    class var GL_COLOR_LOGIC_OP: Integer;
+    class var GL_COLOR_MATERIAL: Integer;
+    class var GL_COMPRESSED_TEXTURE_FORMATS: Integer;
+    class var GL_CONSTANT_ATTENUATION: Integer;
+    class var GL_COPY: Integer;
+    class var GL_COPY_INVERTED: Integer;
+    class var GL_CULL_FACE: Integer;
+    class var GL_CW: Integer;
+    class var GL_DECAL: Integer;
+    class var GL_DECR: Integer;
+    class var GL_DEPTH_BITS: Integer;
+    class var GL_DEPTH_BUFFER_BIT: Integer;
+    class var GL_DEPTH_TEST: Integer;
+    class var GL_DIFFUSE: Integer;
+    class var GL_DITHER: Integer;
+    class var GL_DONT_CARE: Integer;
+    class var GL_DST_ALPHA: Integer;
+    class var GL_DST_COLOR: Integer;
+    class var GL_EMISSION: Integer;
+    class var GL_EQUAL: Integer;
+    class var GL_EQUIV: Integer;
+    class var GL_EXP: Integer;
+    class var GL_EXP2: Integer;
+    class var GL_EXTENSIONS: Integer;
+    class var GL_FALSE: Integer;
+    class var GL_FASTEST: Integer;
+    class var GL_FIXED: Integer;
+    class var GL_FLAT: Integer;
+    class var GL_FLOAT: Integer;
+    class var GL_FOG: Integer;
+    class var GL_FOG_COLOR: Integer;
+    class var GL_FOG_DENSITY: Integer;
+    class var GL_FOG_END: Integer;
+    class var GL_FOG_HINT: Integer;
+    class var GL_FOG_MODE: Integer;
+    class var GL_FOG_START: Integer;
+    class var GL_FRONT: Integer;
+    class var GL_FRONT_AND_BACK: Integer;
+    class var GL_GEQUAL: Integer;
+    class var GL_GREATER: Integer;
+    class var GL_GREEN_BITS: Integer;
+    class var GL_IMPLEMENTATION_COLOR_READ_FORMAT_OES: Integer;
+    class var GL_IMPLEMENTATION_COLOR_READ_TYPE_OES: Integer;
+    class var GL_INCR: Integer;
+    class var GL_INVALID_ENUM: Integer;
+    class var GL_INVALID_OPERATION: Integer;
+    class var GL_INVALID_VALUE: Integer;
+    class var GL_INVERT: Integer;
+    class var GL_KEEP: Integer;
+    class var GL_LEQUAL: Integer;
+    class var GL_LESS: Integer;
+    class var GL_LIGHT_MODEL_AMBIENT: Integer;
+    class var GL_LIGHT_MODEL_TWO_SIDE: Integer;
+    class var GL_LIGHT0: Integer;
+    class var GL_LIGHT1: Integer;
+    class var GL_LIGHT2: Integer;
+    class var GL_LIGHT3: Integer;
+    class var GL_LIGHT4: Integer;
+    class var GL_LIGHT5: Integer;
+    class var GL_LIGHT6: Integer;
+    class var GL_LIGHT7: Integer;
+    class var GL_LIGHTING: Integer;
+    class var GL_LINE_LOOP: Integer;
+    class var GL_LINE_SMOOTH: Integer;
+    class var GL_LINE_SMOOTH_HINT: Integer;
+    class var GL_LINE_STRIP: Integer;
+    class var GL_LINEAR: Integer;
+    class var GL_LINEAR_ATTENUATION: Integer;
+    class var GL_LINEAR_MIPMAP_LINEAR: Integer;
+    class var GL_LINEAR_MIPMAP_NEAREST: Integer;
+    class var GL_LINES: Integer;
+    class var GL_LUMINANCE: Integer;
+    class var GL_LUMINANCE_ALPHA: Integer;
+    class var GL_MAX_ELEMENTS_INDICES: Integer;
+    class var GL_MAX_ELEMENTS_VERTICES: Integer;
+    class var GL_MAX_LIGHTS: Integer;
+    class var GL_MAX_MODELVIEW_STACK_DEPTH: Integer;
+    class var GL_MAX_PROJECTION_STACK_DEPTH: Integer;
+    class var GL_MAX_TEXTURE_SIZE: Integer;
+    class var GL_MAX_TEXTURE_STACK_DEPTH: Integer;
+    class var GL_MAX_TEXTURE_UNITS: Integer;
+    class var GL_MAX_VIEWPORT_DIMS: Integer;
+    class var GL_MODELVIEW: Integer;
+    class var GL_MODULATE: Integer;
+    class var GL_MULTISAMPLE: Integer;
+    class var GL_NAND: Integer;
+    class var GL_NEAREST: Integer;
+    class var GL_NEAREST_MIPMAP_LINEAR: Integer;
+    class var GL_NEAREST_MIPMAP_NEAREST: Integer;
+    class var GL_NEVER: Integer;
+    class var GL_NICEST: Integer;
+    class var GL_NO_ERROR: Integer;
+    class var GL_NOOP: Integer;
+    class var GL_NOR: Integer;
+    class var GL_NORMAL_ARRAY: Integer;
+    class var GL_NORMALIZE: Integer;
+    class var GL_NOTEQUAL: Integer;
+    class var GL_NUM_COMPRESSED_TEXTURE_FORMATS: Integer;
+    class var GL_ONE: Integer;
+    class var GL_ONE_MINUS_DST_ALPHA: Integer;
+    class var GL_ONE_MINUS_DST_COLOR: Integer;
+    class var GL_ONE_MINUS_SRC_ALPHA: Integer;
+    class var GL_ONE_MINUS_SRC_COLOR: Integer;
+    class var GL_OR: Integer;
+    class var GL_OR_INVERTED: Integer;
+    class var GL_OR_REVERSE: Integer;
+    class var GL_OUT_OF_MEMORY: Integer;
+    class var GL_PACK_ALIGNMENT: Integer;
+    class var GL_PALETTE4_R5_G6_B5_OES: Integer;
+    class var GL_PALETTE4_RGB5_A1_OES: Integer;
+    class var GL_PALETTE4_RGB8_OES: Integer;
+    class var GL_PALETTE4_RGBA4_OES: Integer;
+    class var GL_PALETTE4_RGBA8_OES: Integer;
+    class var GL_PALETTE8_R5_G6_B5_OES: Integer;
+    class var GL_PALETTE8_RGB5_A1_OES: Integer;
+    class var GL_PALETTE8_RGB8_OES: Integer;
+    class var GL_PALETTE8_RGBA4_OES: Integer;
+    class var GL_PALETTE8_RGBA8_OES: Integer;
+    class var GL_PERSPECTIVE_CORRECTION_HINT: Integer;
+    class var GL_POINT_SMOOTH: Integer;
+    class var GL_POINT_SMOOTH_HINT: Integer;
+    class var GL_POINTS: Integer;
+    class var GL_POINT_FADE_THRESHOLD_SIZE: Integer;
+    class var GL_POINT_SIZE: Integer;
+    class var GL_POLYGON_OFFSET_FILL: Integer;
+    class var GL_POLYGON_SMOOTH_HINT: Integer;
+    class var GL_POSITION: Integer;
+    class var GL_PROJECTION: Integer;
+    class var GL_QUADRATIC_ATTENUATION: Integer;
+    class var GL_RED_BITS: Integer;
+    class var GL_RENDERER: Integer;
+    class var GL_REPEAT: Integer;
+    class var GL_REPLACE: Integer;
+    class var GL_RESCALE_NORMAL: Integer;
+    class var GL_RGB: Integer;
+    class var GL_RGBA: Integer;
+    class var GL_SAMPLE_ALPHA_TO_COVERAGE: Integer;
+    class var GL_SAMPLE_ALPHA_TO_ONE: Integer;
+    class var GL_SAMPLE_COVERAGE: Integer;
+    class var GL_SCISSOR_TEST: Integer;
+    class var GL_SET: Integer;
+    class var GL_SHININESS: Integer;
+    class var GL_SHORT: Integer;
+    class var GL_SMOOTH: Integer;
+    class var GL_SMOOTH_LINE_WIDTH_RANGE: Integer;
+    class var GL_SMOOTH_POINT_SIZE_RANGE: Integer;
+    class var GL_SPECULAR: Integer;
+    class var GL_SPOT_CUTOFF: Integer;
+    class var GL_SPOT_DIRECTION: Integer;
+    class var GL_SPOT_EXPONENT: Integer;
+    class var GL_SRC_ALPHA: Integer;
+    class var GL_SRC_ALPHA_SATURATE: Integer;
+    class var GL_SRC_COLOR: Integer;
+    class var GL_STACK_OVERFLOW: Integer;
+    class var GL_STACK_UNDERFLOW: Integer;
+    class var GL_STENCIL_BITS: Integer;
+    class var GL_STENCIL_BUFFER_BIT: Integer;
+    class var GL_STENCIL_TEST: Integer;
+    class var GL_SUBPIXEL_BITS: Integer;
+    class var GL_TEXTURE: Integer;
+    class var GL_TEXTURE_2D: Integer;
+    class var GL_TEXTURE_COORD_ARRAY: Integer;
+    class var GL_TEXTURE_ENV: Integer;
+    class var GL_TEXTURE_ENV_COLOR: Integer;
+    class var GL_TEXTURE_ENV_MODE: Integer;
+    class var GL_TEXTURE_MAG_FILTER: Integer;
+    class var GL_TEXTURE_MIN_FILTER: Integer;
+    class var GL_TEXTURE_WRAP_S: Integer;
+    class var GL_TEXTURE_WRAP_T: Integer;
+    class var GL_TEXTURE0: Integer;
+    class var GL_TEXTURE1: Integer;
+    class var GL_TEXTURE2: Integer;
+    class var GL_TEXTURE3: Integer;
+    class var GL_TEXTURE4: Integer;
+    class var GL_TEXTURE5: Integer;
+    class var GL_TEXTURE6: Integer;
+    class var GL_TEXTURE7: Integer;
+    class var GL_TEXTURE8: Integer;
+    class var GL_TEXTURE9: Integer;
+    class var GL_TEXTURE10: Integer;
+    class var GL_TEXTURE11: Integer;
+    class var GL_TEXTURE12: Integer;
+    class var GL_TEXTURE13: Integer;
+    class var GL_TEXTURE14: Integer;
+    class var GL_TEXTURE15: Integer;
+    class var GL_TEXTURE16: Integer;
+    class var GL_TEXTURE17: Integer;
+    class var GL_TEXTURE18: Integer;
+    class var GL_TEXTURE19: Integer;
+    class var GL_TEXTURE20: Integer;
+    class var GL_TEXTURE21: Integer;
+    class var GL_TEXTURE22: Integer;
+    class var GL_TEXTURE23: Integer;
+    class var GL_TEXTURE24: Integer;
+    class var GL_TEXTURE25: Integer;
+    class var GL_TEXTURE26: Integer;
+    class var GL_TEXTURE27: Integer;
+    class var GL_TEXTURE28: Integer;
+    class var GL_TEXTURE29: Integer;
+    class var GL_TEXTURE30: Integer;
+    class var GL_TEXTURE31: Integer;
+    class var GL_TRIANGLE_FAN: Integer;
+    class var GL_TRIANGLE_STRIP: Integer;
+    class var GL_TRIANGLES: Integer;
+    class var GL_TRUE: Integer;
+    class var GL_UNPACK_ALIGNMENT: Integer;
+    class var GL_UNSIGNED_BYTE: Integer;
+    class var GL_UNSIGNED_SHORT: Integer;
+    class var GL_UNSIGNED_SHORT_4_4_4_4: Integer;
+    class var GL_UNSIGNED_SHORT_5_5_5_1: Integer;
+    class var GL_UNSIGNED_SHORT_5_6_5: Integer;
+    class var GL_VENDOR: Integer;
+    class var GL_VERSION: Integer;
+    class var GL_VERTEX_ARRAY: Integer;
+    class var GL_XOR: Integer;
+    class var GL_ZERO: Integer;
+  end;
 
 implementation
 
-
-constructor TJavaVector<E>.Create;
-begin
-  inherited Create;
-end;
-
-constructor TJavaVector<E>.Create(const AInitialCapacity: Integer);
-begin
-  inherited Create;
-end;
-
-procedure TJavaVector<E>.DeleteAt(const AIndex: Integer);
-var
-  I, LastIndex: Integer;
-begin
-  LastIndex := Length(FItems) - 1;
-  for I := AIndex to LastIndex - 1 do FItems[I] := FItems[I + 1];
-  SetLength(FItems, LastIndex);
-end;
-
-function TJavaVector<E>.add(const AItem: E): Boolean;
-begin
-  addElement(AItem);
-  Result := True;
-end;
-
-procedure TJavaVector<E>.add(const AIndex: Integer; const AItem: E);
-var
-  I, Count: Integer;
-begin
-  Count := Length(FItems);
-  SetLength(FItems, Count + 1);
-  for I := Count downto AIndex + 1 do FItems[I] := FItems[I - 1];
-  FItems[AIndex] := AItem;
-end;
-
-procedure TJavaVector<E>.addElement(const AItem: E);
-var
-  I: Integer;
-begin
-  I := Length(FItems);
-  SetLength(FItems, I + 1);
-  FItems[I] := AItem;
-end;
-
-function TJavaVector<E>.get(const AIndex: Integer): E;
-begin
-  Result := FItems[AIndex];
-end;
-
-function TJavaVector<E>.elementAt(const AIndex: Integer): E;
-begin
-  Result := FItems[AIndex];
-end;
-
-function TJavaVector<E>.set_(const AIndex: Integer; const AItem: E): E;
-begin
-  Result := FItems[AIndex];
-  FItems[AIndex] := AItem;
-end;
-
-procedure TJavaVector<E>.setElementAt(const AItem: E; const AIndex: Integer);
-begin
-  FItems[AIndex] := AItem;
-end;
-
-function TJavaVector<E>.remove(const AIndex: Integer): E;
-begin
-  Result := FItems[AIndex];
-  DeleteAt(AIndex);
-end;
-
-function TJavaVector<E>.remove(const AObject: TObject): Boolean;
-var
-  I: Integer;
-begin
-  for I := 0 to Length(FItems) - 1 do
-    if Pointer(FItems[I]) = Pointer(AObject) then begin
-      DeleteAt(I);
-      Exit(True);
-    end;
-  Result := False;
-end;
-
-function TJavaVector<E>.removeElement(const AItem: E): Boolean;
-var
-  I: Integer;
-begin
-  for I := 0 to Length(FItems) - 1 do
-    if FItems[I] = AItem then begin
-      DeleteAt(I);
-      Exit(True);
-    end;
-  Result := False;
-end;
-
-procedure TJavaVector<E>.removeElementAt(const AIndex: Integer);
-begin
-  DeleteAt(AIndex);
-end;
-
-function TJavaVector<E>.contains(const AItem: E): Boolean;
-var
-  I: Integer;
-begin
-  for I := 0 to Length(FItems) - 1 do
-    if FItems[I] = AItem then Exit(True);
-  Result := False;
-end;
-
-function TJavaVector<E>.size: Integer;
-begin
-  Result := Length(FItems);
-end;
-
-function TJavaVector<E>.isEmpty: Boolean;
-begin
-  Result := Length(FItems) = 0;
-end;
-
-procedure TJavaVector<E>.clear;
-begin
-  SetLength(FItems, 0);
-end;
-
-function TJavaVector<E>.toArray: TArray<E>;
-begin
-  Result := Copy(FItems);
-end;
-
-
-constructor TJavaRandom.Create;
-begin
-  inherited Create;
-  Randomize;
-end;
-
-constructor TJavaRandom.Create(const ASeed: Int64);
-begin
-  inherited Create;
-  setSeed(ASeed);
-end;
-
-procedure TJavaRandom.setSeed(const ASeed: Int64);
-begin
-  RandSeed := Integer(ASeed xor (ASeed shr 32));
-end;
-
-function TJavaRandom.nextInt: Integer;
-begin
-  Result := Random(High(Integer));
-  if Random(2) = 0 then Result := -Result;
-end;
-
-function TJavaRandom.nextInt(const ABound: Integer): Integer;
-begin
-  if ABound <= 0 then raise SysUtils.Exception.Create('bound must be positive');
-  Result := Random(ABound);
-end;
-
-
-class function TJava.NewArray<T>(const ALength: Integer): TArray<T>;
-begin
-  Result := nil;
-  SetLength(Result, ALength);
-end;
-
-class function TJava.NewArray2<T>(const ALength1, ALength2: Integer): TArray<TArray<T>>;
-var
-  I: Integer;
-begin
-  Result := nil;
-  SetLength(Result, ALength1);
-  for I := 0 to ALength1 - 1 do
-    SetLength(Result[I], ALength2);
-end;
-
-class function TJava.NewArray3<T>(const ALength1, ALength2, ALength3: Integer): TArray<TArray<TArray<T>>>;
-var
-  I, J: Integer;
-begin
-  Result := nil;
-  SetLength(Result, ALength1);
-  for I := 0 to ALength1 - 1 do begin
-    SetLength(Result[I], ALength2);
-    for J := 0 to ALength2 - 1 do
-      SetLength(Result[I][J], ALength3);
-  end;
-end;
-
-class procedure TJava.ArrayCopy<T>(const ASource: TArray<T>; const ASourcePos: Integer; var ADestination: TArray<T>; const ADestinationPos, ALength: Integer);
-var
-  I: Integer;
-  Values: TArray<T>;
-begin
-  Values := nil;
-  SetLength(Values, ALength);
-  for I := 0 to ALength - 1 do
-    Values[I] := ASource[ASourcePos + I];
-  for I := 0 to ALength - 1 do
-    ADestination[ADestinationPos + I] := Values[I];
-end;
-
-class procedure TJava.ArrayCopy(const ASource: TArray<WideChar>; const ASourcePos: Integer; var ADestination: TArray<WideChar>; const ADestinationPos, ALength: Integer);
-var
-  I: Integer;
-  Values: TArray<WideChar>;
-begin
-  Values := nil;
-  SetLength(Values, ALength);
-  for I := 0 to ALength - 1 do Values[I] := ASource[ASourcePos + I];
-  for I := 0 to ALength - 1 do ADestination[ADestinationPos + I] := Values[I];
-end;
-
-class procedure TJava.ArrayCopy(const ASource: TObject; const ASourcePos: Integer; ADestination: TObject; const ADestinationPos, ALength: Integer);
-begin
-  { Java Object-erased arrays cannot be inspected without their element type. }
-end;
-
-class procedure TJava.GetChars(const ASource: string; const ASourceStart, ASourceEnd: Integer; var ADestination: TArray<WideChar>; const ADestinationStart: Integer);
-var
-  I: Integer;
-begin
-  for I := ASourceStart to ASourceEnd - 1 do
-    ADestination[ADestinationStart + I - ASourceStart] := ASource[I + 1];
-end;
-
-class function TJava.NewString(const AValue: string): string;
-begin
-  Result := AValue;
-end;
-
-class function TJava.NewString(const AValue: TArray<WideChar>; const AOffset: Integer; const ACount: Integer): string;
-var
-  I, Count: Integer;
-begin
-  Count := ACount;
-  if Count < 0 then Count := Length(AValue) - AOffset;
-  SetLength(Result, Count);
-  for I := 0 to Count - 1 do Result[I + 1] := AValue[AOffset + I];
-end;
-
-class function TJava.NewString(const AValue: TArray<ShortInt>; const AOffset: Integer; const ACount: Integer): string;
-var
-  I, Count: Integer;
-begin
-  Count := ACount;
-  if Count < 0 then Count := Length(AValue) - AOffset;
-  SetLength(Result, Count);
-  for I := 0 to Count - 1 do Result[I + 1] := Char(Byte(AValue[AOffset + I]));
-end;
-
-class function TJava.NewString(const AValue: TArray<ShortInt>; const AEncoding: string): string;
-begin
-  Result := NewString(AValue, 0, Length(AValue));
-end;
-
-class function TJava.GetBytes(const AValue: string): TArray<ShortInt>;
-var
-  I: Integer;
-begin
-  Result := nil;
-  SetLength(Result, Length(AValue));
-  for I := 1 to Length(AValue) do
-    Result[I - 1] := ShortInt(Byte(AValue[I]));
-end;
-
-class function TJava.ToString(const AValue: string): string;
-begin
-  Result := AValue;
-end;
-
-class function TJava.ToString(const AValue: WideChar): string;
-begin
-  Result := AValue;
-end;
-
-class function TJava.ToString(const AValue: Boolean): string;
-begin
-  Result := BoolToStr(AValue, True);
-end;
-
-class function TJava.ToString(const AValue: Integer): string;
-begin
-  Result := IntToStr(AValue);
-end;
-
-class function TJava.ToString(const AValue: Int64): string;
-begin
-  Result := IntToStr(AValue);
-end;
-
-class function TJava.ToString(const AValue: Double): string;
-begin
-  Result := FloatToStr(AValue);
-end;
-
-class function TJava.ToString(const AValue: TObject): string;
-begin
-  if AValue = nil then Result := 'null' else if AValue is TStringStream then Result := TStringStream(AValue).DataString else Result := AValue.ClassName;
-end;
-
-class function TJava.BoxString(const AValue: string): TObject;
-begin
-  Result := TStringStream.Create(AValue);
-end;
-
-class function TJava.UnboxString(const AValue: TObject): string;
-begin
-  if AValue = nil then Result := '' else if AValue is TStringStream then Result := TStringStream(AValue).DataString else Result := AValue.ClassName;
-end;
-
-class function TJava.GetProperty(const AName: string): string;
-begin
-  Result := GetEnvironmentVariable(AName);
-  if AName = 'user.home' then begin
-    Result := GetEnvironmentVariable('USERPROFILE');
-    if Result = '' then Result := GetEnvironmentVariable('HOME');
-  end else if AName = 'os.name' then begin
-    Result := GetEnvironmentVariable('OS');
-    if Result = '' then Result := {$IFDEF WINDOWS}'Windows'{$ELSE}'Unix'{$ENDIF};
-  end else if AName = 'os.arch' then begin
-    Result := GetEnvironmentVariable('PROCESSOR_ARCHITECTURE');
-    if Result = '' then Result := {$IFDEF CPU64}'64-bit'{$ELSE}'32-bit'{$ENDIF};
-  end else if AName = 'os.version' then
-    Result := GetEnvironmentVariable('OS');
-end;
-
-class function TJava.FreeMemory: Int64;
-var
-  HeapStatus: THeapStatus;
-begin
-  HeapStatus := GetHeapStatus;
-  Result := HeapStatus.TotalFree;
-end;
-
-class function TJava.TotalMemory: Int64;
-var
-  HeapStatus: THeapStatus;
-begin
-  HeapStatus := GetHeapStatus;
-  Result := Int64(HeapStatus.TotalAllocated) + Int64(HeapStatus.TotalFree);
-end;
-
-class function TJava.MaxMemory: Int64;
-var
-  HeapStatus: THeapStatus;
-begin
-  HeapStatus := GetHeapStatus;
-  Result := HeapStatus.TotalAddrSpace;
-end;
-
-class function TJava.LongBitsToDouble(const ABits: Int64): Double;
-begin
-  Result := 0.0;
-  Move(ABits, Result, SizeOf(Result));
-end;
-
-class function TJava.IntBitsToFloat(const ABits: Integer): Single;
-begin
-  Result := 0.0;
-  Move(ABits, Result, SizeOf(Result));
-end;
-
-class function TJava.HashCode(const AValue: TObject): Integer;
-begin
-  if AValue = nil then Result := 0 else Result := Integer(PtrUInt(AValue));
-end;
-
-class function TJava.SignedRightShift(const AValue, AShift: Integer): Integer;
-var
-  Shift: Integer;
-begin
-  Shift := AShift and 31;
-  if Shift = 0 then Result := AValue
-  else if AValue >= 0 then Result := AValue shr Shift
-  else Result := not (not AValue shr Shift);
-end;
-
-class function TJava.SignedRightShift(const AValue: Int64; const AShift: Integer): Int64;
-var
-  Shift: Integer;
-begin
-  Shift := AShift and 63;
-  if Shift = 0 then Result := AValue
-  else if AValue >= 0 then Result := AValue shr Shift
-  else Result := not (not AValue shr Shift);
-end;
-
-class procedure TJava.Wait(const AValue: TObject; const ATimeoutMillis: Int64);
-begin
-  if ATimeoutMillis > 0 then Sleep(Cardinal(ATimeoutMillis));
-end;
-
-class procedure TJava.MonitorEnter(const AValue: TObject);
-begin
-  { FPC has no TObject monitor equivalent. }
-end;
-
-class procedure TJava.MonitorExit(const AValue: TObject);
-begin
-end;
-
-class procedure TJava.PrintStackTrace(const AException: SysUtils.Exception; const AStream: TStringStream);
-begin
-  if (AException <> nil) and (AStream <> nil) then
-    AStream.WriteString(AException.ClassName + ': ' + AException.Message);
-end;
-
-class function TJava.EnumerationHasMoreElements(const AEnumeration: TObject): Boolean;
-begin
-  Result := (AEnumeration is TList) and (TList(AEnumeration).Count > 0);
-end;
-
-class function TJava.EnumerationNextElement(const AEnumeration: TObject): TObject;
-var
-  List: TList;
-begin
-  Result := nil;
-  if not (AEnumeration is TList) then Exit;
-  List := TList(AEnumeration);
-  if List.Count = 0 then Exit;
-  Result := TObject(List[0]);
-  List.Delete(0);
-end;
-
-class function TJava.InterfaceToString(const AValue: Pointer): string;
-begin
-  if AValue = nil then Result := 'null' else Result := 'interface';
-end;
-
-class function TJava.Assign<T>(var ADestination: T; const AValue: T): T;
-begin
-  ADestination := AValue;
-  Result := AValue;
-end;
-
-class function TJava.IfThen<T>(const ACondition: Boolean; const ATrue, AFalse: T): T;
-begin
-  if ACondition then Result := ATrue else Result := AFalse;
-end;
-
-class function TJava.PreInc(var AValue: Integer): Integer;
-begin
-  Inc(AValue); Result := AValue;
-end;
-class function TJava.PostInc(var AValue: Integer): Integer;
-begin
-  Result := AValue; Inc(AValue);
-end;
-class function TJava.PreDec(var AValue: Integer): Integer;
-begin
-  Dec(AValue); Result := AValue;
-end;
-class function TJava.PostDec(var AValue: Integer): Integer;
-begin
-  Result := AValue; Dec(AValue);
-end;
-
-class function TJava.PreInc(var AValue: Int64): Int64;
-begin
-  Inc(AValue); Result := AValue;
-end;
-class function TJava.PostInc(var AValue: Int64): Int64;
-begin
-  Result := AValue; Inc(AValue);
-end;
-class function TJava.PreDec(var AValue: Int64): Int64;
-begin
-  Dec(AValue); Result := AValue;
-end;
-class function TJava.PostDec(var AValue: Int64): Int64;
-begin
-  Result := AValue; Dec(AValue);
-end;
-
-class procedure TJava.Nothing;
-begin
-end;
-
+{AB:CODE}
 
 initialization
+  {AB:INITIALIZATION}
   IGL10.GL_ADD := 260;
   IGL10.GL_ALIASED_LINE_WIDTH_RANGE := 33902;
   IGL10.GL_ALIASED_POINT_SIZE_RANGE := 33901;
@@ -915,6 +595,7 @@ initialization
   IGL10.GL_VERTEX_ARRAY := 32884;
   IGL10.GL_XOR := 5382;
   IGL10.GL_ZERO := 0;
+  {AB:END}
 
 end.
 

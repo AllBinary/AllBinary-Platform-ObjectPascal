@@ -32,6 +32,16 @@ add_unit_paths() {
 }
 
 add_unit_paths "$source_dir"
+# Hand written Java runtime units (JavaLang, JavaUtil, JavaIo, JavaNio...) the generated units use, like
+# J2SEForCSharpLibraryCSharpM for C# and J2SEForPythonLibraryPyM for Python. Override with OBJECT_PASCAL_RUNTIME_SOURCE.
+runtime_dir="$(cygpath -u "${OBJECT_PASCAL_RUNTIME_SOURCE:-G:/mnt/bc/mydev/workopascal/j2me/J2SEForObjectPascalLibraryPasM/src/main/java}")"
+if [ -d "$runtime_dir" ]; then
+    if [ "$runtime_dir" != "$source_dir" ]; then
+        add_unit_paths "$runtime_dir"
+    fi
+else
+    echo "Warning: Object Pascal Java runtime source directory does not exist: $runtime_dir" >&2
+fi
 # Dependency units such as jsinterop annotations are compiled when a generated unit uses them
 for dependency_dir in "$@"; do
     dependency_dir="$(cygpath -u "$dependency_dir")"
@@ -42,11 +52,21 @@ for dependency_dir in "$@"; do
     fi
 done
 
+# One -Fu per package directory of every dependency is longer than the Windows command line allows
+# (Argument list too long), so the unit paths go in an fpc options file passed with @file.
+# fpc searches the -Fu paths of an options file last first (the command line is first first), so the file is written
+# in reverse to keep the nearest first order of the pom (own sources, runtime, then the dependency source paths).
+unit_paths_file="$output_dir/unit-paths.cfg"
+: > "$unit_paths_file"
+for (( index = ${#unit_paths[@]} - 1; index >= 0; index-- )); do
+    printf '%s\n' "${unit_paths[$index]}" >> "$unit_paths_file"
+done
+
 compiled=0
 failures=()
 
 while IFS= read -r -d '' source; do
-    if "$fpc" "${compiler_flags[@]}" "-FU$(cygpath -m "$output_dir")" "${unit_paths[@]}" "$(cygpath -m "$source")"; then
+    if "$fpc" "${compiler_flags[@]}" "-FU$(cygpath -m "$output_dir")" "@$(cygpath -m "$unit_paths_file")" "$(cygpath -m "$source")"; then
         compiled=$((compiled + 1))
     else
         failures+=("$source")

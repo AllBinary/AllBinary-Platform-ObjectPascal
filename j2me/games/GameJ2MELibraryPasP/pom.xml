@@ -27,7 +27,9 @@
         <!--<module>../../../replace_these_stub_projects/security/YourCryptFileJavaLibraryPasM</module>-->
         <module>../../../replace_these_stub_projects/security/YourSecurityJavaLibraryPasM</module>
         <module>../../../replace_these_stub_projects/communication/YourXmlRpcJavaLibraryPasM</module>
-        <module>../../../replace_these_stub_projects/allbinary_src/J2MEOnlyJavaLibraryPasM</module>
+        <!-- J2MEOnly is for real J2ME devices (MIDP overloads). Object Pascal uses AllBinary-Platform-Integrationopascal/j2me/PolyglotOnlyJavaLibraryPasM -->
+        <!--<module>../../../replace_these_stub_projects/allbinary_src/J2MEOnlyJavaLibraryPasM</module>-->
+        <module>../../../../AllBinary-Platform-Integrationopascal/j2me/PolyglotOnlyJavaLibraryPasM</module>
         <module>../../../replace_these_stub_projects/allbinary_src/J2MECompatibilityJavaLibraryPasM</module>
         <module>../../../replace_these_stub_projects/allbinary_src/J2MEJsInteropCompatibilityJavaLibraryPasM</module>
         <module>../../DebugJavaLibraryPasM</module>
@@ -79,7 +81,7 @@
         <module>../../media/sound/SoundJ2MELibraryPasM</module>
         <module>../../media/motion/AllBinaryVibrationJavaLibraryPasM</module>
         <module>../../media/motion/NoVibrateJavaLibraryPasM</module>
-        <module>../../media/motion/VibrateAndroidJavaLibraryPasM</module>
+        <!--<module>../../media/motion/VibrateAndroidJavaLibraryPasM</module>-->
         <module>../../media/graphics/NullCustomUIJavaLibraryPasM</module>
         <module>../../media/graphics/NullCustomUIBaseJavaLibraryPasM</module>
         <module>../../media/graphics/FormValidationJavaLibraryPasM</module>
@@ -96,7 +98,7 @@
         <module>../../media/MediaDataPasM</module>
         <module>../../media/sound/NotDeviceSpecificNoMediaMIDP1LibraryPasM</module>
         <module>../../../allbinary_src/content/ContentNoneJavaLibraryPasM</module>
-        <module>../../../allbinary_src/content/ContentAndroidJavaLibraryPasM</module>
+        <!--<module>../../../allbinary_src/content/ContentAndroidJavaLibraryPasM</module>-->
         <module>../../games/GameConfigurationFormJavaLibraryPasM</module>
         <module>../../FullScreenNoneJavaLibraryPasM</module>
         <module>../../../physics/VelocityLibraryPasM</module>

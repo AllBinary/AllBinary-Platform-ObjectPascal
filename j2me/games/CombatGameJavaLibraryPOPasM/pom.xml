@@ -29,14 +29,14 @@
         <module>../../../allbinary_src/licensing/FileLicenseInitInfoJavaLibraryPasM</module>
         <module>../../../allbinary_src/licensing/ClientInfoLicensingJavaLibraryPasM</module>
         <module>../../games/licensing/PartnerJ2MEJavaLibraryPasM</module>
-        <module>../../games/licensing/PartnerHTMLJavaLibraryPasM</module>
+        <!--<module>../../games/licensing/PartnerHTMLJavaLibraryPasM</module>-->
         <module>../../games/licensing/PartnerAndroidJavaLibraryPasM</module>
         <module>../../games/licensing/NoGameLicensingJavaLibraryPasM</module>
         <module>../../games/licensing/GameLicensingOnlyDemoJavaLibraryPasM</module>
-        <module>../../games/licensing/GameLicensingOnlyNormalJavaLibraryPasM</module>
+        <!--<module>../../games/licensing/GameLicensingOnlyNormalJavaLibraryPasM</module>-->
         <module>../../games/licensing/GameLicensingBaseJavaLibraryPasM</module>
         <module>../../games/GameScoresLocalJavaLibraryPasM</module>
-        <module>../../games/GameScoresRemoteAndLocalJavaLibraryPasM</module>
+        <!--<module>../../games/GameScoresRemoteAndLocalJavaLibraryPasM</module>-->
         <module>../../../store/ThirdPartyStoreJavaLibraryPasM</module>
         <module>../../../store/NoThirdPartyStoreJavaLibraryPasM</module>
         <module>../../media/graphics/layer/CollisionLayerJavaLibraryPasM</module>
