@@ -109,7 +109,7 @@ begin
         size := list.size();
         for index := 0 to size - 1 do begin
             anyType := TJava.Box(list.objectArray[index]);
-            key := TGameKeyEventUtil.getKey(anyType);
+            key := TGameKeyEventUtil.getKey(TJava.Box(anyType));
             if (key) = (TCanvas.RIGHT) then begin
                 Self.getHighScoresCanvas().getGameInfo().nextGameLevel();
             end else if (key) = (TCanvas.LEFT) then begin

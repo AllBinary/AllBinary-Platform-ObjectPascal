@@ -140,7 +140,7 @@ begin
         stringBuffer.append(stringUtil_.toString(input_));
         stringBuffer.append(' == ');
         stringBuffer.append(stringUtil_.toString(mappedToInput));
-        Self.logUtil.putF(stringBuffer.toString(), Self, 'InputMapping::remove');
+        Self.logUtil.putF(stringBuffer.toString(), TJava.Box(Self), 'InputMapping::remove');
         list := Self.getMappedInput(input_);
         if list.contains(TJava.Box(mappedToInput)) then begin
             list.remove(mappedToInput);
@@ -150,14 +150,14 @@ begin
             stringBuffer.append(stringUtil_.toString(input_));
             stringBuffer.append(' == ');
             stringBuffer.append(stringUtil_.toString(mappedToInput));
-            Self.logUtil.putF(stringBuffer.toString(), Self, 'InputMapping::remove');
+            Self.logUtil.putF(stringBuffer.toString(), TJava.Box(Self), 'InputMapping::remove');
         end else begin
             stringBuffer.delete_(0, stringBuffer.length());
             stringBuffer.append('Not Deleted: ');
             stringBuffer.append(stringUtil_.toString(input_));
             stringBuffer.append(' == ');
             stringBuffer.append(stringUtil_.toString(mappedToInput));
-            Self.logUtil.putF(stringBuffer.toString(), Self, 'InputMapping::remove');
+            Self.logUtil.putF(stringBuffer.toString(), TJava.Box(Self), 'InputMapping::remove');
         end;
 end;
     
@@ -211,9 +211,9 @@ end;
 procedure TInputToGameKeyMapping.InitFields;
 begin
   Self.gameKeyFactory := TGameKeyFactory.getInstance();
-  Self.mappedGameKeys := [Self.gameKeyFactory.UP, Self.gameKeyFactory.DOWN, Self.gameKeyFactory.LEFT, Self.gameKeyFactory.RIGHT];
+  Self.mappedGameKeys := TArray<TGameKey>.Create(Self.gameKeyFactory.UP, Self.gameKeyFactory.DOWN, Self.gameKeyFactory.LEFT, Self.gameKeyFactory.RIGHT);
   Self.platformToGameKeyMapping := TJava.NewArray<TGameKey>(TInputFactory.getInstance().MAX);
-  Self.negativePlatformToGameKeyMapping := TJava.NewArray<TGameKey>(0);
+  Self.negativePlatformToGameKeyMapping := nil;
 end;
     
 
@@ -230,7 +230,7 @@ constructor TInputToGameKeyMapping.Create;
 begin
     inherited Create;
     InitFields;
-        Self.logUtil.putF(Self.commonStrings.START, Self, Self.commonStrings.CONSTRUCTOR_);
+        Self.logUtil.putF(Self.commonStrings.START, TJava.Box(Self), Self.commonStrings.CONSTRUCTOR_);
         Self.clear();
 end;
     
@@ -287,7 +287,7 @@ end;
 
 procedure TInputToGameKeyMapping.remove(input_: TInput; mappedToInput: TInput);
 begin
-        Self.logUtil.putF(TStringMaker.Create().append(TCommonLabels.getInstance().START_LABEL).append(TStringUtil.getInstance().toString(input_)).append(' == ').append(TStringUtil.getInstance().toString(mappedToInput)).toString(), Self, 'InputToGameKeyMapping::remove');
+        Self.logUtil.putF(TStringMaker.Create().append(TCommonLabels.getInstance().START_LABEL).append(TStringUtil.getInstance().toString(input_)).append(' == ').append(TStringUtil.getInstance().toString(mappedToInput)).toString(), TJava.Box(Self), 'InputToGameKeyMapping::remove');
         inherited remove(input_, mappedToInput);
         Self.set_(input_, Self.gameKeyFactory.NONE);
 end;
@@ -344,7 +344,7 @@ begin
                 Self.platformToGameKeyMapping[key] := gameKey_;
             end;
         end else begin
-            TPreLogUtil.putOE(TStringMaker.Create().append(gameKey_.toString()).append(TCommonSeps.getInstance().COLON_SEP).appendint(key).toString(), Self, Self.commonStrings.INIT, SysUtils.Exception.Create(''));
+            TPreLogUtil.putOE(TStringMaker.Create().append(gameKey_.toString()).append(TCommonSeps.getInstance().COLON_SEP).appendint(key).toString(), TJava.Box(Self), Self.commonStrings.INIT, TJava.Box(SysUtils.Exception.Create('')));
         end;
 end;
     
@@ -376,7 +376,7 @@ var
   index: Integer;
 begin
         try
-            negativePlatformToGameKeyMapping := TJava.NewArray<TGameKey>(0);
+            negativePlatformToGameKeyMapping := nil;
             smallestKey := Self.getSmallestCanvasGameKeyCode(canvas_);
             if (smallestKey) < (0) then begin
                 Dec(smallestKey);
@@ -396,7 +396,7 @@ begin
             end;
         except
             on t: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, Self, Self.commonStrings.INIT, t);
+            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.commonStrings.INIT, TJava.Box(t));
             end;
         end;
 end;

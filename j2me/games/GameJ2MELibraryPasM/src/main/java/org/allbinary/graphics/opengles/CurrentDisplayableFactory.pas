@@ -107,7 +107,7 @@ procedure TCurrentDisplayableFactory.setMyCanvas(displayable_: TMyCanvas);
 begin
         if (TJava.ToObject(Self.displayable) is TMyCanvas) then begin
             if displayable_.hasChild(TMyCanvas(TJava.ToObject(Self.displayable))) then begin
-                TPreLogUtil.put(TStringMaker.Create().append('Child Displayable is already set for: ').append(Self.stringUtil.toString(displayable_)).toString(), Self, Self.SET_DISPLAYABLE);
+                TPreLogUtil.put(TStringMaker.Create().append('Child Displayable is already set for: ').append(Self.stringUtil.toString(displayable_)).toString(), TJava.Box(Self), Self.SET_DISPLAYABLE);
                 Exit;
             end;
         end;
@@ -137,19 +137,19 @@ end;
 
 procedure TCurrentDisplayableFactory.setRunnable(runnable: TGameRunnable);
 begin
-        TPreLogUtil.put(TStringMaker.Create().append(Self.RUNNABLE_).append(Self.stringUtil.toString(runnable)).toString(), Self, Self.SET_RUNNABLE);
+        TPreLogUtil.put(TStringMaker.Create().append(Self.RUNNABLE_).append(Self.stringUtil.toString(runnable)).toString(), TJava.Box(Self), Self.SET_RUNNABLE);
         Self.runnable := runnable;
         if (Self.usedRunnable) <> (Self.runnable) then begin
             Self.update();
         end else begin
-            TPreLogUtil.put(TStringMaker.Create().append(Self.RUNNABLE_WAS_ALREADY_IN_USE).append(Self.stringUtil.toString(runnable)).toString(), Self, Self.SET_RUNNABLE);
+            TPreLogUtil.put(TStringMaker.Create().append(Self.RUNNABLE_WAS_ALREADY_IN_USE).append(Self.stringUtil.toString(runnable)).toString(), TJava.Box(Self), Self.SET_RUNNABLE);
         end;
 end;
     
 
 procedure TCurrentDisplayableFactory.clearRunnable;
 begin
-        TPreLogUtil.put(TStringMaker.Create().append(Self.RUNNABLE_).append(Self.stringUtil.toString(TNullRunnable.getInstance())).toString(), Self, Self.CLEAR_RUNNABLE);
+        TPreLogUtil.put(TStringMaker.Create().append(Self.RUNNABLE_).append(Self.stringUtil.toString(TNullRunnable.getInstance())).toString(), TJava.Box(Self), Self.CLEAR_RUNNABLE);
         Self.setUsedRunnable(TNullWaitGameRunnable.getInstance());
 end;
     
@@ -167,16 +167,16 @@ begin
             stringMaker_ := TStringMaker.Create();
             stringMaker_.append(Self.stringUtil.toString(Self.openGlReadydisplayable));
             if (TSWTUtil.isSWT) and (not (features_.isDefault(TOpenGLFeatureFactory.getInstance().OPENGL))) then begin
-                TPreLogUtil.put(stringMaker_.append(commonSeps_.SPACE).append(TSWTUtil.SWT).append(commonSeps_.SPACE).append(Self.RUNNABLE_).append(Self.stringUtil.toString(TNullRunnable.getInstance())).toString(), Self, Self.commonStrings.UPDATE);
+                TPreLogUtil.put(stringMaker_.append(commonSeps_.SPACE).append(TSWTUtil.SWT).append(commonSeps_.SPACE).append(Self.RUNNABLE_).append(Self.stringUtil.toString(TNullRunnable.getInstance())).toString(), TJava.Box(Self), Self.commonStrings.UPDATE);
                 Self.setUsedRunnable(TNullWaitGameRunnable.getInstance());
             end else if TJ2MEUtil.isHTML() then begin
-                TPreLogUtil.put(stringMaker_.append(commonSeps_.SPACE).append(TGraphicsStrings.getInstance().HTML).append(commonSeps_.SPACE).append(Self.RUNNABLE_).append(Self.stringUtil.toString(Self.runnable)).toString(), Self, Self.commonStrings.UPDATE);
+                TPreLogUtil.put(stringMaker_.append(commonSeps_.SPACE).append(TGraphicsStrings.getInstance().HTML).append(commonSeps_.SPACE).append(Self.RUNNABLE_).append(Self.stringUtil.toString(Self.runnable)).toString(), TJava.Box(Self), Self.commonStrings.UPDATE);
                 Self.setUsedRunnable(Self.runnable);
             end else if (((TJava.ToObject(Self.openGlReadydisplayable) is TDemoCanvas)) or ((TJava.ToObject(Self.openGlReadydisplayable) is TAllBinaryGameCanvas))) or (features_.isDefault(TOpenGLFeatureFactory.getInstance().OPENGL)) then begin
-                TPreLogUtil.put(stringMaker_.append(commonSeps_.SPACE).append(TOpenGLFeatureFactory.getInstance().OPENGL.toString()).append(commonSeps_.SPACE).append(Self.RUNNABLE_).append(Self.stringUtil.toString(Self.runnable)).toString(), Self, Self.commonStrings.UPDATE);
+                TPreLogUtil.put(stringMaker_.append(commonSeps_.SPACE).append(TOpenGLFeatureFactory.getInstance().OPENGL.toString()).append(commonSeps_.SPACE).append(Self.RUNNABLE_).append(Self.stringUtil.toString(Self.runnable)).toString(), TJava.Box(Self), Self.commonStrings.UPDATE);
                 Self.setUsedRunnable(Self.runnable);
             end else begin
-                TPreLogUtil.put(stringMaker_.append(Self.RUNNABLE_).append(Self.stringUtil.toString(TNullRunnable.getInstance())).toString(), Self, Self.commonStrings.UPDATE);
+                TPreLogUtil.put(stringMaker_.append(Self.RUNNABLE_).append(Self.stringUtil.toString(TNullRunnable.getInstance())).toString(), TJava.Box(Self), Self.commonStrings.UPDATE);
                 Self.setUsedRunnable(TNullWaitGameRunnable.getInstance());
             end;
         finally
@@ -199,7 +199,7 @@ end;
 
 procedure TCurrentDisplayableFactory.setUsedRunnable(usedRunnable: TGameRunnable);
 begin
-        TPreLogUtil.put(TStringMaker.Create().append(Self.RUNNABLE_).append(Self.stringUtil.toString(Self.runnable)).append(TCommonSeps.getInstance().COLON_SEP).append(Self.stringUtil.toString(usedRunnable)).toString(), Self, Self.SET_USED_RUNNABLE);
+        TPreLogUtil.put(TStringMaker.Create().append(Self.RUNNABLE_).append(Self.stringUtil.toString(Self.runnable)).append(TCommonSeps.getInstance().COLON_SEP).append(Self.stringUtil.toString(usedRunnable)).toString(), TJava.Box(Self), Self.SET_USED_RUNNABLE);
         Self.usedRunnable := usedRunnable;
 end;
 

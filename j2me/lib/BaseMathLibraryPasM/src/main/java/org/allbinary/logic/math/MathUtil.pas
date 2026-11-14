@@ -91,10 +91,10 @@ var
   index: Integer;
 begin
         if (x) = (0) then begin
-            Exit(Double(0.0));
+            Exit(0.0);
         end;
         if (x) < (0) then begin
-            Exit(Double(-1.0));
+            Exit(-1.0);
         end;
         result_ := x;
         for index := 0 to Self.ACCURACY - 1 do begin

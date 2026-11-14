@@ -57,7 +57,7 @@ end;
 
 function TABCustomForm.getAllitems: TArray<TABCustomItem>;
 begin
-        Exit(TJava.NewArray<TABCustomItem>(0));
+        Exit(nil);
 end;
     
 

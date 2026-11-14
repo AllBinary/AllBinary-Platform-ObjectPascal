@@ -180,6 +180,7 @@
                                     <argument>G:/mnt/bc/mydev/workingopascal/allbinary_src/InitInfoJavaLibraryPasM/src/main/java</argument>
                                     <argument>G:/mnt/bc/mydev/workingopascal/allbinary_src/data/vo/EntitiesOrderHistoryVOJavaLibraryPasM/src/main/java</argument>
                                     <argument>G:/mnt/bc/mydev/workingopascal/j2me/J2SEForJ2MEJavaLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/AllBinary-Platform-Integrationopascal/j2me/PolyglotOnlyJavaLibraryPasM/src/main/java</argument>
                                     <argument>G:/mnt/bc/mydev/workingopascal/replace_these_stub_projects/allbinary_src/NoneOnlyJavaLibraryPasM/src/main/java</argument>
                                     <argument>G:/mnt/bc/mydev/workingopascal/j2me/TempBaseJavaLibraryPasM/src/main/java</argument>
                                     <argument>G:/mnt/bc/mydev/workingopascal/allbinary_src/LogNoPlatformJavaLibraryPasM/src/main/java</argument>
@@ -212,7 +213,6 @@
                                     <argument>G:/mnt/bc/mydev/workingopascal/allbinary_src/logic/data/file/FileJ2SEJavaLibraryPasM/src/main/java</argument>
                                     <argument>G:/mnt/bc/mydev/workingopascal/allbinary_src/licensing/LicenseClientJavaLibraryPasM/src/main/java</argument>
                                     <argument>G:/mnt/bc/mydev/workingopascal/allbinary_src/logic/data/file/FileAdvancedJavaLibraryPasM/src/main/java</argument>
-                                    <argument>G:/mnt/bc/mydev/AllBinary-Platform-Integrationopascal/j2me/PolyglotOnlyJavaLibraryPasM/src/main/java</argument>
                                     <argument>G:/mnt/bc/mydev/workingopascal/allbinary_src/logging/LogConfigTypeThickClientJavaLibraryPasM/src/main/java</argument>
                                     <argument>G:/mnt/bc/mydev/workingopascal/allbinary_src/TokenizerJavaLibraryPasM/src/main/java</argument>
                                     <argument>G:/mnt/bc/mydev/workingopascal/allbinary_src/logic/data/file/FileJavaLibraryPasM/src/main/java</argument>

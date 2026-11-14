@@ -76,7 +76,7 @@ end;
 procedure TThreadUtil.join(thread: TThread);
 begin
         if TThreadUtil.getInstance().isRunning(thread) then begin
-            Self.logUtil.putF('Waiting for Thread To Join/End', Self, Self.JOIN_);
+            Self.logUtil.putF('Waiting for Thread To Join/End', TJava.Box(Self), Self.JOIN_);
             thread.WaitFor;
         end;
 end;

@@ -68,7 +68,7 @@ begin
         except
             on e: SysUtils.Exception do begin
             commonStrings_ := TCommonStrings.getInstance();
-            TPreLogUtil.putOE(commonStrings_.EXCEPTION, 'DatabaseEncoder', 'decode', e);
+            TPreLogUtil.putOE(commonStrings_.EXCEPTION, TJava.Box('DatabaseEncoder'), 'decode', TJava.Box(e));
             Exit(TStringUtil.getInstance().EMPTY_STRING);
             end;
         end;
@@ -93,13 +93,13 @@ begin
             
             for index := 0 to size - 1 do begin
                 byteOfData := TJava.UnboxString(TJava.ToObject(vector.objectArray[index]));
-                decode[index] := TByte.parseByte(byteOfData);
+                decode[index] := ShortInt(StrToInt(byteOfData));
             end;
             Exit(decode);
         except
             on e: SysUtils.Exception do begin
             commonStrings_ := TCommonStrings.getInstance();
-            TPreLogUtil.putSE(commonStrings_.EXCEPTION, 'DatabaseEncoder', 'decode', e);
+            TPreLogUtil.putSE(commonStrings_.EXCEPTION, 'DatabaseEncoder', 'decode', TJava.Box(e));
             Exit(TNullUtil.getInstance().NULL_BYTE_ARRAY);
             end;
         end;

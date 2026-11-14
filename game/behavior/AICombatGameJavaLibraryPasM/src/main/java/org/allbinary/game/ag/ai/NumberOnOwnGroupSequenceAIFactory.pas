@@ -81,7 +81,7 @@ begin
         stringBuffer.appendint(System.Length(artificialIntelligenceInterface_));
         stringBuffer.append(' + 1');
         commonStrings_ := TCommonStrings.getInstance();
-        Self.logUtil.putF(stringBuffer.toString(), Self, commonStrings_.GET_INSTANCE);
+        Self.logUtil.putF(stringBuffer.toString(), TJava.Box(Self), commonStrings_.GET_INSTANCE);
         if ((System.Length(artificialIntelligenceInterface_)) - (1)) > (list.size()) then begin
             raise SysUtils.Exception.Create('Not enough AI properties.');
         end;

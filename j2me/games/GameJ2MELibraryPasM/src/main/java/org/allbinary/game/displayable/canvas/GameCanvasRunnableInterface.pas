@@ -23,7 +23,7 @@ unit GameCanvasRunnableInterface;
 interface
 
 uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, CommandListener, ItemStateListener, GameStateCompositeInterface, PaintableInterface, RunnableInterface, ABHashtable;
+  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, CommandListener, ItemStateListener, GameStateCompositeInterface, PaintableInterface, RunnableInterface, ABHashtable, Graphics, Item, GameState;
 
 type
   {AB:TYPES}
@@ -42,6 +42,11 @@ type
         function getLoadStateHashtable: TABHashtable<TObject, TObject>;
         procedure setLoadStateHashtable(hashtable: TABHashtable<TObject, TObject>);
         function getType: Integer;
+        procedure paint(graphics_: TGraphics); overload;
+        procedure paintThreed(graphics_: TGraphics); overload;
+        procedure itemStateChanged(item_: TItem); overload;
+        function getGameState: TGameState; overload;
+        procedure setGameState(gameState_: TGameState); overload;
   end;
   TGameCanvasRunnableInterface = IGameCanvasRunnableInterface;
 

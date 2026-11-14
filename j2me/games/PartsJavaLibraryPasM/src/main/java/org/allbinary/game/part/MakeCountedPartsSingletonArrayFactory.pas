@@ -40,7 +40,7 @@ type
 
 implementation
 uses
-  CountedLayerInterfaceFactoryPart, PartInterface, CountedPickedUpLayerInterfaceFactory, CountedPickedUpLayerInterfaceFactoryPool, StringMaker, CommonStrings, BasicArrayListD, BasicArrayListUtil;
+  CountedLayerInterfaceFactoryPart, CountedPickedUpLayerInterfaceFactory, CountedPickedUpLayerInterfaceFactoryPool, StringMaker, CommonStrings, BasicArrayListD, BasicArrayListUtil;
 
 
 {AB:CODE}
@@ -93,7 +93,7 @@ begin
         stringBuffer.append(' Counted: ');
         stringBuffer.appendint(countedBasicArrayList.size());
         commonStrings_ := TCommonStrings.getInstance();
-        Self.logUtil.putF(stringBuffer.toString(), Self, commonStrings_.GET_INSTANCE);
+        Self.logUtil.putF(stringBuffer.toString(), TJava.Box(Self), commonStrings_.GET_INSTANCE);
         newPartInterfaceArray := TJava.NewArray<IPartInterface>(Self.list.size());
         newSize := System.Length(newPartInterfaceArray);
         for index := 0 to newSize - 1 do begin

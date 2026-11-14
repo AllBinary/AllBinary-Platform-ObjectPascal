@@ -116,7 +116,7 @@ begin
         recordStore_ := TNullRecordStore.NULL_RECORD_STORE;
         try
         try
-            Self.logUtil.putF(TStringMaker.Create().append('Deleting: ').appendint(deleteId).toString(), Self, Self.commonStrings.delete_);
+            Self.logUtil.putF(TStringMaker.Create().append('Deleting: ').appendint(deleteId).toString(), TJava.Box(Self), Self.commonStrings.delete_);
             recordStore_ := TRecordStore.openRecordStore(Self.getRecordId(abeClientInformation), True);
             recordStore_.deleteRecord(deleteId);
         except
@@ -126,7 +126,7 @@ begin
         end;
         finally
             if (recordStore_) <> (nil) then begin
-                TPreLogUtil.put('Closing RecordStore', Self, Self.commonStrings.delete_);
+                TPreLogUtil.put('Closing RecordStore', TJava.Box(Self), Self.commonStrings.delete_);
                 recordStore_.closeRecordStore();
             end;
         end;
@@ -153,7 +153,7 @@ begin
         recordStore_ := TNullRecordStore.NULL_RECORD_STORE;
         try
         try
-            if (Self.name) = (TStringUtil.getInstance().EMPTY_STRING) then begin
+            if TJava.Equals(Self.name, TStringUtil.getInstance().EMPTY_STRING) then begin
                 LOADING_ID := 'Loading id: ';
                 recordStore_ := TRecordStore.openRecordStore(Self.getRecordId(abeClientInformation), True);
                 recordEnum := recordStore_.enumerateRecords(TNullRecordFilter.NULL_RECORD_FILTER, TNullRecordComparator.NULL_RECORD_COMPARATOR, True);
@@ -163,8 +163,8 @@ begin
                 
                 while recordEnum.hasNextElement() do begin
                     id := recordEnum.nextRecordId();
-                    Self.logUtil.putF(TStringMaker.Create().append(LOADING_ID).appendint(id).toString(), Self, Self.commonStrings.LOAD);
-                    recordAsBytes := Self.tsUtil.getRecord(recordStore_, id);
+                    Self.logUtil.putF(TStringMaker.Create().append(LOADING_ID).appendint(id).toString(), TJava.Box(Self), Self.commonStrings.LOAD);
+                    recordAsBytes := Self.tsUtil.getRecord(TJava.Box(recordStore_), id);
                     byteArrayInputStream_ := TByteArrayInputStream.Create(recordAsBytes);
                     inputStream := TDataInputStream.Create(byteArrayInputStream_);
                     while (inputStream.available()) > (0) do begin
@@ -176,18 +176,18 @@ begin
         except
             on e: SysUtils.Exception do begin
             Self.save(abeClientInformation, gameInfo_, Self.name);
-            Self.logUtil.putF(TStringMaker.Create().append(Self.commonStrings.EXCEPTION_LABEL).append(TExceptionUtil.getInstance().getStackTrace(e)).toString(), Self, Self.commonStrings.LOAD);
+            Self.logUtil.putF(TStringMaker.Create().append(Self.commonStrings.EXCEPTION_LABEL).append(TExceptionUtil.getInstance().getStackTrace(e)).toString(), TJava.Box(Self), Self.commonStrings.LOAD);
             end;
         end;
         finally
             try
                 if (recordStore_) <> (nil) then begin
-                    TPreLogUtil.put('Closing RecordStore', Self, Self.commonStrings.LOAD);
+                    TPreLogUtil.put('Closing RecordStore', TJava.Box(Self), Self.commonStrings.LOAD);
                     recordStore_.closeRecordStore();
                 end;
             except
                 on e: TRecordStoreException do begin
-                Self.logUtil.put(Self.commonStrings.EXCEPTION, Self, Self.commonStrings.LOAD, e);
+                Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.commonStrings.LOAD, TJava.Box(e));
                 end;
             end;
         end;
@@ -205,7 +205,7 @@ begin
         recordStore_ := TNullRecordStore.NULL_RECORD_STORE;
         try
         try
-            Self.logUtil.putF(TStringMaker.Create().append('Saving: ').append(name).toString(), Self, Self.commonStrings.SAVE);
+            Self.logUtil.putF(TStringMaker.Create().append('Saving: ').append(name).toString(), TJava.Box(Self), Self.commonStrings.SAVE);
             recordStore_ := TRecordStore.openRecordStore(Self.getRecordId(abeClientInformation), True);
             byteArrayOutputStream := TByteArrayOutputStream.Create;
             outputStream := TDataOutputStream.Create(byteArrayOutputStream);
@@ -215,18 +215,18 @@ begin
             Self.name := name;
         except
             on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, Self, Self.commonStrings.SAVE, e);
+            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.commonStrings.SAVE, TJava.Box(e));
             end;
         end;
         finally
             try
                 if (recordStore_) <> (nil) then begin
-                    TPreLogUtil.put('Closing RecordStore', Self, Self.commonStrings.SAVE);
+                    TPreLogUtil.put('Closing RecordStore', TJava.Box(Self), Self.commonStrings.SAVE);
                     recordStore_.closeRecordStore();
                 end;
             except
                 on e: TRecordStoreException do begin
-                Self.logUtil.put(Self.commonStrings.EXCEPTION, Self, Self.commonStrings.SAVE, e);
+                Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.commonStrings.SAVE, TJava.Box(e));
                 end;
             end;
         end;

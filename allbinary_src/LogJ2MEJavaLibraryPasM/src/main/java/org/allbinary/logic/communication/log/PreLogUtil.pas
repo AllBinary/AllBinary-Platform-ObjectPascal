@@ -55,7 +55,7 @@ end;
 
 class procedure TPreLogUtil.put(specialMessage: string; anyType: TObject; functionName: string);
 begin
-        TPreLogUtil.putOE(specialMessage, anyType, functionName, TNullUtil.getInstance().NULL_OBJECT);
+        TPreLogUtil.putOE(specialMessage, TJava.Box(anyType), functionName, TJava.Box(TNullUtil.getInstance().NULL_OBJECT));
 end;
     
 
@@ -68,7 +68,7 @@ begin
         if (TJava.ToObject(anyType).ClassType.ClassName) <> ('') then begin
             className := TJava.NewString(TJava.ToObject(anyType).ClassType.ClassName);
         end;
-        message := TLogFormatUtil.getInstance().get(className, functionName, specialMessage, exception);
+        message := TLogFormatUtil.getInstance().get(className, functionName, specialMessage, TJava.Box(exception));
         Write(TPreLogUtil.LOG_SUCCESS);
         WriteLn(message);
 end;
@@ -76,7 +76,7 @@ end;
 
 class procedure TPreLogUtil.putS(specialMessage: string; className: string; functionName: string);
 begin
-        TPreLogUtil.putSE(specialMessage, className, functionName, TNullUtil.getInstance().NULL_OBJECT);
+        TPreLogUtil.putSE(specialMessage, className, functionName, TJava.Box(TNullUtil.getInstance().NULL_OBJECT));
 end;
     
 
@@ -84,7 +84,7 @@ class procedure TPreLogUtil.putSE(specialMessage: string; className: string; fun
 var
   message: string;
 begin
-        message := TLogFormatUtil.getInstance().get(className, functionName, specialMessage, exception);
+        message := TLogFormatUtil.getInstance().get(className, functionName, specialMessage, TJava.Box(exception));
         Write(TPreLogUtil.LOG_SUCCESS);
         WriteLn(message);
 end;

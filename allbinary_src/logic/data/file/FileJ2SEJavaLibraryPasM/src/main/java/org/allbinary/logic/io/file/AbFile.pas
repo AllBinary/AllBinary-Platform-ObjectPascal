@@ -296,19 +296,19 @@ end;
 
 function TAbFile.listFiles: TArray<TObject>;
 begin
-        Exit(TJava.UnboxArray<TObject>(TJava.ToObject(Self.file_.listFiles())));
+        Exit(ToObjectArray(Self.file_.listFiles()));
 end;
     
 
 function TAbFile.listFilesFileNameFilter(filter: IFilenameFilter): TArray<TObject>;
 begin
-        Exit(TJava.UnboxArray<TObject>(TJava.ToObject(Self.file_.listFiles(filter))));
+        Exit(ToObjectArray(Self.file_.listFiles(filter)));
 end;
     
 
 function TAbFile.listFilesFileFilter(filter: IFileFilter): TArray<TObject>;
 begin
-        Exit(TJava.UnboxArray<TObject>(TJava.ToObject(Self.file_.listFiles(filter))));
+        Exit(ToObjectArray(Self.file_.listFiles(filter)));
 end;
     
 
@@ -410,7 +410,7 @@ end;
 
 function TAbFile.equals(obj: TObject): Boolean;
 begin
-        Exit(TTsUtil.getInstance().equalsNotstring(Self.file_, obj));
+        Exit(TTsUtil.getInstance().equalsNotstring(TJava.Box(Self.file_), TJava.Box(obj)));
 end;
     
 

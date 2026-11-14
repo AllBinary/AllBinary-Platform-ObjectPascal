@@ -112,7 +112,7 @@ begin
             Self.availableListOfList[index].clear();
             Self.availableListOfList[index].addAllList(Self.listOfList[index]);
         end;
-        Self.logUtil.putF(TStringMaker.Create().append('ImageCache: ').append(Self.toString()).toString(), Self, 'releaseAll');
+        Self.logUtil.putF(TStringMaker.Create().append('ImageCache: ').append(Self.toString()).toString(), TJava.Box(Self), 'releaseAll');
 end;
     
 
@@ -172,7 +172,7 @@ end;
 // throws Exception
 function TImageCacheBase.createImageFromInputStream(key: TObject; inputStream_: TInputStream): TImage;
 begin
-        Exit(Self.imageFactory.createImageFromInputStream(key, inputStream_));
+        Exit(Self.imageFactory.createImageFromInputStream(TJava.Box(key), inputStream_));
 end;
     
 

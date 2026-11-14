@@ -52,7 +52,7 @@ end;
 // throws Exception
 procedure TJ2MEGameInputMapping.init(abeClientInformation: IAbeClientInformationInterface);
 begin
-        Self.logUtil.putF(Self.commonStrings.START, Self, Self.commonStrings.INIT);
+        Self.logUtil.putF(Self.commonStrings.START, TJava.Box(Self), Self.commonStrings.INIT);
         TJ2MEKeyFactory.getInstance().init();
         inherited init(abeClientInformation);
         if ((Self.getTotalMapped()) = (0)) or (Self.isDefaultNew()) then begin

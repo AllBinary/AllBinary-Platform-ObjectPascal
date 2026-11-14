@@ -80,7 +80,7 @@ begin
         anyType := TJava.Box(log_.getObject());
         functionName := log_.getFunctionName();
         exception := TJava.Box(log_.getThrowable());
-        Self.put(specialMessage, anyType, functionName, exception);
+        Self.put(specialMessage, TJava.Box(anyType), functionName, TJava.Box(exception));
 end;
     
 
@@ -91,7 +91,7 @@ var
 begin
         className := TCommonStrings.getInstance().EMPTY;
         if (TJava.ToObject(anyType).ClassType.ClassName) <> ('') then begin
-            className := TJava.NewString(TStringMaker.Create().append(TJava.ToObject(anyType).ClassType.ClassName).append(TCommonSeps.getInstance().COLON).append(IntToHex(TTsUtil.getInstance().hashCode(anyType))).toString());
+            className := TJava.NewString(TStringMaker.Create().append(TJava.ToObject(anyType).ClassType.ClassName).append(TCommonSeps.getInstance().COLON).append(IntToHex(TTsUtil.getInstance().hashCode(TJava.Box(anyType)))).toString());
         end;
         message := Self.logFormatUtil.getS(className, functionName, specialMessage);
         Write(Self.LOG_SUCCESS);
@@ -118,11 +118,11 @@ var
 begin
         className := TCommonStrings.getInstance().EMPTY;
         if (TJava.ToObject(anyType).ClassType.ClassName) <> ('') then begin
-            hashCodeValue := TTsUtil.getInstance().hashCode(anyType);
+            hashCodeValue := TTsUtil.getInstance().hashCode(TJava.Box(anyType));
             hexString := IntToHex(hashCodeValue);
             className := TJava.NewString(TStringMaker.Create().append(TJava.ToObject(anyType).ClassType.ClassName).append(TCommonSeps.getInstance().COLON).append(hexString).toString());
         end;
-        message := Self.logFormatUtil.get(className, functionName, specialMessage, exception);
+        message := Self.logFormatUtil.get(className, functionName, specialMessage, TJava.Box(exception));
         Write(Self.LOG_SUCCESS);
         WriteLn(message);
 end;

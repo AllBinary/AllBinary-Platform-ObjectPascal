@@ -83,7 +83,7 @@ var
 begin
         logUtil_ := TLogUtil.getInstance();
         commonString := TCommonStrings.getInstance();
-        logUtil_.putF(commonString.START, TAllBinaryMediaManager.THIS, commonString.INIT);
+        logUtil_.putF(commonString.START, TJava.Box(TAllBinaryMediaManager.THIS), commonString.INIT);
         TProgressCanvasFactory.getInstance().addNormalPortion(50, 'Media Manager');
         TSounds.Create(soundsFactoryInterface_).init();
 end;
@@ -105,7 +105,7 @@ var
 begin
         logUtil_ := TLogUtil.getInstance();
         commonString := TCommonStrings.getInstance();
-        logUtil_.putF(commonString.START, TAllBinaryMediaManager.THIS, 'creatPlayer(InputStream)');
+        logUtil_.putF(commonString.START, TJava.Box(TAllBinaryMediaManager.THIS), 'creatPlayer(InputStream)');
         Exit((TJava.ToObject(TNoPlayer.NO_PLAYER) as IPlayer));
 end;
     
@@ -117,7 +117,7 @@ var
 begin
         logUtil_ := TLogUtil.getInstance();
         commonString := TCommonStrings.getInstance();
-        logUtil_.putF(commonString.START, TAllBinaryMediaManager.THIS, 'creatPlayer(locator)');
+        logUtil_.putF(commonString.START, TJava.Box(TAllBinaryMediaManager.THIS), 'creatPlayer(locator)');
         Exit((TJava.ToObject(TNoPlayer.NO_PLAYER) as IPlayer));
 end;
     

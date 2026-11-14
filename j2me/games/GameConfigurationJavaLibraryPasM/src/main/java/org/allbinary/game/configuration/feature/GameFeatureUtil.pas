@@ -98,7 +98,7 @@ begin
         total := choiceGroup_.getSelectedFlags(selectedArray_return);
         stringBuffer.append('Multiple Total Choices: ');
         stringBuffer.appendint(total);
-        Self.logUtil.putF(stringBuffer.toString(), Self, METHOD_NAME);
+        Self.logUtil.putF(stringBuffer.toString(), TJava.Box(Self), METHOD_NAME);
         features_ := TFeatures.getInstance();
         for index := 0 to System.Length(selectedArray_return) - 1 do begin
             isSelected := selectedArray_return[index];
@@ -107,7 +107,7 @@ begin
             stringBuffer.appendint(index);
             stringBuffer.append(SELECTED_SEP);
             stringBuffer.appendboolean(isSelected);
-            Self.logUtil.putF(stringBuffer.toString(), Self, METHOD_NAME);
+            Self.logUtil.putF(stringBuffer.toString(), TJava.Box(Self), METHOD_NAME);
             selectedChoiceLabel := choiceGroup_.getString(index);
             gameFeature := TFeature.getInstance(selectedChoiceLabel);
             if features_.isDefault(gameFeature) then begin
@@ -144,7 +144,7 @@ begin
         total := choiceGroup_.getSelectedFlags(selectedArray_return);
         stringBuffer.append('Multiple Total Choices: ');
         stringBuffer.appendint(total);
-        Self.logUtil.putF(stringBuffer.toString(), Self, METHOD_NAME);
+        Self.logUtil.putF(stringBuffer.toString(), TJava.Box(Self), METHOD_NAME);
         features_ := TFeatures.getInstance();
         for index := 0 to System.Length(selectedArray_return) - 1 do begin
             isSelected := selectedArray_return[index];
@@ -153,7 +153,7 @@ begin
             stringBuffer.appendint(index);
             stringBuffer.append(SELECTED_SEP);
             stringBuffer.appendboolean(isSelected);
-            Self.logUtil.putF(stringBuffer.toString(), Self, METHOD_NAME);
+            Self.logUtil.putF(stringBuffer.toString(), TJava.Box(Self), METHOD_NAME);
             selectedChoiceLabel := choiceGroup_.getString(index);
             gameFeature := TFeature.getInstance(selectedChoiceLabel);
             if (not (isSelected)) and (features_.isFeature(gameFeature)) then begin
@@ -186,7 +186,7 @@ begin
         total := choiceGroup_.getSelectedFlags(selectedArray_return);
         stringBuffer.append('Exclusive Total Choices: 1==');
         stringBuffer.appendint(total);
-        Self.logUtil.putF(stringBuffer.toString(), Self, METHOD_NAME);
+        Self.logUtil.putF(stringBuffer.toString(), TJava.Box(Self), METHOD_NAME);
         for index := 0 to System.Length(selectedArray_return) - 1 do begin
             isSelected := selectedArray_return[index];
             stringBuffer.delete_(0, stringBuffer.length());
@@ -194,7 +194,7 @@ begin
             stringBuffer.appendint(index);
             stringBuffer.append(SELECTED_SEP);
             stringBuffer.appendboolean(isSelected);
-            Self.logUtil.putF(stringBuffer.toString(), Self, METHOD_NAME);
+            Self.logUtil.putF(stringBuffer.toString(), TJava.Box(Self), METHOD_NAME);
             if isSelected then begin
                 selectedChoiceLabel := choiceGroup_.getString(index);
                 Self.updateExclusive(selectedChoiceLabel);
@@ -231,7 +231,7 @@ var
   size: Integer;
   index: Integer;
 begin
-        Self.logUtil.putF(TStringMaker.Create().append(TCommonLabels.getInstance().ITEM_LABEL).append(selectedChoiceLabel).toString(), Self, 'updateExclusive');
+        Self.logUtil.putF(TStringMaker.Create().append(TCommonLabels.getInstance().ITEM_LABEL).append(selectedChoiceLabel).toString(), TJava.Box(Self), 'updateExclusive');
         gameFeature := TFeature.getInstance(selectedChoiceLabel);
         hashtable := TGameFeatureChoiceGroups.getExclusiveInstance().get();
         objectArray := THashtableUtil.getInstance().getKeysAsArray(hashtable);

@@ -77,7 +77,7 @@ begin
         except
             on e: SysUtils.Exception do begin
             commonStrings_ := TCommonStrings.getInstance();
-            Self.logUtil.put(commonStrings_.EXCEPTION, Self, commonStrings_.CONSTRUCTOR_, e);
+            Self.logUtil.put(commonStrings_.EXCEPTION, TJava.Box(Self), commonStrings_.CONSTRUCTOR_, TJava.Box(e));
             end;
         end;
 end;
@@ -120,7 +120,7 @@ begin
         end else begin
             raise SysUtils.Exception.Create('Invalid ShowTitleBar ActivityConfiguration');
         end;
-        Self.logUtil.putF('Read Configuration: ' + Self.toString(), Self, 'read');
+        Self.logUtil.putF('Read Configuration: ' + Self.toString(), TJava.Box(Self), 'read');
 end;
     
 
@@ -135,7 +135,7 @@ begin
         closeable_ := TNullCloseable.NULL_CLOSEABLE;
         try
         try
-            Self.logUtil.putF('Write Configuration: ' + Self.toString(), Self, 'write');
+            Self.logUtil.putF('Write Configuration: ' + Self.toString(), TJava.Box(Self), 'write');
             fileInputStreamFactory := TFileStreamFactory.getInstance();
             fileOutputStream := fileInputStreamFactory.getFileOutputStreamInstance(TStringUtil.getInstance().EMPTY_STRING, Self.FILE_);
             dataOutputStream := TAbDataOutputStream.Create(fileOutputStream);

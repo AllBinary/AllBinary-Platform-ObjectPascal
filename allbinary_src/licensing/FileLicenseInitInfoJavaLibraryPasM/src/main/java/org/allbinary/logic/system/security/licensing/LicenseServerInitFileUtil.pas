@@ -67,13 +67,13 @@ begin
             filePath := TLicenseInitInfoUtil.getInstance().INITFILENAME;
             TLicenseInitInfoUtil.getInstance().setFilePath(TStringUtil.getInstance().EMPTY_STRING);
             if TFileFactory.getInstance().isFile(filePath) then begin
-                Self.logUtil.putF('Using Existing License File', Self, Self.commonStrings.INIT);
+                Self.logUtil.putF('Using Existing License File', TJava.Box(Self), Self.commonStrings.INIT);
             end else begin
                 Self.write();
             end;
         except
             on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, Self, Self.commonStrings.INIT, e);
+            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.commonStrings.INIT, TJava.Box(e));
             end;
         end;
 end;
@@ -95,7 +95,7 @@ begin
             resourceUtil_ := TResourceUtil.getInstance();
             filePath := TLicenseInitInfoUtil.getInstance().INITFILENAME;
             inputStream_ := resourceUtil_.getResourceAsStream(filePath);
-            Self.logUtil.putF('Writing Default License File', Self, Self.commonStrings.INIT);
+            Self.logUtil.putF('Writing Default License File', TJava.Box(Self), Self.commonStrings.INIT);
             fileStreamFactory_ := TFileStreamFactory.getInstance();
             fileOutputStream := fileStreamFactory_.getFileOutputStreamInstance(TStringUtil.getInstance().EMPTY_STRING, filePath);
             
@@ -108,11 +108,11 @@ begin
                 fileOutputStream.write(b);
                 Inc(index);
             end;
-            Self.logUtil.putF('Wrote Bytes: ' + IntToStr(index), Self, Self.commonStrings.INIT);
+            Self.logUtil.putF('Wrote Bytes: ' + IntToStr(index), TJava.Box(Self), Self.commonStrings.INIT);
             fileOutputStream.flush();
         except
             on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, Self, Self.commonStrings.INIT, e);
+            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.commonStrings.INIT, TJava.Box(e));
             end;
         end;
         finally

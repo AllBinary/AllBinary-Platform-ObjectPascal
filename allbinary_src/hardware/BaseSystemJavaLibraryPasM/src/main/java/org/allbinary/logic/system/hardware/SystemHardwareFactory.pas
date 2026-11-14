@@ -71,13 +71,13 @@ end;
 function TSystemHardwareFactory.getInstance(operatingSystemInterface: TGenericOperatingSystem): IHardwareInterface;
 begin
         try
-            if (Self.hardwareInterface) = (TNoHardware.getInstance()) then begin
+            if TJava.ToObject(Self.hardwareInterface) = TJava.ToObject(TNoHardware.getInstance()) then begin
                 Self.hardwareInterface := TNoHardware.getInstance();
             end;
-            Self.logUtil.putF('Found Hardware', Self, Self.commonStrings.CONSTRUCTOR_);
+            Self.logUtil.putF('Found Hardware', TJava.Box(Self), Self.commonStrings.CONSTRUCTOR_);
         except
             on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, Self, Self.commonStrings.CONSTRUCTOR_, e);
+            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.commonStrings.CONSTRUCTOR_, TJava.Box(e));
             end;
         end;
         Exit(Self.hardwareInterface);

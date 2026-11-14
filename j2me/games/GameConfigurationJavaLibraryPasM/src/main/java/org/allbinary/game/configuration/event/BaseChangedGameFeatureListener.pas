@@ -74,13 +74,13 @@ end;
 
 procedure TBaseChangedGameFeatureListener.onEvent(eventObject: TAllBinaryEventObject);
 begin
-        TForcedLogUtil.log(TCommonStrings.getInstance().NOT_IMPLEMENTED, Self);
+        TForcedLogUtil.log(TCommonStrings.getInstance().NOT_IMPLEMENTED, TJava.Box(Self));
 end;
     
 
 procedure TBaseChangedGameFeatureListener.onGameFeatureChange(gameFeatureEvent_: TGameFeatureEvent);
 begin
-        Self.logUtil.putF(TStringMaker.Create().append(Self.gameFeatureUtil.GAME_FEATURE_CHANGED).append(gameFeatureEvent_.getWhatChanged()).toString(), Self, Self.gameFeatureUtil.ON_GAME_FEATURE_CHANGE);
+        Self.logUtil.putF(TStringMaker.Create().append(Self.gameFeatureUtil.GAME_FEATURE_CHANGED).append(gameFeatureEvent_.getWhatChanged()).toString(), TJava.Box(Self), Self.gameFeatureUtil.ON_GAME_FEATURE_CHANGE);
         Self.list.add(TJava.Box(gameFeatureEvent_.getGameOption()));
         Self.setChanged(True);
 end;
@@ -120,7 +120,7 @@ begin
         stringBuffer.appendboolean(TFeatures.getInstance().isFeature(gameFeature));
         stringBuffer.append(' isChanged: ');
         stringBuffer.appendboolean(isChanged);
-        Self.logUtil.putF(stringBuffer.toString(), Self, 'isChanged');
+        Self.logUtil.putF(stringBuffer.toString(), TJava.Box(Self), 'isChanged');
         Exit(isChanged);
 end;
     

@@ -110,7 +110,7 @@ begin
         stringBuffer.appendint((gameConfiguration_.getValue()));
         stringBuffer.append(Self.TO_);
         stringBuffer.appendint((value));
-        Self.logUtil.putF(stringBuffer.toString(), Self, Self.commonStrings.UPDATE);
+        Self.logUtil.putF(stringBuffer.toString(), TJava.Box(Self), Self.commonStrings.UPDATE);
         gameConfiguration_.setValue(value);
 end;
     
@@ -129,7 +129,7 @@ begin
         stringBuffer.append(gameConfiguration_.getName());
         stringBuffer.append(Self.TO_);
         stringBuffer.appendint((gameConfiguration_.getDefaultValue()));
-        Self.logUtil.putF(stringBuffer.toString(), Self, 'setDefault');
+        Self.logUtil.putF(stringBuffer.toString(), TJava.Box(Self), 'setDefault');
         gauge.setValue(((gameConfiguration_.getDefaultValue())) - ((gameConfiguration_.getMinValue())));
         gameConfiguration_.setValue(gameConfiguration_.getDefaultValue());
 end;
@@ -150,7 +150,7 @@ begin
         gameConfigurationSingleton_ := TGameConfigurationSingleton.getInstance();
         gameConfigurationCentral_ := TGameConfigurationCentral.getInstance();
         if (gameConfiguration_) = (gameConfigurationCentral_.CHALLENGE_LEVEL) then begin
-            Self.logUtil.putF(Self.commonStrings.START, Self, 'updateChallange');
+            Self.logUtil.putF(Self.commonStrings.START, TJava.Box(Self), 'updateChallange');
             gameConfigurationCentral_.COLLIDE_DAMAGE.setValue(gameConfiguration_.getValue());
             gameConfigurationCentral_.ATTACK_CHALLENGE_LEVEL.setValue(gameConfiguration_.getValue());
             gameConfigurationCentral_.DURABILITY_CHALLENGE_LEVEL.setValue(gameConfiguration_.getValue());
@@ -181,7 +181,7 @@ procedure TGameConfigurationUtil.updateCompetitionValue;
 var
   gameConfigurationCentral_: TGameConfigurationCentral;
 begin
-        Self.logUtil.putF(Self.commonStrings.START, Self, 'updateCompetitionValue');
+        Self.logUtil.putF(Self.commonStrings.START, TJava.Box(Self), 'updateCompetitionValue');
         gameConfigurationCentral_ := TGameConfigurationCentral.getInstance();
         Self.COMPETITION_VALUE := (((gameConfigurationCentral_.COLLIDE_DAMAGE.getValue().intValue()) + (gameConfigurationCentral_.ATTACK_CHALLENGE_LEVEL.getValue().intValue())) + (gameConfigurationCentral_.DURABILITY_CHALLENGE_LEVEL.getValue().intValue())) + (gameConfigurationCentral_.SPEED_CHALLENGE_LEVEL.getValue().intValue());
         Self.COMPETITION_VALUE := (TJava.SignedRightShift(Self.COMPETITION_VALUE, 2));

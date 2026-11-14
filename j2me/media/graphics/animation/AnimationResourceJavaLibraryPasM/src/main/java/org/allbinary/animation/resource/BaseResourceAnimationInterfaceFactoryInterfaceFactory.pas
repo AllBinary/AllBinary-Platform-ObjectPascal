@@ -105,7 +105,7 @@ var
   commonStrings_: TCommonStrings;
 begin
         commonStrings_ := TCommonStrings.getInstance();
-        Self.logUtil.putF(TStringMaker.Create().append('Available List of Animations: ').append(Self.hashtable.toString()).toString(), Self, commonStrings_.INIT);
+        Self.logUtil.putF(TStringMaker.Create().append('Available List of Animations: ').append(Self.hashtable.toString()).toString(), TJava.Box(Self), commonStrings_.INIT);
         Self.setInitialized(True);
 end;
     
@@ -167,7 +167,7 @@ var
 begin
         valueCanBeNull := TJava.Box(Self.rectangleArrayOfArraysHashtable.get(TJava.Box(resource)));
         if (valueCanBeNull) <> (nil) then begin
-            rectangleArrayOfArrays := TArray<TArray<TRectangle>>(valueCanBeNull);
+            rectangleArrayOfArrays := TJava.UnboxArrayOfArrays<TRectangle>(TJava.ToObject(valueCanBeNull));
             Exit(rectangleArrayOfArrays);
         end else begin
             Exit(TRectangleFactory.ARRAY_OF_ARRAYS);
@@ -178,7 +178,7 @@ end;
 // throws Exception
 procedure TBaseResourceAnimationInterfaceFactoryInterfaceFactory.addRectangleArrayOfArrays(resource: string; rectangleArrayOfArrays: TArray<TArray<TRectangle>>);
 begin
-        Self.rectangleArrayOfArraysHashtable.put(TJava.Box(resource), TJava.Box(rectangleArrayOfArrays));
+        Self.rectangleArrayOfArraysHashtable.put(TJava.Box(resource), TJava.BoxArrayOfArrays<TRectangle>(rectangleArrayOfArrays));
 end;
     
 

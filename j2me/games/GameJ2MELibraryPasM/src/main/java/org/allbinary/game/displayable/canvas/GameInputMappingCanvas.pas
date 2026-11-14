@@ -91,7 +91,7 @@ constructor TGameInputMappingCanvas.Create(abeClientInformation: IAbeClientInfor
 begin
         inherited Create(commandListener_, TGameInputMappingCanvas.NAME, allBinaryGameLayerManager_.getBackgroundBasicColor(), allBinaryGameLayerManager_.getForegroundBasicColor());
         InitFields;
-        Self.logUtil.putF(Self.commonStrings.START, Self, Self.commonStrings.CONSTRUCTOR_);
+        Self.logUtil.putF(Self.commonStrings.START, TJava.Box(Self), Self.commonStrings.CONSTRUCTOR_);
         if (helpPaintable_) = (nil) then begin
             raise SysUtils.Exception.Create('Help Paintable Exception');
         end;
@@ -155,13 +155,13 @@ var
   input_: TInput;
 begin
         try
-            Self.logUtil.putF(TStringMaker.Create().append('Raw Device Key Code: ').append(IntToHex(keyCode)).toString(), Self, Self.gameInputStrings.ADD_KEY_EVENT);
+            Self.logUtil.putF(TStringMaker.Create().append('Raw Device Key Code: ').append(IntToHex(keyCode)).toString(), TJava.Box(Self), Self.gameInputStrings.ADD_KEY_EVENT);
             gameKey_ := Self.inputToGameKeyMapping.getInstanceForCanvas(Self, keyCode);
             input_ := Self.inputFactory.getInstanceById(keyCode);
             Self.processInputMapping(gameKey_, input_);
         except
             on e: SysUtils.Exception do begin
-            Self.logUtil.put('Key Event Error', Self, Self.gameInputStrings.ADD_KEY_EVENT, e);
+            Self.logUtil.put('Key Event Error', TJava.Box(Self), Self.gameInputStrings.ADD_KEY_EVENT, TJava.Box(e));
             end;
         end;
 end;
@@ -177,7 +177,7 @@ begin
         stringBuffer.append(Self.stringUtil.toString(gameKey_));
         stringBuffer.append(' Input: ');
         stringBuffer.append(Self.stringUtil.toString(input_));
-        Self.logUtil.putF(stringBuffer.toString(), Self, Self.commonStrings.PROCESS);
+        Self.logUtil.putF(stringBuffer.toString(), TJava.Box(Self), Self.commonStrings.PROCESS);
         if (Self.selectedGameKey) <> (Self.NONE) then begin
             Self.gameActionCrud(gameKey_, input_);
         end else begin
@@ -188,7 +188,7 @@ end;
 
 procedure TGameInputMappingCanvas.setSelectedAction(gameKey_: TGameKey);
 begin
-        Self.logUtil.putF(TStringMaker.Create().append('Selected GameKey: ').append(Self.stringUtil.toString(gameKey_)).toString(), Self, 'setSelectedAction');
+        Self.logUtil.putF(TStringMaker.Create().append('Selected GameKey: ').append(Self.stringUtil.toString(gameKey_)).toString(), TJava.Box(Self), 'setSelectedAction');
         Self.selectedGameKey := gameKey_;
         Self.selectedInput := Self.NONE;
         Self.helpPaintable.update(Self.selectedGameKey, Self.selectedInput);
@@ -208,12 +208,12 @@ begin
         stringBuffer.append(Self.stringUtil.toString(Self.selectedGameKey));
         stringBuffer.append(' Input: ');
         stringBuffer.append(Self.stringUtil.toString(Self.selectedInput));
-        Self.logUtil.putF(stringBuffer.toString(), Self, 'gameActionCrud');
+        Self.logUtil.putF(stringBuffer.toString(), TJava.Box(Self), 'gameActionCrud');
         if (Self.selectedInput) = (Self.NONE) then begin
             list := Self.inputMapping.getInputMapping().getMappedInput(Self.selectedGameKey);
             isInputAlreadyMappedToSelectedAction := list.contains(TJava.Box(input_));
             if isInputAlreadyMappedToSelectedAction then begin
-                Self.logUtil.putF(TStringMaker.Create().append('Already Mapped Input: ').append(Self.stringUtil.toString(input_)).toString(), Self, 'gameActionCrud');
+                Self.logUtil.putF(TStringMaker.Create().append('Already Mapped Input: ').append(Self.stringUtil.toString(input_)).toString(), TJava.Box(Self), 'gameActionCrud');
                 Self.selectedInput := input_;
                 Self.helpPaintable.update(Self.selectedGameKey, Self.selectedInput);
                 Self.repaintBehavior.onChangeRepaint(Self);
@@ -236,7 +236,7 @@ var
   stringBuffer: TStringMaker;
 begin
         METHOD_NAME := 'addNewMapping';
-        Self.logUtil.putF(Self.commonStrings.START, Self, METHOD_NAME);
+        Self.logUtil.putF(Self.commonStrings.START, TJava.Box(Self), METHOD_NAME);
         isInputAlreadyMapped := Self.inputMapping.getInputMapping().isMapped(input_);
         if (not (isInputAlreadyMapped)) and (not (Self.inputMapping.isSystemInput(input_))) then begin
             stringBuffer := TStringMaker.Create();
@@ -244,12 +244,12 @@ begin
             stringBuffer.append(Self.stringUtil.toString(Self.selectedGameKey));
             stringBuffer.append(' Input: ');
             stringBuffer.append(Self.stringUtil.toString(Self.selectedInput));
-            Self.logUtil.putF(stringBuffer.toString(), Self, METHOD_NAME);
+            Self.logUtil.putF(stringBuffer.toString(), TJava.Box(Self), METHOD_NAME);
             Self.inputMapping.getInputMapping().add(Self.selectedGameKey, input_);
             Self.selectedInput := input_;
             Self.update();
         end else begin
-            Self.logUtil.putF('Unable to add Mapping since one already exists or is MENU, HOME, or BACK key and setting selected action to what it is already mapped to', Self, METHOD_NAME);
+            Self.logUtil.putF('Unable to add Mapping since one already exists or is MENU, HOME, or BACK key and setting selected action to what it is already mapped to', TJava.Box(Self), METHOD_NAME);
             Self.setSelectedAction(gameKey_);
         end;
 end;
@@ -271,12 +271,12 @@ begin
             stringBuffer.append(Self.stringUtil.toString(Self.selectedGameKey));
             stringBuffer.append(' Input: ');
             stringBuffer.append(Self.stringUtil.toString(Self.selectedInput));
-            Self.logUtil.putF(stringBuffer.toString(), Self, METHOD_NAME);
+            Self.logUtil.putF(stringBuffer.toString(), TJava.Box(Self), METHOD_NAME);
             Self.inputMapping.getInputMapping().remove(Self.selectedGameKey, Self.selectedInput);
             Self.selectedInput := Self.NONE;
             Self.update();
         end else begin
-            Self.logUtil.putF('Can''t Remove Last Key Mapping', Self, METHOD_NAME);
+            Self.logUtil.putF('Can''t Remove Last Key Mapping', TJava.Box(Self), METHOD_NAME);
         end;
 end;
     

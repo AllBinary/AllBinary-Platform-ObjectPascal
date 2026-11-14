@@ -23,11 +23,13 @@ unit GameKeyEventListenerInterface;
 interface
 
 uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, DownGameKeyEventListenerInterface, UpGameKeyEventListenerInterface, PressGameKeyEventListenerInterface;
+  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, GameKeyEvent, DownGameKeyEventListenerInterface, UpGameKeyEventListenerInterface, PressGameKeyEventListenerInterface;
 
 type
   {AB:TYPES}
   IGameKeyEventListenerInterface = interface(IDownGameKeyEventListenerInterface) ['IGameKeyEventListenerInterface']
+        procedure onUpGameKeyEvent(gameKeyEvent_: TGameKeyEvent); overload;
+        procedure onPressGameKeyEvent(gameKeyEvent_: TGameKeyEvent); overload;
   end;
   TGameKeyEventListenerInterface = IGameKeyEventListenerInterface;
 

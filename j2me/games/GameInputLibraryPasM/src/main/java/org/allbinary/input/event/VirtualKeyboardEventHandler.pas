@@ -80,11 +80,11 @@ end;
 procedure TVirtualKeyboardEventHandler.open;
 begin
         try
-            Sleep(120);
+            SysUtils.Sleep(120);
             Self.fireEvent(Self.SHOW_EVENT);
         except
             on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, Self, 'open', e);
+            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), 'open', TJava.Box(e));
             end;
         end;
 end;
@@ -94,11 +94,11 @@ end;
 procedure TVirtualKeyboardEventHandler.close;
 begin
         try
-            Sleep(120);
+            SysUtils.Sleep(120);
             Self.fireEvent(Self.HIDE_EVENT);
         except
             on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, Self, Self.commonStrings.CLOSE, e);
+            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.commonStrings.CLOSE, TJava.Box(e));
             end;
         end;
 end;

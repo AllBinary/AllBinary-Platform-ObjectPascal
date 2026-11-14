@@ -52,7 +52,7 @@ end;
 
 class procedure TPreLogUtil.put(specialMessage: string; anyType: TObject; functionName: string);
 begin
-        TPreLogUtil.putOE(specialMessage, anyType, functionName, TNullUtil.getInstance().NULL_OBJECT);
+        TPreLogUtil.putOE(specialMessage, TJava.Box(anyType), functionName, TJava.Box(TNullUtil.getInstance().NULL_OBJECT));
 end;
     
 

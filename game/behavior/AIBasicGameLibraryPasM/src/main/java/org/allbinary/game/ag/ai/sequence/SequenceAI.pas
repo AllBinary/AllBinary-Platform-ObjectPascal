@@ -114,7 +114,7 @@ begin
         stringBuffer := TStringMaker.Create();
         stringBuffer.append(inherited toString());
         stringBuffer.append(' Selected AI: ');
-        stringBuffer.append(TStringUtil.getInstance().toString(Self.getSelectedArtificialIntelligenceInterface()));
+        stringBuffer.append(TStringUtil.getInstance().toString(TJava.ToObject(Self.getSelectedArtificialIntelligenceInterface())));
         Exit(stringBuffer.toString());
 end;
 

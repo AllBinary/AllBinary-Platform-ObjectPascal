@@ -45,7 +45,7 @@ end;
 
 initialization
   {AB:INITIALIZATION}
-  TMineVectorData.points := [[[10, 5], [2, 6], [1000, 1000], [2, 2], [10, 9], [1000, 1000], [10, 2], [2, 9], [1000, 1000], [2, 5], [10, 6], [1000, 1000], [7, 9], [5, 2], [1000, 1000], [7, 2], [5, 9], [1000, 1000]]];
+  TMineVectorData.points := [[TArray<Integer>.Create(10, 5), TArray<Integer>.Create(2, 6), TArray<Integer>.Create(1000, 1000), TArray<Integer>.Create(2, 2), TArray<Integer>.Create(10, 9), TArray<Integer>.Create(1000, 1000), TArray<Integer>.Create(10, 2), TArray<Integer>.Create(2, 9), TArray<Integer>.Create(1000, 1000), TArray<Integer>.Create(2, 5), TArray<Integer>.Create(10, 6), TArray<Integer>.Create(1000, 1000), TArray<Integer>.Create(7, 9), TArray<Integer>.Create(5, 2), TArray<Integer>.Create(1000, 1000), TArray<Integer>.Create(7, 2), TArray<Integer>.Create(5, 9), TArray<Integer>.Create(1000, 1000)]];
   {AB:END}
 
 end.

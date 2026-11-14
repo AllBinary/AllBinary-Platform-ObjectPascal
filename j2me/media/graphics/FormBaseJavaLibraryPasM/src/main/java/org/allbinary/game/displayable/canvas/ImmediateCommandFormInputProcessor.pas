@@ -70,7 +70,7 @@ begin
             end;
         except
             on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, Self, Self.gameInputStrings.ON_PRESS_GAME_KEY, e);
+            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.gameInputStrings.ON_PRESS_GAME_KEY, TJava.Box(e));
             end;
         end;
     finally
@@ -91,7 +91,7 @@ begin
             end;
         except
             on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, Self, Self.gameInputStrings.ON_DOWN_GAME_KEY, e);
+            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.gameInputStrings.ON_DOWN_GAME_KEY, TJava.Box(e));
             end;
         end;
     finally
@@ -112,7 +112,7 @@ begin
             end;
         except
             on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, Self, Self.gameInputStrings.ON_UP_GAME_KEY, e);
+            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.gameInputStrings.ON_UP_GAME_KEY, TJava.Box(e));
             end;
         end;
     finally
@@ -131,7 +131,7 @@ begin
             end;
         except
             on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, Self, 'onMotionGestureEvent', e);
+            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), 'onMotionGestureEvent', TJava.Box(e));
             end;
         end;
 end;

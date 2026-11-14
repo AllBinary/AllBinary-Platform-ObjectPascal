@@ -290,6 +290,7 @@
                                     <argument>G:/mnt/bc/mydev/workingopascal/j2me/games/strategy/rts/RTSTouchJavaLibraryPasM/src/main/java</argument>
                                     <argument>G:/mnt/bc/mydev/workingopascal/j2me/games/strategy/rts/RTSGameSoundsJavaLibraryPasM/src/main/java</argument>
                                     <argument>G:/mnt/bc/mydev/workingopascal/replace_these_stub_projects/allbinary_src/NoneOnlyJavaLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/AllBinary-Platform-Integrationopascal/j2me/PolyglotOnlyJavaLibraryPasM/src/main/java</argument>
                                     <argument>G:/mnt/bc/mydev/workingopascal/j2me/TempBaseJavaLibraryPasM/src/main/java</argument>
                                     <argument>G:/mnt/bc/mydev/workingopascal/allbinary_src/LogPasM/src/main/java</argument>
                                     <argument>G:/mnt/bc/mydev/workingopascal/j2me/CommonJavaLibraryPasM/src/main/java</argument>
@@ -336,7 +337,6 @@
                                     <argument>G:/mnt/bc/mydev/workingopascal/allbinary_src/logic/BasePreloaderJ2MEJavaLibraryPasM/src/main/java</argument>
                                     <argument>G:/mnt/bc/mydev/workingopascal/j2me/time/TimeJavaLibraryPasM/src/main/java</argument>
                                     <argument>G:/mnt/bc/mydev/workingopascal/j2me/EventJ2MELibraryPasM/src/main/java</argument>
-                                    <argument>G:/mnt/bc/mydev/AllBinary-Platform-Integrationopascal/j2me/PolyglotOnlyJavaLibraryPasM/src/main/java</argument>
                                     <argument>G:/mnt/bc/mydev/workingopascal/j2me/input/TouchButtonBaseJavaLibraryPasM/src/main/java</argument>
                                     <argument>G:/mnt/bc/mydev/workingopascal/j2me/input/TouchScreenJavaLibraryPasM/src/main/java</argument>
                                     <argument>G:/mnt/bc/mydev/workingopascal/j2me/games/PartsJavaLibraryPasM/src/main/java</argument>

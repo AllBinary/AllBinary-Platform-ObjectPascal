@@ -73,14 +73,14 @@ begin
         commonStrings_ := TCommonStrings.getInstance();
         appUrlGlobals_ := TAppUrlGlobals.Create();
         appUrlGlobals_.setWebappPath(pathString);
-        URLGLOBALS.init(appUrlGlobals_);
+        TURLGLOBALS.init(appUrlGlobals_);
         TWebappClassLoaderInfo.setLoader(classLoader);
         stringBuffer := TStringMaker.Create();
         stringBuffer.append('Setting Up AllBinary System Configuration Args: ');
         stringBuffer.append(pathString);
         stringBuffer.append(' ClassLoader: ');
         stringBuffer.append(TJava.ToObject(classLoader).ClassType.ClassName);
-        Self.logUtil.putF(stringBuffer.toString(), Self, commonStrings_.INIT);
+        Self.logUtil.putF(stringBuffer.toString(), TJava.Box(Self), commonStrings_.INIT);
         stringValidationUtil_ := nil;
         if (pathString = '') then begin
             stringBuffer.delete_(0, stringBuffer.length());
@@ -89,13 +89,13 @@ begin
             stringBuffer.append(TCommonSeps.getInstance().SPACE);
             stringBuffer.append(TCommonSeps.getInstance().EQUALS);
             stringBuffer.append(TCommonSeps.getInstance().SPACE);
-            stringBuffer.append(URLGLOBALS.getWebappPath());
-            Self.logUtil.putF(stringBuffer.toString(), Self, commonStrings_.INIT);
+            stringBuffer.append(TURLGLOBALS.getWebappPath());
+            Self.logUtil.putF(stringBuffer.toString(), TJava.Box(Self), commonStrings_.INIT);
         end;
         stringBuffer.delete_(0, stringBuffer.length());
         stringBuffer.append('Webapp Path Set To: ');
-        stringBuffer.append(URLGLOBALS.getWebappPath());
-        Self.logUtil.putF(stringBuffer.toString(), Self, commonStrings_.INIT);
+        stringBuffer.append(TURLGLOBALS.getWebappPath());
+        Self.logUtil.putF(stringBuffer.toString(), TJava.Box(Self), commonStrings_.INIT);
 end;
 
 initialization

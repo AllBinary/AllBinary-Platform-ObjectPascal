@@ -69,7 +69,7 @@ var
   featuredResourceFactory_: TFeaturedResourceFactory;
 begin
         commonStrings_ := TCommonStrings.getInstance();
-        Self.logUtil.putF(commonStrings_.START, Self, commonStrings_.INIT);
+        Self.logUtil.putF(commonStrings_.START, TJava.Box(Self), commonStrings_.INIT);
         featuredResourceFactory_ := TFeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance();
         featuredResourceFactory_.init(level);
         TFeaturedResourceRelativeRelationshipFactory.getInstance().init(level);

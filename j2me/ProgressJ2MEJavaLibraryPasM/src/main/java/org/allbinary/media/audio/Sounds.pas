@@ -77,7 +77,7 @@ var
   soundInterface: TSound;
   i: Integer;
 begin
-        Self.logUtil.putF(Self.commonStrings.START, Self, Self.commonStrings.INIT);
+        Self.logUtil.putF(Self.commonStrings.START, TJava.Box(Self), Self.commonStrings.INIT);
         commonLabels_ := TCommonLabels.getInstance();
         progressCanvas_ := TProgressCanvasFactory.getInstance();
         Self.soundsFactoryInterface.init();
@@ -96,13 +96,13 @@ begin
                 stringBuffer.append(indexString);
                 stringBuffer.append(Self.soundStrings.SOUND);
                 stringBuffer.append(TJava.ToObject(soundInterface).ClassType.ClassName);
-                Self.logUtil.putF(stringBuffer.toString(), Self, Self.commonStrings.INIT);
+                Self.logUtil.putF(stringBuffer.toString(), TJava.Box(Self), Self.commonStrings.INIT);
                 soundInterface.init();
                 progressCanvas_.addNormalPortion(100, TStringMaker.Create().append(Self.soundStrings.INIT_SOUND).append(indexString).toString());
             end;
         end;
         Self.soundsFactoryInterface.setInitialized(True);
-        Self.logUtil.putF(Self.commonStrings.END_, Self, Self.commonStrings.INIT);
+        Self.logUtil.putF(Self.commonStrings.END_, TJava.Box(Self), Self.commonStrings.INIT);
 end;
     
 
@@ -114,7 +114,7 @@ var
   player_: IPlayer;
   index: Integer;
 begin
-        Self.logUtil.putF(Self.commonStrings.START, Self, Self.soundStrings.STOP_ALL);
+        Self.logUtil.putF(Self.commonStrings.START, TJava.Box(Self), Self.soundStrings.STOP_ALL);
         soundInterfaceArray := Self.soundsFactoryInterface.getSoundInterfaceArray();
         progressCanvas_ := TProgressCanvasFactory.getInstance();
         
@@ -138,7 +138,7 @@ var
   player_: IPlayer;
   index: Integer;
 begin
-        Self.logUtil.putF(Self.commonStrings.START, Self, Self.soundStrings.CLOSE_ALL);
+        Self.logUtil.putF(Self.commonStrings.START, TJava.Box(Self), Self.soundStrings.CLOSE_ALL);
         soundInterfaceArray := Self.soundsFactoryInterface.getSoundInterfaceArray();
         progressCanvas_ := TProgressCanvasFactory.getInstance();
         

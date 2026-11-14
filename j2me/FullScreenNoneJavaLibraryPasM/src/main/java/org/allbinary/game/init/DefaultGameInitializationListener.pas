@@ -73,7 +73,7 @@ end;
 
 procedure TDefaultGameInitializationListener.onEvent(eventObject: TAllBinaryEventObject);
 begin
-        TForcedLogUtil.log(TEventStrings.getInstance().PERFORMANCE_MESSAGE, Self);
+        TForcedLogUtil.log(TEventStrings.getInstance().PERFORMANCE_MESSAGE, TJava.Box(Self));
 end;
     
 
@@ -85,10 +85,10 @@ begin
         ON_GAME_INITIALIZED := 'onGameInitialized';
         commonStrings_ := TCommonStrings.getInstance();
         try
-            Self.logUtil.putF(commonStrings_.START, Self, ON_GAME_INITIALIZED);
+            Self.logUtil.putF(commonStrings_.START, TJava.Box(Self), ON_GAME_INITIALIZED);
             while not (Self.swtJOGLProcessor.isHolderCreated()) do begin
-                Self.logUtil.putF(commonStrings_.UPDATE, Self, ON_GAME_INITIALIZED);
-                Sleep(20);
+                Self.logUtil.putF(commonStrings_.UPDATE, TJava.Box(Self), ON_GAME_INITIALIZED);
+                SysUtils.Sleep(20);
             end;
             TFeatureResourceInitializationUtil.getInstance().init(gameInitializedEvent_.getLevel());
             if Self.firstTime then begin
@@ -98,7 +98,7 @@ begin
             end;
         except
             on e: SysUtils.Exception do begin
-            Self.logUtil.put(commonStrings_.EXCEPTION, Self, ON_GAME_INITIALIZED, e);
+            Self.logUtil.put(commonStrings_.EXCEPTION, TJava.Box(Self), ON_GAME_INITIALIZED, TJava.Box(e));
             end;
         end;
 end;

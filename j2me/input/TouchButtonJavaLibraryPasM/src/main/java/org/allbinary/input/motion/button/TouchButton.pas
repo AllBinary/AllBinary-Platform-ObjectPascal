@@ -98,7 +98,7 @@ begin
         Self.xBorder := xBorder;
         Self.yBorder := yBorder;
         Self.updateRectangle();
-        Self.logUtil.putF(TStringMaker.Create().append('Created: ').append(Self.toString()).toString(), Self, Self.commonStrings.CONSTRUCTOR_);
+        Self.logUtil.putF(TStringMaker.Create().append('Created: ').append(Self.toString()).toString(), TJava.Box(Self), Self.commonStrings.CONSTRUCTOR_);
 end;
     
 
@@ -132,7 +132,7 @@ begin
             Self.hintAnimationY := (Self.animationY) - (32);
         except
             on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, Self, 'updateRectangle', e);
+            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), 'updateRectangle', TJava.Box(e));
             end;
         end;
 end;

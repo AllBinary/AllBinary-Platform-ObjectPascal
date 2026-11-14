@@ -83,7 +83,7 @@ begin
     InitFields;
         if TTouchScreenFactory.getInstance().isTouch() then begin
             Self.startString := Self.PRESS_START;
-        end else if TAppletUtil.isAppletLoader(Self) then begin
+        end else if TAppletUtil.isAppletLoader(TJava.Box(Self)) then begin
             Self.startString := Self.KEY_START;
         end else begin
             Self.startString := Self.MENU_START;

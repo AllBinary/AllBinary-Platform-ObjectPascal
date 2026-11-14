@@ -142,7 +142,7 @@ begin
             Self.player.prefetch();
         except
             on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, Self, 'prefetch', e);
+            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), 'prefetch', TJava.Box(e));
             end;
         end;
 end;
@@ -154,7 +154,7 @@ begin
             Self.player.realize();
         except
             on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, Self, 'realize', e);
+            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), 'realize', TJava.Box(e));
             end;
         end;
 end;
@@ -178,7 +178,7 @@ begin
             Exit(Self.player.setMediaTime(now));
         except
             on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, Self, 'setMediaTime', e);
+            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), 'setMediaTime', TJava.Box(e));
             Exit(Int64(-1));
             end;
         end;
@@ -193,7 +193,7 @@ begin
             end;
         except
             on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, Self, Self.commonStrings.START_METHOD_NAME, e);
+            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.commonStrings.START_METHOD_NAME, TJava.Box(e));
             end;
         end;
 end;
@@ -205,7 +205,7 @@ begin
             Self.player.stop();
         except
             on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, Self, 'stop', e);
+            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), 'stop', TJava.Box(e));
             end;
         end;
 end;

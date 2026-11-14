@@ -44,7 +44,7 @@ end;
 
 initialization
   {AB:INITIALIZATION}
-  THealthVectorData.points := [[[2, 1], [3, 2], [3, 2], [4, 1], [4, 1], [5, 1], [5, 1], [6, 2], [6, 2], [6, 3], [6, 3], [3, 6], [3, 6], [0, 3], [0, 3], [0, 2], [0, 2], [1, 1], [1, 1], [2, 1], [1000, 1000]]];
+  THealthVectorData.points := [[TArray<Integer>.Create(2, 1), TArray<Integer>.Create(3, 2), TArray<Integer>.Create(3, 2), TArray<Integer>.Create(4, 1), TArray<Integer>.Create(4, 1), TArray<Integer>.Create(5, 1), TArray<Integer>.Create(5, 1), TArray<Integer>.Create(6, 2), TArray<Integer>.Create(6, 2), TArray<Integer>.Create(6, 3), TArray<Integer>.Create(6, 3), TArray<Integer>.Create(3, 6), TArray<Integer>.Create(3, 6), TArray<Integer>.Create(0, 3), TArray<Integer>.Create(0, 3), TArray<Integer>.Create(0, 2), TArray<Integer>.Create(0, 2), TArray<Integer>.Create(1, 1), TArray<Integer>.Create(1, 1), TArray<Integer>.Create(2, 1), TArray<Integer>.Create(1000, 1000)]];
   {AB:END}
 
 end.

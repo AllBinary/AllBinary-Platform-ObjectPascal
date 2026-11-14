@@ -126,7 +126,7 @@ end;
 
 initialization
   {AB:INITIALIZATION}
-  TCombatGameCanvas.basicLayerProcessor := TJava.NewArray<TBasicLayerProcessor>(0);
+  TCombatGameCanvas.basicLayerProcessor := nil;
   {AB:END}
 
 end.

@@ -42,7 +42,7 @@ implementation
 
 procedure TCustomItemUtil.InitFields;
 begin
-  Self.CUSTOM_ITEM_ARRAY := TJava.NewArray<TABCustomItem>(0);
+  Self.CUSTOM_ITEM_ARRAY := nil;
 end;
 
 constructor TCustomItemUtil.Create;

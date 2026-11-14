@@ -52,7 +52,7 @@ uses
 procedure TGroupFactory.InitFields;
 begin
   Self.logUtil := TLogUtil.getInstance();
-  Self.NULL_GROUP_ARRAY := TJava.NewArray<TGroup>(0);
+  Self.NULL_GROUP_ARRAY := nil;
   Self.list := TBasicArrayListD.Create();
   Self.index := 0;
 end;

@@ -101,7 +101,7 @@ end;
 // throws Exception
 function TPooledImageArrayRotationAnimationFactory.getInstance(instanceId: Integer): TAnimation;
 begin
-        Exit(TAdjustedImageArrayRotationAnimation.createAdjustedImageArrayRotationAnimationInfo(Self.allBinaryImageRotationAnimationInfo, Self.animationBehaviorFactory.getOrCreateInstance()));
+        Exit(TAdjustedImageArrayRotationAnimation.createAdjustedImageArrayRotationAnimationInfo(TJava.Box(Self.allBinaryImageRotationAnimationInfo), Self.animationBehaviorFactory.getOrCreateInstance()));
 end;
     
 

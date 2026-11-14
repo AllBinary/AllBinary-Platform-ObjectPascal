@@ -150,12 +150,12 @@ var
   index: Integer;
   stringBuffer: TStringMaker;
 begin
-        Self.logUtil.putF(Self.commonStrings.START, Self, Self.commonStrings.INIT);
+        Self.logUtil.putF(Self.commonStrings.START, TJava.Box(Self), Self.commonStrings.INIT);
         try
             Self.inputPersistance.loadAll(abeClientInformation);
         except
             on e: SysUtils.Exception do begin
-            TPreLogUtil.putOE(Self.commonStrings.EXCEPTION, Self, Self.commonStrings.INIT, e);
+            TPreLogUtil.putOE(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.commonStrings.INIT, TJava.Box(e));
             Self.inputPersistance.deleteRecoreStore(abeClientInformation);
             Self.setDefault(abeClientInformation);
             Self.inputPersistance.loadAll(abeClientInformation);
@@ -183,7 +183,7 @@ begin
         stringBuffer.appendint(Self.getTotalMapped());
         stringBuffer.append(' to: ');
         stringBuffer.appendint(totalMappedTo);
-        Self.logUtil.putF(stringBuffer.toString(), Self, Self.commonStrings.INIT);
+        Self.logUtil.putF(stringBuffer.toString(), TJava.Box(Self), Self.commonStrings.INIT);
 end;
     
 

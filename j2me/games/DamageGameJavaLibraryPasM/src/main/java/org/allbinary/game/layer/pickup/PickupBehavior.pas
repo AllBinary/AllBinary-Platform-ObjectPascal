@@ -48,7 +48,7 @@ type
 
 implementation
 uses
-  PickedUpLayerInterfaceFactoryInterface, PickedUpLayerType, PickedUpLayerTypeFactory, CountedPickedUpLayerInterfaceFactory, HealthInterfaceCompositeInterface, CollidableDestroyableDamageableLayer, PartInterface, NullUtil, PreLogUtil, CommonStrings;
+  PickedUpLayerInterfaceFactoryInterface, PickedUpLayerTypeFactory, CountedPickedUpLayerInterfaceFactory, HealthInterfaceCompositeInterface, CollidableDestroyableDamageableLayer, PartInterface, NullUtil, PreLogUtil, CommonStrings;
 
 
 {AB:CODE}
@@ -91,13 +91,13 @@ var
 begin
         try
             healthInterfaceCompositeInterface_ := (TJava.ToObject(Self.ownerLayerInterface) as IHealthInterfaceCompositeInterface);
-            if not (healthInterfaceCompositeInterface_.getHealthInterface().Finished) then begin
+            if healthInterfaceCompositeInterface_.getHealthInterface().isAlive() then begin
                 pickupProcessorInterface_.process(Self.ownerLayerInterface);
             end;
         except
             on e: SysUtils.Exception do begin
             commonStrings_ := TCommonStrings.getInstance();
-            Self.logUtil.put(commonStrings_.EXCEPTION, Self, 'doPickup', e);
+            Self.logUtil.put(commonStrings_.EXCEPTION, TJava.Box(Self), 'doPickup', TJava.Box(e));
             end;
         end;
 end;
@@ -130,7 +130,7 @@ begin
         except
             on e: SysUtils.Exception do begin
             commonStrings_ := TCommonStrings.getInstance();
-            TPreLogUtil.putOE(commonStrings_.EXCEPTION, Self, 'doPickup', e);
+            TPreLogUtil.putOE(commonStrings_.EXCEPTION, TJava.Box(Self), 'doPickup', TJava.Box(e));
             end;
         end;
 end;
@@ -141,7 +141,7 @@ var
   partIndex: Integer;
 begin
         partIndex := (countedPickedUpLayerInterfaceFactoryInterface_.getId()) + (Self.countedIndex);
-        Self.addAt(TJava.ToObject(countedPickedUpLayerInterfaceFactoryInterface_), partIndex);
+        Self.addAt(countedPickedUpLayerInterfaceFactoryInterface_, partIndex);
 end;
     
 

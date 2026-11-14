@@ -36,7 +36,7 @@ uses
 
 procedure TGameAdStateFactory.InitFields;
 begin
-  Self.gameAdStateArray := [TGameAdState.Create(TAppNameLicensingAdConfiguration.Create())];
+  Self.gameAdStateArray := TArray<TGameAdState>.Create(TGameAdState.Create(TAppNameLicensingAdConfiguration.Create()));
   Self.gameAdState := Self.gameAdStateArray[0];
 end;
 

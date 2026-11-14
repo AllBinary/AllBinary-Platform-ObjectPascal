@@ -103,7 +103,7 @@ end;
 
 procedure TViewPosition.setAllbinaryLayer(allbinaryLayer_: TObject);
 begin
-        Self.allbinaryLayer := TJava.Box(TAllBinaryLayer(TJava.ToObject(allbinaryLayer_)));
+        Self.allbinaryLayer := TAllBinaryLayer(TJava.ToObject(allbinaryLayer_));
 end;
 
 initialization

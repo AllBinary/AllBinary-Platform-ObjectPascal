@@ -78,7 +78,7 @@ begin
             size := list.size();
             for index := 0 to size - 1 do begin
                 anyType := TJava.Box(list.objectArray[index]);
-                key := TGameKeyEventUtil.getKey(anyType);
+                key := TGameKeyEventUtil.getKey(TJava.Box(anyType));
                 if (key) = (Self.gameKeyFactory.LEVEL_DOWN.getId()) then begin
                     TCheatGameInputProcessor.inputProcessor.strafeLeft();
                     Break;
@@ -109,7 +109,7 @@ begin
             list.clear();
         except
             on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, Self, Self.commonStrings.UPDATE, e);
+            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.commonStrings.UPDATE, TJava.Box(e));
             end;
         end;
     finally

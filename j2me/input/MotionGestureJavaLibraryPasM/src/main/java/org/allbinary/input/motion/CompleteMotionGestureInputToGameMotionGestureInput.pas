@@ -71,7 +71,7 @@ var
 begin
         commonStrings_ := TCommonStrings.getInstance();
         try
-            TPreLogUtil.put('Compound Motion Gestures', Self, commonStrings_.INIT);
+            TPreLogUtil.put('Compound Motion Gestures', TJava.Box(Self), commonStrings_.INIT);
             motionGestureConfiguration_ := TMotionGestureConfigurationFactory.getInstance();
             touchMotionGestureFactory_ := TTouchMotionGestureFactory.getInstance();
             list := TBasicArrayListD.Create();
@@ -103,7 +103,7 @@ begin
             motionGestureConfiguration_.addMotionGestureAction(list, TReleaseTouchInputToGameKeyEventAction.getInstance());
         except
             on e: SysUtils.Exception do begin
-            Self.logUtil.put(commonStrings_.EXCEPTION, Self, commonStrings_.INIT, e);
+            Self.logUtil.put(commonStrings_.EXCEPTION, TJava.Box(Self), commonStrings_.INIT, TJava.Box(e));
             end;
         end;
 end;

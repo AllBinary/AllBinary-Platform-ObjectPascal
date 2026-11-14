@@ -68,7 +68,7 @@ begin
             on e: SysUtils.Exception do begin
             commonStrings_ := TCommonStrings.getInstance();
             logUtil_ := TLogUtil.getInstance();
-            logUtil_.put(commonStrings_.EXCEPTION, Self, commonStrings_.RUN, e);
+            logUtil_.put(commonStrings_.EXCEPTION, TJava.Box(Self), commonStrings_.RUN, TJava.Box(e));
             end;
         end;
 end;

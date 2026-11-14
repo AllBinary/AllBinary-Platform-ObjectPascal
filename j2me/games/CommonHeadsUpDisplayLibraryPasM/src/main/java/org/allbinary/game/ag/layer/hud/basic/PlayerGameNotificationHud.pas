@@ -120,7 +120,7 @@ begin
             on e: SysUtils.Exception do begin
             logUtil_ := TLogUtil.getInstance();
             commonStrings_ := TCommonStrings.getInstance();
-            logUtil_.put(commonStrings_.EXCEPTION, Self, commonStrings_.UPDATE, e);
+            logUtil_.put(commonStrings_.EXCEPTION, TJava.Box(Self), commonStrings_.UPDATE, TJava.Box(e));
             end;
         end;
 end;
@@ -140,7 +140,7 @@ begin
         if (permanent) then begin
             if (Self.lastString) <> (string_) then begin
                 Self.lastString := string_;
-                Self.logUtil.putF(TStringMaker.Create().append(Self.PERMANENT_GAME_NOTIFICATION).append(string_).toString(), Self, Self.commonStrings.ADD);
+                Self.logUtil.putF(TStringMaker.Create().append(Self.PERMANENT_GAME_NOTIFICATION).append(string_).toString(), TJava.Box(Self), Self.commonStrings.ADD);
             end;
             Self.permanentGameNotification.add(string_, seconds, basicColor_);
             Self.circularIndexUtil.setSize(Self.permanentGameNotification.getSize());

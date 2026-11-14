@@ -93,6 +93,7 @@
                                     <argument>G:/mnt/bc/mydev/workingopascal/j2me/logging/LoggingJ2MEAllPasM/src/main/java</argument>
                                     <argument>G:/mnt/bc/mydev/workingopascal/j2me/games/GameJ2MELibraryPasM/src/main/java</argument>
                                     <argument>G:/mnt/bc/mydev/workingopascal/j2me/J2SEForJ2MEJavaLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/AllBinary-Platform-Integrationopascal/j2me/PolyglotOnlyJavaLibraryPasM/src/main/java</argument>
                                     <argument>G:/mnt/bc/mydev/workingopascal/replace_these_stub_projects/allbinary_src/NoneOnlyJavaLibraryPasM/src/main/java</argument>
                                     <argument>G:/mnt/bc/mydev/workingopascal/j2me/TempBaseJavaLibraryPasM/src/main/java</argument>
                                     <argument>G:/mnt/bc/mydev/workingopascal/allbinary_src/LogJ2SEJavaLibraryPasM/src/main/java</argument>
@@ -160,7 +161,6 @@
                                     <argument>G:/mnt/bc/mydev/workingopascal/allbinary_src/logic/BasePreloaderJ2MEJavaLibraryPasM/src/main/java</argument>
                                     <argument>G:/mnt/bc/mydev/workingopascal/allbinary_src/hardware/BaseHardwareJavaLibraryPasM/src/main/java</argument>
                                     <argument>G:/mnt/bc/mydev/workingopascal/allbinary_src/hardware/BaseOperatingSystemJavaLibraryPasM/src/main/java</argument>
-                                    <argument>G:/mnt/bc/mydev/AllBinary-Platform-Integrationopascal/j2me/PolyglotOnlyJavaLibraryPasM/src/main/java</argument>
                                     <argument>G:/mnt/bc/mydev/workingopascal/j2me/TempJavaLibraryPasM/src/main/java</argument>
                                     <argument>G:/mnt/bc/mydev/workingopascal/j2me/J2MEColorJavaLibraryPasM/src/main/java</argument>
                                     <argument>G:/mnt/bc/mydev/workingopascal/j2me/media/graphics/FormBaseJavaLibraryPasM/src/main/java</argument>

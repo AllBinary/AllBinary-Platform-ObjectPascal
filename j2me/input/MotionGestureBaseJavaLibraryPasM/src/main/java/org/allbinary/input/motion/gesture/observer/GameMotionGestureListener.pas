@@ -78,14 +78,14 @@ constructor TGameMotionGestureListener.Create(signed: ICompleteMotionGestureList
 begin
     inherited Create;
     InitFields;
-        Self.logUtil.putF(Self.commonStrings.START, Self, Self.commonStrings.CONSTRUCTOR_);
+        Self.logUtil.putF(Self.commonStrings.START, TJava.Box(Self), Self.commonStrings.CONSTRUCTOR_);
         Self.signed := signed;
 end;
     
 
 procedure TGameMotionGestureListener.onEvent(eventObject: TAllBinaryEventObject);
 begin
-        TForcedLogUtil.log(Self.commonStrings.NOT_IMPLEMENTED, Self);
+        TForcedLogUtil.log(Self.commonStrings.NOT_IMPLEMENTED, TJava.Box(Self));
 end;
     
 
@@ -156,7 +156,7 @@ begin
             stringBuffer := TStringMaker.Create();
             stringBuffer.append(Self.commonStrings.EXCEPTION_LABEL);
             stringBuffer.append(TStringUtil.getInstance().toString(ev.getMotionGesture()));
-            Self.logUtil.put(stringBuffer.toString(), Self, 'release', e);
+            Self.logUtil.put(stringBuffer.toString(), TJava.Box(Self), 'release', TJava.Box(e));
             end;
         end;
 end;
@@ -189,7 +189,7 @@ begin
             stringBuffer := TStringMaker.Create();
             stringBuffer.append(Self.commonStrings.EXCEPTION_LABEL);
             stringBuffer.append(TStringUtil.getInstance().toString(ev.getMotionGesture()));
-            Self.logUtil.put(stringBuffer.toString(), Self, 'onMotionGestureEvent', e);
+            Self.logUtil.put(stringBuffer.toString(), TJava.Box(Self), 'onMotionGestureEvent', TJava.Box(e));
             end;
         end;
 end;

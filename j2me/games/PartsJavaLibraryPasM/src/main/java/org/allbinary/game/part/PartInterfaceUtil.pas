@@ -51,7 +51,7 @@ end;
 
 initialization
   {AB:INITIALIZATION}
-  TPartInterfaceUtil.SINGLETON := TJava.NewArray<IPartInterface>(0);
+  TPartInterfaceUtil.SINGLETON := nil;
   {AB:END}
 
 end.

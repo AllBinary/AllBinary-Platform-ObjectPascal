@@ -71,7 +71,7 @@ begin
             Exit(list);
         except
             on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, Self, Self.commonStrings.GET, e);
+            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.commonStrings.GET, TJava.Box(e));
             Exit(Self.basicArrayListUtil.getImmutableInstance());
             end;
         end;

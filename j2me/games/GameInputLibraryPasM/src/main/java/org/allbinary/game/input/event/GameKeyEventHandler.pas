@@ -85,7 +85,7 @@ end;
 
 procedure TGameKeyEventHandler.addListenerForPlayer(eventListenerInterface_: IEventListenerInterface; playerInputId: Integer);
 begin
-        Self.logUtil.putF(TJava.ToString(TJava.ToObject(eventListenerInterface_)), Self, Self.commonStrings.ADD_LISTENER);
+        Self.logUtil.putF(TJava.ToString(TJava.ToObject(eventListenerInterface_)), TJava.Box(Self), Self.commonStrings.ADD_LISTENER);
         Self.pressGameKeyEventHandler.addListenerSingleThreaded(eventListenerInterface_);
         Self.upGameKeyEventHandler.getInstanceForPlayer(playerInputId).addListenerSingleThreaded(eventListenerInterface_);
         Self.downGameKeyEventHandler.getInstanceForPlayer(playerInputId).addListenerSingleThreaded(eventListenerInterface_);
@@ -94,7 +94,7 @@ end;
 
 procedure TGameKeyEventHandler.addListener(eventListenerInterface_: IEventListenerInterface);
 begin
-        Self.logUtil.putF(TJava.ToString(TJava.ToObject(eventListenerInterface_)), Self, Self.commonStrings.ADD_LISTENER);
+        Self.logUtil.putF(TJava.ToString(TJava.ToObject(eventListenerInterface_)), TJava.Box(Self), Self.commonStrings.ADD_LISTENER);
         Self.pressGameKeyEventHandler.addListenerSingleThreaded(eventListenerInterface_);
         Self.upGameKeyEventHandler.addListenerSingleThreaded(eventListenerInterface_);
         Self.downGameKeyEventHandler.addListenerSingleThreaded(eventListenerInterface_);
@@ -103,7 +103,7 @@ end;
 
 procedure TGameKeyEventHandler.removeListener(eventListenerInterface_: IEventListenerInterface);
 begin
-        Self.logUtil.putF(TJava.ToString(TJava.ToObject(eventListenerInterface_)), Self, Self.commonStrings.REMOVE_LISTENER);
+        Self.logUtil.putF(TJava.ToString(TJava.ToObject(eventListenerInterface_)), TJava.Box(Self), Self.commonStrings.REMOVE_LISTENER);
         Self.pressGameKeyEventHandler.removeListenerSingleThreaded(eventListenerInterface_);
         Self.upGameKeyEventHandler.removeListenerSingleThreaded(eventListenerInterface_);
         Self.downGameKeyEventHandler.removeListenerSingleThreaded(eventListenerInterface_);

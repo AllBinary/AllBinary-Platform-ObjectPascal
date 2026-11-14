@@ -63,7 +63,7 @@ end;
 
 function TNoHardwareComponent.compareTo(componentInterface: IHardwareComponentInterface): Boolean;
 begin
-        if (Self) = (componentInterface) then begin
+        if TJava.ToObject(Self) = TJava.ToObject(componentInterface) then begin
             Exit(True);
         end;
         Exit(False);

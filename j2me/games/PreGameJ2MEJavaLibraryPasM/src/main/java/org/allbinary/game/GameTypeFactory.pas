@@ -49,7 +49,7 @@ uses
 
 procedure TGameTypeFactory.InitFields;
 begin
-  Self.NULL_GAME_TYPE_ARRAY := TJava.NewArray<TGameType>(0);
+  Self.NULL_GAME_TYPE_ARRAY := nil;
   Self.NONE := TGameType.Create(TStringUtil.getInstance().NULL_STRING);
   Self.SINGLE_PLAYER := TGameType.Create('Single Player');
   Self.MULTI_PLAYER := TGameType.Create('Multi Player');

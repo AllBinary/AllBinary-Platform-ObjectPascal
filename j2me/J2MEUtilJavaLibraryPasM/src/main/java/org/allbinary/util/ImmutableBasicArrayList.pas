@@ -60,14 +60,14 @@ end;
 
 function TImmutableBasicArrayList.add(e: TObject): Boolean;
 begin
-        TForcedLogUtil.log(Self.name, Self);
+        TForcedLogUtil.log(Self.name, TJava.Box(Self));
         Exit(True);
 end;
     
 
 procedure TImmutableBasicArrayList.addAt(index: Integer; element: TObject);
 begin
-        TForcedLogUtil.log(Self.name, Self);
+        TForcedLogUtil.log(Self.name, TJava.Box(Self));
 end;
     
 

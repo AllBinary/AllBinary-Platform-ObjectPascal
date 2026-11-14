@@ -87,7 +87,7 @@ begin
             if (angle_) = (Self.DOWN) then begin
                 Self.nextDirection();
                 if not (Self.isFollowLimitedByTerrain) then begin
-                    Self.logUtil.putF('Following Limited', Self, 'onTerrainEvent');
+                    Self.logUtil.putF('Following Limited', TJava.Box(Self), 'onTerrainEvent');
                     Self.isFollowLimitedByTerrain := True;
                 end;
             end;

@@ -67,7 +67,7 @@ begin
         if (System.Length(value)) < (2) then begin
             charValue := value[(0) + 1];
             stringValidationUtil_ := nil;
-            if stringValidationUtil_.isNumber(value) then begin
+            if TJava.IsNumber(value) then begin
                 Exit(TJava.Box(TBooleanFactory.getInstance().TRUE_));
             end else if Self.isLetter(charValue) then begin
                 Exit(TJava.Box(TBooleanFactory.getInstance().TRUE_));
@@ -77,7 +77,7 @@ begin
                 except
                     on e: SysUtils.Exception do begin
                     commonStrings_ := TCommonStrings.getInstance();
-                    Self.logUtil.put(commonStrings_.EXCEPTION, Self, commonStrings_.VISIT, e);
+                    Self.logUtil.put(commonStrings_.EXCEPTION, TJava.Box(Self), commonStrings_.VISIT, TJava.Box(e));
                     end;
                 end;
                 Exit(TJava.Box(TBooleanFactory.getInstance().FALSE_));

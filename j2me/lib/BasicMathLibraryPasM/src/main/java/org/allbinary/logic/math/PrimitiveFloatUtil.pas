@@ -46,7 +46,7 @@ end;
 
 class function TPrimitiveFloatUtil.getArrayInstance: TArray<Single>;
 begin
-        Exit(TJava.NewArray<Single>(0));
+        Exit(nil);
 end;
 
 initialization

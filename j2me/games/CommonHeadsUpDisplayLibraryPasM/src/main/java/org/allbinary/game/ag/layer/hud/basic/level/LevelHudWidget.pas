@@ -89,7 +89,7 @@ begin
         InitFields;
         Self.primitiveLongUtil := TPrimitiveLongUtil.createPowerOfTen(1000);
         LEVEL := 'Lv ';
-        Self.levelString := LEVEL.toCharArray();
+        Self.levelString := TJava.ToCharArray(LEVEL);
         Self.maxlevel := maxlevel;
         Self.level := maxlevel;
         Self.update();

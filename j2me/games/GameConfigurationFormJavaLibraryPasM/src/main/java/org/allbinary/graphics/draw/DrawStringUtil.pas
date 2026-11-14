@@ -74,7 +74,7 @@ begin
             graphics_.drawSubstring(string_, offset, length, (x) - (width), y, Self.anchor);
         except
             on e: SysUtils.Exception do begin
-            TPreLogUtil.put(TStringMaker.Create().append('Exception: stringLength: ').appendint(System.Length(string_)).append(' offset: ').appendint(offset).append(' currentLength: ').appendint(length).toString(), Self, 'drawCenterString');
+            TPreLogUtil.put(TStringMaker.Create().append('Exception: stringLength: ').appendint(System.Length(string_)).append(' offset: ').appendint(offset).append(' currentLength: ').appendint(length).toString(), TJava.Box(Self), 'drawCenterString');
             end;
         end;
 end;
@@ -110,7 +110,7 @@ begin
                         currentLength := (size) - (offset);
                     end;
                     if ((offset) + (currentLength)) <> (size) then begin
-                        while ((currentLength) > (0)) and ((stringArray[index].charAt((offset) + (currentLength))) <> (' ')) do begin
+                        while ((currentLength) > (0)) and ((stringArray[index][((offset) + (currentLength)) + 1]) <> (' ')) do begin
                             Dec(currentLength);
                         end;
                         if (currentLength) <= (4) then begin

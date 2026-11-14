@@ -79,7 +79,7 @@ end;
 // throws Exception
 function TDemoGameMidlet.createDemoGameCanvasRunnableInterface: IGameCanvasRunnableInterface;
 begin
-        Self.logUtil.putF(Self.commonStrings.NOT_IMPLEMENTED, Self, Self.commonStrings.CREATE_);
+        Self.logUtil.putF(Self.commonStrings.NOT_IMPLEMENTED, TJava.Box(Self), Self.commonStrings.CREATE_);
         Exit(TNullGameCanvasRunnable.NULL_GAME_CANVAS_RUNNABLE);
 end;
     
@@ -115,7 +115,7 @@ var
 begin
     TJava.MonitorEnter(Self);
     try
-        Self.logUtil.putF(Self.commonStrings.START, Self, 'setDemo');
+        Self.logUtil.putF(Self.commonStrings.START, TJava.Box(Self), 'setDemo');
         progressCanvas_ := TProgressCanvasFactory.getInstance();
         progressCanvas_.start();
         TPrimaryThreadPool.getInstance().runTask(TDemoRunnable.Create(Self));
@@ -135,13 +135,13 @@ begin
     TJava.MonitorEnter(Self);
     try
         CREATE_GAME := 'createGame';
-        Self.logUtil.putF(Self.commonStrings.START, Self, CREATE_GAME);
+        Self.logUtil.putF(Self.commonStrings.START, TJava.Box(Self), CREATE_GAME);
         progressCanvas_ := TProgressCanvasFactory.getInstance();
         progressCanvas_.start();
         hashtable := Self.getStartStateHashtable();
         Self.setStartStateHashtable(TStdUtil.getInstance().NULL_TABLE);
         TPrimaryThreadPool.getInstance().runTask(TCreateGameRunnable.Create(Self, hashtable));
-        Self.logUtil.putF(Self.commonStrings.END_, Self, CREATE_GAME);
+        Self.logUtil.putF(Self.commonStrings.END_, TJava.Box(Self), CREATE_GAME);
     finally
     TJava.MonitorExit(Self);
     end;

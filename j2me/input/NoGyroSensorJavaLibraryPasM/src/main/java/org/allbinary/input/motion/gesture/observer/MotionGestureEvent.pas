@@ -123,7 +123,7 @@ begin
         stringBuffer.append(TMotionGestureEvent.PREVIOUS);
         stringBuffer.append(stringUtil_.toString(Self.previousPoint));
         stringBuffer.append(TMotionGestureEvent.HASHCODE);
-        stringBuffer.appendint(Integer(Trunc(TTsUtil.getInstance().hashCode(Self))));
+        stringBuffer.appendint(Integer(Trunc(TTsUtil.getInstance().hashCode(TJava.Box(Self)))));
         Exit(stringBuffer.toString());
 end;
     

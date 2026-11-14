@@ -79,11 +79,11 @@ begin
         length := System.Length(data);
         i := (length) - (1);
         tsUtil_ := TTsUtil.getInstance();
-        while (tsUtil_.hashCode(data[(i) - (1)])) >= (tsUtil_.hashCode(data[i])) do begin
+        while (tsUtil_.hashCode(TJava.Box(data[(i) - (1)]))) >= (tsUtil_.hashCode(TJava.Box(data[i]))) do begin
             i := (i) - (1);
         end;
         j := length;
-        while (tsUtil_.hashCode(data[(j) - (1)])) <= (tsUtil_.hashCode(data[(i) - (1)])) do begin
+        while (tsUtil_.hashCode(TJava.Box(data[(j) - (1)]))) <= (tsUtil_.hashCode(TJava.Box(data[(i) - (1)]))) do begin
             j := (j) - (1);
         end;
         Self.swap(data, (i) - (1), (j) - (1));
@@ -130,9 +130,11 @@ begin
         iterations := Self.factorial(System.Length(data));
         Write(Self.TOTAL_ITERATIONS_TABLE);
         WriteLn(iterations);
-        for count := 0 to (iterations) - (1) - 1 do begin
+        count := 0;
+        while (count) < ((iterations) - (1)) do begin
             Self.getNext(data);
             visitor_.visit(Self);
+            Inc(count);
         end;
         WriteLn(Self.FINISHED);
 end;
@@ -155,7 +157,7 @@ begin
         permutationVisitor := TObjectPermutationVisitor.Create(data);
         ORIGINAL_DATA_LABEL := 'Original Data: ';
         Write(ORIGINAL_DATA_LABEL);
-        permutationVisitor.visit(data);
+        permutationVisitor.visit(TJava.Box(data));
         TOrderedObjectArrayPermutationUtil.getInstance().generate(data, permutationVisitor);
 end;
 

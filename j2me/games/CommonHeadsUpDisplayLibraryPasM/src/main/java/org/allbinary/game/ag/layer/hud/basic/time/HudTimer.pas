@@ -65,7 +65,7 @@ begin
   Self.hundrethsString := TPrimitiveLongSingleton.getInstance().ZERO;
   Self.totalDigits := 1;
   
-  Self.MAX := ['L', 'O', 'L'];
+  Self.MAX := TArray<WideChar>.Create('L', 'O', 'L');
   Self.gameTickTimeDelayHelper := TGameTickTimeDelayHelperFactory.getInstance();
 end;
     

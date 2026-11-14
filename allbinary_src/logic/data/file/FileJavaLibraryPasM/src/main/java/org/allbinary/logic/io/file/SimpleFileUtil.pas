@@ -124,7 +124,7 @@ begin
         except
             on e: SysUtils.Exception do begin
             Self.streamUtil.close(inputStream_);
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, Self, Self.commonStrings.ADD, e);
+            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.commonStrings.ADD, TJava.Box(e));
             end;
         end;
         if (byteArray) = (nil) then begin

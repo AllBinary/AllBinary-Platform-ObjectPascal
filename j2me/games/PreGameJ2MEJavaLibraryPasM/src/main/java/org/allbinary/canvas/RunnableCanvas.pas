@@ -118,19 +118,19 @@ constructor TRunnableCanvas.Create(commandListener_: ICommandListener; childName
 begin
         inherited Create(TCommonStrings.getInstance().UNKNOWN, childNameList);
         InitFields;
-        Self.logUtil.putF(TStringMaker.Create().append('RunnableCanvas delay: ').appendint(Integer(Trunc(Self.loopTimeHelper.delay))).toString(), Self, Self.commonStrings.CONSTRUCTOR_);
+        Self.logUtil.putF(TStringMaker.Create().append('RunnableCanvas delay: ').appendint(Integer(Trunc(Self.loopTimeHelper.delay))).toString(), TJava.Box(Self), Self.commonStrings.CONSTRUCTOR_);
         Self.runnableCanvasRefreshHelper := TRunnableCanvasRefreshHelper.Create(Self);
         if (commandListener_) <> (nil) then begin
             Self.initCommands(commandListener_);
         end else if hasParam then begin
-            Self.logUtil.putF('commandListener was null', Self, 'initCommands');
+            Self.logUtil.putF('commandListener was null', TJava.Box(Self), 'initCommands');
         end;
 end;
     
 
 procedure TRunnableCanvas.initCommands(cmdListener: ICommandListener);
 begin
-        Self.logUtil.putF(Self.commonStrings.NOT_IMPLEMENTED, Self, 'initCommands');
+        Self.logUtil.putF(Self.commonStrings.NOT_IMPLEMENTED, TJava.Box(Self), 'initCommands');
 end;
     
 
@@ -157,12 +157,12 @@ begin
             Self.thread := TNullThread.NULL_THREAD;
             TJava.MonitorEnter(Self);
             try
-                Self.threadObjectUtil.notifyObject(Self);
+                Self.threadObjectUtil.notifyObject(TJava.Box(Self));
             finally
                 TJava.MonitorExit(Self);
             end;
         end;
-        Self.logUtil.putF(TStringMaker.Create().append(Self.IS_RUNNING).appendboolean(Self.running).toString(), Self, Self.SET_RUNNING);
+        Self.logUtil.putF(TStringMaker.Create().append(Self.IS_RUNNING).appendboolean(Self.running).toString(), TJava.Box(Self), Self.SET_RUNNING);
 end;
     
 
@@ -184,7 +184,7 @@ begin
             if (Self.currentThread) <> (nil) then begin
                 stringBuffer.append(TStringUtil.getInstance().toString(Self.currentThread));
             end;
-            Self.logUtil.putF(stringBuffer.toString(), Self, Self.IS_RUNNING);
+            Self.logUtil.putF(stringBuffer.toString(), TJava.Box(Self), Self.IS_RUNNING);
             Exit(False);
         end;
     finally
@@ -203,7 +203,7 @@ procedure TRunnableCanvas.setWait(wait: Integer);
 begin
         Self.loopTimeHelper.delay := wait;
         Self.pauseWait := (Int64(wait)) * (3);
-        Self.logUtil.putF(TStringMaker.Create().append('setWait - delay: ').appendint(Integer(Trunc(Self.loopTimeHelper.delay))).toString(), Self, Self.commonStrings.CONSTRUCTOR_);
+        Self.logUtil.putF(TStringMaker.Create().append('setWait - delay: ').appendint(Integer(Trunc(Self.loopTimeHelper.delay))).toString(), TJava.Box(Self), Self.commonStrings.CONSTRUCTOR_);
 end;
     
 
@@ -215,7 +215,7 @@ end;
 
 procedure TRunnableCanvas.setCurrentThread;
 begin
-        Self.currentThread := TThread.currentThread();
+        Self.currentThread := TThread.CurrentThread;
 end;
     
 
@@ -231,7 +231,7 @@ begin
             Self.stopWaiting();
         except
             on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, Self, 'showNotify', e);
+            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), 'showNotify', TJava.Box(e));
             end;
         end;
 end;
@@ -243,7 +243,7 @@ begin
         Self.notified := True;
         TJava.MonitorEnter(Self);
         try
-            Self.threadObjectUtil.notifyObject(Self);
+            Self.threadObjectUtil.notifyObject(TJava.Box(Self));
         finally
             TJava.MonitorExit(Self);
         end;
@@ -258,9 +258,9 @@ begin
     try
         if not (Self.notified) then begin
             if (wait) > (0) then begin
-                Self.threadObjectUtil.waitObjectFor(Self, wait);
+                Self.threadObjectUtil.waitObjectFor(TJava.Box(Self), wait);
             end else begin
-                Self.threadObjectUtil.waitObject(Self);
+                Self.threadObjectUtil.waitObject(TJava.Box(Self));
             end;
         end;
     finally
@@ -272,7 +272,7 @@ end;
 // throws Exception
 procedure TRunnableCanvas.processSleep;
 begin
-        Sleep(Self.pauseWait);
+        SysUtils.Sleep(Self.pauseWait);
 end;
     
 
@@ -285,7 +285,7 @@ end;
 // throws Exception
 procedure TRunnableCanvas.processGameSleep(sleep: Int64);
 begin
-        Sleep(sleep);
+        SysUtils.Sleep(sleep);
 end;
     
 
@@ -303,12 +303,12 @@ begin
             if (Self.isRunning()) and (not (Self.isSingleThread())) then begin
                 stringMaker_.delete_(0, stringMaker_.length());
                 currentTimeMillis := Self.systemWrapper.currentTimeMillis();
-                Self.logUtil.putF(stringMaker_.append(Self.START_PAUSE).appendlong(currentTimeMillis).append(Self.PAUSE_SLEEP).appendlong(Self.pauseWait).toString(), Self, Self.PROCESS_LOOP_SLEEP);
+                Self.logUtil.putF(stringMaker_.append(Self.START_PAUSE).appendlong(currentTimeMillis).append(Self.PAUSE_SLEEP).appendlong(Self.pauseWait).toString(), TJava.Box(Self), Self.PROCESS_LOOP_SLEEP);
                 while ((Self.isPaused()) and (Self.isRunning())) and (not (Self.isSingleThread())) do begin
                     Self.processSleep();
                     if not (Self.isPausable()) then begin
                         stringMaker_.delete_(0, stringMaker_.length());
-                        Self.logUtil.putF(stringMaker_.append(Self.END_PAUSE).appendlong(currentTimeMillis).toString(), Self, Self.PROCESS_LOOP_SLEEP);
+                        Self.logUtil.putF(stringMaker_.append(Self.END_PAUSE).appendlong(currentTimeMillis).toString(), TJava.Box(Self), Self.PROCESS_LOOP_SLEEP);
                         Exit;
                     end;
                 end;

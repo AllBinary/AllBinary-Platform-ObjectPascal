@@ -108,7 +108,7 @@ begin
         except
             on e: SysUtils.Exception do begin
             commonStrings_ := TCommonStrings.getInstance();
-            TPreLogUtil.put(commonStrings_.EXCEPTION, Self, commonStrings_.RUN);
+            TPreLogUtil.put(commonStrings_.EXCEPTION, TJava.Box(Self), commonStrings_.RUN);
             end;
         end;
 end;

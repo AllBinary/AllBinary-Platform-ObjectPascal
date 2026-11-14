@@ -98,7 +98,7 @@ begin
             id := -id;
         end;
         if (id) > (System.Length(Self.inputIntegerArray)) then begin
-            Self.logUtil.putF(TStringMaker.Create().append('Warning id: ').appendint(id).toString(), Self, Self.commonStrings.GET_INSTANCE);
+            Self.logUtil.putF(TStringMaker.Create().append('Warning id: ').appendint(id).toString(), TJava.Box(Self), Self.commonStrings.GET_INSTANCE);
             Exit(Self.NO_INPUT);
         end;
         Exit(Self.inputIntegerArray[id]);

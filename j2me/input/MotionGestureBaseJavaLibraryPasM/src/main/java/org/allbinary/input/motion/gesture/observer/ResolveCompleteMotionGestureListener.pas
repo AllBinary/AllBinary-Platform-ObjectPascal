@@ -61,7 +61,7 @@ begin
     inherited Create;
     InitFields;
         commonStrings_ := TCommonStrings.getInstance();
-        Self.logUtil.putF('MotionGesture to CompleteMotionGesture Reciever', Self, commonStrings_.CONSTRUCTOR_);
+        Self.logUtil.putF('MotionGesture to CompleteMotionGesture Reciever', TJava.Box(Self), commonStrings_.CONSTRUCTOR_);
         TCompleteMotionGestureInputEventHandler.getInstance().addListener(TGameKeyFromMotionGestureEventListener.Create());
 end;
     

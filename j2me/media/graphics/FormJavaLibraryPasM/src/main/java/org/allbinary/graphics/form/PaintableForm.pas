@@ -48,7 +48,7 @@ end;
 class function TPaintableForm.getNullPaintableForm: TPaintableForm;
 begin
         if (TPaintableForm.NULL_PAINTABLE_FORM) = (TNullUtil.getInstance().NULL_OBJECT) then begin
-            TPaintableForm.NULL_PAINTABLE_FORM := TPaintableForm.Create(TStringUtil.getInstance().EMPTY_STRING, TJava.NewArray<TABCustomItem>(0), TBasicColorFactory.getInstance().BLACK, TBasicColorFactory.getInstance().WHITE);
+            TPaintableForm.NULL_PAINTABLE_FORM := TPaintableForm.Create(TStringUtil.getInstance().EMPTY_STRING, nil, TBasicColorFactory.getInstance().BLACK, TBasicColorFactory.getInstance().WHITE);
         end;
         Exit(TPaintableForm(TJava.ToObject(TPaintableForm.NULL_PAINTABLE_FORM)));
 end;

@@ -55,7 +55,7 @@ var
 begin
         logUtil_ := TLogUtil.getInstance();
         commonStrings_ := TCommonStrings.getInstance();
-        logUtil_.putF(commonStrings_.START, TAllBinaryMediaManagerShutdown.instance, 'shutdown');
+        logUtil_.putF(commonStrings_.START, TJava.Box(TAllBinaryMediaManagerShutdown.instance), 'shutdown');
         TAllBinaryMediaManager.shutdown(soundsFactoryInterface_);
 end;
 

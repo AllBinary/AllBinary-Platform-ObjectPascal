@@ -65,7 +65,7 @@ begin
         InitFields;
         Self.playerGameInput := TPlayerGameInput.Create(Self.getGameKeyEventList(), TBasicArrayListD.Create(), playerInputId);
         canvasStrings_ := TCanvasStrings.getInstance();
-        Self.logUtil.putF('Danger Danger Danger: Should Not Be Called Except For Testing Input', Self, canvasStrings_.PAINT);
+        Self.logUtil.putF('Danger Danger Danger: Should Not Be Called Except For Testing Input', TJava.Box(Self), canvasStrings_.PAINT);
 end;
     
 

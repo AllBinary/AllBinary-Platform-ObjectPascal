@@ -30,6 +30,8 @@ type
   ISequentialAnimationInterface = interface(IAnimationInterface) ['ISequentialAnimationInterface']
         function getSize: Integer;
         procedure previousFrame;
+        function getSequence: TArray<Integer>; overload;
+        procedure setSequence(sequence: TArray<Integer>); overload;
   end;
   TSequentialAnimationInterface = ISequentialAnimationInterface;
 

@@ -92,7 +92,7 @@ end;
 
 initialization
   {AB:INITIALIZATION}
-  TNullIndexedAnimationFactory.NULL_INDEXED_ANIMATION_ARRAY := TJava.NewArray<TIndexedAnimation>(0);
+  TNullIndexedAnimationFactory.NULL_INDEXED_ANIMATION_ARRAY := nil;
   TNullIndexedAnimationFactory.NULL_INDEXED_ANIMATION_FACTORY := TNullIndexedAnimationFactory.Create();
   {AB:END}
 

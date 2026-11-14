@@ -116,7 +116,7 @@ end;
 
 initialization
   {AB:INITIALIZATION}
-  TPtsDamageFloaters.basicColorArrayIndexer := TBasicColorArrayIndexer.Create([TBasicColorFactory.getInstance().WHITE, TBasicColorFactory.getInstance().RED, TBasicColorFactory.getInstance().YELLOW, TBasicColorFactory.getInstance().BLUE]);
+  TPtsDamageFloaters.basicColorArrayIndexer := TBasicColorArrayIndexer.Create(TArray<TBasicColor>.Create(TBasicColorFactory.getInstance().WHITE, TBasicColorFactory.getInstance().RED, TBasicColorFactory.getInstance().YELLOW, TBasicColorFactory.getInstance().BLUE));
   {AB:END}
 
 end.

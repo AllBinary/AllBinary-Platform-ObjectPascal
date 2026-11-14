@@ -114,7 +114,7 @@ begin
   Self.DOWN := 'down';
   Self.LEFT := 'left';
   Self.RIGHT := 'right';
-  Self.DIRECTION_NAME := [Self.DOWN, Self.LEFT, Self.RIGHT, Self.UP];
+  Self.DIRECTION_NAME := TArray<string>.Create(Self.DOWN, Self.LEFT, Self.RIGHT, Self.UP);
   Self.CREATE_ := 'Create';
   Self.REMOVE := 'Remove';
   Self.UPDATE := 'Update';

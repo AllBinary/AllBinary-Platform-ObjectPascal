@@ -97,8 +97,8 @@ begin
             while recordEnum.hasNextElement() do begin
                 id := recordEnum.nextRecordId();
                 stringBuffer.delete_(0, stringBuffer.length());
-                Self.logUtil.putF(stringBuffer.append(Self.persistanceStrings.LOADING_ID).appendint(id).toString(), Self, Self.persistanceStrings.LOAD_ALL);
-                recordAsBytes := Self.tsUtil.getRecord(recordStore_, id);
+                Self.logUtil.putF(stringBuffer.append(Self.persistanceStrings.LOADING_ID).appendint(id).toString(), TJava.Box(Self), Self.persistanceStrings.LOAD_ALL);
+                recordAsBytes := Self.tsUtil.getRecord(TJava.Box(recordStore_), id);
                 if (recordAsBytes) <> (nil) then begin
                     byteArrayInputStream_ := TByteArrayInputStream.Create(recordAsBytes);
                     inputStream := TDataInputStream.Create(byteArrayInputStream_);
@@ -120,7 +120,7 @@ begin
         end;
         finally
             if (recordStore_) <> (nil) then begin
-                TPreLogUtil.put(Self.persistanceStrings.CLOSING_RECORDSTORE, Self, Self.persistanceStrings.LOAD_ALL);
+                TPreLogUtil.put(Self.persistanceStrings.CLOSING_RECORDSTORE, TJava.Box(Self), Self.persistanceStrings.LOAD_ALL);
                 recordStore_.closeRecordStore();
             end;
         end;
@@ -145,7 +145,7 @@ begin
         recordStore_ := TNullRecordStore.NULL_RECORD_STORE;
         try
         try
-            Self.logUtil.putF(TStringMaker.Create().append(Self.persistanceStrings.SAVING).append(TStringUtil.getInstance().toString(hashtable)).toString(), Self, Self.commonStrings.SAVE);
+            Self.logUtil.putF(TStringMaker.Create().append(Self.persistanceStrings.SAVING).append(TStringUtil.getInstance().toString(hashtable)).toString(), TJava.Box(Self), Self.commonStrings.SAVE);
             recordStore_ := TRecordStore.openRecordStore(Self.getRecordId(abeClientInformation), True);
             byteArrayOutputStream := TByteArrayOutputStream.Create;
             outputStream := TDataOutputStream.Create(byteArrayOutputStream);
@@ -171,7 +171,7 @@ begin
         end;
         finally
             if (recordStore_) <> (nil) then begin
-                TPreLogUtil.put(Self.persistanceStrings.CLOSING_RECORDSTORE, Self, Self.commonStrings.SAVE);
+                TPreLogUtil.put(Self.persistanceStrings.CLOSING_RECORDSTORE, TJava.Box(Self), Self.commonStrings.SAVE);
                 recordStore_.closeRecordStore();
             end;
         end;

@@ -57,9 +57,9 @@ begin
   Self.INIT_STRING := TJava.NewString('');
   Self.NULL_STRING := 'null';
   Self.EMPTY_STRING := '';
-  Self.ONE_EMPTY_STRING_ARRAY := [Self.EMPTY_STRING];
+  Self.ONE_EMPTY_STRING_ARRAY := TArray<string>.Create(Self.EMPTY_STRING);
   Self.ONE_EMPTY_STRING_ARRAY_OF_ARRAYS := TJava.NewArray2<string>(0, 0);
-  Self.stringArray := TJava.NewArray<string>(0);
+  Self.stringArray := nil;
 end;
     
 

@@ -56,7 +56,7 @@ function TSpinnerAIFactory.getInstance(hashtable: TABHashtable<TObject, TObject>
 var
   direction: TArray<Integer>;
 begin
-        direction := [TCanvas.LEFT];
+        direction := TArray<Integer>.Create(TCanvas.LEFT);
         Exit(TSpinnerAI.Create(direction, ownerLayerInterface, gameInput_));
 end;
 

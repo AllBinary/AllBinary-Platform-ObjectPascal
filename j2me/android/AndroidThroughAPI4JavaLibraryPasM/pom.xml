@@ -117,6 +117,7 @@
                                     <argument>G:/mnt/bc/mydev/workingopascal/j2me/logging/LoggingJ2MEAllPasM/src/main/java</argument>
                                     <argument>G:/mnt/bc/mydev/workingopascal/j2me/AllBinaryJ2MELibraryPasM/src/main/java</argument>
                                     <argument>G:/mnt/bc/mydev/workingopascal/j2me/AndroidBaseJavaLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/AllBinary-Platform-Integrationopascal/j2me/PolyglotOnlyJavaLibraryPasM/src/main/java</argument>
                                     <argument>G:/mnt/bc/mydev/workingopascal/replace_these_stub_projects/allbinary_src/NoneOnlyJavaLibraryPasM/src/main/java</argument>
                                     <argument>G:/mnt/bc/mydev/workingopascal/j2me/TempBaseJavaLibraryPasM/src/main/java</argument>
                                     <argument>G:/mnt/bc/mydev/workingopascal/allbinary_src/LogNoPlatformJavaLibraryPasM/src/main/java</argument>
@@ -150,7 +151,6 @@
                                     <argument>G:/mnt/bc/mydev/workingopascal/allbinary_src/hardware/NoHardwareJavaLibraryPasM/src/main/java</argument>
                                     <argument>G:/mnt/bc/mydev/workingopascal/allbinary_src/hardware/BaseHardwareJavaLibraryPasM/src/main/java</argument>
                                     <argument>G:/mnt/bc/mydev/workingopascal/allbinary_src/hardware/BaseOperatingSystemJavaLibraryPasM/src/main/java</argument>
-                                    <argument>G:/mnt/bc/mydev/AllBinary-Platform-Integrationopascal/j2me/PolyglotOnlyJavaLibraryPasM/src/main/java</argument>
                                     <argument>G:/mnt/bc/mydev/workingopascal/j2me/games/GameConfigurationJ2MEJavaLibraryPasM/src/main/java</argument>
                                     <argument>G:/mnt/bc/mydev/workingopascal/allbinary_src/hardware/BaseSystemJavaLibraryPasM/src/main/java</argument>
                                     <argument>G:/mnt/bc/mydev/workingopascal/j2me/media/sound/NoPlayerJavaLibraryPasM/src/main/java</argument>

@@ -101,14 +101,14 @@ begin
             end else begin
                 commonStrings_ := TCommonStrings.getInstance();
                 logUtil_ := TLogUtil.getInstance();
-                logUtil_.putF(commonStrings_.EXCEPTION, logUtil_, commonStrings_.EXCEPTION);
+                logUtil_.putF(commonStrings_.EXCEPTION, TJava.Box(logUtil_), commonStrings_.EXCEPTION);
                 Exit(TPaintableForm.getNullPaintableForm());
             end;
         except
             on e: SysUtils.Exception do begin
             commonStrings_ := TCommonStrings.getInstance();
             logUtil_ := TLogUtil.getInstance();
-            logUtil_.put(commonStrings_.EXCEPTION, logUtil_, commonStrings_.EXCEPTION, e);
+            logUtil_.put(commonStrings_.EXCEPTION, TJava.Box(logUtil_), commonStrings_.EXCEPTION, TJava.Box(e));
             Exit(TPaintableForm.getNullPaintableForm());
             end;
         end;
@@ -118,7 +118,7 @@ end;
 class function TScrollSelectionForm.getNullScrollSelectionForm: TScrollSelectionForm;
 begin
         if (TScrollSelectionForm.NULL_SCROLL_SELECTION_FORM) = (TNullUtil.getInstance().NULL_OBJECT) then begin
-            TScrollSelectionForm.NULL_SCROLL_SELECTION_FORM := TScrollSelectionForm.createForm(TStringUtil.getInstance().EMPTY_STRING, TJava.NewArray<TABCustomItem>(0), TItemPaintableFactory.getInstance(), 0, TBasicColorFactory.getInstance().BLACK, TBasicColorFactory.getInstance().WHITE);
+            TScrollSelectionForm.NULL_SCROLL_SELECTION_FORM := TScrollSelectionForm.createForm(TStringUtil.getInstance().EMPTY_STRING, nil, TItemPaintableFactory.getInstance(), 0, TBasicColorFactory.getInstance().BLACK, TBasicColorFactory.getInstance().WHITE);
         end;
         Exit(TScrollSelectionForm(TJava.ToObject(TScrollSelectionForm.NULL_SCROLL_SELECTION_FORM)));
 end;
@@ -127,7 +127,7 @@ end;
 class function TScrollSelectionForm.getNullScrollSelectionFormHorizontal: TScrollSelectionForm;
 begin
         if (TScrollSelectionForm.NULL_SCROLL_SELECTION_HORIZONTAL_FORM) = (TNullUtil.getInstance().NULL_OBJECT) then begin
-            TScrollSelectionForm.NULL_SCROLL_SELECTION_HORIZONTAL_FORM := TScrollSelectionForm.createForm(TStringUtil.getInstance().EMPTY_STRING, TJava.NewArray<TABCustomItem>(0), TItemPaintableFactory.getInstance(), 0, TBasicColorFactory.getInstance().BLACK, TBasicColorFactory.getInstance().WHITE);
+            TScrollSelectionForm.NULL_SCROLL_SELECTION_HORIZONTAL_FORM := TScrollSelectionForm.createForm(TStringUtil.getInstance().EMPTY_STRING, nil, TItemPaintableFactory.getInstance(), 0, TBasicColorFactory.getInstance().BLACK, TBasicColorFactory.getInstance().WHITE);
         end;
         Exit(TScrollSelectionForm(TJava.ToObject(TScrollSelectionForm.NULL_SCROLL_SELECTION_HORIZONTAL_FORM)));
 end;
@@ -283,7 +283,7 @@ begin
         stringBuffer.append(TCommonSeps.getInstance().SPACE);
         stringBuffer.append(commonLabels_.TOTAL_LABEL);
         stringBuffer.appendint(size);
-        Self.logUtil.putF(stringBuffer.toString(), Self, TScrollSelectionForm.GET_SELECTED_INDEX);
+        Self.logUtil.putF(stringBuffer.toString(), TJava.Box(Self), TScrollSelectionForm.GET_SELECTED_INDEX);
         
         
         
@@ -300,7 +300,7 @@ begin
                 stringBuffer.append(TCommonSeps.getInstance().SPACE);
                 stringBuffer.append(commonLabels_.INDEX_LABEL);
                 stringBuffer.appendint(index);
-                Self.logUtil.putF(stringBuffer.toString(), Self, TScrollSelectionForm.GET_SELECTED_INDEX);
+                Self.logUtil.putF(stringBuffer.toString(), TJava.Box(Self), TScrollSelectionForm.GET_SELECTED_INDEX);
                 Exit(index);
             end;
             if (Self.formType) = (formTypeFactory_.HORIZONTAL_FORM) then begin
@@ -365,7 +365,7 @@ end;
 function TScrollSelectionForm.isInForm(point: TGPoint): Boolean;
 begin
         if Self.rectangleCollisionUtil.isInside(Self.x, (Self.y) - (Self.halfBorder), (Self.rectangle.getMaxX()) + (Self.border), (Self.rectangle.getMaxY()) + (Self.border), point.getX(), point.getY()) then begin
-            Self.logUtil.putF(TStringMaker.Create().append(TStringUtil.getInstance().toString(point)).append(TScrollSelectionForm.INSIDE_FORM).toString(), Self, TScrollSelectionForm.IS_IN_FORM);
+            Self.logUtil.putF(TStringMaker.Create().append(TStringUtil.getInstance().toString(point)).append(TScrollSelectionForm.INSIDE_FORM).toString(), TJava.Box(Self), TScrollSelectionForm.IS_IN_FORM);
             Exit(True);
         end;
         Exit(False);

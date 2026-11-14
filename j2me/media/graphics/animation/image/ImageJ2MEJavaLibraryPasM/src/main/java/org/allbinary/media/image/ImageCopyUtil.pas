@@ -90,7 +90,7 @@ var
   image_: TImage;
 begin
         if not (Self.features.isFeature(Self.gameFeatureFactory.POST_IMAGE_LOADING_MODIFICATION)) then begin
-            Self.logUtil.put(Self.NO_COPY, Self, Self.commonStrings.CONSTRUCTOR_, SysUtils.Exception.Create(''));
+            Self.logUtil.put(Self.NO_COPY, TJava.Box(Self), Self.commonStrings.CONSTRUCTOR_, TJava.Box(SysUtils.Exception.Create('')));
             Exit(originalImage);
         end;
         image_ := Self.imageCreationUtil.createImageWH(originalImage.getWidth(), originalImage.getHeight());
@@ -114,7 +114,7 @@ var
   graphics_: TGraphics;
 begin
         if not (Self.features.isFeature(Self.gameFeatureFactory.POST_IMAGE_LOADING_MODIFICATION)) then begin
-            Self.logUtil.put(Self.NO_COPY, Self, Self.commonStrings.CONSTRUCTOR_, SysUtils.Exception.Create(''));
+            Self.logUtil.put(Self.NO_COPY, TJava.Box(Self), Self.commonStrings.CONSTRUCTOR_, TJava.Box(SysUtils.Exception.Create('')));
             Exit(originalImage);
         end;
         newWidth := Integer(Trunc(((originalImage.getWidth()) * (canvasScale))));

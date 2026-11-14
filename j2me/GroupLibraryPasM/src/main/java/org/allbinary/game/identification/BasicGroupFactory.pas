@@ -60,10 +60,10 @@ begin
   Self.ENEMY := TGroup.Create('Bad Guys', SmallInt(1));
   Self.ENEMY_ON_LEVEL := TGroup.Create('Bad Guys on Level', SmallInt(2));
   Self.NONE := TGroup.Create('Not On A Team', SmallInt(3));
-  Self.GOOD_ARRAY := [Self.GOOD];
-  Self.ENEMY_ARRAY := [Self.ENEMY];
-  Self.ENEMY_ON_LEVEL_ARRAY := [Self.ENEMY, Self.ENEMY_ON_LEVEL];
-  Self.NONE_ARRAY := [Self.NONE];
+  Self.GOOD_ARRAY := TArray<TGroup>.Create(Self.GOOD);
+  Self.ENEMY_ARRAY := TArray<TGroup>.Create(Self.ENEMY);
+  Self.ENEMY_ON_LEVEL_ARRAY := TArray<TGroup>.Create(Self.ENEMY, Self.ENEMY_ON_LEVEL);
+  Self.NONE_ARRAY := TArray<TGroup>.Create(Self.NONE);
 end;
 
 constructor TBasicGroupFactory.Create;

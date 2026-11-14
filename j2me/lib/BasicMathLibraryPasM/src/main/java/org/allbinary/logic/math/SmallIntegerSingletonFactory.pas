@@ -85,17 +85,17 @@ begin
             if TJ2MEUtil.isJ2ME() then begin
             end else if TAndroidUtil.isAndroid() then begin
                 logUtil_ := TLogUtil.getInstance();
-                logUtil_.putF(TStringMaker.Create().append('Android InputFactory was initialized before GameMidlet: ').appendint(Self.MIN).toString(), Self, 'getMin');
+                logUtil_.putF(TStringMaker.Create().append('Android InputFactory was initialized before GameMidlet: ').appendint(Self.MIN).toString(), TJava.Box(Self), 'getMin');
                 Self.initWithRange($291, 6);
             end else begin
                 logUtil_ := TLogUtil.getInstance();
-                logUtil_.putF(TStringMaker.Create().append('InputFactory was initialized before GameMidlet or KeyFactoryInitializer - Currently this is occurs on JS build by TouchMotionGestureFactory constructor: ').appendint(Self.MIN).toString(), Self, 'getMin');
+                logUtil_.putF(TStringMaker.Create().append('InputFactory was initialized before GameMidlet or KeyFactoryInitializer - Currently this is occurs on JS build by TouchMotionGestureFactory constructor: ').appendint(Self.MIN).toString(), TJava.Box(Self), 'getMin');
                 Self.initWithRange($2D0, 6);
             end;
         end;
         if (Self.MIN) <= (minAllowed) then begin
             logUtil_ := TLogUtil.getInstance();
-            logUtil_.put('This means you loaded the InputFactory before determining the platform input size requirements.', Self, 'getMin', SysUtils.Exception.Create(''));
+            logUtil_.put('This means you loaded the InputFactory before determining the platform input size requirements.', TJava.Box(Self), 'getMin', TJava.Box(SysUtils.Exception.Create('')));
         end;
         Exit(Self.MIN);
 end;

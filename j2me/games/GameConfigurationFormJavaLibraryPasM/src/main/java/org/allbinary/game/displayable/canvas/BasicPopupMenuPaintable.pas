@@ -111,7 +111,7 @@ begin
             BORDER := (TMyFontProcessor.defaultCharWidth(font_)) * (2);
         end;
         Self.BORDER := BORDER;
-        Self.heightOffset := (Self.rectangle.getHeight()) - (((font_.getHeight()) * (TBasicPopupMenuPaintable.NAME.length())));
+        Self.heightOffset := (Self.rectangle.getHeight()) - (((font_.getHeight()) * (System.Length(TBasicPopupMenuPaintable.NAME))));
         if TOpenGLFeatureUtil.getInstance().isAnyThreed() then begin
             Self.heightOffset := (Self.heightOffset) - ((font_.getHeight()) + (2));
             if TAndroidUtil.isAndroid() then begin

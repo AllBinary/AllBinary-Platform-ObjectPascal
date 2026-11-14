@@ -213,6 +213,7 @@
                                 <!-- Object Pascal dependency source paths start -->
                                     <argument>G:/mnt/bc/mydev/workingopascal/j2me/logging/LoggingJ2MEAllPasM/src/main/java</argument>
                                     <argument>G:/mnt/bc/mydev/workingopascal/allbinary_src/LogJ2SEJavaLibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/workingopascal/j2me/J2SEForJ2MEJavaLibraryPasM/src/main/java</argument>
                                     <argument>G:/mnt/bc/mydev/AllBinary-Platform-Integrationopascal/j2me/PolyglotOnlyJavaLibraryPasM/src/main/java</argument>
                                     <argument>G:/mnt/bc/mydev/workingopascal/j2me/AllBinaryJ2MELibraryPasM/src/main/java</argument>
                                     <argument>G:/mnt/bc/mydev/workingopascal/j2me/media/graphics/animation/vector/VectorAnimationJavaLibraryPasM/src/main/java</argument>
@@ -220,7 +221,6 @@
                                     <argument>G:/mnt/bc/mydev/workingopascal/graphics/AllBinaryGraphicsUserInterfaceJavaLibraryPasM/src/main/java</argument>
                                     <argument>G:/mnt/bc/mydev/workingopascal/j2me/lib/TrigBaseLibraryPasM/src/main/java</argument>
                                     <argument>G:/mnt/bc/mydev/workingopascal/automation/InputAutomationJavaLibraryPasM/src/main/java</argument>
-                                    <argument>G:/mnt/bc/mydev/workingopascal/j2me/J2SEForJ2MEJavaLibraryPasM/src/main/java</argument>
                                     <argument>G:/mnt/bc/mydev/workingopascal/allbinary_src/logic/data/file/FileJ2SEJavaLibraryPasM/src/main/java</argument>
                                     <argument>G:/mnt/bc/mydev/workingopascal/j2me/lib/TrigJ2MELibraryPasM/src/main/java</argument>
                                     <argument>G:/mnt/bc/mydev/workingopascal/allbinary_src/logging/GUILoggingPasM/src/main/java</argument>

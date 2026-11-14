@@ -71,14 +71,14 @@ var
 begin
         try
             itemLabel := item_.getLabel();
-            Self.logUtil.putF(TStringMaker.Create().append(TCommonLabels.getInstance().ITEM_LABEL).append(itemLabel).toString(), Self, TMidletStrings.getInstance().COMMAND_ACTION);
+            Self.logUtil.putF(TStringMaker.Create().append(TCommonLabels.getInstance().ITEM_LABEL).append(itemLabel).toString(), TJava.Box(Self), TMidletStrings.getInstance().COMMAND_ACTION);
             if (TJava.ToObject(item_) is TGameConfigurationGauge) then begin
                 TGameConfigurationUtil.getInstance().change(Self.gameOptionsForm, TGameConfigurationGauge(TJava.ToObject(item_)));
             end;
         except
             on e: SysUtils.Exception do begin
             commonStrings_ := TCommonStrings.getInstance();
-            Self.logUtil.put(commonStrings_.EXCEPTION, Self, TMidletStrings.getInstance().COMMAND_ACTION, e);
+            Self.logUtil.put(commonStrings_.EXCEPTION, TJava.Box(Self), TMidletStrings.getInstance().COMMAND_ACTION, TJava.Box(e));
             end;
         end;
 end;

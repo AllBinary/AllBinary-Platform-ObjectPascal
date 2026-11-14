@@ -96,7 +96,7 @@ var
   stringBuffer: TStringMaker;
 begin
         stringBuffer := Self.getF(className, functionName);
-        stringBuffer.append(Self.getO(exception));
+        stringBuffer.append(Self.getO(TJava.Box(exception)));
         stringBuffer.append(Self.SPECIAL_MESSAGE);
         stringBuffer.append(specialMessage);
         stringBuffer.append(Self.commonSeps.NEW_LINE);

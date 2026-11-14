@@ -56,7 +56,7 @@ end;
 
 function TMidletExitProcessorFactory.getExitInstance(midlet_: TMIDlet): TProcessor;
 begin
-        if (TAppletUtil.isAppletLoader(midlet_)) or (TJ2MEUtil.isJ2ME()) then begin
+        if (TAppletUtil.isAppletLoader(TJava.Box(midlet_))) or (TJ2MEUtil.isJ2ME()) then begin
             Exit(TProcessor.getInstance());
         end else begin
             Exit(TMidletExitProcessor.Create(midlet_));

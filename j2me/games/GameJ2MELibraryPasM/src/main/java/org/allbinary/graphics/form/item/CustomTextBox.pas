@@ -87,7 +87,7 @@ end;
 
 procedure TCustomTextBox.onEventRaw(keyCode: Integer; deviceId: Integer; repeated: Boolean);
 begin
-        Self.logUtil.putF(TStringMaker.Create().append(Self.commonStrings.START).appendint(keyCode).toString(), Self, 'onEvent');
+        Self.logUtil.putF(TStringMaker.Create().append(Self.commonStrings.START).appendint(keyCode).toString(), TJava.Box(Self), 'onEvent');
         Self.keyPressedByDevice(keyCode, deviceId);
 end;
     
@@ -116,7 +116,7 @@ var
   input_: TInput;
 begin
         try
-            Self.logUtil.putF(TStringMaker.Create().append(TCommonSeps.getInstance().SPACE).appendint(keyCode).toString(), Self, Self.gameInputStrings.KEY_PRESSED);
+            Self.logUtil.putF(TStringMaker.Create().append(TCommonSeps.getInstance().SPACE).appendint(keyCode).toString(), TJava.Box(Self), Self.gameInputStrings.KEY_PRESSED);
             platformKeyFactory_ := TPlatformKeyFactory.getInstance();
             input_ := Self.inputFactory.getInstanceById(keyCode);
             if platformKeyFactory_.isSubmission(input_) then begin
@@ -126,7 +126,7 @@ begin
             end;
         except
             on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, Self, Self.gameInputStrings.KEY_PRESSED, e);
+            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.gameInputStrings.KEY_PRESSED, TJava.Box(e));
             end;
         end;
 end;

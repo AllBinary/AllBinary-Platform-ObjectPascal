@@ -59,12 +59,12 @@ var
   list: TBasicArrayList;
 begin
         try
-            Self.logUtil.putF(Self.commonStrings.START, Self, Self.commonStrings.CONSTRUCTOR_);
+            Self.logUtil.putF(Self.commonStrings.START, TJava.Box(Self), Self.commonStrings.CONSTRUCTOR_);
             list := TBasicArrayListUtil.getInstance().getImmutableInstance();
             Exit(list);
         except
             on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, Self, Self.commonStrings.GET_LIST, e);
+            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.commonStrings.GET_LIST, TJava.Box(e));
             Exit(TBasicArrayListUtil.getInstance().getImmutableInstance());
             end;
         end;

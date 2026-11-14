@@ -63,7 +63,7 @@ begin
   Self.ABOUT := TCanvasStrings.getInstance().ABOUT;
   
   
-  Self.paintableArray := [Self];
+  Self.paintableArray := TArray<TPaintable>.Create(Self);
   Self.myFontProcessor := TUpdateMyFontProcessor.Create(Self);
   
   

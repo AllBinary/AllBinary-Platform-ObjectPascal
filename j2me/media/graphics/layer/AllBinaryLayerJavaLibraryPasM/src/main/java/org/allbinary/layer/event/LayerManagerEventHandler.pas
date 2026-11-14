@@ -107,7 +107,7 @@ begin
                 layerManagerEventListener_.onCreateLayerManagerEvent(TLayerManagerEvent(TJava.ToObject(eventObject)));
             except
                 on e: SysUtils.Exception do begin
-                Self.logUtil.put(Self.commonStrings.EXCEPTION, Self, TEventStrings.getInstance().FIRE_EVENT, e);
+                Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), TEventStrings.getInstance().FIRE_EVENT, TJava.Box(e));
                 end;
             end;
         end;
@@ -134,7 +134,7 @@ begin
                 layerManagerEventListener_.onDeleteLayerManagerEvent(TLayerManagerEvent(TJava.ToObject(eventObject)));
             except
                 on e: SysUtils.Exception do begin
-                Self.logUtil.put(Self.commonStrings.EXCEPTION, Self, TEventStrings.getInstance().FIRE_EVENT, e);
+                Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), TEventStrings.getInstance().FIRE_EVENT, TJava.Box(e));
                 end;
             end;
         end;
@@ -149,7 +149,7 @@ begin
                 layerManagerEventListenerInterface_.onDeleteLayerManagerEvent(TLayerManagerEvent(TJava.ToObject(eventObject)));
             except
                 on e: SysUtils.Exception do begin
-                Self.logUtil.put(Self.commonStrings.EXCEPTION, Self, TEventStrings.getInstance().FIRE_EVENT, e);
+                Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), TEventStrings.getInstance().FIRE_EVENT, TJava.Box(e));
                 end;
             end;
             Inc(listenerIndex);

@@ -52,7 +52,7 @@ end;
 // throws Exception
 procedure TPCGameInputMapping.init(abeClientInformation: IAbeClientInformationInterface);
 begin
-        Self.logUtil.putF(Self.commonStrings.START, Self, Self.commonStrings.INIT);
+        Self.logUtil.putF(Self.commonStrings.START, TJava.Box(Self), Self.commonStrings.INIT);
         TPCKeyFactory.getInstance();
         TTouchMotionGestureFactory.getInstance();
         TTrackballMotionGestureFactory.getInstance();

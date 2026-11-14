@@ -59,7 +59,7 @@ end;
 
 procedure TGameKeyFromMotionGestureEventListener.onEvent(eventObject: TAllBinaryEventObject);
 begin
-        TForcedLogUtil.log(TEventStrings.getInstance().PERFORMANCE_MESSAGE, Self);
+        TForcedLogUtil.log(TEventStrings.getInstance().PERFORMANCE_MESSAGE, TJava.Box(Self));
 end;
     
 
@@ -84,7 +84,7 @@ begin
         except
             on e: SysUtils.Exception do begin
             commonStrings_ := TCommonStrings.getInstance();
-            Self.logUtil.put(commonStrings_.EXCEPTION, Self, 'onCompleteMotionGestureInputEvent', e);
+            Self.logUtil.put(commonStrings_.EXCEPTION, TJava.Box(Self), 'onCompleteMotionGestureInputEvent', TJava.Box(e));
             end;
         end;
 end;

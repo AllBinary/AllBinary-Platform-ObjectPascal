@@ -143,7 +143,7 @@ begin
                         Break;
                     end;
                 end;
-                if (lowerPriorityRunnable) = (Self.threadObjectUtil.NULL_PRIORITY_RUNNABLE) then begin
+                if TJava.ToObject(lowerPriorityRunnable) = TJava.ToObject(Self.threadObjectUtil.NULL_PRIORITY_RUNNABLE) then begin
                     Self.taskQueue.add(TJava.Box(task));
                 end else begin
                     index := Self.taskQueue.indexOf(TJava.Box(lowerPriorityRunnable));

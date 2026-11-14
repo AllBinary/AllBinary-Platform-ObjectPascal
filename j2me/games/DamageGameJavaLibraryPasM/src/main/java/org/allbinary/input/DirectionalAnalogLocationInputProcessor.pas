@@ -88,7 +88,7 @@ begin
         except
             on e: SysUtils.Exception do begin
             commonStrings_ := TCommonStrings.getInstance();
-            Self.logUtil.put(commonStrings_.EXCEPTION, Self, commonStrings_.CONSTRUCTOR_, e);
+            Self.logUtil.put(commonStrings_.EXCEPTION, TJava.Box(Self), commonStrings_.CONSTRUCTOR_, TJava.Box(e));
             end;
         end;
 end;
@@ -129,7 +129,7 @@ begin
         except
             on e: SysUtils.Exception do begin
             commonStrings_ := TCommonStrings.getInstance();
-            Self.logUtil.put('Unable to process analog input', Self, commonStrings_.PROCESS, e);
+            Self.logUtil.put('Unable to process analog input', TJava.Box(Self), commonStrings_.PROCESS, TJava.Box(e));
             end;
         end;
 end;

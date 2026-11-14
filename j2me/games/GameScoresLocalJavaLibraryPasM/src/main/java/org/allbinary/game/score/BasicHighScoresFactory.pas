@@ -59,7 +59,7 @@ end;
 
 procedure TBasicHighScoresFactory.fetchHighScores(gameInfo_: TGameInfo; highScoresResultsListener_: IHighScoresResultsListener);
 begin
-        Self.logUtil.putF('Getting Local HighScores', Self, Self.FETCH);
+        Self.logUtil.putF('Getting Local HighScores', TJava.Box(Self), Self.FETCH);
         Self.fetchHighScoresPreload(gameInfo_, highScoresResultsListener_, True);
 end;
     
@@ -71,7 +71,7 @@ begin
             highScoresResultsListener_.setHighScoresArray(Self.highScoresArray);
         except
             on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, Self, Self.FETCH, e);
+            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.FETCH, TJava.Box(e));
             end;
         end;
 end;

@@ -81,11 +81,11 @@ begin
         resourceStringArray := gdResources_.resourceStringArray;
         size := System.Length(resourceStringArray);
         for index := 0 to size - 1 do begin
-            if (resourceStringArray[index]) = (key) then begin
+            if TJava.Equals(resourceStringArray[index], key) then begin
                 Exit(index);
             end;
         end;
-        Self.logUtil.putF(TStringMaker.Create().append('unable to find key: ').append(TStringUtil.getInstance().toString(key)).toString(), Self, Self.commonStrings.RUN);
+        Self.logUtil.putF(TStringMaker.Create().append('unable to find key: ').append(TStringUtil.getInstance().toString(key)).toString(), TJava.Box(Self), Self.commonStrings.RUN);
         raise SysUtils.Exception.Create('');
 end;
     
@@ -136,16 +136,16 @@ begin
                 raise SysUtils.Exception.Create(TStringMaker.Create().append('Image resource is not available for key: ').append(TStringUtil.getInstance().toString(key)).toString());
             end;
             try
-                image_ := Self.createImageFromInputStream(key, resourceInputStream);
+                image_ := Self.createImageFromInputStream(TJava.Box(key), resourceInputStream);
             except
                 on e: SysUtils.Exception do begin
-                Self.logUtil.put('Exception: Trying Again After GC', Self, Self.commonStrings.GET, e);
-                Self.logUtil.putF(TStringMaker.Create().append('InputStream: ').append(TStringUtil.getInstance().toString(resourceInputStream)).toString(), Self, Self.commonStrings.GET);
+                Self.logUtil.put('Exception: Trying Again After GC', TJava.Box(Self), Self.commonStrings.GET, TJava.Box(e));
+                Self.logUtil.putF(TStringMaker.Create().append('InputStream: ').append(TStringUtil.getInstance().toString(resourceInputStream)).toString(), TJava.Box(Self), Self.commonStrings.GET);
                 Self.tsUtil.gc();
                 Self.tsUtil.gc();
-                Self.logUtil.putF(TMemory.getInfo(), Self, Self.commonStrings.GET);
-                Sleep(100);
-                image_ := Self.createImageFromInputStream(key, resourceInputStream);
+                Self.logUtil.putF(TMemory.getInfo(), TJava.Box(Self), Self.commonStrings.GET);
+                SysUtils.Sleep(100);
+                image_ := Self.createImageFromInputStream(TJava.Box(key), resourceInputStream);
                 end;
             end;
             if TJ2MEUtil.isHTML() then begin

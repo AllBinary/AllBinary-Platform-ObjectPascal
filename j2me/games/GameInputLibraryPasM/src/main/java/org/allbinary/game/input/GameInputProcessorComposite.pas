@@ -73,7 +73,7 @@ begin
             Self.gameInputProcessorInterface.onInput(list);
         except
             on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, Self, Self.commonStrings.UPDATE, e);
+            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.commonStrings.UPDATE, TJava.Box(e));
             end;
         end;
     finally

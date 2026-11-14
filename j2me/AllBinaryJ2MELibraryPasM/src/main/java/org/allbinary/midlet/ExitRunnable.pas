@@ -75,20 +75,20 @@ end;
 procedure TExitRunnable.run;
 begin
         try
-            Self.logUtil.putF(Self.commonStrings.START_RUNNABLE, Self, Self.commonStrings.RUN);
+            Self.logUtil.putF(Self.commonStrings.START_RUNNABLE, TJava.Box(Self), Self.commonStrings.RUN);
             Self.midlet.destroyAppInRunnable(False, Self.isProgress);
             Self.midlet.setDisplay(TNullCanvas.NULL_CANVAS);
             Self.midlet.notifyDestroyed();
-            Self.logUtil.putF(Self.commonStrings.END_RUNNABLE, Self, Self.commonStrings.RUN);
+            Self.logUtil.putF(Self.commonStrings.END_RUNNABLE, TJava.Box(Self), Self.commonStrings.RUN);
             Self.processor.process();
         except
             on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, Self, Self.commonStrings.RUN, e);
+            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.commonStrings.RUN, TJava.Box(e));
             try
                 Self.processor.process();
             except
                 on e2: SysUtils.Exception do begin
-                Self.logUtil.put(Self.commonStrings.EXCEPTION, Self, Self.commonStrings.RUN, e);
+                Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.commonStrings.RUN, TJava.Box(e));
                 end;
             end;
             end;

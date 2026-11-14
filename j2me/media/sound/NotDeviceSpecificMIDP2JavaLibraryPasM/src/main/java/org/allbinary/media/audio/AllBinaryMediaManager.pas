@@ -80,7 +80,7 @@ var
 begin
         logUtil_ := TLogUtil.getInstance();
         commonString := TCommonStrings.getInstance();
-        logUtil_.putF(commonString.START, TAllBinaryMediaManager.THIS, commonString.INIT);
+        logUtil_.putF(commonString.START, TJava.Box(TAllBinaryMediaManager.THIS), commonString.INIT);
         TProgressCanvasFactory.getInstance().addNormalPortion(50, 'Media Manager');
         TSounds.Create(soundsFactoryInterface_).init();
 end;

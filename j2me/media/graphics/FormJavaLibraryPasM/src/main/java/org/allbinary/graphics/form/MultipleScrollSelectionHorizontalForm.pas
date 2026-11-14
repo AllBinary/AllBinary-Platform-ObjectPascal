@@ -165,14 +165,14 @@ begin
                     if Self.logged then begin
                     end else begin
                         Self.logged := True;
-                        TPreLogUtil.put(TStringMaker.Create().append('painting beyond maxx: ').appendint(Integer(Trunc(Self.rectangle.getMaxX()))).toString(), Self, Self.canvasStrings.PAINT);
+                        TPreLogUtil.put(TStringMaker.Create().append('painting beyond maxx: ').appendint(Integer(Trunc(Self.rectangle.getMaxX()))).toString(), TJava.Box(Self), Self.canvasStrings.PAINT);
                     end;
                 end;
                 dx := Self.multipleScrollSelectionHorizontalFormTypeItemIndexPaintable.paint(graphics_, index, item, dx, dy);
             end;
         except
             on e: SysUtils.Exception do begin
-            TPreLogUtil.put(Self.commonStrings.EXCEPTION, Self, Self.canvasStrings.PAINT);
+            TPreLogUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.canvasStrings.PAINT);
             end;
         end;
 end;

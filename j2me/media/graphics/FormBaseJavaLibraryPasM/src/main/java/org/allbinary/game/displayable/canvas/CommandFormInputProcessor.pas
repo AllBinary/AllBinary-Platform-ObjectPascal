@@ -104,7 +104,7 @@ var
 begin
         commandCurrentSelectionForm_ := TCommandCurrentSelectionForm(TJava.ToObject(Self.form));
         command_ := commandCurrentSelectionForm_.getSelectedCommand();
-        Self.logUtil.putF(command_.toString(), Self, Self.PROCESS_COMMAND);
+        Self.logUtil.putF(command_.toString(), TJava.Box(Self), Self.PROCESS_COMMAND);
         features_ := TFeatures.getInstance();
         openGLFeatureFactory_ := TOpenGLFeatureFactory.getInstance();
         if ((TSWTUtil.isSWT) and (features_.isFeature(openGLFeatureFactory_.OPENGL))) and ((command_) <> (TGameCommandsFactory.getInstance().EXIT_COMMAND)) then begin
@@ -153,7 +153,7 @@ begin
             end;
         except
             on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, Self, Self.gameInputStrings.PROCESS_INPUT, e);
+            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.gameInputStrings.PROCESS_INPUT, TJava.Box(e));
             Exit(-1);
             end;
         end;
@@ -204,7 +204,7 @@ begin
             end;
             if Self.hasPressed then begin
                 if not (Self.doubleClickTimeHelper.isTimeTNT()) then begin
-                    Self.logUtil.putF('Double Press', Self, Self.gameInputStrings.PROCESS_MOTION_INPUT);
+                    Self.logUtil.putF('Double Press', TJava.Box(Self), Self.gameInputStrings.PROCESS_MOTION_INPUT);
                     Self.processCommand();
                 end;
                 Self.doubleClickTimeHelper.delay := Self.DOUBLE_CLICK_DELAY;

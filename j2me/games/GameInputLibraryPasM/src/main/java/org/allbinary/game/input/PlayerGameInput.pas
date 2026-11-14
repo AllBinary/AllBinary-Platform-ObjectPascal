@@ -110,7 +110,7 @@ procedure TPlayerGameInput.onDownKey(gameKeyEvent_: Integer);
 begin
     TJava.MonitorEnter(Self);
     try
-        TPreLogUtil.put(TStringMaker.Create().append(TCommonLabels.getInstance().START_LABEL).append(gameKeyEvent_.toString()).toString(), Self, Self.gameInputStrings.ON_DOWN_GAME_KEY);
+        TPreLogUtil.put(TStringMaker.Create().append(TCommonLabels.getInstance().START_LABEL).append(gameKeyEvent_.toString()).toString(), TJava.Box(Self), Self.gameInputStrings.ON_DOWN_GAME_KEY);
     finally
     TJava.MonitorExit(Self);
     end;
@@ -140,7 +140,7 @@ end;
 
 procedure TPlayerGameInput.onEvent(eventObject: TAllBinaryEventObject);
 begin
-        TForcedLogUtil.log(TEventStrings.getInstance().PERFORMANCE_MESSAGE, Self);
+        TForcedLogUtil.log(TEventStrings.getInstance().PERFORMANCE_MESSAGE, TJava.Box(Self));
 end;
     
 

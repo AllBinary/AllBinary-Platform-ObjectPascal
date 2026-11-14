@@ -104,14 +104,14 @@ begin
         inherited Create(rectangle_.getWidth(), rectangle_.getHeight());
         InitFields;
         
-        localName := TStringMaker.Create().append(name).append(TCommonSeps.getInstance().COLON).append(IntToHex(TTsUtil.getInstance().hashCode(Self))).toString();
+        localName := TStringMaker.Create().append(name).append(TCommonSeps.getInstance().COLON).append(IntToHex(TTsUtil.getInstance().hashCode(TJava.Box(Self)))).toString();
         Self.name := localName;
         point := rectangle_.getPoint();
         Self.setPosition(point.getX(), point.getY(), point.getZ());
         Self.setHalfWidth((TJava.SignedRightShift(Self.getWidth(), 1)));
         Self.setHalfHeight((TJava.SignedRightShift(Self.getHeight(), 1)));
         Self.viewPosition := viewPosition;
-        Self.viewPosition.setAllbinaryLayer(Self);
+        Self.viewPosition.setAllbinaryLayer(TJava.Box(Self));
 end;
     
 

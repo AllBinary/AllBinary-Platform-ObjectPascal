@@ -63,7 +63,7 @@ begin
         while (Self.list.size()) > (0) do begin
             openGLESImage_ := TOpenGLESImage(TJava.ToObject(Self.list.removeAt(0)));
             if (openGLESImage_) <> (nil) then begin
-                openGLESImage_.set_(TJava.ToObject(gl));
+                openGLESImage_.set_(gl);
             end;
         end;
 end;

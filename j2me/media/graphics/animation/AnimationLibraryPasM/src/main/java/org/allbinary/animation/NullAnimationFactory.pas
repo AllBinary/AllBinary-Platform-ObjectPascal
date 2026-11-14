@@ -58,7 +58,7 @@ begin
 begin
 end;
 *);
-  Self.EMPTY_ARRAY := TJava.NewArray<TAnimation>(0);
+  Self.EMPTY_ARRAY := nil;
 end;
 
 function TNullAnimationFactory.JavaObject: TObject;

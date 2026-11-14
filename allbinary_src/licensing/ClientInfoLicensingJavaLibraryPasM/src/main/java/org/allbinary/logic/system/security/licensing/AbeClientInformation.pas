@@ -75,12 +75,12 @@ begin
                 Self.setLicenseId(NONE);
             end;
             commonStrings_ := TCommonStrings.getInstance();
-            TPreLogUtil.put(TStringMaker.Create().append('Special Name: ').append(Self.getSpecialName()).toString(), Self, commonStrings_.CONSTRUCTOR_);
+            TPreLogUtil.put(TStringMaker.Create().append('Special Name: ').append(Self.getSpecialName()).toString(), TJava.Box(Self), commonStrings_.CONSTRUCTOR_);
         except
             on e: SysUtils.Exception do begin
             logUtil_ := TLogUtil.getInstance();
             commonStrings_ := TCommonStrings.getInstance();
-            logUtil_.put(commonStrings_.EXCEPTION, Self, commonStrings_.CONSTRUCTOR_, e);
+            logUtil_.put(commonStrings_.EXCEPTION, TJava.Box(Self), commonStrings_.CONSTRUCTOR_, TJava.Box(e));
             end;
         end;
 end;

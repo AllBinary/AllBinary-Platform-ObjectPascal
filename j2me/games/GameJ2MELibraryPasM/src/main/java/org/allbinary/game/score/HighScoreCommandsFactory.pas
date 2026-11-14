@@ -50,7 +50,7 @@ end;
 
 constructor THighScoreCommandsFactory.Create;
 begin
-        inherited Create([THighScoreCommands.getInstance().PERSONAL, THighScoreCommands.getInstance().WORLD]);
+        inherited Create(TArray<TCommand>.Create(THighScoreCommands.getInstance().PERSONAL, THighScoreCommands.getInstance().WORLD));
 end;
 
 initialization

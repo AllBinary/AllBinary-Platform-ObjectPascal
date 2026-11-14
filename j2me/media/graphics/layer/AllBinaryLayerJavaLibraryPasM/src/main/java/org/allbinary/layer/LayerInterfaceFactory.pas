@@ -82,7 +82,7 @@ var
   layerInterfaceFactoryInterface_: ILayerInterfaceFactoryInterface;
 begin
         commonStrings_ := TCommonStrings.getInstance();
-        Self.logUtil.putF(TStringMaker.Create().append(Self.HASHTABLE_LABEL).append(TStringUtil.getInstance().toString(hashtable)).toString(), Self, commonStrings_.GET_INSTANCE);
+        Self.logUtil.putF(TStringMaker.Create().append(Self.HASHTABLE_LABEL).append(TStringUtil.getInstance().toString(hashtable)).toString(), TJava.Box(Self), commonStrings_.GET_INSTANCE);
         typeInteger := Integer(hashtable.get(TJava.Box(TJava.Box(TABLayer.ID))));
         layerInterfaceFactoryInterface_ := (TJava.ToObject(Self.list.objectArray[((typeInteger)) - (1)]) as ILayerInterfaceFactoryInterface);
         Exit(layerInterfaceFactoryInterface_.getNextInstance(hashtable, x, y, z));

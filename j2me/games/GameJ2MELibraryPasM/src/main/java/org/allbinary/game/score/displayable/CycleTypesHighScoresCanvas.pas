@@ -116,7 +116,7 @@ constructor THighScoresCanvas.Create(commandListener_: ICommandListener; allBina
 begin
         inherited Create(commandListener_, THighScoresCanvas.NAME, allBinaryGameLayerManager_.getBackgroundBasicColor(), allBinaryGameLayerManager_.getForegroundBasicColor());
         InitFields;
-        Self.logUtil.putF(Self.commonStrings.START, Self, Self.commonStrings.CONSTRUCTOR_);
+        Self.logUtil.putF(Self.commonStrings.START, TJava.Box(Self), Self.commonStrings.CONSTRUCTOR_);
         Self.highScoresPaintable := paintable_;
         Self.highScoresFactoryInterface := highScoresFactoryInterface_;
         Self.highScoresCanvasInputProcessor := highScoresCanvasInputProcessorFactoryInterface_.getInstance(Self);
@@ -127,7 +127,7 @@ begin
         if (System.Length(Self.highScoresHelper.getHighScoresArray())) = (System.Length(TNoHighScoresFactory.getInstance().NO_HIGH_SCORES)) then begin
             Self.setPaintable(Self.waitPaintable);
         end else begin
-            Self.logUtil.putF('Show HighScores that are already loaded', Self, Self.commonStrings.CONSTRUCTOR_);
+            Self.logUtil.putF('Show HighScores that are already loaded', TJava.Box(Self), Self.commonStrings.CONSTRUCTOR_);
             Self.updateCommand(Self.currentCommand);
             Self.setPaintable(Self.getHighScoresPaintable());
         end;
@@ -176,7 +176,7 @@ begin
             Self.highScoresFactoryInterface.fetchHighScores(Self.getGameInfo(), Self);
         except
             on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, Self, Self.commonStrings.UPDATE, e);
+            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.commonStrings.UPDATE, TJava.Box(e));
             end;
         end;
 end;
@@ -192,16 +192,16 @@ procedure THighScoresCanvas.setHighScoresArray(highScoresArray: TArray<THighScor
 begin
         try
             if (highScoresArray) <> (nil) then begin
-                Self.logUtil.putF(TStringMaker.Create().append(Self.commonStrings.START).appendint(System.Length(highScoresArray)).toString(), Self, 'setHighScoresArray');
+                Self.logUtil.putF(TStringMaker.Create().append(Self.commonStrings.START).appendint(System.Length(highScoresArray)).toString(), TJava.Box(Self), 'setHighScoresArray');
             end else begin
-                Self.logUtil.putF(Self.commonStrings.START, Self, 'setHighScoresArray');
+                Self.logUtil.putF(Self.commonStrings.START, TJava.Box(Self), 'setHighScoresArray');
             end;
             Self.highScoresHelper.setHighScoresArray(highScoresArray);
             Self.updateCommand(Self.currentCommand);
             Self.setPaintable(Self.getHighScoresPaintable());
         except
             on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, Self, Self.commonStrings.UPDATE, e);
+            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.commonStrings.UPDATE, TJava.Box(e));
             end;
         end;
 end;
@@ -215,7 +215,7 @@ var
   nextIndex: Integer;
   highScoresArray: TArray<THighScores>;
 begin
-        Self.logUtil.putF(TStringMaker.Create().append(Self.commonStrings.START).append(Self.stringUtil.toString(command_)).toString(), Self, Self.commonStrings.UPDATE);
+        Self.logUtil.putF(TStringMaker.Create().append(Self.commonStrings.START).append(Self.stringUtil.toString(command_)).toString(), TJava.Box(Self), Self.commonStrings.UPDATE);
         gameCommandsFactory_ := TGameCommandsFactory.getInstance();
         if Self.highScoreCommandsFactory.isHighScoreCommand(command_) then begin
             index := Self.highScoreCommandsFactory.getIndex(command_);

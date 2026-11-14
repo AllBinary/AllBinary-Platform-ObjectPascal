@@ -31,12 +31,12 @@ type
   public
     logUtil: TLogUtil;
     stringBuilder: TStringMaker;
-    APPEND_: string;
+    APPEND__: string;
     APPEND_: string;
     _AT_: string;
     ATTEMPT_REMOVE_: string;
     REMOVE_: string;
-    REMOVE_: string;
+    REMOVE__: string;
     DID_NOT_REMOVE: string;
     CLEAR_: string;
     class var instance: TLayerManagerLogging;
@@ -63,12 +63,12 @@ procedure TLayerManagerLogging.InitFields;
 begin
   Self.logUtil := TLogUtil.getInstance();
   Self.stringBuilder := TStringMaker.Create();
-  Self.APPEND_ := 'append';
+  Self.APPEND__ := 'append';
   Self.APPEND_ := ' append: ';
   Self._AT_ := ' at: ';
   Self.ATTEMPT_REMOVE_ := ' Remove Attempt: ';
   Self.REMOVE_ := ' Remove: ';
-  Self.REMOVE_ := 'remove';
+  Self.REMOVE__ := 'remove';
   Self.DID_NOT_REMOVE := ' Did not remove: ';
   Self.CLEAR_ := ' Clear List';
 end;
@@ -90,14 +90,14 @@ end;
 procedure TLayerManagerLogging.append(layerInterface: TAllBinaryLayer);
 begin
         Self.stringBuilder.delete_(0, Self.stringBuilder.length());
-        Self.logUtil.putF(Self.stringBuilder.appendint(Integer(Trunc(TTsUtil.getInstance().hashCode(Self)))).append(Self.APPEND_).append(layerInterface.getName()).toString(), Self, Self.APPEND_);
+        Self.logUtil.putF(Self.stringBuilder.appendint(Integer(Trunc(TTsUtil.getInstance().hashCode(TJava.Box(Self))))).append(Self.APPEND_).append(layerInterface.getName()).toString(), TJava.Box(Self), Self.APPEND__);
 end;
     
 
 procedure TLayerManagerLogging.appendAt(layerInterface: TAllBinaryLayer; index: Integer);
 begin
         Self.stringBuilder.delete_(0, Self.stringBuilder.length());
-        Self.logUtil.putF(Self.stringBuilder.appendint(Integer(Trunc(TTsUtil.getInstance().hashCode(Self)))).append(Self.APPEND_).append(layerInterface.getName()).append(Self._AT_).appendint(index).toString(), Self, Self.APPEND_);
+        Self.logUtil.putF(Self.stringBuilder.appendint(Integer(Trunc(TTsUtil.getInstance().hashCode(TJava.Box(Self))))).append(Self.APPEND_).append(layerInterface.getName()).append(Self._AT_).appendint(index).toString(), TJava.Box(Self), Self.APPEND__);
 end;
     
 
@@ -105,10 +105,10 @@ procedure TLayerManagerLogging.remove(layerInterface: TAllBinaryLayer);
 begin
         if (layerInterface) = (nil) then begin
             Self.stringBuilder.delete_(0, Self.stringBuilder.length());
-            Self.logUtil.putF(Self.stringBuilder.appendint(Integer(Trunc(TTsUtil.getInstance().hashCode(Self)))).append(Self.ATTEMPT_REMOVE_).append(TStringUtil.getInstance().toString(layerInterface)).toString(), Self, Self.REMOVE_);
+            Self.logUtil.putF(Self.stringBuilder.appendint(Integer(Trunc(TTsUtil.getInstance().hashCode(TJava.Box(Self))))).append(Self.ATTEMPT_REMOVE_).append(TStringUtil.getInstance().toString(layerInterface)).toString(), TJava.Box(Self), Self.REMOVE__);
         end else begin
             Self.stringBuilder.delete_(0, Self.stringBuilder.length());
-            Self.logUtil.putF(Self.stringBuilder.appendint(Integer(Trunc(TTsUtil.getInstance().hashCode(Self)))).append(Self.ATTEMPT_REMOVE_).append(layerInterface.getName()).toString(), Self, Self.REMOVE_);
+            Self.logUtil.putF(Self.stringBuilder.appendint(Integer(Trunc(TTsUtil.getInstance().hashCode(TJava.Box(Self))))).append(Self.ATTEMPT_REMOVE_).append(layerInterface.getName()).toString(), TJava.Box(Self), Self.REMOVE__);
         end;
 end;
     
@@ -117,15 +117,15 @@ procedure TLayerManagerLogging.removeResult(layerManager: TABLayerManager; layer
 begin
         if (layerInterface) = (nil) then begin
             Self.stringBuilder.delete_(0, Self.stringBuilder.length());
-            Self.logUtil.putF(Self.stringBuilder.appendint(Integer(Trunc(TTsUtil.getInstance().hashCode(Self)))).append(Self.REMOVE_).append(TStringUtil.getInstance().toString(layerInterface)).toString(), Self, Self.REMOVE_);
+            Self.logUtil.putF(Self.stringBuilder.appendint(Integer(Trunc(TTsUtil.getInstance().hashCode(TJava.Box(Self))))).append(Self.REMOVE_).append(TStringUtil.getInstance().toString(layerInterface)).toString(), TJava.Box(Self), Self.REMOVE__);
         end else if result_ then begin
             if TLayerManagerLogging.removeFailed then begin
                 Self.stringBuilder.delete_(0, Self.stringBuilder.length());
-                Self.logUtil.putF(Self.stringBuilder.appendint(Integer(Trunc(TTsUtil.getInstance().hashCode(Self)))).append(Self.REMOVE_).append(layerInterface.getName()).toString(), Self, Self.REMOVE_);
+                Self.logUtil.putF(Self.stringBuilder.appendint(Integer(Trunc(TTsUtil.getInstance().hashCode(TJava.Box(Self))))).append(Self.REMOVE_).append(layerInterface.getName()).toString(), TJava.Box(Self), Self.REMOVE__);
             end;
         end else begin
             Self.stringBuilder.delete_(0, Self.stringBuilder.length());
-            Self.logUtil.putF(Self.stringBuilder.appendint(Integer(Trunc(TTsUtil.getInstance().hashCode(Self)))).append(Self.DID_NOT_REMOVE).append(layerInterface.getName()).toString(), Self, Self.REMOVE_);
+            Self.logUtil.putF(Self.stringBuilder.appendint(Integer(Trunc(TTsUtil.getInstance().hashCode(TJava.Box(Self))))).append(Self.DID_NOT_REMOVE).append(layerInterface.getName()).toString(), TJava.Box(Self), Self.REMOVE__);
             TLayerManagerLogging.removeFailed := True;
         end;
 end;
@@ -141,21 +141,21 @@ begin
         Self.stringBuilder.delete_(0, Self.stringBuilder.length());
         size := layerManager.getSize();
         commonSeps_ := TCommonSeps.getInstance();
-        Self.stringBuilder.append(IntToHex(TTsUtil.getInstance().hashCode(layerManager))).append(commonSeps_.COLON_SEP);
+        Self.stringBuilder.append(IntToHex(TTsUtil.getInstance().hashCode(TJava.Box(layerManager)))).append(commonSeps_.COLON_SEP);
         Self.stringBuilder.appendint(size).append(commonSeps_.COLON_SEP);
         
         for index := 0 to size - 1 do begin
             allBinaryLayer_ := (TAllBinaryLayer(TJava.ToObject(layerManager.getLayerAt(index))));
             Self.stringBuilder.append(allBinaryLayer_.getName()).append(commonSeps_.COMMA);
         end;
-        Self.logUtil.putF(Self.stringBuilder.toString(), Self, Self.REMOVE_);
+        Self.logUtil.putF(Self.stringBuilder.toString(), TJava.Box(Self), Self.REMOVE__);
 end;
     
 
 procedure TLayerManagerLogging.clear;
 begin
         Self.stringBuilder.delete_(0, Self.stringBuilder.length());
-        Self.logUtil.putF(Self.stringBuilder.appendint(Integer(Trunc(TTsUtil.getInstance().hashCode(Self)))).append(Self.CLEAR_).toString(), Self, Self.CLEAR_);
+        Self.logUtil.putF(Self.stringBuilder.appendint(Integer(Trunc(TTsUtil.getInstance().hashCode(TJava.Box(Self))))).append(Self.CLEAR_).toString(), TJava.Box(Self), Self.CLEAR_);
 end;
 
 initialization

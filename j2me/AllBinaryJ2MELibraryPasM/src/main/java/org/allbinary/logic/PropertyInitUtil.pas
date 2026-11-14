@@ -54,7 +54,7 @@ var
 begin
         commonStrings_ := TCommonStrings.getInstance();
         logUtil_ := TLogUtil.getInstance();
-        logUtil_.putF(TStringMaker.Create().append('PropertyInitUtil: ').appendint(value).toString(), logUtil_, commonStrings_.CONSTRUCTOR_);
+        logUtil_.putF(TStringMaker.Create().append('PropertyInitUtil: ').appendint(value).toString(), TJava.Box(logUtil_), commonStrings_.CONSTRUCTOR_);
         Exit(TPropertyInitUtil.instance);
 end;
 

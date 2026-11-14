@@ -35,7 +35,7 @@ type
 
 implementation
 uses
-  GameInputProcessor, InputFactory;
+  InputFactory;
 
 
 {AB:CODE}

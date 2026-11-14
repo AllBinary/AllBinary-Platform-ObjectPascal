@@ -88,14 +88,14 @@ begin
                 Self.downGameKeyEventHandler.fireEvent(gameKeyEvent_);
                 Self.downGameKeyEventHandler.getInstanceForDevice(deviceId).fireEvent(gameKeyEvent_);
             end else begin
-                Self.logUtil.putF(TStringMaker.Create().append(Self.gameInputStrings.NO_KEY).appendint(keyCode).toString(), Self, Self.gameInputStrings.ADD_KEY_EVENT);
+                Self.logUtil.putF(TStringMaker.Create().append(Self.gameInputStrings.NO_KEY).appendint(keyCode).toString(), TJava.Box(Self), Self.gameInputStrings.ADD_KEY_EVENT);
             end;
             keyCodeAsInteger := Self.smallIntegerSingletonFactory.getAtNoThrow(keyCode);
             Self.downKeyEventHandler.fireEventI(keyCodeAsInteger);
             Self.downKeyEventHandler.getInstanceForDevice(deviceId).fireEventI(keyCodeAsInteger);
         except
             on e: SysUtils.Exception do begin
-            Self.logUtil.put('Key Event Error', Self, Self.gameInputStrings.ADD_KEY_EVENT, e);
+            Self.logUtil.put('Key Event Error', TJava.Box(Self), Self.gameInputStrings.ADD_KEY_EVENT, TJava.Box(e));
             end;
         end;
 end;
@@ -121,11 +121,11 @@ begin
                 Self.upGameKeyEventHandler.fireEvent(gameKeyEvent_);
                 Self.upGameKeyEventHandler.getInstanceForDevice(deviceId).fireEvent(gameKeyEvent_);
             end else begin
-                Self.logUtil.putF(TStringMaker.Create().append(Self.gameInputStrings.NO_KEY).appendint(keyCode).toString(), Self, Self.gameInputStrings.REMOVE_KEY_EVENT);
+                Self.logUtil.putF(TStringMaker.Create().append(Self.gameInputStrings.NO_KEY).appendint(keyCode).toString(), TJava.Box(Self), Self.gameInputStrings.REMOVE_KEY_EVENT);
             end;
         except
             on e: SysUtils.Exception do begin
-            Self.logUtil.put('Key Event Error', Self, Self.gameInputStrings.REMOVE_KEY_EVENT, e);
+            Self.logUtil.put('Key Event Error', TJava.Box(Self), Self.gameInputStrings.REMOVE_KEY_EVENT, TJava.Box(e));
             end;
         end;
 end;

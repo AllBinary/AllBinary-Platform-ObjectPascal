@@ -120,7 +120,7 @@ end;
 
 procedure TGameAdStateBase.onEvent(eventObject: TAllBinaryEventObject);
 begin
-        TForcedLogUtil.log(TEventStrings.getInstance().PERFORMANCE_MESSAGE, Self);
+        TForcedLogUtil.log(TEventStrings.getInstance().PERFORMANCE_MESSAGE, TJava.Box(Self));
 end;
     
 

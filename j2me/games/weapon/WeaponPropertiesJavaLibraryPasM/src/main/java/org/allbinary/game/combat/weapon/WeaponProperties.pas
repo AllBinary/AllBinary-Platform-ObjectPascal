@@ -82,7 +82,7 @@ begin
         if (((speed) < (Self.MAX)) and ((speed) <> (0))) and (not (TWeaponProperties.messageSent)) then begin
             MESSAGE := 'Danger Danger Danger: Speed probably to slow if using 1 degree calculations as velocity for a single axis could be below 1024: ';
             commonStrings_ := TCommonStrings.getInstance();
-            TPreLogUtil.put(TStringMaker.Create().append(MESSAGE).appendlong(speed).toString(), Self, commonStrings_.CONSTRUCTOR_);
+            TPreLogUtil.put(TStringMaker.Create().append(MESSAGE).appendlong(speed).toString(), TJava.Box(Self), commonStrings_.CONSTRUCTOR_);
             TWeaponProperties.messageSent := True;
         end;
         Self.setReloadTime(reloadTime);

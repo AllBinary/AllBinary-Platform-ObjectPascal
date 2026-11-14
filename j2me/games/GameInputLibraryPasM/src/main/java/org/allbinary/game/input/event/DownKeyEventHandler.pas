@@ -120,7 +120,7 @@ end;
 initialization
   {AB:INITIALIZATION}
   TDownKeyEventHandler.instance := TDownKeyEventHandler.Create();
-  TDownKeyEventHandler.instanceArray := [TDownKeyEventHandlerBase.Create(), TDownKeyEventHandlerBase.Create(), TDownKeyEventHandlerBase.Create(), TDownKeyEventHandlerBase.Create(), TDownKeyEventHandlerBase.Create(), TDownKeyEventHandlerBase.Create()];
+  TDownKeyEventHandler.instanceArray := TArray<TDownKeyEventHandlerBase>.Create(TDownKeyEventHandlerBase.Create(), TDownKeyEventHandlerBase.Create(), TDownKeyEventHandlerBase.Create(), TDownKeyEventHandlerBase.Create(), TDownKeyEventHandlerBase.Create(), TDownKeyEventHandlerBase.Create());
   {AB:END}
 
 end.

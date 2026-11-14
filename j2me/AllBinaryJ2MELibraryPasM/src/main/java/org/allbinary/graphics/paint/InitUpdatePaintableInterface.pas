@@ -23,11 +23,14 @@ unit InitUpdatePaintableInterface;
 interface
 
 uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, InitInterface, UpdateInterface, PaintableInterface;
+  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, InitInterface, UpdateInterface, Graphics, PaintableInterface;
 
 type
   {AB:TYPES}
   IInitUpdatePaintableInterface = interface(IInitInterface) ['IInitUpdatePaintableInterface']
+        procedure update; overload;
+        procedure paint(graphics_: TGraphics); overload;
+        procedure paintThreed(graphics_: TGraphics); overload;
   end;
   TInitUpdatePaintableInterface = IInitUpdatePaintableInterface;
 

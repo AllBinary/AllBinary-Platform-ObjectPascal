@@ -110,18 +110,18 @@ begin
         touchButtonTurnRightResource_ := TTouchButtonTurnRightResource.getInstance();
         touchButtonStrafeLeftResource_ := TTouchButtonStrafeLeftResource.getInstance();
         touchButtonStrafeRightResource_ := TTouchButtonStrafeRightResource.getInstance();
-        touchButtonBlankResourceImage := imageCache_.getWithKey(touchButtonBlankResource_.RESOURCE);
-        touchButtonGenericActionResourceImage := imageCache_.getWithKey(touchButtonGenericActionResource_.RESOURCE);
-        touchButtonStartResourceImage := imageCache_.getWithKey(touchButtonStartResource_.RESOURCE);
-        touchButtonUpResourceImage := imageCache_.getWithKey(touchButtonUpResource_.RESOURCE);
-        touchButtonDownResourceImage := imageCache_.getWithKey(touchButtonDownResource_.RESOURCE);
-        touchButtonTurnLeftResourceImage := imageCache_.getWithKey(touchButtonTurnLeftResource_.RESOURCE);
-        touchButtonTurnRightResourceImage := imageCache_.getWithKey(touchButtonTurnRightResource_.RESOURCE);
-        touchButtonStrafeLeftResourceImage := imageCache_.getWithKey(touchButtonStrafeLeftResource_.RESOURCE);
-        touchButtonStrafeRightResourceImage := imageCache_.getWithKey(touchButtonStrafeRightResource_.RESOURCE);
+        touchButtonBlankResourceImage := imageCache_.getWithKey(TJava.Box(touchButtonBlankResource_.RESOURCE));
+        touchButtonGenericActionResourceImage := imageCache_.getWithKey(TJava.Box(touchButtonGenericActionResource_.RESOURCE));
+        touchButtonStartResourceImage := imageCache_.getWithKey(TJava.Box(touchButtonStartResource_.RESOURCE));
+        touchButtonUpResourceImage := imageCache_.getWithKey(TJava.Box(touchButtonUpResource_.RESOURCE));
+        touchButtonDownResourceImage := imageCache_.getWithKey(TJava.Box(touchButtonDownResource_.RESOURCE));
+        touchButtonTurnLeftResourceImage := imageCache_.getWithKey(TJava.Box(touchButtonTurnLeftResource_.RESOURCE));
+        touchButtonTurnRightResourceImage := imageCache_.getWithKey(TJava.Box(touchButtonTurnRightResource_.RESOURCE));
+        touchButtonStrafeLeftResourceImage := imageCache_.getWithKey(TJava.Box(touchButtonStrafeLeftResource_.RESOURCE));
+        touchButtonStrafeRightResourceImage := imageCache_.getWithKey(TJava.Box(touchButtonStrafeRightResource_.RESOURCE));
         nullAnimationFactory_ := TNullAnimationFactory.getFactoryInstance();
         if TOperatingSystemFactory.getInstance().getOperatingSystemInstance().isOverScan() then begin
-            imageCache_.getWithKey(TTouchButtonStartResource.getInstance().HINT);
+            imageCache_.getWithKey(TJava.Box(TTouchButtonStartResource.getInstance().HINT));
         end;
         progressCanvas_.addPortion(portion, loadingString, TJava.PostInc(index));
         imageCompleteUtil_ := TImageCompleteUtil.getInstance();
@@ -161,7 +161,7 @@ begin
         Self.add(touchButtonStrafeRightResource_.RESOURCE, TOneRowSpriteIndexedAnimationFactory.createFactory(touchButtonStrafeRightResourceImage, TAnimationBehaviorFactory.getInstance()));
         Self.add(touchButtonStrafeRightResource_.HINT, nullAnimationFactory_);
         if TOperatingSystemFactory.getInstance().getOperatingSystemInstance().isOverScan() then begin
-            touchButtonStartHintResource := imageCache_.getWithKey(TTouchButtonStartResource.getInstance().HINT);
+            touchButtonStartHintResource := imageCache_.getWithKey(TJava.Box(TTouchButtonStartResource.getInstance().HINT));
             Self.add(touchButtonStartResource_.HINT, TOneRowSpriteIndexedAnimationFactory.createFactory(touchButtonStartHintResource, TAnimationBehaviorFactory.getInstance()));
         end else begin
             Self.add(touchButtonStartResource_.HINT, nullAnimationFactory_);

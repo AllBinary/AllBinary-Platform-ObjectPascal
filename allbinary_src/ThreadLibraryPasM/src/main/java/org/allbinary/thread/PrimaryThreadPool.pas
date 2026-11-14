@@ -59,20 +59,20 @@ end;
 
 procedure TPrimaryThreadPool.runTask(task: IRunnable);
 begin
-        Self.logUtil.putF(TStringMaker.Create().append(TStringUtil.getInstance().toString(TJava.ToObject(task))).appendlong(Int64(Trunc(DateTimeToUnix(Now) * 1000))).toString(), Self, Self.threadPoolStrings.ADD_TASK);
+        Self.logUtil.putF(TStringMaker.Create().append(TStringUtil.getInstance().toString(TJava.ToObject(task))).appendlong(Int64(Trunc(DateTimeToUnix(Now) * 1000))).toString(), TJava.Box(Self), Self.threadPoolStrings.ADD_TASK);
         inherited runTask(task);
 end;
     
 
 procedure TPrimaryThreadPool.startTask(task: IRunnable);
 begin
-        Self.logUtil.putF(TStringMaker.Create().append(Self.threadPoolStrings.START_TASK).append(TStringUtil.getInstance().toString(TJava.ToObject(task))).toString(), Self, Self.commonStrings.RUN);
+        Self.logUtil.putF(TStringMaker.Create().append(Self.threadPoolStrings.START_TASK).append(TStringUtil.getInstance().toString(TJava.ToObject(task))).toString(), TJava.Box(Self), Self.commonStrings.RUN);
 end;
     
 
 procedure TPrimaryThreadPool.completedTask(task: IRunnable);
 begin
-        Self.logUtil.putF(TStringMaker.Create().append(Self.threadPoolStrings.COMPLETE_TASK).append(TStringUtil.getInstance().toString(TJava.ToObject(task))).toString(), Self, Self.commonStrings.RUN);
+        Self.logUtil.putF(TStringMaker.Create().append(Self.threadPoolStrings.COMPLETE_TASK).append(TStringUtil.getInstance().toString(TJava.ToObject(task))).toString(), TJava.Box(Self), Self.commonStrings.RUN);
 end;
 
 initialization

@@ -49,7 +49,7 @@ uses
 procedure TNoHighScoresFactory.InitFields;
 begin
   Self.logUtil := TLogUtil.getInstance();
-  Self.NO_HIGH_SCORES := TJava.NewArray<THighScores>(0);
+  Self.NO_HIGH_SCORES := nil;
 end;
     
 
@@ -68,7 +68,7 @@ end;
 
 procedure TNoHighScoresFactory.fetchHighScores(gameInfo_: TGameInfo; highScoresResultsListener_: IHighScoresResultsListener);
 begin
-        Self.logUtil.putF('Getting No HighScores', Self, 'fetchHighScores');
+        Self.logUtil.putF('Getting No HighScores', TJava.Box(Self), 'fetchHighScores');
         highScoresResultsListener_.setHighScoresArray(Self.NO_HIGH_SCORES);
 end;
     

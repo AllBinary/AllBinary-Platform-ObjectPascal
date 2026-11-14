@@ -80,7 +80,7 @@ begin
         SIZE_FOUR := SMALL;
         SIZE_FIVE := SMALL;
         SIZE_SIX := SMALL;
-        SIZE := [SMALL, MEDIUM, SIZE_FOUR, SIZE_FIVE, SIZE_SIX];
+        SIZE := TArray<string>.Create(SMALL, MEDIUM, SIZE_FOUR, SIZE_FIVE, SIZE_SIX);
         inherited init(ROOT, SIZE);
 end;
 

@@ -105,7 +105,7 @@ end;
 
 function TBasicPlayer.getControls: TArray<IControl>;
 begin
-        Exit(TJava.NewArray<IControl>(0));
+        Exit(nil);
 end;
     
 

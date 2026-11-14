@@ -81,7 +81,7 @@ end;
 
 function TCollidableDestroyableDamageableBehavior.isCollisionInterface(ownerLayer: TCollidableCompositeLayer; collidableInterfaceCompositeInterface_: ICollidableInterfaceCompositeInterface): Boolean;
 begin
-        TForcedLogUtil.log('No Longer Used', Self);
+        TForcedLogUtil.log('No Longer Used', TJava.Box(Self));
         Exit(False);
 end;
     
@@ -89,7 +89,7 @@ end;
 // throws Exception
 procedure TCollidableDestroyableDamageableBehavior.collideInterface(ownerLayer: TCollidableCompositeLayer; collidableInterfaceCompositeInterface_: ICollidableInterfaceCompositeInterface);
 begin
-        TForcedLogUtil.log('No Longer Used', Self);
+        TForcedLogUtil.log('No Longer Used', TJava.Box(Self));
 end;
 
 initialization

@@ -76,7 +76,7 @@ begin
             on e: SysUtils.Exception do begin
             logUtil_ := TLogUtil.getInstance();
             commonStrings_ := TCommonStrings.getInstance();
-            logUtil_.put(commonStrings_.EXCEPTION, Self, commonStrings_.CONSTRUCTOR_, e);
+            logUtil_.put(commonStrings_.EXCEPTION, TJava.Box(Self), commonStrings_.CONSTRUCTOR_, TJava.Box(e));
             raise SysUtils.Exception.Create('');
             end;
         end;

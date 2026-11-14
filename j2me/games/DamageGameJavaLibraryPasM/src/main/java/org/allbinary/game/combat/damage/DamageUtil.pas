@@ -90,7 +90,7 @@ begin
             stringBuffer.append(collidableInterfaceCompositeInterface.toString());
             stringBuffer.append(' damage: ');
             stringBuffer.appendint(damage);
-            Self.logUtil.putF(stringBuffer.toString(), collidableInterfaceCompositeInterface1, Self.COLLIDE);
+            Self.logUtil.putF(stringBuffer.toString(), TJava.Box(collidableInterfaceCompositeInterface1), Self.COLLIDE);
         end;
 end;
 

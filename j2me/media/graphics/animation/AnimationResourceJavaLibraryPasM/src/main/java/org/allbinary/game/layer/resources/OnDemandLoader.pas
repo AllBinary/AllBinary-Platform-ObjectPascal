@@ -118,7 +118,7 @@ begin
         portion := 120;
         index := 0;
         onDemandArray := layerPlacementInterfaceBasicArrayListFactoryInterface_.getOnDemandResources();
-        TPreLogUtil.put(TStringMaker.Create().append(commonStrings_.START).appendint(System.Length(onDemandArray)).toString(), Self, 'initLevel');
+        TPreLogUtil.put(TStringMaker.Create().append(commonStrings_.START).appendint(System.Length(onDemandArray)).toString(), TJava.Box(Self), 'initLevel');
         
         onDemandIndex := System.Length(onDemandArray);
         while (TJava.PreDec(onDemandIndex)) >= (0) do begin

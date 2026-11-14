@@ -82,7 +82,7 @@ begin
         except
             on e: SysUtils.Exception do begin
             commonStrings_ := TCommonStrings.getInstance();
-            logUtil_.put(commonStrings_.EXCEPTION, Self, 'run', e);
+            logUtil_.put(commonStrings_.EXCEPTION, TJava.Box(Self), 'run', TJava.Box(e));
             Self.progressCanvas.end_();
             end;
         end;

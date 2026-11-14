@@ -74,10 +74,10 @@ var
 begin
         if (highScoresArrayP) <> (nil) then begin
             commonStrings_ := TCommonStrings.getInstance();
-            Self.logUtil.putF(TStringMaker.Create().append(commonStrings_.START).appendint(System.Length(highScoresArrayP)).toString(), Self, 'setHighScoresArray');
+            Self.logUtil.putF(TStringMaker.Create().append(commonStrings_.START).appendint(System.Length(highScoresArrayP)).toString(), TJava.Box(Self), 'setHighScoresArray');
         end else begin
             commonStrings_ := TCommonStrings.getInstance();
-            Self.logUtil.putF(commonStrings_.START, Self, 'setHighScoresArray');
+            Self.logUtil.putF(commonStrings_.START, TJava.Box(Self), 'setHighScoresArray');
         end;
         Self.highScoresArrayP := highScoresArrayP;
 end;

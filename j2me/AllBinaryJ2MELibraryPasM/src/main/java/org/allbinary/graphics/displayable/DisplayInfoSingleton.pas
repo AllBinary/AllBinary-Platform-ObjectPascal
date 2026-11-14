@@ -229,11 +229,11 @@ var
   operatingSystemInterface: TGenericOperatingSystem;
 begin
         stringMaker_ := TStringMaker.Create();
-        Self.logUtil.putF(stringMaker_.append(TCommonLabels.getInstance().START_LABEL).append(reason).toString(), Self, Self.SET_LAST_SIZE_METHOD_NAME);
+        Self.logUtil.putF(stringMaker_.append(TCommonLabels.getInstance().START_LABEL).append(reason).toString(), TJava.Box(Self), Self.SET_LAST_SIZE_METHOD_NAME);
         aFullWidth := aLastWidth;
         aFullHeight := aLastHeight;
         stringMaker_.delete_(0, stringMaker_.length());
-        Self.logUtil.putF(stringMaker_.append(Self.FULL_WIDTH).appendint(aFullWidth).append(Self.FULL_HEIGHT).appendint(aFullHeight).append(Self.toString()).toString(), Self, Self.SET_LAST_SIZE_METHOD_NAME);
+        Self.logUtil.putF(stringMaker_.append(Self.FULL_WIDTH).appendint(aFullWidth).append(Self.FULL_HEIGHT).appendint(aFullHeight).append(Self.toString()).toString(), TJava.Box(Self), Self.SET_LAST_SIZE_METHOD_NAME);
         operatingSystemInterface := TOperatingSystemFactory.getInstance().getOperatingSystemInstance();
         if operatingSystemInterface.isOverScan() then begin
             aLastWidth := TJava.Divide((aLastWidth) * (operatingSystemInterface.getOverScanXPercent()), 100);
@@ -245,7 +245,7 @@ begin
                     Self.displayRatio := (Self.scaleLargestTo) / (aLastHeight);
                     Self.ratio := (aLastHeight) / (Self.scaleLargestTo);
                     stringMaker_.delete_(0, stringMaker_.length());
-                    Self.logUtil.putF(stringMaker_.append(Self.ADJUSTING_FOR_SCALING_IN_PORTRAIT).appendfloat(Self.displayRatio).toString(), Self, Self.SET_LAST_SIZE_METHOD_NAME);
+                    Self.logUtil.putF(stringMaker_.append(Self.ADJUSTING_FOR_SCALING_IN_PORTRAIT).appendfloat(Self.displayRatio).toString(), TJava.Box(Self), Self.SET_LAST_SIZE_METHOD_NAME);
                     aLastWidth := Integer(Trunc(((aLastWidth) * (Self.displayRatio))));
                     aLastHeight := Integer(Trunc(((aLastHeight) * (Self.displayRatio))));
                     Self.scalableListener.scale(Self.ratio);
@@ -258,7 +258,7 @@ begin
                     Self.displayRatio := (Self.scaleLargestTo) / (aLastWidth);
                     Self.ratio := (aLastWidth) / (Self.scaleLargestTo);
                     stringMaker_.delete_(0, stringMaker_.length());
-                    Self.logUtil.putF(stringMaker_.append(Self.ADJUSTING_FOR_SCALING_IN_LANDSCAPE).appendfloat(Self.displayRatio).toString(), Self, Self.SET_LAST_SIZE_METHOD_NAME);
+                    Self.logUtil.putF(stringMaker_.append(Self.ADJUSTING_FOR_SCALING_IN_LANDSCAPE).appendfloat(Self.displayRatio).toString(), TJava.Box(Self), Self.SET_LAST_SIZE_METHOD_NAME);
                     aLastWidth := Integer(Trunc(((aLastWidth) * (Self.displayRatio))));
                     aLastHeight := Integer(Trunc(((aLastHeight) * (Self.displayRatio))));
                     Self.scalableListener.scale(Self.ratio);
@@ -269,7 +269,7 @@ begin
             end;
         end;
         stringMaker_.delete_(0, stringMaker_.length());
-        Self.logUtil.putF(stringMaker_.append(Self.LAST_WIDTH).appendint(aLastWidth).append(Self.LAST_HEIGHT).appendint(aLastHeight).toString(), Self, Self.SET_LAST_SIZE_METHOD_NAME);
+        Self.logUtil.putF(stringMaker_.append(Self.LAST_WIDTH).appendint(aLastWidth).append(Self.LAST_HEIGHT).appendint(aLastHeight).toString(), TJava.Box(Self), Self.SET_LAST_SIZE_METHOD_NAME);
         Self.xOffset := (aFullWidth) - (aLastWidth);
         Self.yOffset := (aFullHeight) - (aLastHeight);
         Self.left := Self.scalableListener.getLeft(Self.xOffset);
@@ -306,9 +306,9 @@ var
   stringMaker_: TStringMaker;
 begin
         stringMaker_ := TStringMaker.Create();
-        Self.logUtil.putF(stringMaker_.append(Self.REASON).append(reason).toString(), Self, Self.FIRE_METHOD_NAME);
+        Self.logUtil.putF(stringMaker_.append(Self.REASON).append(reason).toString(), TJava.Box(Self), Self.FIRE_METHOD_NAME);
         stringMaker_.delete_(0, stringMaker_.length());
-        Self.logUtil.putF(Self.toStringAppend(stringMaker_), Self, Self.FIRE_METHOD_NAME);
+        Self.logUtil.putF(Self.toStringAppend(stringMaker_), TJava.Box(Self), Self.FIRE_METHOD_NAME);
         Self.list.add(TJava.Box(reason));
 end;
     
@@ -322,7 +322,7 @@ begin
             Self.list.clear();
         except
             on e: SysUtils.Exception do begin
-            TPreLogUtil.putOE(Self.commonStrings.EXCEPTION, Self, Self.FIRE_METHOD_NAME, e);
+            TPreLogUtil.putOE(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.FIRE_METHOD_NAME, TJava.Box(e));
             end;
         end;
 end;
@@ -340,7 +340,7 @@ begin
             swtJOGLProcessor_.onSurfaceChanged();
         except
             on e: SysUtils.Exception do begin
-            TPreLogUtil.putOE(Self.commonStrings.EXCEPTION, Self, Self.FIRE_METHOD_NAME, e);
+            TPreLogUtil.putOE(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.FIRE_METHOD_NAME, TJava.Box(e));
             end;
         end;
 end;
@@ -362,13 +362,13 @@ begin
         aFullWidth := aLastWidth;
         aFullHeight := aLastHeight;
         stringMaker_ := TStringMaker.Create();
-        Self.logUtil.putF(stringMaker_.append(TCommonLabels.getInstance().START_LABEL).append(reason).append(Self.LAST_WIDTH).appendint(aLastWidth).append(Self.LAST_HEIGHT).appendint(aLastHeight).append(Self.commonSeps.SPACE).append(Self.toString()).toString(), Self, Self.commonStrings.UPDATE);
+        Self.logUtil.putF(stringMaker_.append(TCommonLabels.getInstance().START_LABEL).append(reason).append(Self.LAST_WIDTH).appendint(aLastWidth).append(Self.LAST_HEIGHT).appendint(aLastHeight).append(Self.commonSeps.SPACE).append(Self.toString()).toString(), TJava.Box(Self), Self.commonStrings.UPDATE);
         if ((aLastWidth) > (0)) and ((aLastHeight) > (0)) then begin
             features_ := TFeatures.getInstance();
             openGLFeatureFactory_ := TOpenGLFeatureFactory.getInstance();
             if ((not (features_.isDefault(openGLFeatureFactory_.OPENGL))) or ((Self.last[Self.WIDTH]) <> (aLastWidth))) or ((Self.last[Self.HEIGHT]) <> (aLastHeight)) then begin
                 stringMaker_.delete_(0, stringMaker_.length());
-                Self.logUtil.putF(stringMaker_.append(Self.UPDATE_FROM_ORIENTATION_CHANGE).toString(), Self, Self.commonStrings.UPDATE);
+                Self.logUtil.putF(stringMaker_.append(Self.UPDATE_FROM_ORIENTATION_CHANGE).toString(), TJava.Box(Self), Self.commonStrings.UPDATE);
                 operatingSystemInterface := TOperatingSystemFactory.getInstance().getOperatingSystemInstance();
                 if operatingSystemInterface.isOverScan() then begin
                     aLastWidth := TJava.Divide((aLastWidth) * (operatingSystemInterface.getOverScanXPercent()), 100);
@@ -380,7 +380,7 @@ begin
                             Self.displayRatio := (Self.scaleLargestTo) / (aLastHeight);
                             Self.ratio := (aLastHeight) / (Self.scaleLargestTo);
                             stringMaker_.delete_(0, stringMaker_.length());
-                            Self.logUtil.putF(stringMaker_.append(Self.ADJUSTING_FOR_SCALING_IN_PORTRAIT).appendfloat(Self.displayRatio).toString(), Self, Self.commonStrings.UPDATE);
+                            Self.logUtil.putF(stringMaker_.append(Self.ADJUSTING_FOR_SCALING_IN_PORTRAIT).appendfloat(Self.displayRatio).toString(), TJava.Box(Self), Self.commonStrings.UPDATE);
                             aLastWidth := Integer(Trunc(((aLastWidth) * (Self.displayRatio))));
                             aLastHeight := Integer(Trunc(((aLastHeight) * (Self.displayRatio))));
                             Self.scalableListener.scale(Self.ratio);
@@ -393,7 +393,7 @@ begin
                             Self.displayRatio := (Self.scaleLargestTo) / (aLastWidth);
                             Self.ratio := (aLastWidth) / (Self.scaleLargestTo);
                             stringMaker_.delete_(0, stringMaker_.length());
-                            Self.logUtil.putF(stringMaker_.append(Self.ADJUSTING_FOR_SCALING_IN_LANDSCAPE).appendfloat(Self.displayRatio).toString(), Self, Self.commonStrings.UPDATE);
+                            Self.logUtil.putF(stringMaker_.append(Self.ADJUSTING_FOR_SCALING_IN_LANDSCAPE).appendfloat(Self.displayRatio).toString(), TJava.Box(Self), Self.commonStrings.UPDATE);
                             aLastWidth := Integer(Trunc(((aLastWidth) * (Self.displayRatio))));
                             aLastHeight := Integer(Trunc(((aLastHeight) * (Self.displayRatio))));
                             Self.scalableListener.scale(Self.ratio);
@@ -404,7 +404,7 @@ begin
                     end;
                 end;
                 stringMaker_.delete_(0, stringMaker_.length());
-                Self.logUtil.putF(stringMaker_.append(Self.UPDATE_FROM_ORIENTATION_CHANGE).append(Self.LAST_WIDTH).appendint(aLastWidth).append(Self.LAST_HEIGHT).appendint(aLastHeight).toString(), Self, Self.commonStrings.UPDATE);
+                Self.logUtil.putF(stringMaker_.append(Self.UPDATE_FROM_ORIENTATION_CHANGE).append(Self.LAST_WIDTH).appendint(aLastWidth).append(Self.LAST_HEIGHT).appendint(aLastHeight).toString(), TJava.Box(Self), Self.commonStrings.UPDATE);
                 Self.xOffset := (aFullWidth) - (aLastWidth);
                 Self.yOffset := (aFullHeight) - (aLastHeight);
                 Self.left := Self.scalableListener.getLeft(Self.xOffset);

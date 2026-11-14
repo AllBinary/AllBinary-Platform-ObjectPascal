@@ -55,7 +55,7 @@ uses
 procedure TTimeHudWidget.InitFields;
 begin
   Self.TIME_STRING := 'Time ';
-  Self.TIME_CHAR_ARRAY := ['T', 'i', 'm', 'e', ' '];
+  Self.TIME_CHAR_ARRAY := TArray<WideChar>.Create('T', 'i', 'm', 'e', ' ');
   
   Self.string_ := TPrimitiveLongSingleton.getInstance().ZERO;
   Self.totalDigits := 1;

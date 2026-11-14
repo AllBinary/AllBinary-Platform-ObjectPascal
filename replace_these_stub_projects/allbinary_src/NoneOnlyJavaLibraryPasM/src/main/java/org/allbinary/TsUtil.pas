@@ -81,7 +81,7 @@ end;
 
 function TTsUtil.getRecord(anyType: TObject; recordId: Integer): TArray<ShortInt>;
 begin
-        Exit(TJava.NewArray<ShortInt>(0));
+        Exit(nil);
 end;
     
 

@@ -52,7 +52,7 @@ begin
             raise SysUtils.Exception.Create(message);
         except
             on e: SysUtils.Exception do begin
-            TPreLogUtil.putOE(TCommonStrings.getInstance().EXCEPTION, anyType, 'log', e);
+            TPreLogUtil.putOE(TCommonStrings.getInstance().EXCEPTION, TJava.Box(anyType), 'log', TJava.Box(e));
             end;
         end;
 end;

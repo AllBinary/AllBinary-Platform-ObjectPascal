@@ -54,7 +54,7 @@ var
 begin
         logUtil_ := TLogUtil.getInstance();
         commonStrings_ := TCommonStrings.getInstance();
-        logUtil_.putF(commonStrings_.NOT_IMPLEMENTED, Self, commonStrings_.GET_INSTANCE);
+        logUtil_.putF(commonStrings_.NOT_IMPLEMENTED, TJava.Box(Self), commonStrings_.GET_INSTANCE);
         stringUtil_ := TStringUtil.getInstance();
         Exit(TClientInformation.Create(stringUtil_.NULL_STRING, stringUtil_.NULL_STRING, stringUtil_.NULL_STRING, stringUtil_.NULL_STRING));
 end;

@@ -122,7 +122,7 @@ begin
         inherited Create(image_, sequenceArray, width, height, dx, dy, animationBehaviorFactory_);
         InitFields;
         if (animationBehaviorFactory_) = (TAnimationBehaviorFactory.getInstance()) then begin
-            TForcedLogUtil.log('Using default AnimationBehaviorFactory with IndexedAnimationFactory', Self);
+            TForcedLogUtil.log('Using default AnimationBehaviorFactory with IndexedAnimationFactory', TJava.Box(Self));
         end;
 end;
     

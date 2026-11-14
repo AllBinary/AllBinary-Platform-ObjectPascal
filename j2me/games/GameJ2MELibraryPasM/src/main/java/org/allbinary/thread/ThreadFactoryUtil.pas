@@ -88,17 +88,17 @@ begin
         if TJ2MEUtil.isHTML() then begin
             if ((type_) = (TDemoCanvas.TYPE_)) or ((type_) = (TAllBinaryGameCanvas.TYPE_)) then begin
                 demoGameSingleThreadStartRunnable := TRunnableCanvasSingleThreadStartRunnable.Create(TRunnableCanvas(TJava.ToObject(runnable)));
-                TPreLogUtil.put(TStringMaker.Create().append('Using Pseudo Thread for DemoCanvas/AllBinaryGameCanvas under PlayN/HTML5: ').append(TStringUtil.getInstance().toString(TJava.ToObject(runnable))).toString(), Self, commonStrings_.CONSTRUCTOR_);
+                TPreLogUtil.put(TStringMaker.Create().append('Using Pseudo Thread for DemoCanvas/AllBinaryGameCanvas under PlayN/HTML5: ').append(TStringUtil.getInstance().toString(TJava.ToObject(runnable))).toString(), TJava.Box(Self), commonStrings_.CONSTRUCTOR_);
                 primaryThreadPool_ := TPrimaryThreadPool.getInstance();
                 primaryThreadPool_.runTask(demoGameSingleThreadStartRunnable);
             end else begin
-                TPreLogUtil.put(TStringMaker.Create().append('Using Pseudo Thread for Runnable under PlayN/HTML5: ').append(TStringUtil.getInstance().toString(TJava.ToObject(runnable))).toString(), Self, commonStrings_.CONSTRUCTOR_);
+                TPreLogUtil.put(TStringMaker.Create().append('Using Pseudo Thread for Runnable under PlayN/HTML5: ').append(TStringUtil.getInstance().toString(TJava.ToObject(runnable))).toString(), TJava.Box(Self), commonStrings_.CONSTRUCTOR_);
                 primaryThreadPool_ := TPrimaryThreadPool.getInstance();
                 primaryThreadPool_.runTask(runnable);
             end;
         end;
         thread := TThread.Create(True);
-        Self.logUtil.putF(thread.toString(), Self, commonStrings_.CONSTRUCTOR_);
+        Self.logUtil.putF(thread.toString(), TJava.Box(Self), commonStrings_.CONSTRUCTOR_);
         Exit(thread);
 end;
     

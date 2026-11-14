@@ -75,7 +75,7 @@ end;
 // throws Exception
 procedure TGameRunnable.processLoopSleep;
 begin
-        Sleep(Self.waitInMillis);
+        SysUtils.Sleep(Self.waitInMillis);
 end;
 
 initialization

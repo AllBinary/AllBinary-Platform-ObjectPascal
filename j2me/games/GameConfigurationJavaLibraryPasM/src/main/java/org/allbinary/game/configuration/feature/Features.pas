@@ -96,7 +96,7 @@ end;
 procedure TFeatures.add(gameFeature: TFeature);
 begin
         if not (Self.list.contains(TJava.Box(gameFeature))) then begin
-            Self.logUtil.putF(TStringMaker.Create().append(TCommonLabels.getInstance().START_LABEL).append(gameFeature.toString()).toString(), Self, Self.commonStrings.ADD);
+            Self.logUtil.putF(TStringMaker.Create().append(TCommonLabels.getInstance().START_LABEL).append(gameFeature.toString()).toString(), TJava.Box(Self), Self.commonStrings.ADD);
             Self.list.add(TJava.Box(gameFeature));
             TGameFeatureEventHandler.getInstance().fireEvent(TGameFeatureEvent.Create(TJava.Box(gameFeature), gameFeature.toString()));
         end;
@@ -106,7 +106,7 @@ end;
 // throws Exception
 procedure TFeatures.removeDefault(gameFeature: TFeature);
 begin
-        Self.logUtil.putF(TStringMaker.Create().append(TCommonLabels.getInstance().START_LABEL).append(gameFeature.toString()).toString(), Self, 'removeDefault');
+        Self.logUtil.putF(TStringMaker.Create().append(TCommonLabels.getInstance().START_LABEL).append(gameFeature.toString()).toString(), TJava.Box(Self), 'removeDefault');
         Self.remove(gameFeature);
         Self.defaultList.remove(gameFeature);
 end;
@@ -116,7 +116,7 @@ end;
 procedure TFeatures.remove(gameFeature: TFeature);
 begin
         if Self.list.contains(TJava.Box(gameFeature)) then begin
-            Self.logUtil.putF(Self.commonStrings.START, Self, Self.commonStrings.REMOVE);
+            Self.logUtil.putF(Self.commonStrings.START, TJava.Box(Self), Self.commonStrings.REMOVE);
             Self.list.remove(gameFeature);
             TGameFeatureEventHandler.getInstance().fireEvent(TGameFeatureEvent.Create(TJava.Box(gameFeature), gameFeature.toString()));
         end;
@@ -157,7 +157,7 @@ begin
             Self.addDefault(TMainFeatureFactory.getInstance().LOAD_ONDEMAND);
         except
             on e: SysUtils.Exception do begin
-            TPreLogUtil.putOE(Self.commonStrings.EXCEPTION, Self, Self.commonStrings.INIT, e);
+            TPreLogUtil.putOE(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.commonStrings.INIT, TJava.Box(e));
             end;
         end;
 end;

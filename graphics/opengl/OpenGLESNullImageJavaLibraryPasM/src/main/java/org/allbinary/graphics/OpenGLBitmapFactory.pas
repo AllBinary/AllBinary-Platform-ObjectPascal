@@ -9,7 +9,7 @@ unit OpenGLBitmapFactory;
 interface
 
 uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Image, PlatformBitmapBase, PlatformBitmapBaseFactory, Config, OpenGLBitmap;
+  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Image, PlatformBitmapBase, PlatformBitmapBaseFactory, OpenGLBitmap;
 
 type
   {AB:TYPES}

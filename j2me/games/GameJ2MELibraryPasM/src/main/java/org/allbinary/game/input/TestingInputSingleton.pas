@@ -46,7 +46,7 @@ type
 
 implementation
 uses
-  InputFactory, GameInputProcessorUtil, GameInputProcessor, Canvas, GameKeyEvent, RectangleFactory, NullPaintable, StringUtil, ViewPosition;
+  InputFactory, GameInputProcessorUtil, Canvas, GameKeyEvent, RectangleFactory, NullPaintable, StringUtil, ViewPosition;
 
 
 {AB:CODE}

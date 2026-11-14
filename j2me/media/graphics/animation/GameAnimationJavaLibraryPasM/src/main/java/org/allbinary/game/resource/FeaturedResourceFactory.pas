@@ -97,7 +97,7 @@ begin
             featureInterface := (TJava.ToObject(Self.list.objectArray[index]) as IGameFeatureControlledInterface);
             isLoadingLevel := featureInterface.isLoadingLevel(level);
             isFeature := featureInterface.isFeature();
-            Self.logUtil.putF(TStringMaker.Create().append(Self.GAME_FEATURE_CONTROLLED).append(TJava.ToString(TJava.ToObject(featureInterface))).append(Self.IS_LOADING_LEVEL_LABEL).append(TResourceLoadingLevelFactory.getInstance().getLevelString(level)).append(TCommonSeps.getInstance().COLON_SEP).appendboolean(isLoadingLevel).append(Self.IS_FEATURE).appendboolean(isFeature).toString(), Self, Self.commonStrings.INIT);
+            Self.logUtil.putF(TStringMaker.Create().append(Self.GAME_FEATURE_CONTROLLED).append(TJava.ToString(TJava.ToObject(featureInterface))).append(Self.IS_LOADING_LEVEL_LABEL).append(TResourceLoadingLevelFactory.getInstance().getLevelString(level)).append(TCommonSeps.getInstance().COLON_SEP).appendboolean(isLoadingLevel).append(Self.IS_FEATURE).appendboolean(isFeature).toString(), TJava.Box(Self), Self.commonStrings.INIT);
             if (isLoadingLevel) and (isFeature) then begin
                 featureInterface.init(level);
             end;
@@ -109,7 +109,7 @@ begin
         stringBuffer.appendboolean(features_.isFeature(graphicsFeatureFactory_.VECTOR_GRAPHICS));
         stringBuffer.append(Self.IMAGE_LABEL);
         stringBuffer.appendboolean(features_.isFeature(graphicsFeatureFactory_.IMAGE_GRAPHICS));
-        Self.logUtil.putF(stringBuffer.toString(), Self, Self.commonStrings.INIT);
+        Self.logUtil.putF(stringBuffer.toString(), TJava.Box(Self), Self.commonStrings.INIT);
         if features_.isFeature(graphicsFeatureFactory_.IMAGE_GRAPHICS) then begin
             stringBuffer.delete_(0, stringBuffer.length());
             stringBuffer.append(Self.IMAGE_GRAPHICS_ARRAY);
@@ -120,7 +120,7 @@ begin
             stringBuffer.appendboolean(features_.isFeature(graphicsFeatureFactory_.SPRITE_QUARTER_ROTATION_GRAPHICS));
             stringBuffer.append(Self.SPRITE_FULL);
             stringBuffer.appendboolean(features_.isFeature(graphicsFeatureFactory_.SPRITE_FULL_GRAPHICS));
-            Self.logUtil.putF(stringBuffer.toString(), Self, Self.commonStrings.INIT);
+            Self.logUtil.putF(stringBuffer.toString(), TJava.Box(Self), Self.commonStrings.INIT);
         end;
 end;
     
@@ -133,7 +133,7 @@ end;
 
 procedure TFeaturedResourceFactory.add(featureInterface: IGameFeatureControlledInterface);
 begin
-        Self.logUtil.putF(TStringMaker.Create().append(TCommonLabels.getInstance().START_LABEL).append(TStringUtil.getInstance().toString(TJava.ToObject(featureInterface))).toString(), Self, Self.commonStrings.ADD);
+        Self.logUtil.putF(TStringMaker.Create().append(TCommonLabels.getInstance().START_LABEL).append(TStringUtil.getInstance().toString(TJava.ToObject(featureInterface))).toString(), TJava.Box(Self), Self.commonStrings.ADD);
         Self.list.add(TJava.Box(featureInterface));
 end;
     

@@ -23,13 +23,14 @@ unit CountedPickedUpLayerInterfaceFactoryInterface;
 interface
 
 uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, LayerInterfaceFactoryInterface, PickedUpLayerInterfaceFactoryInterface;
+  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, LayerInterfaceFactoryInterface, AllBinaryLayer, ABHashtable, PickedUpLayerInterfaceFactoryInterface;
 
 type
   {AB:TYPES}
   ICountedPickedUpLayerInterfaceFactoryInterface = interface(IPickedUpLayerInterfaceFactoryInterface) ['ICountedPickedUpLayerInterfaceFactoryInterface']
         function getId: Integer;
         function getTotal: Integer;
+        function getNextInstance(hashtable: TABHashtable<TObject, TObject>; x: Integer; y: Integer; z: Integer): TAllBinaryLayer; overload;
   end;
   TCountedPickedUpLayerInterfaceFactoryInterface = ICountedPickedUpLayerInterfaceFactoryInterface;
 

@@ -88,7 +88,7 @@ begin
         stringBuffer.appendint(columns);
         stringBuffer.append(' rows: ');
         stringBuffer.appendint(rows);
-        Self.logUtil.putF(stringBuffer.toString(), Self, commonStrings_.INIT);
+        Self.logUtil.putF(stringBuffer.toString(), TJava.Box(Self), commonStrings_.INIT);
         Self.cellPositionArray := TJava.NewArray2<TCellPosition>(columns, rows);
         Self.columns := columns;
         Self.rows := rows;
@@ -109,7 +109,7 @@ begin
         except
             on e: SysUtils.Exception do begin
             commonStrings_ := TCommonStrings.getInstance();
-            Self.logUtil.put(TStringMaker.Create().append('columns: ').appendint(Self.getColumns()).append(' rows: ').appendint(Self.getRows()).append(' col: ').appendint(i_column).append(' row: ').appendint(i_row).toString(), Self, commonStrings_.GET_INSTANCE, e);
+            Self.logUtil.put(TStringMaker.Create().append('columns: ').appendint(Self.getColumns()).append(' rows: ').appendint(Self.getRows()).append(' col: ').appendint(i_column).append(' row: ').appendint(i_row).toString(), TJava.Box(Self), commonStrings_.GET_INSTANCE, TJava.Box(e));
             Exit(Self.NONE);
             end;
         end;

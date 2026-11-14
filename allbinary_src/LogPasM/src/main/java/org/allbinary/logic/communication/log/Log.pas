@@ -105,7 +105,7 @@ begin
         if (clazz.ClassName) <> ('') then begin
             className := clazz.ClassName;
         end;
-        Exit(Self.logFormatUtil.get(className, Self.functionName, Self.specialMessage, Self.exception));
+        Exit(Self.logFormatUtil.get(className, Self.functionName, Self.specialMessage, TJava.Box(Self.exception)));
 end;
 
 initialization

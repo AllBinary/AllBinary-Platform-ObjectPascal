@@ -72,7 +72,7 @@ begin
             end;
         except
             on e: SysUtils.Exception do begin
-            TPreLogUtil.put(Self.commonStrings.EXCEPTION, Self, Self.commonStrings.ADD);
+            TPreLogUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.commonStrings.ADD);
             end;
         end;
 end;
@@ -104,7 +104,7 @@ begin
             if (sound_) <> (nil) then begin
                 resource := sound_.getResource();
             end;
-            TPreLogUtil.put(TStringMaker.Create().append(Self.commonStrings.EXCEPTION_LABEL).append(resource).toString(), Self, Self.commonStrings.PROCESS);
+            TPreLogUtil.put(TStringMaker.Create().append(Self.commonStrings.EXCEPTION_LABEL).append(resource).toString(), TJava.Box(Self), Self.commonStrings.PROCESS);
             Exit(False);
             end;
         end;

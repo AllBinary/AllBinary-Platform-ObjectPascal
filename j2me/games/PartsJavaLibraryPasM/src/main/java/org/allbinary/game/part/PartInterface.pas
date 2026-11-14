@@ -23,11 +23,12 @@ unit PartInterface;
 interface
 
 uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, AnimationInterfaceCompositeInterface, PaintableInterface;
+  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, AnimationInterfaceCompositeInterface, PaintableInterface, Animation;
 
 type
   {AB:TYPES}
   IPartInterface = interface(IPaintableInterface) ['IPartInterface']
+        function getAnimationInterface: TAnimation; overload;
   end;
   TPartInterface = IPartInterface;
 

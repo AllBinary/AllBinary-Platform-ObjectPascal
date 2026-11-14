@@ -53,7 +53,7 @@ end;
 
 procedure TKeyFactoryInitializer.init;
 begin
-        Self.logUtil.putF(Self.commonStrings.START, Self, Self.commonStrings.INIT);
+        Self.logUtil.putF(Self.commonStrings.START, TJava.Box(Self), Self.commonStrings.INIT);
 end;
 
 initialization

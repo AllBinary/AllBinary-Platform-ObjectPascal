@@ -67,7 +67,7 @@ var
   RIGHT: TTouchButton;
 begin
         try
-            Self.logUtil.putF(Self.commonStrings.START, Self, Self.commonStrings.CONSTRUCTOR_);
+            Self.logUtil.putF(Self.commonStrings.START, TJava.Box(Self), Self.commonStrings.CONSTRUCTOR_);
             list := TBasicArrayListD.Create();
             touchButtonLocationHelper_ := TTouchButtonLocationHelper.Create();
             basicTouchButtonCellPositionFactory_ := TBasicTouchButtonCellPositionFactory.Create();
@@ -84,7 +84,7 @@ begin
             Exit(list);
         except
             on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, Self, Self.commonStrings.GET_LIST, e);
+            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.commonStrings.GET_LIST, TJava.Box(e));
             Exit(TBasicArrayListUtil.getInstance().getImmutableInstance());
             end;
         end;

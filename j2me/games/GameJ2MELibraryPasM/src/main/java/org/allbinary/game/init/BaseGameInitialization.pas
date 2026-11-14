@@ -221,7 +221,7 @@ end;
 
 initialization
   {AB:INITIALIZATION}
-  TBaseGameInitialization.NULL_BASE_GAME_INITIALIZATION := TBaseGameInitialization.Create(TJava.NewArray<TResourceInitialization>(0), 0);
+  TBaseGameInitialization.NULL_BASE_GAME_INITIALIZATION := TBaseGameInitialization.Create(nil, 0);
   {AB:END}
 
 end.

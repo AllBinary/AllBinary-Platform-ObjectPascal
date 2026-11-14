@@ -121,7 +121,7 @@ begin
             stringBuffer.appendint(ahealth);
             stringBuffer.append(TCommonSeps.getInstance().SPACE);
             stringBuffer.append(Self.toString());
-            TForcedLogUtil.log(stringBuffer.toString(), Self);
+            TForcedLogUtil.log(stringBuffer.toString(), TJava.Box(Self));
             Exit;
         end;
         health_ := (Self.getHealth()) - (ahealth);

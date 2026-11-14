@@ -77,13 +77,13 @@ var
   gameKeyEvent_: TGameKeyEvent;
 begin
         try
-            TPreLogUtil.put(TStringMaker.Create().append(Self.inputFactory.KEY_CODE_LABEL).appendint(keyCode).append(TCommonSeps.getInstance().SPACE).append(Self.inputFactory.DEVICE_ID_LABEL).appendint(deviceId).toString(), Self, Self.gameInputStrings.KEY_PRESSED);
+            TPreLogUtil.put(TStringMaker.Create().append(Self.inputFactory.KEY_CODE_LABEL).appendint(keyCode).append(TCommonSeps.getInstance().SPACE).append(Self.inputFactory.DEVICE_ID_LABEL).appendint(deviceId).toString(), TJava.Box(Self), Self.gameInputStrings.KEY_PRESSED);
             input_ := Self.inputFactory.getInstanceById(keyCode);
             gameKeyEvent_ := Self.gameKeyEventFactory.getInstanceForInput(Self.allBinaryGameCanvas, input_);
             Self.downKeyEventHandler.fireEventForGameKeyEvent(gameKeyEvent_);
         except
             on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, Self, Self.gameInputStrings.ADD_KEY_EVENT, e);
+            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.gameInputStrings.ADD_KEY_EVENT, TJava.Box(e));
             end;
         end;
 end;
@@ -99,7 +99,7 @@ begin
         try
             input_ := Self.inputFactory.getInstanceById(keyCode);
             if Self.platformKeyFactory.isEnter(input_) then begin
-                TPreLogUtil.put(TStringMaker.Create().append(Self.inputFactory.KEY_CODE_LABEL).appendint(keyCode).append(TCommonSeps.getInstance().SPACE).append(Self.inputFactory.DEVICE_ID_LABEL).appendint(deviceId).toString(), Self, Self.gameInputStrings.KEY_RELEASED);
+                TPreLogUtil.put(TStringMaker.Create().append(Self.inputFactory.KEY_CODE_LABEL).appendint(keyCode).append(TCommonSeps.getInstance().SPACE).append(Self.inputFactory.DEVICE_ID_LABEL).appendint(deviceId).toString(), TJava.Box(Self), Self.gameInputStrings.KEY_RELEASED);
                 gameKey_ := TGameKeyFactory.getInstance().KEY_NUM0;
                 gameKeyEventSourceInterface_ := (TJava.ToObject(canvas_) as IGameKeyEventSourceInterface);
                 gameKeyEvent_ := Self.gameKeyEventFactory.getInstanceForInput(gameKeyEventSourceInterface_, gameKey_);
@@ -108,7 +108,7 @@ begin
             end;
         except
             on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, Self, Self.gameInputStrings.ADD_KEY_EVENT, e);
+            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.gameInputStrings.ADD_KEY_EVENT, TJava.Box(e));
             end;
         end;
 end;

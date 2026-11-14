@@ -68,7 +68,7 @@ end;
 procedure TOpenGLImageSpecificFactory.setImageFactory(imageFactory: TOpenGLImageFactory);
 begin
         Self.imageFactory := imageFactory;
-        TPreLogUtil.put(TStringMaker.Create().append('Selected Image Factory: ').append(TStringUtil.getInstance().toString(Self.imageFactory)).toString(), Self, 'setImageFactory');
+        TPreLogUtil.put(TStringMaker.Create().append('Selected Image Factory: ').append(TStringUtil.getInstance().toString(Self.imageFactory)).toString(), TJava.Box(Self), 'setImageFactory');
 end;
     
 

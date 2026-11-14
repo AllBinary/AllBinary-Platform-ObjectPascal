@@ -257,7 +257,7 @@ end;
 
 procedure TDemoCanvas.onEvent(eventObject: TAllBinaryEventObject);
 begin
-        TForcedLogUtil.log(TEventStrings.getInstance().PERFORMANCE_MESSAGE, Self);
+        TForcedLogUtil.log(TEventStrings.getInstance().PERFORMANCE_MESSAGE, TJava.Box(Self));
 end;
     
 
@@ -268,7 +268,7 @@ var
   rectangle_: TRectangle;
 begin
         try
-            Self.logUtil.putF(TStringMaker.Create().append(Self.commonLabels.START_LABEL).append(Self.displayInfo.toString()).toString(), Self, Self.canvasStrings.ON_DISPLAY_CHANGE_EVENT);
+            Self.logUtil.putF(TStringMaker.Create().append(Self.commonLabels.START_LABEL).append(Self.displayInfo.toString()).toString(), TJava.Box(Self), Self.canvasStrings.ON_DISPLAY_CHANGE_EVENT);
             scrollSelectionForm_ := Self.getMenuForm();
             if (scrollSelectionForm_) <> (nil) then begin
                 formType_ := TFormTypeFactory.getInstance().getFormType();
@@ -278,7 +278,7 @@ begin
             Self.overlayPaintable.init();
         except
             on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, Self, Self.canvasStrings.ON_DISPLAY_CHANGE_EVENT, e);
+            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.canvasStrings.ON_DISPLAY_CHANGE_EVENT, TJava.Box(e));
             end;
         end;
 end;
@@ -295,7 +295,7 @@ var
 begin
         gameCommandsFactory_ := TGameCommandsFactory.getInstance();
         if TJ2MEUtil.isHTML() then begin
-            commandArray := [gameCommandsFactory_.START_COMMAND, THighScoreCommands.getInstance().DISPLAY, TGameInputMappingCanvas.DISPLAY, gameCommandsFactory_.DISPLAY_ABOUT];
+            commandArray := TArray<TObject>.Create(TJava.Box(gameCommandsFactory_.START_COMMAND), TJava.Box(THighScoreCommands.getInstance().DISPLAY), TJava.Box(TGameInputMappingCanvas.DISPLAY), TJava.Box(gameCommandsFactory_.DISPLAY_ABOUT));
             Exit(commandArray);
         end else begin
             commandList := TBasicArrayListD.Create();
@@ -360,7 +360,7 @@ end;
 
 procedure TDemoCanvas.itemStateChanged(item_: TItem);
 begin
-        TForcedLogUtil.log(Self.commonStrings.NOT_IMPLEMENTED, Self);
+        TForcedLogUtil.log(Self.commonStrings.NOT_IMPLEMENTED, TJava.Box(Self));
 end;
     
 
@@ -380,7 +380,7 @@ begin
         items := commandTextItemArrayFactory_.getInstance(Self.getCommandStack(), Self.basicColorFactory.BLACK, Self.basicColorFactory.WHITE);
         formType_ := TFormTypeFactory.getInstance().getFormType();
         rectangle_ := Self.formUtil.createFormRectangle();
-        TPreLogUtil.put(TStringMaker.Create().append(Self.commonLabels.START_LABEL).append(Self.displayInfo.toString()).toString(), Self, 'initMenu');
+        TPreLogUtil.put(TStringMaker.Create().append(Self.commonLabels.START_LABEL).append(Self.displayInfo.toString()).toString(), TJava.Box(Self), 'initMenu');
         scrollSelectionForm_ := TCommandCurrentSelectionFormFactory.getInstance(TStringUtil.getInstance().EMPTY_STRING, items, rectangle_, formType_, 15, True, Self.basicColorFactory.BLACK, Self.basicColorFactory.WHITE);
         Self.setMenuForm(scrollSelectionForm_);
         formType2 := TFormTypeFactory.getInstance().getFormType();
@@ -464,12 +464,12 @@ begin
             end else begin
                 if (Self.lastKeyNotMapped) <> (keyCode) then begin
                     Self.lastKeyNotMapped := keyCode;
-                    Self.logUtil.putF(TStringMaker.Create().append(Self.gameInputStrings.NO_KEY).appendint(keyCode).toString(), Self, Self.gameInputStrings.ADD_KEY_EVENT);
+                    Self.logUtil.putF(TStringMaker.Create().append(Self.gameInputStrings.NO_KEY).appendint(keyCode).toString(), TJava.Box(Self), Self.gameInputStrings.ADD_KEY_EVENT);
                 end;
             end;
         except
             on e: SysUtils.Exception do begin
-            Self.logUtil.put('Key Event Error', Self, Self.gameInputStrings.ADD_KEY_EVENT, e);
+            Self.logUtil.put('Key Event Error', TJava.Box(Self), Self.gameInputStrings.ADD_KEY_EVENT, TJava.Box(e));
             end;
         end;
 end;
@@ -486,11 +486,11 @@ begin
                 gameKeyEvent_ := Self.gameKeyEventFactory.getInstanceForInput(Self, gameKey_);
                 TUpGameKeyEventHandler.getInstance().fireEvent(gameKeyEvent_);
             end else begin
-                Self.logUtil.putF(TStringMaker.Create().append(Self.gameInputStrings.NO_KEY).appendint(keyCode).toString(), Self, Self.gameInputStrings.REMOVE_KEY_EVENT);
+                Self.logUtil.putF(TStringMaker.Create().append(Self.gameInputStrings.NO_KEY).appendint(keyCode).toString(), TJava.Box(Self), Self.gameInputStrings.REMOVE_KEY_EVENT);
             end;
         except
             on e: SysUtils.Exception do begin
-            Self.logUtil.put('Key Event Error', Self, Self.gameInputStrings.REMOVE_KEY_EVENT, e);
+            Self.logUtil.put('Key Event Error', TJava.Box(Self), Self.gameInputStrings.REMOVE_KEY_EVENT, TJava.Box(e));
             end;
         end;
 end;
@@ -536,7 +536,7 @@ end;
 
 function TDemoCanvas.isGameOver: Boolean;
 begin
-        Self.logUtil.putF(TStringMaker.Create().append(Self.commonStrings.NOT_IMPLEMENTED).append(' since not a game').toString(), Self, 'isGameOver');
+        Self.logUtil.putF(TStringMaker.Create().append(Self.commonStrings.NOT_IMPLEMENTED).append(' since not a game').toString(), TJava.Box(Self), 'isGameOver');
         Exit(False);
 end;
     
@@ -544,14 +544,14 @@ end;
 // throws Exception
 procedure TDemoCanvas.setLoadStateHashtable(hashtable: TABHashtable<TObject, TObject>);
 begin
-        Self.logUtil.putF('Trying to continue a demo lol - only continue a game canvas not the demo', Self, 'setLoadStateHashtable');
+        Self.logUtil.putF('Trying to continue a demo lol - only continue a game canvas not the demo', TJava.Box(Self), 'setLoadStateHashtable');
 end;
     
 
 // throws Exception
 function TDemoCanvas.getLoadStateHashtable: TABHashtable<TObject, TObject>;
 begin
-        Self.logUtil.putF('Trying to continue a demo lol - only continue a game canvas not the demo', Self, 'getLoadStateHashtable');
+        Self.logUtil.putF('Trying to continue a demo lol - only continue a game canvas not the demo', TJava.Box(Self), 'getLoadStateHashtable');
         Exit(Self.stdUtil.NULL_TABLE);
 end;
     
@@ -559,7 +559,7 @@ end;
 // throws Exception
 function TDemoCanvas.getCurrentStateHashtable: TABHashtable<TObject, TObject>;
 begin
-        Self.logUtil.putF('Trying to save the AI lol', Self, 'getCurrentStateHashtable');
+        Self.logUtil.putF('Trying to save the AI lol', TJava.Box(Self), 'getCurrentStateHashtable');
         Exit(Self.stdUtil.NULL_TABLE);
 end;
     
@@ -592,7 +592,7 @@ procedure TDemoCanvas.processGameOver;
 begin
     TJava.MonitorEnter(Self);
     try
-        Self.logUtil.putF('Not Implemented since not a game', Self, 'setGameOver');
+        Self.logUtil.putF('Not Implemented since not a game', TJava.Box(Self), 'setGameOver');
     finally
     TJava.MonitorExit(Self);
     end;
@@ -628,7 +628,7 @@ procedure TDemoCanvas.updateDemoState;
 var
   gameAdState_: TGameAdState;
 begin
-        TPreLogUtil.put(TSmallIntegerSingletonFactory.getInstance().createInstance(Self.state).toString(), Self, Self.SET_STATE);
+        TPreLogUtil.put(TSmallIntegerSingletonFactory.getInstance().createInstance(Self.state).toString(), TJava.Box(Self), Self.SET_STATE);
         Self.getBasicGameDemoPaintable().setState(Self.state);
         if (Self.state) = (0) then begin
             Self.highScoresPaintable := TNullPaintable.getInstance();
@@ -673,7 +673,7 @@ var
   randomLevel: Integer;
   gameInfo_: TGameInfo;
 begin
-        TPreLogUtil.put(Self.commonStrings.START, Self, 'create');
+        TPreLogUtil.put(Self.commonStrings.START, TJava.Box(Self), 'create');
         Self.highScoresPaintable := TNullPaintable.getInstance();
         randomLevel := Self.getNextRandom();
         Self.gameCanvas := TAllBinaryGameCanvas(TJava.ToObject(Self.createRunnable(randomLevel)));
@@ -691,7 +691,7 @@ var
   gameCanvas: TAllBinaryGameCanvas;
 begin
         gameCanvas := Self.gameCanvas;
-        TPreLogUtil.put(TStringMaker.Create().append('Game Thread in DemoCanvas: ').append(Self.stringUtil.toString(gameCanvas)).toString(), Self, Self.commonStrings.START);
+        TPreLogUtil.put(TStringMaker.Create().append('Game Thread in DemoCanvas: ').append(Self.stringUtil.toString(gameCanvas)).toString(), TJava.Box(Self), Self.commonStrings.START);
         Self.canvasThread := Self.threadFactoryUtil.getInstanceGameCanvasRunnable(gameCanvas);
         Self.gameCanvas.setThread(Self.canvasThread);
         Self.threadFactoryUtil.start(Self.canvasThread);
@@ -763,7 +763,7 @@ end;
 procedure TDemoCanvas.stopGameDemo;
 begin
         if (Self.gameCanvas) <> (TNullGameCanvas.getInstance()) then begin
-            Self.logUtil.putF('Set Running False', Self, 'stopGameDemo');
+            Self.logUtil.putF('Set Running False', TJava.Box(Self), 'stopGameDemo');
             Self.gameCanvas.setRunning(False);
         end;
         TThreadUtil.getInstance().join(Self.canvasThread);
@@ -776,15 +776,15 @@ var
   isDefault: Boolean;
 begin
         METHOD_NAME := 'showGamePaintable';
-        TPreLogUtil.put(Self.commonStrings.START, Self, METHOD_NAME);
+        TPreLogUtil.put(Self.commonStrings.START, TJava.Box(Self), METHOD_NAME);
         isDefault := TJ2MEUtil.isHTML();
         if (((Self.gameCanvas) <> (TNullGameCanvas.getInstance())) and ((((Self.gameCanvas.isRunning()) or (isDefault)) or (TSWTUtil.isSWT)))) and (not (((Self.gameCanvas.getType()) = (TNullGameCanvas.TYPE_)))) then begin
             Self.gameRunnable := Self.gameCanvas.gameRunnable;
-            TPreLogUtil.put('Showing Game', Self, METHOD_NAME);
+            TPreLogUtil.put('Showing Game', TJava.Box(Self), METHOD_NAME);
             Self.setPaintableInterface(Self.gameCanvas);
         end else begin
             Self.gameRunnable := TNullWaitGameRunnable.getInstance();
-            TPreLogUtil.put('Not Showing Game', Self, METHOD_NAME);
+            TPreLogUtil.put('Not Showing Game', TJava.Box(Self), METHOD_NAME);
             Self.setPaintableInterface(Self.getDefaultPaintableInterface());
         end;
 end;
@@ -819,7 +819,7 @@ var
   demoGameRunnable_: TDemoGameRunnable;
   currentDisplayableFactory_: TCurrentDisplayableFactory;
 begin
-        Self.logUtil.putF(Self.commonStrings.START_RUNNABLE, Self, Self.commonStrings.RUN);
+        Self.logUtil.putF(Self.commonStrings.START_RUNNABLE, TJava.Box(Self), Self.commonStrings.RUN);
         try
             progressCanvas_ := TProgressCanvasFactory.getInstance();
             features_ := TFeatures.getInstance();
@@ -861,10 +861,10 @@ begin
             end;
         except
             on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, Self, Self.commonStrings.RUN, e);
+            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.commonStrings.RUN, TJava.Box(e));
             end;
         end;
-        Self.logUtil.putF(Self.commonStrings.END_RUNNABLE, Self, Self.commonStrings.RUN);
+        Self.logUtil.putF(Self.commonStrings.END_RUNNABLE, TJava.Box(Self), Self.commonStrings.RUN);
 end;
     
 
@@ -897,7 +897,7 @@ begin
             end;
         except
             on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, Self, Self.SET_RUNNING, e);
+            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.SET_RUNNING, TJava.Box(e));
             end;
         end;
 end;
@@ -911,12 +911,12 @@ var
 begin
         progressCanvas_ := TProgressCanvasFactory.getInstance();
         features_ := TFeatures.getInstance();
-        Self.baseGameStatistics.add(TJava.BoxString(TStringMaker.Create().append(TDemoCanvas.BOT_GAME_STATS).append(Self.baseGameStatistics.toString()).append(TCommonSeps.getInstance().NEW_LINE).toString()));
+        Self.baseGameStatistics.add(TStringMaker.Create().append(TDemoCanvas.BOT_GAME_STATS).append(Self.baseGameStatistics.toString()).append(TCommonSeps.getInstance().NEW_LINE).toString());
         Self.baseGameStatistics.init();
         if features_.isFeature(TMainFeatureFactory.getInstance().LOAD_ONDEMAND) then begin
             progressCanvas_.start();
         end;
-        Self.logUtil.putF('Demo End', Self, Self.commonStrings.RUN);
+        Self.logUtil.putF('Demo End', TJava.Box(Self), Self.commonStrings.RUN);
         Self.close();
         TDisplayChangeEventHandler.getInstance().removeListener(Self);
         Self.stopGameDemo();
@@ -968,7 +968,7 @@ end;
 
 function TDemoCanvas.isHighScoreSubmitted: Boolean;
 begin
-        Self.logUtil.putF('Wow the AI got a high score!', Self, 'isHighScoreSubmitted');
+        Self.logUtil.putF('Wow the AI got a high score!', TJava.Box(Self), 'isHighScoreSubmitted');
         Exit(False);
 end;
     
@@ -1156,7 +1156,7 @@ begin
             on e: SysUtils.Exception do begin
             Self.setRunning(False);
             commonStrings_ := TCommonStrings.getInstance();
-            Self.logUtil.put(commonStrings_.EXCEPTION, Self, commonStrings_.RUN, e);
+            Self.logUtil.put(commonStrings_.EXCEPTION, TJava.Box(Self), commonStrings_.RUN, TJava.Box(e));
             end;
         end;
 end;

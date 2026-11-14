@@ -102,7 +102,7 @@ begin
                 layerInterface.onChangeEvent(TViewPositionEvent(TJava.ToObject(eventObject)));
             except
                 on e: SysUtils.Exception do begin
-                Self.logUtil.put(Self.commonStrings.EXCEPTION, Self, TEventStrings.getInstance().FIRE_EVENT, e);
+                Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), TEventStrings.getInstance().FIRE_EVENT, TJava.Box(e));
                 end;
             end;
         end;

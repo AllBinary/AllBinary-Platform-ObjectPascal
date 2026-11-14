@@ -120,9 +120,9 @@ begin
         recordStore_ := TNullRecordStore.NULL_RECORD_STORE;
         try
         try
-            Self.logUtil.putF(TStringMaker.Create().append('Adding HighScore: ').appendlong(Int64(Trunc(newHighScore.getScore()))).toString(), Self, Self.commonStrings.ADD);
+            Self.logUtil.putF(TStringMaker.Create().append('Adding HighScore: ').appendlong(Int64(Trunc(newHighScore.getScore()))).toString(), TJava.Box(Self), Self.commonStrings.ADD);
             if Self.isTooManyHighScores() then begin
-                Self.logUtil.putF('Removing Lowest Score', Self, Self.commonStrings.ADD);
+                Self.logUtil.putF('Removing Lowest Score', TJava.Box(Self), Self.commonStrings.ADD);
                 Self.removeLowestHighScore();
             end;
             recordStore_ := TRecordStore.openRecordStore(Self.getRecordId(Self.abeClientInformation), True);
@@ -131,24 +131,24 @@ begin
             Self.load();
         except
             on e: TRecordStoreException do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, Self, Self.commonStrings.ADD, e);
+            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.commonStrings.ADD, TJava.Box(e));
             end;
             on e: TIOException do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, Self, Self.commonStrings.ADD, e);
+            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.commonStrings.ADD, TJava.Box(e));
             end;
             on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, Self, Self.commonStrings.ADD, e);
+            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.commonStrings.ADD, TJava.Box(e));
             end;
         end;
         finally
             try
                 if (recordStore_) <> (nil) then begin
-                    TPreLogUtil.put('Closing RecordStore', Self, Self.commonStrings.ADD);
+                    TPreLogUtil.put('Closing RecordStore', TJava.Box(Self), Self.commonStrings.ADD);
                     recordStore_.closeRecordStore();
                 end;
             except
                 on e: TRecordStoreException do begin
-                Self.logUtil.put(Self.commonStrings.EXCEPTION, Self, Self.commonStrings.ADD, e);
+                Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.commonStrings.ADD, TJava.Box(e));
                 end;
             end;
         end;
@@ -184,7 +184,7 @@ begin
             
             while recordEnum.hasNextElement() do begin
                 id := recordEnum.nextRecordId();
-                recordAsBytes := Self.tsUtil.getRecord(recordStore_, id);
+                recordAsBytes := Self.tsUtil.getRecord(TJava.Box(recordStore_), id);
                 if (recordAsBytes) <> (nil) then begin
                     byteArrayInputStream_ := TByteArrayInputStream.Create(recordAsBytes);
                     inputStream := TDataInputStream.Create(byteArrayInputStream_);
@@ -197,26 +197,26 @@ begin
                 end;
             end;
             if (bestHighScore.getId()) <> (-1) then begin
-                Self.logUtil.putF(TStringMaker.Create().append('Removing Lowest HighScore: ').appendlong(Int64(Trunc(bestHighScore.getScore()))).toString(), Self, Self.commonStrings.LOAD);
+                Self.logUtil.putF(TStringMaker.Create().append('Removing Lowest HighScore: ').appendlong(Int64(Trunc(bestHighScore.getScore()))).toString(), TJava.Box(Self), Self.commonStrings.LOAD);
                 recordStore_.deleteRecord(bestHighScore.getId());
             end;
         except
             on e: TRecordStoreException do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, Self, 'removeLowestHighScore', e);
+            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), 'removeLowestHighScore', TJava.Box(e));
             end;
             on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, Self, 'removeLowestHighScore', e);
+            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), 'removeLowestHighScore', TJava.Box(e));
             end;
         end;
         finally
             try
                 if (recordStore_) <> (nil) then begin
-                    TPreLogUtil.put('Closing RecordStore', Self, 'removeLowestHighScore');
+                    TPreLogUtil.put('Closing RecordStore', TJava.Box(Self), 'removeLowestHighScore');
                     recordStore_.closeRecordStore();
                 end;
             except
                 on e: TRecordStoreException do begin
-                Self.logUtil.put(Self.commonStrings.EXCEPTION, Self, 'removeLowestHighScore', e);
+                Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), 'removeLowestHighScore', TJava.Box(e));
                 end;
             end;
         end;
@@ -251,7 +251,7 @@ begin
             
             while recordEnum.hasNextElement() do begin
                 id := recordEnum.nextRecordId();
-                recordAsBytes := Self.tsUtil.getRecord(recordStore_, id);
+                recordAsBytes := Self.tsUtil.getRecord(TJava.Box(recordStore_), id);
                 if (recordAsBytes) <> (nil) then begin
                     byteArrayInputStream_ := TByteArrayInputStream.Create(recordAsBytes);
                     inputStream := TDataInputStream.Create(byteArrayInputStream_);
@@ -272,7 +272,7 @@ begin
                         list.addAt(lastIndex, TJava.Box(newHighScore));
                     except
                         on e: TEOFException do begin
-                        Self.logUtil.put('EOF', Self, Self.commonStrings.LOAD, e);
+                        Self.logUtil.put('EOF', TJava.Box(Self), Self.commonStrings.LOAD, TJava.Box(e));
                         raise e;
                         end;
                     end;
@@ -280,27 +280,27 @@ begin
             end;
         except
             on e: TRecordStoreNotFoundException do begin
-            Self.logUtil.put('No High Scores', Self, Self.commonStrings.LOAD, e);
+            Self.logUtil.put('No High Scores', TJava.Box(Self), Self.commonStrings.LOAD, TJava.Box(e));
             end;
             on e: TRecordStoreException do begin
-            Self.logUtil.put(Self.commonStrings.UNKNOWN, Self, Self.commonStrings.LOAD, e);
+            Self.logUtil.put(Self.commonStrings.UNKNOWN, TJava.Box(Self), Self.commonStrings.LOAD, TJava.Box(e));
             end;
             on e: TIOException do begin
-            Self.logUtil.put(Self.commonStrings.UNKNOWN, Self, Self.commonStrings.LOAD, e);
+            Self.logUtil.put(Self.commonStrings.UNKNOWN, TJava.Box(Self), Self.commonStrings.LOAD, TJava.Box(e));
             end;
             on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.UNKNOWN, Self, Self.commonStrings.LOAD, e);
+            Self.logUtil.put(Self.commonStrings.UNKNOWN, TJava.Box(Self), Self.commonStrings.LOAD, TJava.Box(e));
             end;
         end;
         finally
             try
                 if (recordStore_) <> (nil) then begin
-                    TPreLogUtil.put('Closing RecordStore', Self, Self.commonStrings.LOAD);
+                    TPreLogUtil.put('Closing RecordStore', TJava.Box(Self), Self.commonStrings.LOAD);
                     recordStore_.closeRecordStore();
                 end;
             except
                 on e: TRecordStoreException do begin
-                Self.logUtil.put(Self.commonStrings.EXCEPTION, Self, Self.commonStrings.LOAD, e);
+                Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.commonStrings.LOAD, TJava.Box(e));
                 end;
             end;
         end;
@@ -312,7 +312,7 @@ begin
         if (not TJava.IsNull(Self.getList())) and ((Self.getList().size()) < (Self.MAXHIGHSCORES)) then begin
             Exit(False);
         end else begin
-            Self.logUtil.putF(TStringMaker.Create().append('HighScores RecordStore Max Reached: ').appendint(Self.MAXHIGHSCORES).toString(), Self, 'isTooManyHighScores');
+            Self.logUtil.putF(TStringMaker.Create().append('HighScores RecordStore Max Reached: ').appendint(Self.MAXHIGHSCORES).toString(), TJava.Box(Self), 'isTooManyHighScores');
             Exit(True);
         end;
 end;
@@ -330,7 +330,7 @@ begin
     try
         try
             if not (Self.isTooManyHighScores()) then begin
-                Self.logUtil.putF('Slot Available for a High Score', Self, 'isBestScore');
+                Self.logUtil.putF('Slot Available for a High Score', TJava.Box(Self), 'isBestScore');
                 Exit(True);
             end else begin
                 list := Self.getList();
@@ -338,16 +338,16 @@ begin
                 for index := 0 to size - 1 do begin
                     highScore_ := THighScore(TJava.ToObject(list.objectArray[index]));
                     if (Self.recordComparatorInterface.compare(newHighScore.getAsBytes(), highScore_.getAsBytes())) = (IRecordComparator.FOLLOWS) then begin
-                        Self.logUtil.putF('Obtained a High Score', Self, 'isBestScore');
+                        Self.logUtil.putF('Obtained a High Score', TJava.Box(Self), 'isBestScore');
                         Exit(True);
                     end;
                 end;
             end;
-            Self.logUtil.putF('Not a High Score', Self, 'isBestScore');
+            Self.logUtil.putF('Not a High Score', TJava.Box(Self), 'isBestScore');
             Exit(False);
         except
             on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, Self, Self.commonStrings.ADD, e);
+            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.commonStrings.ADD, TJava.Box(e));
             raise e;
             end;
         end;

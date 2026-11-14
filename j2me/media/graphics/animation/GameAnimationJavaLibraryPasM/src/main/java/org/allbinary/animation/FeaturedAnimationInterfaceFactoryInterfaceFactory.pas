@@ -136,7 +136,7 @@ begin
             if featureInterface.isFeature() then begin
                 resourceTypeAvailableList.add(TJava.Box(featureInterface));
                 animationInterfaceFactoryInterface_ := featureInterface.getBasicAnimationInterfaceFactoryInstance(resource);
-                if (animationInterfaceFactoryInterface_) <> (TNullAnimationFactory.NULL_NOT_FOR_USE_ANIMATION_FACTORY) then begin
+                if TJava.ToObject(animationInterfaceFactoryInterface_) <> TJava.ToObject(TNullAnimationFactory.NULL_NOT_FOR_USE_ANIMATION_FACTORY) then begin
                     Exit(animationInterfaceFactoryInterface_);
                 end;
             end;

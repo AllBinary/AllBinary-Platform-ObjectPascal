@@ -122,7 +122,7 @@ begin
         Self.foregroundColor := Self.foregroundBasicColor.intValue();
         Self.backgroundColor := Self.backgroundBasicColor.intValue();
         Self.initCommands(cmdListener);
-        if (cmdListener) <> (TNullCommandListener.NULL_COMMAND_LISTENER) then begin
+        if TJava.ToObject(cmdListener) <> TJava.ToObject(TNullCommandListener.NULL_COMMAND_LISTENER) then begin
             try
                 Self.initMenu();
                 Self.repaintProcessor.process();
@@ -142,14 +142,14 @@ var
 begin
         try
             font_ := graphics_.getFont();
-            Self.logUtil.putF(TStringMaker.Create().append(Self.commonStrings.START).append(Self.canvasStrings.FD_WIDTH).appendint(Integer(Trunc(TMyFontProcessor.defaultCharWidth(font_)))).append(Self.canvasStrings.FD_HEIGHT).appendint(Integer(Trunc(font_.getHeight()))).toString(), Self, Self.canvasStrings.UPDATE_MEASUREMENT);
+            Self.logUtil.putF(TStringMaker.Create().append(Self.commonStrings.START).append(Self.canvasStrings.FD_WIDTH).appendint(Integer(Trunc(TMyFontProcessor.defaultCharWidth(font_)))).append(Self.canvasStrings.FD_HEIGHT).appendint(Integer(Trunc(font_.getHeight()))).toString(), TJava.Box(Self), Self.canvasStrings.UPDATE_MEASUREMENT);
             Self.fontHeight := font_.getHeight();
             rectangle_ := Self.createRectangle(Self.menuForm.size());
             Self.menuForm.init(rectangle_, TFormTypeFactory.getInstance().VERTICAL_CENTER_FORM);
             Self.update();
         except
             on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, Self, Self.canvasStrings.ON_DISPLAY_CHANGE_EVENT, e);
+            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.canvasStrings.ON_DISPLAY_CHANGE_EVENT, TJava.Box(e));
             end;
         end;
         Self.myFontProcessor := TMyFontProcessor.getInstance();
@@ -158,13 +158,13 @@ end;
 
 procedure TGameCommandCanvas.onEvent(eventObject: TAllBinaryEventObject);
 begin
-        TForcedLogUtil.log(TEventStrings.getInstance().PERFORMANCE_MESSAGE, Self);
+        TForcedLogUtil.log(TEventStrings.getInstance().PERFORMANCE_MESSAGE, TJava.Box(Self));
 end;
     
 
 procedure TGameCommandCanvas.onDisplayChangeEvent(displayChangeEvent_: TDisplayChangeEvent);
 begin
-        Self.logUtil.putF(TStringMaker.Create().append(Self.commonStrings.START).append(TDisplayInfoSingleton.getInstance().toString()).toString(), Self, Self.canvasStrings.ON_DISPLAY_CHANGE_EVENT);
+        Self.logUtil.putF(TStringMaker.Create().append(Self.commonStrings.START).append(TDisplayInfoSingleton.getInstance().toString()).toString(), TJava.Box(Self), Self.canvasStrings.ON_DISPLAY_CHANGE_EVENT);
         Self.myFontProcessor := Self.updateMyFontProcessor;
 end;
     
@@ -221,7 +221,7 @@ end;
 
 procedure TGameCommandCanvas.open;
 begin
-        Self.logUtil.putF(Self.commonStrings.START, Self, 'open');
+        Self.logUtil.putF(Self.commonStrings.START, TJava.Box(Self), 'open');
         TBasicMotionGesturesHandler.getInstance().addListenerInterface(Self.getMenuInputProcessor());
         TGameKeyEventHandler.getInstance().addListener(Self.getMenuInputProcessor());
         TDisplayChangeEventHandler.getInstance().addListenerInterface(Self);
@@ -231,7 +231,7 @@ end;
 // throws Exception
 procedure TGameCommandCanvas.close;
 begin
-        Self.logUtil.putF(Self.commonStrings.START, Self, Self.commonStrings.CLOSE);
+        Self.logUtil.putF(Self.commonStrings.START, TJava.Box(Self), Self.commonStrings.CLOSE);
         TBasicMotionGesturesHandler.getInstance().removeListener(Self.getMenuInputProcessor());
         TGameKeyEventHandler.getInstance().removeListener(Self.getMenuInputProcessor());
         TDisplayChangeEventHandler.getInstance().removeListener(Self);
@@ -271,7 +271,7 @@ end;
 
 procedure TGameCommandCanvas.keyPressedByDevice(keyCode: Integer; deviceId: Integer);
 begin
-        Self.logUtil.putF(TStringMaker.Create().append(TCommonSeps.getInstance().SPACE).appendint(keyCode).toString(), Self, Self.gameInputStrings.KEY_PRESSED);
+        Self.logUtil.putF(TStringMaker.Create().append(TCommonSeps.getInstance().SPACE).appendint(keyCode).toString(), TJava.Box(Self), Self.gameInputStrings.KEY_PRESSED);
         Self.addGameKeyEvent(keyCode, 0, False);
 end;
     
@@ -302,11 +302,11 @@ begin
                 Self.downGameKeyEventHandler.fireEvent(gameKeyEvent_);
                 Self.downGameKeyEventHandler.getInstanceForDevice(deviceId).fireEvent(gameKeyEvent_);
             end else begin
-                Self.logUtil.putF(TStringMaker.Create().append(Self.gameInputStrings.NO_KEY).appendint(keyCode).toString(), Self, Self.gameInputStrings.ADD_KEY_EVENT);
+                Self.logUtil.putF(TStringMaker.Create().append(Self.gameInputStrings.NO_KEY).appendint(keyCode).toString(), TJava.Box(Self), Self.gameInputStrings.ADD_KEY_EVENT);
             end;
         except
             on e: SysUtils.Exception do begin
-            Self.logUtil.put('Key Event Error', Self, Self.gameInputStrings.ADD_KEY_EVENT, e);
+            Self.logUtil.put('Key Event Error', TJava.Box(Self), Self.gameInputStrings.ADD_KEY_EVENT, TJava.Box(e));
             end;
         end;
 end;
@@ -324,11 +324,11 @@ begin
                 Self.upGameKeyEventHandler.fireEvent(gameKeyEvent_);
                 Self.upGameKeyEventHandler.getInstanceForDevice(deviceId).fireEvent(gameKeyEvent_);
             end else begin
-                Self.logUtil.putF(TStringMaker.Create().append(Self.gameInputStrings.NO_KEY).appendint(keyCode).toString(), Self, Self.gameInputStrings.REMOVE_KEY_EVENT);
+                Self.logUtil.putF(TStringMaker.Create().append(Self.gameInputStrings.NO_KEY).appendint(keyCode).toString(), TJava.Box(Self), Self.gameInputStrings.REMOVE_KEY_EVENT);
             end;
         except
             on e: SysUtils.Exception do begin
-            Self.logUtil.put('Key Event Error', Self, Self.gameInputStrings.REMOVE_KEY_EVENT, e);
+            Self.logUtil.put('Key Event Error', TJava.Box(Self), Self.gameInputStrings.REMOVE_KEY_EVENT, TJava.Box(e));
             end;
         end;
 end;

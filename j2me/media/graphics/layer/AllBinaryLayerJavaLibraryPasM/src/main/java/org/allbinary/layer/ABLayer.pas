@@ -162,7 +162,7 @@ var
 begin
         commonStrings_ := TCommonStrings.getInstance();
         canvasStrings_ := TCanvasStrings.getInstance();
-        Self.logUtil.putF(commonStrings_.NOT_IMPLEMENTED, Self, canvasStrings_.PAINT);
+        Self.logUtil.putF(commonStrings_.NOT_IMPLEMENTED, TJava.Box(Self), canvasStrings_.PAINT);
 end;
     
 

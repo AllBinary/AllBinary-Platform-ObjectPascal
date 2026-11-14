@@ -114,12 +114,12 @@ begin
         if (deviceId) < (Self.MAX_FAST_DEVICEID) then begin
             Self.deviceIdToplayerId[deviceId] := index;
         end else begin
-            Self.logUtil.putF(TStringMaker.Create().append('Added DeviceId: ').appendint(deviceId).append(' beyond fast Id list').toString(), Self, 'getPlayerForDevice');
+            Self.logUtil.putF(TStringMaker.Create().append('Added DeviceId: ').appendint(deviceId).append(' beyond fast Id list').toString(), TJava.Box(Self), 'getPlayerForDevice');
         end;
         Self.playerIdToDeviceId[index] := deviceId;
         TAnalogLocationInputFactory.getInstance().addPlayer(Self.totalDevicesMapped);
         Inc(Self.totalDevicesMapped);
-        Self.logUtil.putF(TStringMaker.Create().append('Added DeviceId: ').appendint(deviceId).append(' at: ').appendint(index).append(' Total: ').appendint(Self.totalDevicesMapped).toString(), Self, 'getPlayerForDevice');
+        Self.logUtil.putF(TStringMaker.Create().append('Added DeviceId: ').appendint(deviceId).append(' at: ').appendint(index).append(' Total: ').appendint(Self.totalDevicesMapped).toString(), TJava.Box(Self), 'getPlayerForDevice');
         Exit(index);
 end;
     
@@ -147,14 +147,14 @@ end;
 
 procedure TLocalPlayerInputIdFactory.setPlayerInPlay(playerInputId: Integer);
 begin
-        Self.logUtil.putF(TStringMaker.Create().append('Setting PlayerInPlay with playerInputId: ').appendint(playerInputId).toString(), Self, 'setPlayerInPlay');
+        Self.logUtil.putF(TStringMaker.Create().append('Setting PlayerInPlay with playerInputId: ').appendint(playerInputId).toString(), TJava.Box(Self), 'setPlayerInPlay');
         Self.playersInPlay[playerInputId] := True;
 end;
     
 
 procedure TLocalPlayerInputIdFactory.setPlayerOutOfPlay(playerInputId: Integer);
 begin
-        Self.logUtil.putF(TStringMaker.Create().append('Setting PlayerOutOfPlay with playerInputId: ').appendint(playerInputId).toString(), Self, 'setPlayerOutOfPlay');
+        Self.logUtil.putF(TStringMaker.Create().append('Setting PlayerOutOfPlay with playerInputId: ').appendint(playerInputId).toString(), TJava.Box(Self), 'setPlayerOutOfPlay');
         Self.playersInPlay[playerInputId] := False;
 end;
     

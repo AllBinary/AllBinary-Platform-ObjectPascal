@@ -50,7 +50,7 @@ uses
 
 procedure TNullRotationAnimationFactory.InitFields;
 begin
-  Self.NULL_ROTATION_ANIMATION_ARRAY := TJava.NewArray<TRotationAnimation>(0);
+  Self.NULL_ROTATION_ANIMATION_ARRAY := nil;
   Self.NULL_ANIMATION := TNullRotationAnimation2.Create();
 end;
 

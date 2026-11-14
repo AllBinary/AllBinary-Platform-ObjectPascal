@@ -245,7 +245,7 @@ end;
 
 function TCollidableCompositeLayer.getArtificialIntelligenceInterface: IArtificialIntelligenceInterface;
 begin
-        TForcedLogUtil.log(Self.commonStrings.NOT_IMPLEMENTED, Self);
+        TForcedLogUtil.log(Self.commonStrings.NOT_IMPLEMENTED, TJava.Box(Self));
         Exit(TArtificialIntelligence.getInstance());
 end;
     

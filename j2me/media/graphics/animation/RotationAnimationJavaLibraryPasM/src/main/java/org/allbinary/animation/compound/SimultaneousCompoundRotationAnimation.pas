@@ -247,7 +247,7 @@ var
 begin
         index := System.Length(Self.animationInterfaceArray);
         while (TJava.PreDec(index)) >= (0) do begin
-            Self.animationInterfaceArray[index].set_(TJava.ToObject(gl_));
+            Self.animationInterfaceArray[index].set_(gl_);
         end;
 end;
 

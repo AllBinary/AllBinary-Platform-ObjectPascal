@@ -59,7 +59,7 @@ constructor TLoadGameForm.Create(commandListener_: ICommandListener; title: stri
 begin
         inherited Create(commandListener_, title, backgrounBasicColor, foregroundBasicColor);
         InitFields;
-        Self.logUtil.putF(Self.commonStrings.START, Self, Self.commonStrings.CONSTRUCTOR_);
+        Self.logUtil.putF(Self.commonStrings.START, TJava.Box(Self), Self.commonStrings.CONSTRUCTOR_);
         Self.update();
         Self.initCommands(commandListener_);
 end;
@@ -123,7 +123,7 @@ begin
         size := list.size();
         for index := 0 to size - 1 do begin
             anyType := TJava.Box(list.objectArray[index]);
-            Self.logUtil.putF(TStringMaker.Create().append(ADDING_CHOICE).append(anyType.toString()).toString(), Self, METHOD_NAME);
+            Self.logUtil.putF(TStringMaker.Create().append(ADDING_CHOICE).append(anyType.toString()).toString(), TJava.Box(Self), METHOD_NAME);
             choiceGroup_.append(anyType.toString(), TNullImage.NULL_IMAGE);
         end;
         Exit(choiceGroup_);
@@ -150,7 +150,7 @@ var
 begin
         if Self.areChoices then begin
             choiceGroup_ := TChoiceGroup(TJava.ToObject(Self.get(0)));
-            value := (choiceGroup_.getString(choiceGroup_.getSelectedIndex()));
+            value := TJava.IntValueOf(choiceGroup_.getString(choiceGroup_.getSelectedIndex()));
             Exit(value);
         end else begin
             Exit(-1);

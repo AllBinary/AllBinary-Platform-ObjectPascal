@@ -87,27 +87,27 @@ begin
             osArch := systemProperties_.getArch();
             osVersion := systemProperties_.getVersion();
             if not (Self.hasDetected) then begin
-                Self.logUtil.putF('osName: ' + osName, Self, Self.commonStrings.GET_INSTANCE);
+                Self.logUtil.putF('osName: ' + osName, TJava.Box(Self), Self.commonStrings.GET_INSTANCE);
                 Self.hasDetected := True;
                 if ((Pos(TJava.ToString(operatingSystems_.LINUX), osName) - 1)) >= (0) then begin
                     if TLogConfigTypes.LOGGING.contains(TLogConfigTypeFactory.getInstance().FACTORYERROR) then begin
-                        Self.logUtil.putF('Found a Linux OS', Self, Self.commonStrings.GET_INSTANCE);
+                        Self.logUtil.putF('Found a Linux OS', TJava.Box(Self), Self.commonStrings.GET_INSTANCE);
                     end;
                     Self.genericOperatingSystem := TLinuxOperatingSystemFactory.getInstance().getOperatingSystemInstance();
                 end else if ((Pos(TJava.ToString(operatingSystems_.WINDOWS), osName) - 1)) >= (0) then begin
                     if TLogConfigTypes.LOGGING.contains(TLogConfigTypeFactory.getInstance().FACTORYERROR) then begin
-                        Self.logUtil.putF('Found a Windows OS', Self, Self.commonStrings.GET_INSTANCE);
+                        Self.logUtil.putF('Found a Windows OS', TJava.Box(Self), Self.commonStrings.GET_INSTANCE);
                     end;
                     Self.genericOperatingSystem := TWindowsOperatingSystemFactory.getInstance().getOperatingSystemInstance();
                 end else if ((Pos(TJava.ToString(operatingSystems_.SOLARIS), osName) - 1)) >= (0) then begin
                     if TLogConfigTypes.LOGGING.contains(TLogConfigTypeFactory.getInstance().FACTORYERROR) then begin
-                        Self.logUtil.putF('Found a Solaris OS', Self, Self.commonStrings.GET_INSTANCE);
+                        Self.logUtil.putF('Found a Solaris OS', TJava.Box(Self), Self.commonStrings.GET_INSTANCE);
                     end;
                     Self.genericOperatingSystem := TSolarisOperatingSystemFactory.getInstance().getOperatingSystemInstance();
                 end else begin
                     raise SysUtils.Exception.Create(TStringMaker.Create().append('OS Not Supported: ').append(osName).toString());
                 end;
-                log_ := TLogFactory.getInstanceF(TStringMaker.Create().append('OperatingSystem Info: ').append(TStringUtil.getInstance().toString(Self.genericOperatingSystem)).toString(), Self, Self.commonStrings.GET_INSTANCE);
+                log_ := TLogFactory.getInstanceF(TStringMaker.Create().append('OperatingSystem Info: ').append(TStringUtil.getInstance().toString(Self.genericOperatingSystem)).toString(), TJava.Box(Self), Self.commonStrings.GET_INSTANCE);
                 WriteLn(log_.toString());
                 Self.logUtil.putL(log_);
             end;
@@ -115,7 +115,7 @@ begin
         except
             on e: SysUtils.Exception do begin
             if TLogConfigTypes.LOGGING.contains(TLogConfigTypeFactory.getInstance().FACTORYERROR) then begin
-                Self.logUtil.put(Self.commonStrings.EXCEPTION, Self, Self.commonStrings.GET_INSTANCE, e);
+                Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.commonStrings.GET_INSTANCE, TJava.Box(e));
             end;
             Exit(TNoOperatingSystem.NO_OPERATING_SYSTEM);
             end;

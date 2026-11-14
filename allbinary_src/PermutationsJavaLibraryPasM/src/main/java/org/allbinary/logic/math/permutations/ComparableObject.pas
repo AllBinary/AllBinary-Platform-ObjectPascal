@@ -54,9 +54,9 @@ end;
 
 function TComparableObject.compareTo(anyType: TObject): Integer;
 begin
-        if (TTsUtil.getInstance().hashCode(Self)) < (TTsUtil.getInstance().hashCode(anyType)) then begin
+        if (TTsUtil.getInstance().hashCode(TJava.Box(Self))) < (TTsUtil.getInstance().hashCode(TJava.Box(anyType))) then begin
             Exit(-1);
-        end else if (TTsUtil.getInstance().hashCode(Self)) > (TTsUtil.getInstance().hashCode(anyType)) then begin
+        end else if (TTsUtil.getInstance().hashCode(TJava.Box(Self))) > (TTsUtil.getInstance().hashCode(TJava.Box(anyType))) then begin
             Exit(1);
         end;
         Exit(0);

@@ -95,7 +95,7 @@ begin
             except
                 on e: SysUtils.Exception do begin
                 commonStrings_ := TCommonStrings.getInstance();
-                Self.logUtil.put(commonStrings_.EXCEPTION, Self, commonStrings_.TOSTRING, e);
+                Self.logUtil.put(commonStrings_.EXCEPTION, TJava.Box(Self), commonStrings_.TOSTRING, TJava.Box(e));
                 end;
             end;
             Inc(index);
@@ -171,7 +171,7 @@ begin
             except
                 on e: SysUtils.Exception do begin
                 commonStrings_ := TCommonStrings.getInstance();
-                Self.logUtil.put(commonStrings_.EXCEPTION, Self, TEventStrings.getInstance().FIRE_EVENT, e);
+                Self.logUtil.put(commonStrings_.EXCEPTION, TJava.Box(Self), TEventStrings.getInstance().FIRE_EVENT, TJava.Box(e));
                 end;
             end;
             Inc(index);

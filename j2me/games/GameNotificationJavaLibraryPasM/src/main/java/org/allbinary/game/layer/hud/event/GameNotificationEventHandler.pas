@@ -71,7 +71,7 @@ begin
             eventListenerInterface_ := (TJava.ToObject(list.objectArray[0]) as IEventListenerInterface);
         end;
         inherited removeAllListeners();
-        if (eventListenerInterface_) <> (TNullEventListener.NULL_EVENT_LISTENER) then begin
+        if TJava.ToObject(eventListenerInterface_) <> TJava.ToObject(TNullEventListener.NULL_EVENT_LISTENER) then begin
             Self.addListenerInterface(eventListenerInterface_);
         end;
     finally

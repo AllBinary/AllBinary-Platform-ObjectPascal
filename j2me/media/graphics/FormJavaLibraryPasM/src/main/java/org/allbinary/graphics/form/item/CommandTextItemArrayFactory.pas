@@ -38,7 +38,7 @@ type
 
 implementation
 uses
-  CommandTextItem, ABCustomItem, Command, ImageItem, DisplayInfoSingleton, ScreenInfo, VectorUtil, StringUtil, BasicArrayListD;
+  CommandTextItem, Command, ImageItem, DisplayInfoSingleton, ScreenInfo, VectorUtil, StringUtil, BasicArrayListD;
 
 
 {AB:CODE}
@@ -73,7 +73,7 @@ var
   size2: Integer;
 begin
         vectorUtil_ := TVectorUtil.getInstance();
-        size := vectorUtil_.getSize(vector);
+        size := vectorUtil_.getSize(TJava.Box(vector));
         Self.list.clear();
         
         priorityLimit := 7;
@@ -84,7 +84,7 @@ begin
         end;
         
         for index := 0 to size - 1 do begin
-            command_ := TCommand(TJava.ToObject(vectorUtil_.elementAt(vector, index)));
+            command_ := TCommand(TJava.ToObject(vectorUtil_.elementAt(TJava.Box(vector), index)));
             if (command_.getPriority()) < (priorityLimit) then begin
                 aBoolean := Boolean(Self.visitorInterface.visit(command_));
                 if (aBoolean) then begin

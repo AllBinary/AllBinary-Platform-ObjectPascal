@@ -40,7 +40,7 @@ type
 
 implementation
 uses
-  DisplayChangeEventHandler, BasicEventHandler, BasicArrayListD;
+  DisplayChangeEventHandler, BasicEventHandler, BasicArrayListD, EventListenerInterface;
 
 
 {AB:CODE}
@@ -66,7 +66,7 @@ end;
 procedure TGameLevelDisplayChangeEventListenersFactory.add(displayChangeEventListener_: IDisplayChangeEventListener);
 begin
         Self.list.add(TJava.Box(displayChangeEventListener_));
-        TDisplayChangeEventHandler.getInstance().addListenerInterface(displayChangeEventListener_);
+        TDisplayChangeEventHandler.getInstance().addListenerInterface((TJava.ToObject(displayChangeEventListener_) as IEventListenerInterface));
 end;
     
 

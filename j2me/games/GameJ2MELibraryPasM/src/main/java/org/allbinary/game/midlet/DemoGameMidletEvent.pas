@@ -57,7 +57,7 @@ end;
 
 procedure TDemoGameMidletEvent.init(anyType: TObject);
 begin
-        Self.setSource(anyType);
+        Self.setSource(TJava.Box(anyType));
 end;
     
 

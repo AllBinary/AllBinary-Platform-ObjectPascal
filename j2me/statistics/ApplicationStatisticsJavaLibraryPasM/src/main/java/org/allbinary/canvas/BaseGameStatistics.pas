@@ -75,11 +75,11 @@ begin
   Self.DEFAULT_SCALE_FACTOR := TScaleFactorFactory.getInstance().DEFAULT_SCALE_FACTOR;
   Self.NOT_ := 'Not enough Time to Calculate';
   Self.EMPTY_STRING := TStringUtil.getInstance().EMPTY_STRING;
-  Self.STRING_ARRAY := [' Total Time: ', Self.EMPTY_STRING, ' Total Frames: ', Self.EMPTY_STRING, ' Frames/10 Sec: ', Self.EMPTY_STRING, ' Total Paints: ', Self.EMPTY_STRING, ' Paints/10 Sec: ', Self.EMPTY_STRING];
+  Self.STRING_ARRAY := TArray<string>.Create(' Total Time: ', Self.EMPTY_STRING, ' Total Frames: ', Self.EMPTY_STRING, ' Frames/10 Sec: ', Self.EMPTY_STRING, ' Total Paints: ', Self.EMPTY_STRING, ' Paints/10 Sec: ', Self.EMPTY_STRING);
   Self.SPACE_CHAR := ' ';
   Self.PLUS_CHAR := '+';
   Self.X_CHAR := 'X';
-  Self.CHAR_ARRAY := [['F', 'r', 'a', 'm', 'e', 's', '/', '1', '0', ' ', 'S', 'e', 'c', ':'], ['X', 'X'], ['P', 'a', 'i', 'n', 't', 's', '/', '1', '0', ' ', 'S', 'e', 'c', ':'], ['X', 'X']];
+  Self.CHAR_ARRAY := [TArray<WideChar>.Create('F', 'r', 'a', 'm', 'e', 's', '/', '1', '0', ' ', 'S', 'e', 'c', ':'), TArray<WideChar>.Create('X', 'X'), TArray<WideChar>.Create('P', 'a', 'i', 'n', 't', 's', '/', '1', '0', ' ', 'S', 'e', 'c', ':'), TArray<WideChar>.Create('X', 'X')];
   Self.primitiveLongSingleton := TPrimitiveLongSingleton.getInstance();
 end;
     

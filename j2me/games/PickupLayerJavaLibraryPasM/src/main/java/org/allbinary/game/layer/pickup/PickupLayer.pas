@@ -163,7 +163,7 @@ var
   openGLSurfaceChangedInterface_: IOpenGLSurfaceChangedInterface;
 begin
         openGLSurfaceChangedInterface_ := (TJava.ToObject(Self.animationInterface) as IOpenGLSurfaceChangedInterface);
-        openGLSurfaceChangedInterface_.set_(TJava.ToObject(gl_));
+        openGLSurfaceChangedInterface_.set_(gl_);
 end;
 
 initialization

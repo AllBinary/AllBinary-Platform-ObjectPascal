@@ -130,7 +130,7 @@ end;
 procedure TGameInfo.setCurrentLevel(currentLevel: Integer);
 begin
         Self.currentLevel := currentLevel;
-        Self.logUtil.putF(TStringMaker.Create().append(Self.NEW_LEVEL).appendint(Self.getCurrentLevel()).toString(), Self, Self.SET_CURRENT_LEVEL);
+        Self.logUtil.putF(TStringMaker.Create().append(Self.NEW_LEVEL).appendint(Self.getCurrentLevel()).toString(), TJava.Box(Self), Self.SET_CURRENT_LEVEL);
 end;
     
 
@@ -139,7 +139,7 @@ begin
         if (Self.getCurrentLevel()) < (Self.getHighestLevel()) then begin
             Inc(Self.currentLevel);
         end;
-        Self.logUtil.putF(TStringMaker.Create().append(TCommonLabels.getInstance().NEXT).append(TCommonSeps.getInstance().SPACE).append(Self.NEW_LEVEL).appendint(Self.getCurrentLevel()).toString(), Self, Self.NEXT_GAME_LEVEL);
+        Self.logUtil.putF(TStringMaker.Create().append(TCommonLabels.getInstance().NEXT).append(TCommonSeps.getInstance().SPACE).append(Self.NEW_LEVEL).appendint(Self.getCurrentLevel()).toString(), TJava.Box(Self), Self.NEXT_GAME_LEVEL);
 end;
     
 

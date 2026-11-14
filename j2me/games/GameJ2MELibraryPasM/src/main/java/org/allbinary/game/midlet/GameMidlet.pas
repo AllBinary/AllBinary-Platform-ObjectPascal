@@ -97,7 +97,7 @@ type
 
 implementation
 uses
-  GameMidletEventHandler, DemoGameMidletEvent, DemoGameMidletStateFactory, Canvas, NullCanvas, MIDletStateChangeException, J2MEUtil, GameStatisticsFactory, DebugFactory, GameAdState, GameInfo, GameMode, GameTypeFactory, PlayerTypesFactory, GameCommandsFactory, GameOptionsForm, GameOptionsFormFactory, InGameFeatures, InGameOptionsForm, InGameOptionsFormFactory, ChangedGameFeatureListener, GameFeatureEventHandler, GameFeatureFormUtil, MainFeatureFactory, GamePersistanceSingleton, KeyValuePersistance, AllBinaryGameCanvas, BasicPaintablesCanvas, DemoCanvas, GameEventHandlerUtil, GameInputMappingCanvas, GameInputMappingInstructionsCanvas, MenuListener, NullGameCanvasRunnable, TextNotificationUtil, GameNotificationEventHandler, HighScoreCommands, HighScoreCommandsFactory, HighScoreTextBox, HighScoreUtil, ResizableListenerHandler, ProgressCanvas, ProgressCanvasFactory, ColorChangeEventHandler, CanvasStrings, AboutPaintableFactory, AllBinarySensorManager, VirtualKeyboardEventHandler, BasicMotionGesturesHandler, ForcedLogUtil, PreLogUtil, SmallIntegerSingletonFactory, StringMaker, InApplicationPurchaseFactory, LockableFeature, LockableFeatureFactory, EventStrings, AllBinaryMediaManager, NullThread, ThreadFactoryUtil, ThreadUtil, BasicArrayList, StdUtil;
+  GameMidletEventHandler, DemoGameMidletEvent, DemoGameMidletStateFactory, Canvas, NullCanvas, MIDletStateChangeException, J2MEUtil, GameStatisticsFactory, DebugFactory, GameAdState, GameInfo, GameMode, GameTypeFactory, PlayerTypesFactory, GameCommandsFactory, GameOptionsForm, GameOptionsFormFactory, InGameFeatures, InGameOptionsForm, InGameOptionsFormFactory, ChangedGameFeatureListener, GameFeatureEventHandler, GameFeatureFormUtil, MainFeatureFactory, GamePersistanceSingleton, KeyValuePersistance, AllBinaryGameCanvas, BasicPaintablesCanvas, DemoCanvas, GameEventHandlerUtil, GameInputMappingCanvas, GameInputMappingInstructionsCanvas, MenuListener, NullGameCanvasRunnable, TextNotificationUtil, GameNotificationEventHandler, HighScoreCommands, HighScoreCommandsFactory, HighScoreTextBox, HighScoreUtil, ResizableListenerHandler, ProgressCanvas, ProgressCanvasFactory, ColorChangeEventHandler, CanvasStrings, AboutPaintableFactory, AllBinarySensorManager, VirtualKeyboardEventHandler, BasicMotionGesturesHandler, ForcedLogUtil, PreLogUtil, SmallIntegerSingletonFactory, StringMaker, InApplicationPurchaseFactory, LockableFeature, LockableFeatureFactory, EventStrings, AllBinaryMediaManager, NullThread, ThreadFactoryUtil, ThreadUtil, BasicArrayList, StdUtil, ItemStateListener;
 
 
 {AB:CODE}
@@ -200,11 +200,11 @@ end;
 
 procedure TGameMidlet.pauseAppBackground(background: Boolean);
 begin
-        Self.logUtil.putF(Self.commonStrings.START, Self, Self.PAUSE_APP_BACKGROUND);
-        if (Self.allbinaryGameCanvasRunnableInterface) <> (TNullGameCanvasRunnable.NULL_GAME_CANVAS_RUNNABLE) then begin
+        Self.logUtil.putF(Self.commonStrings.START, TJava.Box(Self), Self.PAUSE_APP_BACKGROUND);
+        if TJava.ToObject(Self.allbinaryGameCanvasRunnableInterface) <> TJava.ToObject(TNullGameCanvasRunnable.NULL_GAME_CANVAS_RUNNABLE) then begin
             Self.allbinaryGameCanvasRunnableInterface.pause();
         end else begin
-            Self.logUtil.putF('<<<<<< Null', Self, Self.PAUSE_APP_BACKGROUND);
+            Self.logUtil.putF('<<<<<< Null', TJava.Box(Self), Self.PAUSE_APP_BACKGROUND);
         end;
         TAllBinarySensorManager.getInstance().shutdown();
 end;
@@ -224,13 +224,13 @@ procedure TGameMidlet.unPauseAppBackground(background: Boolean);
 var
   gameCanvasRunnableInterface_: IGameCanvasRunnableInterface;
 begin
-        Self.logUtil.putF(Self.commonStrings.START, Self, Self.UN_PAUSE_APP_BACKGROUND);
+        Self.logUtil.putF(Self.commonStrings.START, TJava.Box(Self), Self.UN_PAUSE_APP_BACKGROUND);
         TAllBinarySensorManager.getInstance().init();
         gameCanvasRunnableInterface_ := Self.allbinaryGameCanvasRunnableInterface;
-        if (gameCanvasRunnableInterface_) <> (TNullGameCanvasRunnable.NULL_GAME_CANVAS_RUNNABLE) then begin
+        if TJava.ToObject(gameCanvasRunnableInterface_) <> TJava.ToObject(TNullGameCanvasRunnable.NULL_GAME_CANVAS_RUNNABLE) then begin
             gameCanvasRunnableInterface_.unPause();
         end else begin
-            Self.logUtil.putF('<<<<<< Null', Self, Self.UN_PAUSE_APP_BACKGROUND);
+            Self.logUtil.putF('<<<<<< Null', TJava.Box(Self), Self.UN_PAUSE_APP_BACKGROUND);
         end;
 end;
     
@@ -258,7 +258,7 @@ var
 begin
         METHOD_NAME := 'GameMidlet::destroyApp';
         try
-            TPreLogUtil.put(TGameStatisticsFactory.getInstance().toString(), Self, METHOD_NAME);
+            TPreLogUtil.put(TGameStatisticsFactory.getInstance().toString(), TJava.Box(Self), METHOD_NAME);
             gameAdState_ := Self.gameAdStateFactory.getCurrentInstance();
             gameAdState_.getAdvertisements().stopAll();
             if not (Self.isDestroyed()) then begin
@@ -266,16 +266,16 @@ begin
                 Self.setGameCanvasRunnableInterface(TNullGameCanvasRunnable.NULL_GAME_CANVAS_RUNNABLE);
                 Self.mediaShutdown();
             end else begin
-                Self.logUtil.putF('Midlet Managment Error: Midlet Should Only Be Destroyed Once', Self, METHOD_NAME);
+                Self.logUtil.putF('Midlet Managment Error: Midlet Should Only Be Destroyed Once', TJava.Box(Self), METHOD_NAME);
             end;
             inherited destroyApp(True);
-            TPreLogUtil.put(Self.commonStrings.END_, Self, METHOD_NAME);
+            TPreLogUtil.put(Self.commonStrings.END_, TJava.Box(Self), METHOD_NAME);
         except
             on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, Self, METHOD_NAME, e);
+            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), METHOD_NAME, TJava.Box(e));
             end;
         end;
-        Self.logUtil.putF(Self.commonStrings.END_, Self, METHOD_NAME);
+        Self.logUtil.putF(Self.commonStrings.END_, TJava.Box(Self), METHOD_NAME);
 end;
     
 
@@ -290,22 +290,22 @@ begin
             gameAdState_ := Self.gameAdStateFactory.getCurrentInstance();
             gameAdState_.getAdvertisements().startAll();
             START_APP := 'startApp';
-            Self.logUtil.putF(Self.commonStrings.START, Self, START_APP);
+            Self.logUtil.putF(Self.commonStrings.START, TJava.Box(Self), START_APP);
             gameCanvasRunnableInterface_ := TJava.Box(Self.allbinaryGameCanvasRunnableInterface);
-            if (gameCanvasRunnableInterface_) = (TNullGameCanvasRunnable.NULL_GAME_CANVAS_RUNNABLE) then begin
+            if TJava.ToObject(gameCanvasRunnableInterface_) = TJava.ToObject(TNullGameCanvasRunnable.NULL_GAME_CANVAS_RUNNABLE) then begin
                 Self.gameMidletStateFactory.setCurrentGameState(Self.gameStateFactory.NO_GAME_STATE);
                 Self.setDemo();
             end else begin
-                Self.logUtil.putF('GameCanvasRunnableInterface is available', Self, START_APP);
-                if (gameCanvasRunnableInterface_) = (Self.getCurrentDisplayable()) then begin
+                Self.logUtil.putF('GameCanvasRunnableInterface is available', TJava.Box(Self), START_APP);
+                if TJava.ToObject(gameCanvasRunnableInterface_) = TJava.ToObject(Self.getCurrentDisplayable()) then begin
                     Self.unPauseAppBackground(False);
                 end else begin
-                    Self.logUtil.putF('GameCanvasRunnableInterface is not current displayable', Self, START_APP);
+                    Self.logUtil.putF('GameCanvasRunnableInterface is not current displayable', TJava.Box(Self), START_APP);
                 end;
             end;
         except
             on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, Self, 'startApp', e);
+            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), 'startApp', TJava.Box(e));
             Self.destroyApp(False);
             Self.notifyDestroyed();
             end;
@@ -353,12 +353,12 @@ begin
             if (command_) <> (nil) then begin
                 label_ := command_.getLabel();
             end;
-            TPreLogUtil.put(TStringMaker.Create().append(Self.COMMAND_NAME).append(label_).append(Self.DISPLAYABLE).append(displayableAsString).toString(), Self, Self.COMMAND_ACTION);
+            TPreLogUtil.put(TStringMaker.Create().append(Self.COMMAND_NAME).append(label_).append(Self.DISPLAYABLE).append(displayableAsString).toString(), TJava.Box(Self), Self.COMMAND_ACTION);
             gameCommandsFactory_ := TGameCommandsFactory.getInstance();
             allbinaryGameCanvasRunnableInterface := Self.allbinaryGameCanvasRunnableInterface;
             gameCanvasRunnableInterface_ := TJava.Box(allbinaryGameCanvasRunnableInterface);
             if (command_) = (gameCommandsFactory_.SHOW_GAME_CANVAS) then begin
-                if ((Self.getDisplay().getCurrent()) <> (gameCanvasRunnableInterface_)) and ((allbinaryGameCanvasRunnableInterface.getType()) <> (TNullGameCanvasRunnable.NULL_GAME_CANVAS_RUNNABLE.getType())) then begin
+                if (TJava.ToObject(Self.getDisplay().getCurrent()) <> TJava.ToObject(gameCanvasRunnableInterface_)) and ((allbinaryGameCanvasRunnableInterface.getType()) <> (TNullGameCanvasRunnable.NULL_GAME_CANVAS_RUNNABLE.getType())) then begin
                     Self.setDisplay(TDisplayable(TJava.ToObject(gameCanvasRunnableInterface_)));
                 end;
                 Self.unPauseAppBackground(False);
@@ -378,17 +378,17 @@ begin
                 if ((Self.gameMidletStateFactory.getCurrentGameState()) <> (Self.gameStateFactory.PLAYING_GAME_STATE)) or ((command_) = (gameCommandsFactory_.RESTART_COMMAND)) then begin
                     if Self.gameStartTimeHelper.isTimeTNT() then begin
                         if ((command_) = (gameCommandsFactory_.START_COMMAND)) and (Self.isDemoLoading()) then begin
-                            Self.logUtil.putF('Trying to Start Game Before Loading Complete', Self, Self.midletStrings.COMMAND_ACTION);
+                            Self.logUtil.putF('Trying to Start Game Before Loading Complete', TJava.Box(Self), Self.midletStrings.COMMAND_ACTION);
                         end else begin
                             Self.startedBefore := True;
                             Self.createGame();
                             Self.gameMidletStateFactory.setCurrentGameState(Self.gameStateFactory.PLAYING_GAME_STATE);
                         end;
                     end else begin
-                        Self.logUtil.putF('Starting Game Too Often', Self, Self.midletStrings.COMMAND_ACTION);
+                        Self.logUtil.putF('Starting Game Too Often', TJava.Box(Self), Self.midletStrings.COMMAND_ACTION);
                     end;
                 end else begin
-                    Self.logUtil.putF('Already in playing state', Self, Self.COMMAND_ACTION);
+                    Self.logUtil.putF('Already in playing state', TJava.Box(Self), Self.COMMAND_ACTION);
                 end;
             end else if (command_) = (gameCommandsFactory_.BUY_COMMAND) then begin
                 inApplicationPurchaseFactory_ := TInApplicationPurchaseFactory.getInstance();
@@ -476,7 +476,7 @@ begin
                 inGameOptionsFormFactory_ := TInGameOptionsFormFactory.getInstance();
                 inGameOptionsFormFactory_.init(Self, TInGameFeatures.Create(), 'Options In Game', layerManager.getBackgroundBasicColor(), layerManager.getForegroundBasicColor());
                 inGameOptionsForm__2 := inGameOptionsFormFactory_.get();
-                inGameOptionsForm__2.setItemStateListener(allbinaryGameCanvasRunnableInterface);
+                inGameOptionsForm__2.setItemStateListener((TJava.ToObject(allbinaryGameCanvasRunnableInterface) as IItemStateListener));
                 Self.commandAction(gameCommandsFactory_.SET_MENU_DISPLAYABLE, inGameOptionsForm__2);
             end else if (command_) = (TInGameOptionsForm.DEFAULT) then begin
                 inGameOptionsForm_ := TInGameOptionsForm(TJava.ToObject(TInGameOptionsFormFactory.getInstance().get()));
@@ -498,7 +498,7 @@ begin
                 stringBuffer.appendboolean(Self.fullScreenUtil.isScreenChange(Self.isFullScreen));
                 stringBuffer.append(' isResized: ');
                 stringBuffer.appendboolean(Self.isResized());
-                TPreLogUtil.put(stringBuffer.toString(), Self, Self.COMMAND_ACTION);
+                TPreLogUtil.put(stringBuffer.toString(), TJava.Box(Self), Self.COMMAND_ACTION);
                 if (Self.isResized()) or (Self.fullScreenUtil.isScreenChange(Self.isFullScreen)) then begin
                     Self.updateFullScreen();
                 end;
@@ -523,9 +523,9 @@ begin
                     Self.setStartStateHashtable(keyValuePersistance_.get(index));
                     menuListener_ := Self.getLoadGameForm();
                     menuListener_.close();
-                    TPreLogUtil.put(TBasicMotionGesturesHandler.getInstance().toString(), Self, Self.COMMAND_ACTION);
+                    TPreLogUtil.put(TBasicMotionGesturesHandler.getInstance().toString(), TJava.Box(Self), Self.COMMAND_ACTION);
                     Self.commandAction(gameCommandsFactory_.START_COMMAND, TNullCanvas.NULL_CANVAS);
-                    TPreLogUtil.put(TBasicMotionGesturesHandler.getInstance().toString(), Self, Self.COMMAND_ACTION);
+                    TPreLogUtil.put(TBasicMotionGesturesHandler.getInstance().toString(), TJava.Box(Self), Self.COMMAND_ACTION);
                 end;
             end else if (command_) = (gameCommandsFactory_.DELETE_FILE) then begin
                 loadGameForm_ := TLoadGameForm(TJava.ToObject(Self.getLoadGameForm()));
@@ -543,7 +543,7 @@ begin
                 keyValuePersistance_.save(Self.abeClientInformation, Self.getCurrentStateHashtable());
                 Self.unPauseAppBackground(False);
             end else if (command_) = (THighScoreUtil.SUBMIT_TEXTBOX_COMMAND) then begin
-                Self.logUtil.putF('Submitted Score', Self, Self.COMMAND_ACTION);
+                Self.logUtil.putF('Submitted Score', TJava.Box(Self), Self.COMMAND_ACTION);
                 if (TJava.ToObject(displayable_) is THighScoreTextBox) then begin
                     highScoreTextBox_ := THighScoreTextBox(TJava.ToObject(displayable_));
                     highScoreTextBox_.submitted := True;
@@ -569,7 +569,7 @@ begin
             end;
         except
             on e: SysUtils.Exception do begin
-            Self.logUtil.put(TStringMaker.Create().append(Self.commonStrings.EXCEPTION_LABEL).append(command_.getLabel()).toString(), Self, Self.midletStrings.COMMAND_ACTION, e);
+            Self.logUtil.put(TStringMaker.Create().append(Self.commonStrings.EXCEPTION_LABEL).append(command_.getLabel()).toString(), TJava.Box(Self), Self.midletStrings.COMMAND_ACTION, TJava.Box(e));
             if (command_) <> (TGameCommandsFactory.getInstance().EXIT_COMMAND) then begin
                 Self.exitProgress(False);
             end;
@@ -600,7 +600,7 @@ end;
 
 procedure TGameMidlet.onEvent(eventObject: TAllBinaryEventObject);
 begin
-        TForcedLogUtil.log(TEventStrings.getInstance().PERFORMANCE_MESSAGE, Self);
+        TForcedLogUtil.log(TEventStrings.getInstance().PERFORMANCE_MESSAGE, TJava.Box(Self));
 end;
     
 
@@ -646,7 +646,7 @@ var
 begin
         threadFactoryUtil_ := TThreadFactoryUtil.getInstance();
         Self.thread := threadFactoryUtil_.getInstanceGameCanvasRunnable(Self.allbinaryGameCanvasRunnableInterface);
-        Self.logUtil.putF(TStringMaker.Create().append('Thread Priority: ').appendint(Integer(Trunc(Self.thread.getPriority()))).toString(), Self, 'startGameCanvasRunnableInterface');
+        Self.logUtil.putF(TStringMaker.Create().append('Thread Priority: ').appendint(Integer(Trunc(5))).toString(), TJava.Box(Self), 'startGameCanvasRunnableInterface');
         Self.allbinaryGameCanvasRunnableInterface.setThread(Self.thread);
         threadFactoryUtil_.start(Self.thread);
 end;
@@ -658,16 +658,16 @@ var
   gameCanvasRunnableInterface_: IGameCanvasRunnableInterface;
   progressCanvas_: TProgressCanvas;
 begin
-        Self.logUtil.putF(Self.commonStrings.START, Self, Self.gameStrings.STOP_GAME_CANVAS_RUNNABLE_INTERFACE);
+        Self.logUtil.putF(Self.commonStrings.START, TJava.Box(Self), Self.gameStrings.STOP_GAME_CANVAS_RUNNABLE_INTERFACE);
         TGameNotificationEventHandler.getInstance().removeAllListeners();
         TColorChangeEventHandler.getInstance().removeAllListeners();
         TGameEventHandlerUtil.removeAllListeners();
         gameCanvasRunnableInterface_ := Self.allbinaryGameCanvasRunnableInterface;
-        if (gameCanvasRunnableInterface_) <> (TNullGameCanvasRunnable.NULL_GAME_CANVAS_RUNNABLE) then begin
-            Self.logUtil.putF(TStringMaker.Create().append('Set Running False: ').append(TJava.ToString(TJava.ToObject(gameCanvasRunnableInterface_))).toString(), Self, Self.gameStrings.STOP_GAME_CANVAS_RUNNABLE_INTERFACE);
+        if TJava.ToObject(gameCanvasRunnableInterface_) <> TJava.ToObject(TNullGameCanvasRunnable.NULL_GAME_CANVAS_RUNNABLE) then begin
+            Self.logUtil.putF(TStringMaker.Create().append('Set Running False: ').append(TJava.ToString(TJava.ToObject(gameCanvasRunnableInterface_))).toString(), TJava.Box(Self), Self.gameStrings.STOP_GAME_CANVAS_RUNNABLE_INTERFACE);
             gameCanvasRunnableInterface_.setRunning(False);
         end else begin
-            Self.logUtil.putF('StopGame - Could Not Stop', Self, Self.gameStrings.STOP_GAME_CANVAS_RUNNABLE_INTERFACE);
+            Self.logUtil.putF('StopGame - Could Not Stop', TJava.Box(Self), Self.gameStrings.STOP_GAME_CANVAS_RUNNABLE_INTERFACE);
         end;
         TThreadUtil.getInstance().join(Self.thread);
         progressCanvas_ := TProgressCanvasFactory.getInstance();
@@ -676,7 +676,7 @@ begin
         end else begin
             progressCanvas_.addNormalPortion(50, 'Stopped Main Runnable');
         end;
-        Self.logUtil.putF(Self.commonStrings.END_, Self, Self.gameStrings.STOP_GAME_CANVAS_RUNNABLE_INTERFACE);
+        Self.logUtil.putF(Self.commonStrings.END_, TJava.Box(Self), Self.gameStrings.STOP_GAME_CANVAS_RUNNABLE_INTERFACE);
 end;
     
 
@@ -715,7 +715,7 @@ procedure TGameMidlet.save;
 var
   hashtable: TABHashtable<TObject, TObject>;
 begin
-        Self.logUtil.putF(Self.commonStrings.START, Self, Self.commonStrings.SAVE);
+        Self.logUtil.putF(Self.commonStrings.START, TJava.Box(Self), Self.commonStrings.SAVE);
         hashtable := Self.getCurrentStateHashtable();
         TGamePersistanceSingleton.getInstance().save(Self.abeClientInformation, hashtable);
 end;
@@ -729,9 +729,9 @@ var
   enumeration: TObject;
   key: TObject;
 begin
-        Self.logUtil.putF(Self.commonStrings.START, Self, 'getCurrentStateHashtable');
+        Self.logUtil.putF(Self.commonStrings.START, TJava.Box(Self), 'getCurrentStateHashtable');
         hashtable := TStdUtil.getInstance().createHashtable();
-        if (Self.allbinaryGameCanvasRunnableInterface) <> (TNullGameCanvasRunnable.NULL_GAME_CANVAS_RUNNABLE) then begin
+        if TJava.ToObject(Self.allbinaryGameCanvasRunnableInterface) <> TJava.ToObject(TNullGameCanvasRunnable.NULL_GAME_CANVAS_RUNNABLE) then begin
             currentHashtable := Self.allbinaryGameCanvasRunnableInterface.getCurrentStateHashtable();
             enumeration := currentHashtable.keys();
             

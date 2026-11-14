@@ -97,15 +97,15 @@ begin
         except
             on e: TEOFException do begin
             commonStrings_ := TCommonStrings.getInstance();
-            Self.logUtil.put(commonStrings_.EXCEPTION, Self, 'compare', e);
+            Self.logUtil.put(commonStrings_.EXCEPTION, TJava.Box(Self), 'compare', TJava.Box(e));
             end;
             on e: TIOException do begin
             commonStrings_ := TCommonStrings.getInstance();
-            Self.logUtil.put(commonStrings_.EXCEPTION, Self, 'compare', e);
+            Self.logUtil.put(commonStrings_.EXCEPTION, TJava.Box(Self), 'compare', TJava.Box(e));
             end;
             on e: SysUtils.Exception do begin
             commonStrings_ := TCommonStrings.getInstance();
-            Self.logUtil.put(commonStrings_.EXCEPTION, Self, 'compare', e);
+            Self.logUtil.put(commonStrings_.EXCEPTION, TJava.Box(Self), 'compare', TJava.Box(e));
             end;
         end;
         if Self.isHighestBest then begin

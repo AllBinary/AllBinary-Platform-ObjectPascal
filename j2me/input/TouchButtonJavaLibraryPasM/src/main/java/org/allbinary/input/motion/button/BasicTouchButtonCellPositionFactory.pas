@@ -98,7 +98,7 @@ var
 begin
     inherited Create;
     InitFields;
-        Self.logUtil.putF(Self.commonStrings.START, Self, Self.commonStrings.CONSTRUCTOR_);
+        Self.logUtil.putF(Self.commonStrings.START, TJava.Box(Self), Self.commonStrings.CONSTRUCTOR_);
         touchButtonLocationHelper_ := TTouchButtonLocationHelper.Create();
         cellPositionFactory_ := TCellPositionFactory.getInstance();
         cellPositionFactory_.init(touchButtonLocationHelper_.getTotalColumns(), touchButtonLocationHelper_.getTotalRows());

@@ -99,8 +99,8 @@ var
 begin
     TJava.MonitorEnter(Self);
     try
-        if (Self.filePath) = (Self.stringUtil.EMPTY_STRING) then begin
-            Self.filePath := (URLGLOBALS.getMainPath()) + (PATH_GLOBALS.getInstance().INIT_PATH);
+        if TJava.Equals(Self.filePath, Self.stringUtil.EMPTY_STRING) then begin
+            Self.filePath := (TURLGLOBALS.getMainPath()) + (TPATH_GLOBALS.getInstance().INIT_PATH);
         end;
         try
             tsUtil_ := TTsUtil.getInstance();
@@ -116,7 +116,7 @@ begin
             end;
         except
             on e: SysUtils.Exception do begin
-            Self.logUtil.put('Command Failed: ' + Self.INITFILENAME, Self, 'write', e);
+            Self.logUtil.put('Command Failed: ' + Self.INITFILENAME, TJava.Box(Self), 'write', TJava.Box(e));
             TFileStreamFactory.getInstance().delete_(Self.filePath, Self.INITFILENAME);
             raise e;
             end;
@@ -157,11 +157,11 @@ begin
     TJava.MonitorEnter(Self);
     try
         METHOD_NAME := 'readAgain';
-        if (Self.filePath) = (Self.stringUtil.EMPTY_STRING) then begin
-            Self.filePath := (URLGLOBALS.getMainPath()) + (PATH_GLOBALS.getInstance().INIT_PATH);
+        if TJava.Equals(Self.filePath, Self.stringUtil.EMPTY_STRING) then begin
+            Self.filePath := (TURLGLOBALS.getMainPath()) + (TPATH_GLOBALS.getInstance().INIT_PATH);
         end;
         try
-            Self.logUtil.putF('LicenseInitInfo File: ' + Self.INITFILENAME, Self, METHOD_NAME);
+            Self.logUtil.putF('LicenseInitInfo File: ' + Self.INITFILENAME, TJava.Box(Self), METHOD_NAME);
             fileStreamFactory_ := TFileStreamFactory.getInstance();
             iFile := fileStreamFactory_.getFileInputStreamInstance(Self.filePath, Self.INITFILENAME);
             if (iFile) <> (nil) then begin
@@ -177,7 +177,7 @@ begin
                     decodedByteArray := TDatabaseEncoder.decode(iData.readUTF());
                     licenseServerDecoded := TJava.NewString(decodedByteArray);
                     initInfo.setServer(TWeakCrypt.Create(3).decrypt(licenseServerDecoded), index);
-                    Self.logUtil.putF(NEXT_FILE + TJava.ToString(initInfo.getServer(index)), Self, METHOD_NAME);
+                    Self.logUtil.putF(NEXT_FILE + TJava.ToString(initInfo.getServer(index)), TJava.Box(Self), METHOD_NAME);
                 end;
                 Exit(initInfo);
             end else begin
@@ -186,10 +186,10 @@ begin
         except
             on e: SysUtils.Exception do begin
             try
-                Self.logUtil.put('Command Failed: ' + Self.INITFILENAME, Self, METHOD_NAME, e);
+                Self.logUtil.put('Command Failed: ' + Self.INITFILENAME, TJava.Box(Self), METHOD_NAME, TJava.Box(e));
             except
                 on e2: SysUtils.Exception do begin
-                Self.logUtil.put('LicenseInitInfo Read Retry: ' + Self.INITFILENAME, Self, 'readAgain()', e2);
+                Self.logUtil.put('LicenseInitInfo Read Retry: ' + Self.INITFILENAME, TJava.Box(Self), 'readAgain()', TJava.Box(e2));
                 end;
             end;
             raise SysUtils.Exception.Create('LicenseInitInfo Read Error: ' + Self.INITFILENAME);

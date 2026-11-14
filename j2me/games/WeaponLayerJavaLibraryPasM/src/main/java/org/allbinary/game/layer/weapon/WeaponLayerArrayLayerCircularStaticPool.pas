@@ -76,9 +76,9 @@ var
   THREE_WEAPONLAYER_ARRAY: TArray<TArray<TWeaponLayer>>;
   index: Integer;
 begin
-        WEAPONLAYER_ARRAY := TJava.NewArray<TArray<TWeaponLayer>>((Self.MAX) * (2));
-        TWO_WEAPONLAYER_ARRAY := TJava.NewArray<TArray<TWeaponLayer>>(Self.MAX);
-        THREE_WEAPONLAYER_ARRAY := TJava.NewArray<TArray<TWeaponLayer>>(Self.MAX);
+        WEAPONLAYER_ARRAY := TJava.NewArray2<TWeaponLayer>((Self.MAX) * (2), 0);
+        TWO_WEAPONLAYER_ARRAY := TJava.NewArray2<TWeaponLayer>(Self.MAX, 0);
+        THREE_WEAPONLAYER_ARRAY := TJava.NewArray2<TWeaponLayer>(Self.MAX, 0);
         for index := 0 to Self.MAX - 1 do begin
             WEAPONLAYER_ARRAY[index] := TJava.NewArray<TWeaponLayer>(1);
             TWO_WEAPONLAYER_ARRAY[index] := TJava.NewArray<TWeaponLayer>(2);

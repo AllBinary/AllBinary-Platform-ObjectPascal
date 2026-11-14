@@ -171,7 +171,7 @@ end;
 
 procedure TProgressCanvas.start;
 begin
-        Self.logUtil.putF(Self.commonStrings.START, Self, Self.commonStrings.START_METHOD_NAME);
+        Self.logUtil.putF(Self.commonStrings.START, TJava.Box(Self), Self.commonStrings.START_METHOD_NAME);
         Self.setBackground(True);
         Self.gauge.setHeight(30);
         Self.gauge.setLabel(Self.commonStrings.PLEASE_WAIT);
@@ -185,7 +185,7 @@ end;
 
 procedure TProgressCanvas.startBackground(background: Boolean);
 begin
-        Self.logUtil.putF(Self.commonStrings.START, Self, Self.START_BACKGROUND);
+        Self.logUtil.putF(Self.commonStrings.START, TJava.Box(Self), Self.START_BACKGROUND);
         Self.setBackground(background);
         Self.myFontProcessor := Self.updateMyFontProcessor;
         Self.gauge.setLabel(Self.backgroundLabel);
@@ -213,7 +213,7 @@ end;
 
 procedure TProgressCanvas.end_;
 begin
-        Self.logUtil.putF(Self.commonStrings.START, Self, Self.commonStrings.END_METHOD_NAME);
+        Self.logUtil.putF(Self.commonStrings.START, TJava.Box(Self), Self.commonStrings.END_METHOD_NAME);
         Self.gauge.setValue(Self.getMaxValue());
         Self.endActual();
         Self.paintable := TNullPaintable.getInstance();
@@ -252,7 +252,7 @@ end;
 procedure TProgressCanvas.addPortion(value: Integer; text: string; index: Integer);
 begin
         Self.setText(TStringMaker.Create().append(text).append(TSmallIntegerSingletonFactory.getInstance().getAt(index).toString()).toString());
-        TPreLogUtil.put(Self.text, Self, Self.ADD_PORTION);
+        TPreLogUtil.put(Self.text, TJava.Box(Self), Self.ADD_PORTION);
         Self.gauge.setValue((Self.gauge.getValue()) + ((Self.getMaxValue()) / (value)));
 end;
     
@@ -260,7 +260,7 @@ end;
 procedure TProgressCanvas.addNormalPortion(value: Integer; text: string);
 begin
         if (Self.text) <> (text) then begin
-            TPreLogUtil.put(text, Self, Self.ADD_PORTION);
+            TPreLogUtil.put(text, TJava.Box(Self), Self.ADD_PORTION);
         end;
         Self.setText(text);
         Self.gauge.setValue((Self.gauge.getValue()) + ((Self.getMaxValue()) / (value)));

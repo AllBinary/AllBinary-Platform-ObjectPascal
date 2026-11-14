@@ -105,7 +105,7 @@ constructor TMyCanvas.Create(name: string; childNameList: TBasicArrayList);
 begin
     inherited Create;
     InitFields;
-        Self.logUtil.putF(Self.commonStrings.CONSTRUCTOR_, Self, Self.commonStrings.CONSTRUCTOR_);
+        Self.logUtil.putF(Self.commonStrings.CONSTRUCTOR_, TJava.Box(Self), Self.commonStrings.CONSTRUCTOR_);
         Self.displayInfo.update(Self, Self.canvasStrings.CONSTRUCTOR_);
         Self.name := name;
         Self.childNameList := childNameList;
@@ -232,7 +232,7 @@ procedure TMyCanvas.pause;
 begin
     TJava.MonitorEnter(Self);
     try
-        Self.logUtil.putF(Self.commonStrings.START, Self, Self.canvasStrings.PAUSE);
+        Self.logUtil.putF(Self.commonStrings.START, TJava.Box(Self), Self.canvasStrings.PAUSE);
         Self.removePauseCommand();
         Self.addCommand(TMyCommandsFactory.getInstance().RESUME_COMMAND);
         Self.setPaused(True);
@@ -246,7 +246,7 @@ procedure TMyCanvas.unPause;
 begin
     TJava.MonitorEnter(Self);
     try
-        Self.logUtil.putF(Self.commonStrings.START, Self, Self.canvasStrings.UN_PAUSE);
+        Self.logUtil.putF(Self.commonStrings.START, TJava.Box(Self), Self.canvasStrings.UN_PAUSE);
         Self.removeCommand(TMyCommandsFactory.getInstance().RESUME_COMMAND);
         Self.addCommand(TMyCommandsFactory.getInstance().PAUSE_COMMAND);
         Self.setPaused(False);
@@ -281,7 +281,7 @@ end;
 
 procedure TMyCanvas.destroy;
 begin
-        Self.logUtil.putF('Destroyed MyCanvas', Self, 'destroy');
+        Self.logUtil.putF('Destroyed MyCanvas', TJava.Box(Self), 'destroy');
 end;
     
 

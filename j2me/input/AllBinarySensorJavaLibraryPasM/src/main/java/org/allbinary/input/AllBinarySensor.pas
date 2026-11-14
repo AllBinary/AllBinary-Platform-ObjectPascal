@@ -102,13 +102,13 @@ end;
 
 procedure TAllBinarySensor.shutdown;
 begin
-        Self.logUtil.putF(Self.commonStrings.START, Self, 'shutdown');
+        Self.logUtil.putF(Self.commonStrings.START, TJava.Box(Self), 'shutdown');
 end;
     
 
 procedure TAllBinarySensor.onSensorChange;
 begin
-        TForcedLogUtil.log(Self.commonStrings.NOT_IMPLEMENTED, Self);
+        TForcedLogUtil.log(Self.commonStrings.NOT_IMPLEMENTED, TJava.Box(Self));
 end;
 
 initialization

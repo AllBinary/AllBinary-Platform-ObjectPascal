@@ -119,7 +119,7 @@ begin
             end;
         except
             on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, Self, TGameInputStrings.getInstance().PROCESS_INPUT, e);
+            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), TGameInputStrings.getInstance().PROCESS_INPUT, TJava.Box(e));
             Exit(-1);
             end;
         end;
@@ -152,7 +152,7 @@ var
   gameCanvas: TAllBinaryGameCanvas;
 begin
         if (motionGestureEvent_) = (nil) then begin
-            Self.logUtil.putF('Exception: Bug', Self, Self.gameInputStrings.PROCESS_MOTION_INPUT);
+            Self.logUtil.putF('Exception: Bug', TJava.Box(Self), Self.gameInputStrings.PROCESS_MOTION_INPUT);
             Exit;
         end;
         touchMotionGestureFactory_ := TTouchMotionGestureFactory.getInstance();

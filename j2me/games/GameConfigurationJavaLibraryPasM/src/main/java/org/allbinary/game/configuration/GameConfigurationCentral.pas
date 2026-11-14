@@ -142,11 +142,11 @@ begin
                 value := TJava.UnboxString(TJava.ToObject(hashtable.get(TJava.Box(anyType))));
                 Self.SCALE.setValue(smallIntegerSingletonFactory_.getAt(StrToInt(value)));
             end else begin
-                Self.logUtil.putF('No Game Configuration To Load', Self, commonStrings_.LOAD);
+                Self.logUtil.putF('No Game Configuration To Load', TJava.Box(Self), commonStrings_.LOAD);
             end;
         except
             on e: SysUtils.Exception do begin
-            Self.logUtil.put(commonStrings_.EXCEPTION, Self, commonStrings_.LOAD, e);
+            Self.logUtil.put(commonStrings_.EXCEPTION, TJava.Box(Self), commonStrings_.LOAD, TJava.Box(e));
             end;
         end;
 end;

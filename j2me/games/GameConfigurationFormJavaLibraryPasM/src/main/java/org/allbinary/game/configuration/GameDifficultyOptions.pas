@@ -65,7 +65,7 @@ var
 begin
         inherited Create(commandListener_, title, backgrounBasicColor, foregroundBasicColor);
         InitFields;
-        Self.logUtil.putF(Self.commonStrings.START, Self, Self.commonStrings.CONSTRUCTOR_);
+        Self.logUtil.putF(Self.commonStrings.START, TJava.Box(Self), Self.commonStrings.CONSTRUCTOR_);
         Self.list := list;
         Self.update();
         Self.initCommands(commandListener_);
@@ -133,20 +133,20 @@ end;
 function TGameDifficultyOptions.getChoiceGroup(list: TBasicArrayList; name: string; option: Integer): TChoiceGroup;
 var
   METHOD_NAME: string;
-  NAME: string;
+  NAME_: string;
   choiceGroup_: TChoiceGroup;
   size: Integer;
   anyType: TObject;
   index: Integer;
 begin
         METHOD_NAME := 'addChoiceGroup';
-        NAME := 'Adding Choice: ';
+        NAME_ := 'Adding Choice: ';
         choiceGroup_ := TChoiceGroup.Create(name, option, TStringUtil.getInstance().getArrayInstance(), TNullImage.NULL_IMAGE_ARRAY);
         size := list.size();
         
         for index := 0 to size - 1 do begin
             anyType := TJava.Box(list.objectArray[index]);
-            Self.logUtil.putF(TStringMaker.Create().append(NAME).append(anyType.toString()).toString(), Self, METHOD_NAME);
+            Self.logUtil.putF(TStringMaker.Create().append(NAME_).append(anyType.toString()).toString(), TJava.Box(Self), METHOD_NAME);
             choiceGroup_.append(anyType.toString(), TNullImage.NULL_IMAGE);
         end;
         Exit(choiceGroup_);
@@ -177,7 +177,7 @@ var
   value: Integer;
 begin
         choiceGroup_ := TChoiceGroup(TJava.ToObject(Self.get(0)));
-        value := (choiceGroup_.getString(choiceGroup_.getSelectedIndex()));
+        value := TJava.IntValueOf(choiceGroup_.getString(choiceGroup_.getSelectedIndex()));
         Exit(value);
 end;
 

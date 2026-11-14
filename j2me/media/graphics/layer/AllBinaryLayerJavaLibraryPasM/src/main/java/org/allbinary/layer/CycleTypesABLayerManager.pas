@@ -76,7 +76,7 @@ constructor TABLayerManager.Create(layerManagerLogging: TLayerManagerLoggingBase
 begin
     inherited Create;
     InitFields;
-        Self.logUtil.putF(Self.commonStrings.START, Self, Self.commonStrings.CONSTRUCTOR_);
+        Self.logUtil.putF(Self.commonStrings.START, TJava.Box(Self), Self.commonStrings.CONSTRUCTOR_);
         Self.layerManagerLogging := layerManagerLogging;
 end;
     

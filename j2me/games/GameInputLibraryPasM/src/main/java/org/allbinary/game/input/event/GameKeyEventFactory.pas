@@ -89,7 +89,7 @@ begin
         while (TJava.PreDec(index)) >= (0) do begin
             index2 := size;
             while (TJava.PreDec(index2)) >= (0) do begin
-                Self.ARRAY_[index][index2] := TGameKeyEvent.createEvent(nullUtil_.NULL_OBJECT, index, index2);
+                Self.ARRAY_[index][index2] := TGameKeyEvent.createEvent(TJava.Box(nullUtil_.NULL_OBJECT), index, index2);
             end;
         end;
 end;

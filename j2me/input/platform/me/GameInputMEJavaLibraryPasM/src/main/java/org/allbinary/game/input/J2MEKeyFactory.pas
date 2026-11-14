@@ -47,7 +47,7 @@ type
 
 implementation
 uses
-  InputFactory;
+  GameKey, InputFactory;
 
 
 {AB:CODE}
@@ -77,7 +77,7 @@ var
   inputFactory_: TInputFactory;
   index: Integer;
 begin
-        gameKeyArray := [Self.gameKeyFactory.DOWN, Self.gameKeyFactory.FIRE, Self.gameKeyFactory.GAME_A, Self.gameKeyFactory.GAME_B, Self.gameKeyFactory.GAME_C, Self.gameKeyFactory.GAME_D, Self.gameKeyFactory.KEY_NUM0, Self.gameKeyFactory.KEY_NUM1, Self.gameKeyFactory.KEY_NUM2, Self.gameKeyFactory.KEY_NUM3, Self.gameKeyFactory.KEY_NUM4, Self.gameKeyFactory.KEY_NUM5, Self.gameKeyFactory.KEY_NUM6, Self.gameKeyFactory.KEY_NUM7, Self.gameKeyFactory.KEY_NUM8, Self.gameKeyFactory.KEY_NUM9, Self.gameKeyFactory.KEY_POUND, Self.gameKeyFactory.KEY_STAR, Self.gameKeyFactory.LEFT, Self.gameKeyFactory.LEVEL_DOWN, Self.gameKeyFactory.LEVEL_UP, Self.gameKeyFactory.NONE, Self.gameKeyFactory.RIGHT, Self.gameKeyFactory.UP];
+        gameKeyArray := TArray<TGameKey>.Create(Self.gameKeyFactory.DOWN, Self.gameKeyFactory.FIRE, Self.gameKeyFactory.GAME_A, Self.gameKeyFactory.GAME_B, Self.gameKeyFactory.GAME_C, Self.gameKeyFactory.GAME_D, Self.gameKeyFactory.KEY_NUM0, Self.gameKeyFactory.KEY_NUM1, Self.gameKeyFactory.KEY_NUM2, Self.gameKeyFactory.KEY_NUM3, Self.gameKeyFactory.KEY_NUM4, Self.gameKeyFactory.KEY_NUM5, Self.gameKeyFactory.KEY_NUM6, Self.gameKeyFactory.KEY_NUM7, Self.gameKeyFactory.KEY_NUM8, Self.gameKeyFactory.KEY_NUM9, Self.gameKeyFactory.KEY_POUND, Self.gameKeyFactory.KEY_STAR, Self.gameKeyFactory.LEFT, Self.gameKeyFactory.LEVEL_DOWN, Self.gameKeyFactory.LEVEL_UP, Self.gameKeyFactory.NONE, Self.gameKeyFactory.RIGHT, Self.gameKeyFactory.UP);
         inputFactory_ := TInputFactory.getInstance();
         index := System.Length(gameKeyArray);
         while (TJava.PreDec(index)) >= (0) do begin

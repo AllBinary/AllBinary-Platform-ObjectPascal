@@ -51,7 +51,7 @@ end;
 constructor TNoGyroSensor.Create;
 begin
     inherited Create;
-        Self.logUtil.putF(Self.commonStrings.START, Self, Self.commonStrings.CONSTRUCTOR_);
+        Self.logUtil.putF(Self.commonStrings.START, TJava.Box(Self), Self.commonStrings.CONSTRUCTOR_);
 end;
     
 

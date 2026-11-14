@@ -154,7 +154,7 @@ begin
             if (id) <> (index) then begin
                 groupSize := Self.getGroupSizeById(index);
                 if (groupSize) <> (0) then begin
-                    Self.logUtil.putF(TStringMaker.Create().append('Group Size: ').appendint(groupSize).toString(), Self, 'areAllOtherGroupsEmpty');
+                    Self.logUtil.putF(TStringMaker.Create().append('Group Size: ').appendint(groupSize).toString(), TJava.Box(Self), 'areAllOtherGroupsEmpty');
                     Exit(False);
                 end;
             end;
@@ -221,7 +221,7 @@ end;
 
 procedure TGroupLayerManagerListener.onEvent(eventObject: TAllBinaryEventObject);
 begin
-        TForcedLogUtil.log(TEventStrings.getInstance().PERFORMANCE_MESSAGE, Self);
+        TForcedLogUtil.log(TEventStrings.getInstance().PERFORMANCE_MESSAGE, TJava.Box(Self));
 end;
     
 
@@ -244,7 +244,7 @@ begin
             id := Integer(Trunc(groupInterfaceArray[index].getGroupId()));
             groupList := TBasicArrayList(TJava.ToObject(Self.list.objectArray[id]));
             if (groupList) = (nil) then begin
-                Self.logUtil.putF(TStringMaker.Create().append('id: ').appendint(id).toString(), Self, 'onCreateLayerManagerEvent');
+                Self.logUtil.putF(TStringMaker.Create().append('id: ').appendint(id).toString(), TJava.Box(Self), 'onCreateLayerManagerEvent');
             end;
             if not (groupList.contains(TJava.Box(layerInterface))) then begin
                 groupList.add(TJava.Box(layerInterface));
@@ -301,7 +301,7 @@ begin
             stringBuffer.appendint(groupList.size());
             stringBuffer.append(SPACE);
         end;
-        Self.logUtil.putF(stringBuffer.toString(), Self, 'log');
+        Self.logUtil.putF(stringBuffer.toString(), TJava.Box(Self), 'log');
 end;
 
 initialization

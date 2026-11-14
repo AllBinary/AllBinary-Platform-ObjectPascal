@@ -83,7 +83,7 @@ begin
         if (gameKeyEvent_) <> (nil) then begin
             Self.gameKeyEventList.add(TJava.Box(gameKeyEvent_));
         end else begin
-            Self.logUtil.putF('Danger Passed Null GameKeyEvent', Self, Self.commonStrings.ADD);
+            Self.logUtil.putF('Danger Passed Null GameKeyEvent', TJava.Box(Self), Self.commonStrings.ADD);
         end;
     finally
     TJava.MonitorExit(Self);

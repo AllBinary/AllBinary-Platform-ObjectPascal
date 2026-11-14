@@ -70,7 +70,7 @@ begin
   Self.NONE := TGameKeyFactory.getInstance().NONE;
   Self.EMPTY_STRING := TStringUtil.getInstance().EMPTY_STRING;
   
-  Self.keyMappingArray := TJava.NewArray<TBasicArrayList>(0);
+  Self.keyMappingArray := nil;
   Self.actionBasicColor := TBasicColorUtil.getInstance().ZERO_ARRAY;
   Self.inputBasicColorArray := TJava.NewArray2<TBasicColor>(0, 0);
   
@@ -152,7 +152,7 @@ begin
                         end;
                     end;
                 end;
-                if (updateMyFontProperties_.sepArray[index][index2]) <> (Self.EMPTY_STRING) then begin
+                if not TJava.Equals(updateMyFontProperties_.sepArray[index][index2], Self.EMPTY_STRING) then begin
                     updateMyFontProperties_.sepWidthArray[index][index2] := font_.stringWidth(updateMyFontProperties_.sepArray[index][index2]);
                 end;
             end;
@@ -180,13 +180,13 @@ var
   index: Integer;
 begin
         stringMaker_ := TStringMaker.Create();
-        Self.logUtil.putF(stringMaker_.append(TCommonLabels.getInstance().START_LABEL).append('selected GameKey: ').append(Self.stringUtil.toString(selectedGameKey)).append(' Input: ').append(Self.stringUtil.toString(selectedInput)).toString(), Self, Self.commonStrings.UPDATE);
+        Self.logUtil.putF(stringMaker_.append(TCommonLabels.getInstance().START_LABEL).append('selected GameKey: ').append(Self.stringUtil.toString(selectedGameKey)).append(' Input: ').append(Self.stringUtil.toString(selectedInput)).toString(), TJava.Box(Self), Self.commonStrings.UPDATE);
         gameKeyMapping := TPlatformInputMappingFactory.getInstance().getPersistentInputMappingInstance();
         size := System.Length(Self.gameInputMappingArray);
         keyInfo := TJava.NewArray<string>(size);
         keyMappingArray := TJava.NewArray<TBasicArrayList>(size);
         actionBasicColor := TJava.NewArray<TBasicColor>(size);
-        inputBasicColorArray := TJava.NewArray<TArray<TBasicColor>>(size);
+        inputBasicColorArray := TJava.NewArray2<TBasicColor>(size, 0);
         
         
         
@@ -201,12 +201,12 @@ begin
             end;
             if (gameKey_) = (selectedGameKey) then begin
                 stringMaker_.delete_(0, stringMaker_.length());
-                Self.logUtil.putF(stringMaker_.append('Found: selected GameKey: ').append(Self.stringUtil.toString(selectedGameKey)).toString(), Self, Self.commonStrings.UPDATE);
+                Self.logUtil.putF(stringMaker_.append('Found: selected GameKey: ').append(Self.stringUtil.toString(selectedGameKey)).toString(), TJava.Box(Self), Self.commonStrings.UPDATE);
                 actionBasicColor[index] := Self.selectedBasicColor;
                 indexOfSelectedInput := list.indexOf(TJava.Box(selectedInput));
                 if (indexOfSelectedInput) >= (0) then begin
                     stringMaker_.delete_(0, stringMaker_.length());
-                    Self.logUtil.putF(stringMaker_.append('Found: selected Input: ').append(Self.stringUtil.toString(selectedInput)).toString(), Self, Self.commonStrings.UPDATE);
+                    Self.logUtil.putF(stringMaker_.append('Found: selected Input: ').append(Self.stringUtil.toString(selectedInput)).toString(), TJava.Box(Self), Self.commonStrings.UPDATE);
                     inputBasicColorArray[index][indexOfSelectedInput] := Self.selectedBasicColor;
                 end;
             end else begin

@@ -49,7 +49,7 @@ implementation
 
 procedure TBasicColorUtil.InitFields;
 begin
-  Self.ZERO_ARRAY := TJava.NewArray<TBasicColor>(0);
+  Self.ZERO_ARRAY := nil;
   Self.ALPHA := $FF000000;
   Self.isAlpha := True;
   Self.ffOpaque := True;

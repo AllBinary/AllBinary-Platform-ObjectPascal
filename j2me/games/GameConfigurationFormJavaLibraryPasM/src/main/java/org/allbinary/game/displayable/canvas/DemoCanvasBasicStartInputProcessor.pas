@@ -60,7 +60,7 @@ begin
         
         for index := 0 to size - 1 do begin
             gameKeyEvent_ := TGameKeyEvent(TJava.ToObject(list.objectArray[index]));
-            Self.logUtil.putF(TStringMaker.Create().append('Start GameKey: ').append(TStringUtil.getInstance().toString(gameKeyEvent_)).toString(), Self, TGameInputStrings.getInstance().PROCESS_INPUT);
+            Self.logUtil.putF(TStringMaker.Create().append('Start GameKey: ').append(TStringUtil.getInstance().toString(gameKeyEvent_)).toString(), TJava.Box(Self), TGameInputStrings.getInstance().PROCESS_INPUT);
         end;
         Self.getCanvas().getCustomCommandListener().commandAction(TGameCommandsFactory.getInstance().START_COMMAND, TNullCanvas.NULL_CANVAS);
         Exit(size);

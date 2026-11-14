@@ -82,14 +82,14 @@ begin
         size := System.Length(keys);
         if Self.isOn() then begin
             for index := 0 to size - 1 do begin
-                key := keys[index].intValue();
+                key := (keys[index]);
                 if (key) <> (-1) then begin
                     gameInput_.add(Self.gameKeyEventFactory.getInstanceForKey(Self, key));
                 end;
             end;
         end else begin
             for index := 0 to size - 1 do begin
-                key := keys[index].intValue();
+                key := (keys[index]);
                 if (key) <> (-1) then begin
                     gameInput_.addForRemoval(Self.gameKeyEventFactory.getInstanceForKey(Self, key));
                 end;

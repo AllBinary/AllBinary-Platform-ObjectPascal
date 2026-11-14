@@ -86,7 +86,7 @@ end;
 
 procedure TTouchButtonsPaintableComposite.onEvent(eventObject: TAllBinaryEventObject);
 begin
-        TForcedLogUtil.log(TEventStrings.getInstance().PERFORMANCE_MESSAGE, Self);
+        TForcedLogUtil.log(TEventStrings.getInstance().PERFORMANCE_MESSAGE, TJava.Box(Self));
 end;
     
 
@@ -98,30 +98,30 @@ var
   motionGestureInput_: TMotionGestureInput;
 begin
         try
-            Self.logUtil.putF(Self.commonStrings.START, Self, 'onCompleteMotionGestureInputEvent');
+            Self.logUtil.putF(Self.commonStrings.START, TJava.Box(Self), 'onCompleteMotionGestureInputEvent');
             touchMotionGestureFactory_ := TTouchMotionGestureFactory.getInstance();
             gameKeyCompleteMotionGestureInputEvent_ := TGameKeyCompleteMotionGestureInputEvent(TJava.ToObject(completeMotionGestureInputEvent_));
             gameKey_ := gameKeyCompleteMotionGestureInputEvent_.getGameKey();
             motionGestureInput_ := completeMotionGestureInputEvent_.getMotionGestureInput();
             if (motionGestureInput_) = (touchMotionGestureFactory_.RELEASED) then begin
-                Self.logUtil.putF(Self.RELEASE, Self, Self.METHOD_NAME);
+                Self.logUtil.putF(Self.RELEASE, TJava.Box(Self), Self.METHOD_NAME);
                 Self.released := True;
                 Exit;
             end;
             if ((motionGestureInput_) = (TTouchMotionGestureFactory.getInstance().NO_MOTION)) and (not (Self.timeHelper.isTimeTNT())) then begin
-                Self.logUtil.putF(Self.FAST_REPEAT, Self, Self.METHOD_NAME);
+                Self.logUtil.putF(Self.FAST_REPEAT, TJava.Box(Self), Self.METHOD_NAME);
                 Exit;
             end;
             if not (Self.released) then begin
-                Self.logUtil.putF(Self.IGNORE, Self, Self.METHOD_NAME);
+                Self.logUtil.putF(Self.IGNORE, TJava.Box(Self), Self.METHOD_NAME);
                 Exit;
             end;
             Self.released := False;
-            Self.logUtil.putF(TStringMaker.Create().append('GameKey: ').append(TStringUtil.getInstance().toString(gameKey_)).append(' MotionGestureInput: ').append(TStringUtil.getInstance().toString(motionGestureInput_)).toString(), Self, Self.METHOD_NAME);
+            Self.logUtil.putF(TStringMaker.Create().append('GameKey: ').append(TStringUtil.getInstance().toString(gameKey_)).append(' MotionGestureInput: ').append(TStringUtil.getInstance().toString(motionGestureInput_)).toString(), TJava.Box(Self), Self.METHOD_NAME);
             Self.inputMappingInterface.processInputMapping(gameKey_, motionGestureInput_);
         except
             on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, Self, Self.METHOD_NAME, e);
+            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.METHOD_NAME, TJava.Box(e));
             end;
         end;
 end;

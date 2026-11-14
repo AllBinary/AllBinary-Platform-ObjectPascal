@@ -95,7 +95,7 @@ constructor TAllBinaryMidlet.Create;
 begin
     inherited Create;
     InitFields;
-        Self.logUtil.putF(Self.commonStrings.CONSTRUCTOR_, Self, 'AllBinaryMidlet::AllBinaryMidlet');
+        Self.logUtil.putF(Self.commonStrings.CONSTRUCTOR_, TJava.Box(Self), 'AllBinaryMidlet::AllBinaryMidlet');
 end;
     
 
@@ -107,7 +107,7 @@ begin
         title := TStringUtil.getInstance().EMPTY_STRING;
         if (newDisplay) <> (TNullCanvas.NULL_CANVAS) then begin
             title := newDisplay.getTitle();
-            Self.logUtil.putF(TStringMaker.Create().append(Self.SETTING_).append(title).append(Self._DISPLAY_).append(TStringUtil.getInstance().toString(newDisplay)).toString(), Self, Self.SET_DISPLAY);
+            Self.logUtil.putF(TStringMaker.Create().append(Self.SETTING_).append(title).append(Self._DISPLAY_).append(TStringUtil.getInstance().toString(newDisplay)).toString(), TJava.Box(Self), Self.SET_DISPLAY);
         end;
         display_ := Self.getDisplay();
         display_.setCurrent(newDisplay);
@@ -141,13 +141,13 @@ end;
 // throws MIDletStateChangeException
 procedure TAllBinaryMidlet.startApp;
 begin
-        TForcedLogUtil.log(TEventStrings.getInstance().PERFORMANCE_MESSAGE, Self);
+        TForcedLogUtil.log(TEventStrings.getInstance().PERFORMANCE_MESSAGE, TJava.Box(Self));
 end;
     
 
 procedure TAllBinaryMidlet.pauseApp;
 begin
-        TForcedLogUtil.log(TEventStrings.getInstance().PERFORMANCE_MESSAGE, Self);
+        TForcedLogUtil.log(TEventStrings.getInstance().PERFORMANCE_MESSAGE, TJava.Box(Self));
 end;
     
 
@@ -162,12 +162,12 @@ var
 begin
         METHOD_NAME := 'AllBinaryMidlet::destroyApp';
         try
-            Self.logUtil.putF(Self.commonStrings.START, Self, METHOD_NAME);
-            TPreLogUtil.put(TMemory.getInfo(), Self, METHOD_NAME);
+            Self.logUtil.putF(Self.commonStrings.START, TJava.Box(Self), METHOD_NAME);
+            TPreLogUtil.put(TMemory.getInfo(), TJava.Box(Self), METHOD_NAME);
             Self.setDestroyed(True);
         except
             on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, Self, METHOD_NAME, e);
+            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), METHOD_NAME, TJava.Box(e));
             end;
         end;
 end;
@@ -176,7 +176,7 @@ end;
 // throws Exception
 procedure TAllBinaryMidlet.setStartStateHashtable(hashtable: TABHashtable<TObject, TObject>);
 begin
-        Self.logUtil.putF(TStringMaker.Create().append(TCommonLabels.getInstance().START_LABEL).append(TStringUtil.getInstance().toString(hashtable)).toString(), Self, 'setStartStateHashtable');
+        Self.logUtil.putF(TStringMaker.Create().append(TCommonLabels.getInstance().START_LABEL).append(TStringUtil.getInstance().toString(hashtable)).toString(), TJava.Box(Self), 'setStartStateHashtable');
         Self.hashtable := hashtable;
 end;
     
@@ -184,7 +184,7 @@ end;
 // throws Exception
 function TAllBinaryMidlet.getStartStateHashtable: TABHashtable<TObject, TObject>;
 begin
-        Self.logUtil.putF(TStringMaker.Create().append(TCommonLabels.getInstance().START_LABEL).append(TStringUtil.getInstance().toString(Self.hashtable)).toString(), Self, 'getStartStateHashtable');
+        Self.logUtil.putF(TStringMaker.Create().append(TCommonLabels.getInstance().START_LABEL).append(TStringUtil.getInstance().toString(Self.hashtable)).toString(), TJava.Box(Self), 'getStartStateHashtable');
         Exit(Self.hashtable);
 end;
     
@@ -192,7 +192,7 @@ end;
 // throws Exception
 function TAllBinaryMidlet.getCurrentStateHashtable: TABHashtable<TObject, TObject>;
 begin
-        Self.logUtil.putF(Self.commonStrings.START, Self, 'getStateHashtable');
+        Self.logUtil.putF(Self.commonStrings.START, TJava.Box(Self), 'getStateHashtable');
         Exit(TStdUtil.getInstance().NULL_TABLE);
 end;
     

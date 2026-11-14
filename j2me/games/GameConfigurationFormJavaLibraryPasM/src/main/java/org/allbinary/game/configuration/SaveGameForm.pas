@@ -71,7 +71,7 @@ var
 begin
         inherited Create(commandListener_, title, backgrounBasicColor, foregroundBasicColor);
         InitFields;
-        Self.logUtil.putF(Self.commonStrings.START, Self, Self.commonStrings.CONSTRUCTOR_);
+        Self.logUtil.putF(Self.commonStrings.START, TJava.Box(Self), Self.commonStrings.CONSTRUCTOR_);
         timeString := IntToStr(TABSystemWrapper.getInstance().currentTimeMillis());
         Self.meUtil.appendItem(Self, TTextField.Create('Name: ', timeString, 30, TTextField.ANY));
         Self.initCommands(commandListener_);

@@ -23,12 +23,17 @@ unit FeatureResourceAnimationInterfaceFactoryInterface;
 interface
 
 uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, GameFeatureControlledInterface, RectangleResourceFactoryInterface, ABHashtable, ResourceAnimationInterfaceFactoryInterface;
+  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, GameFeatureControlledInterface, RectangleResourceFactoryInterface, ABHashtable, Rectangle, ResourceAnimationInterfaceFactoryInterface;
 
 type
   {AB:TYPES}
   IFeatureResourceAnimationInterfaceFactoryInterface = interface(IResourceAnimationInterfaceFactoryInterface) ['IFeatureResourceAnimationInterfaceFactoryInterface']
         function getHashtable: TABHashtable<TObject, TObject>;
+        function getRectangle(resource: string): TRectangle; overload;
+        function getRectangleArrayOfArrays(resource: string): TArray<TArray<TRectangle>>; overload;
+        procedure init(level: Integer); overload;
+        function isFeature: Boolean; overload;
+        function isLoadingLevel(level: Integer): Boolean; overload;
   end;
   TFeatureResourceAnimationInterfaceFactoryInterface = IFeatureResourceAnimationInterfaceFactoryInterface;
 

@@ -88,7 +88,7 @@ begin
         for index := 0 to size - 1 do begin
             gameFeature := TFeature(TJava.ToObject(list.objectArray[index]));
             stringMaker_.delete_(0, stringMaker_.length());
-            Self.logUtil.putF(stringMaker_.append(name).append(ADD_CHOICE).append(gameFeature.toString()).toString(), Self, GET_CHOICE_GROUP);
+            Self.logUtil.putF(stringMaker_.append(name).append(ADD_CHOICE).append(gameFeature.toString()).toString(), TJava.Box(Self), GET_CHOICE_GROUP);
             choiceGroup_.append(gameFeature.toString(), TNullImage.NULL_IMAGE);
             if features_.isFeature(gameFeature) then begin
                 choiceGroup_.setSelectedIndex(index, True);
@@ -117,7 +117,7 @@ begin
         for index := 0 to size - 1 do begin
             name := TJava.UnboxString(TJava.ToObject(objectArray[index]));
             stringMaker_.delete_(0, stringMaker_.length());
-            Self.logUtil.putF(stringMaker_.append(ADDING_CHOICE_GROUP).append(name).toString(), Self, ADD_CHOICE_GROUP);
+            Self.logUtil.putF(stringMaker_.append(ADDING_CHOICE_GROUP).append(name).toString(), TJava.Box(Self), ADD_CHOICE_GROUP);
             Self.meUtil.appendItem(form, Self.getChoiceGroup(hashtable, name, option));
         end;
 end;

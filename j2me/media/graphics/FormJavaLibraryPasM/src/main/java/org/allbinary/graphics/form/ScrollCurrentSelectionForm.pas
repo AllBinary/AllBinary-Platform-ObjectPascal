@@ -105,7 +105,7 @@ begin
             Self.preItemIndexDx := TVerticalItemIndexDx.Create(Self);
         end else if (formType_) = (formTypeFactory_.NULL_FORM_TYPE) then begin
         end else begin
-            Self.logUtil.putF(formTypeFactory_.UNK, Self, Self.commonStrings.INIT);
+            Self.logUtil.putF(formTypeFactory_.UNK, TJava.Box(Self), Self.commonStrings.INIT);
         end;
         Self.myFontProcessor := Self.updateMyFontProcessor;
 end;
@@ -259,7 +259,7 @@ begin
             end;
         except
             on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, Self, Self.canvasStrings.PAINT, e);
+            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.canvasStrings.PAINT, TJava.Box(e));
             end;
         end;
 end;

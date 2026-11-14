@@ -23,7 +23,7 @@ unit LayerInterface;
 interface
 
 uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, GroupInterfaceCompositeInterface, PaintableInterface, NamedInterface, PositionInterface;
+  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, GroupInterfaceCompositeInterface, PaintableInterface, Graphics, Group, NamedInterface, PositionInterface;
 
 type
   {AB:TYPES}
@@ -46,6 +46,10 @@ type
         function implmentsGameInputInterface: Boolean;
         function implmentsArtificialIntelligenceCompositeInterface: Boolean;
         function getType: Integer;
+        procedure paint(graphics_: TGraphics); overload;
+        procedure paintThreed(graphics_: TGraphics); overload;
+        function getGroupInterface: TArray<TGroup>; overload;
+        procedure setPosition(x: Integer; y: Integer; z: Integer); overload;
   end;
   TLayerInterface = ILayerInterface;
 

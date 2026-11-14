@@ -71,7 +71,7 @@ end;
 
 procedure TGameNotificationHud.onEvent(eventObject: TAllBinaryEventObject);
 begin
-        TForcedLogUtil.log(TEventStrings.getInstance().PERFORMANCE_MESSAGE, Self);
+        TForcedLogUtil.log(TEventStrings.getInstance().PERFORMANCE_MESSAGE, TJava.Box(Self));
 end;
     
 
@@ -80,7 +80,7 @@ procedure TGameNotificationHud.onGameNotificationEvent(gameNotificationEvent_: T
 begin
         if (Self.lastGameNotificationEvent) <> (gameNotificationEvent_) then begin
             Self.lastGameNotificationEvent := gameNotificationEvent_;
-            Self.logUtil.putF(gameNotificationEvent_.getString(), Self, Self.METHOD_NAME);
+            Self.logUtil.putF(gameNotificationEvent_.getString(), TJava.Box(Self), Self.METHOD_NAME);
         end;
         Self.add(gameNotificationEvent_.getString(), gameNotificationEvent_.getSeconds(), gameNotificationEvent_.getBasicColorP(), gameNotificationEvent_.getPermanent());
 end;

@@ -113,7 +113,7 @@ begin
             on e: SysUtils.Exception do begin
             commonStrings_ := TCommonStrings.getInstance();
             canvasStrings_ := TCanvasStrings.getInstance();
-            Self.logUtil.put(commonStrings_.EXCEPTION, Self, canvasStrings_.PAINT, e);
+            Self.logUtil.put(commonStrings_.EXCEPTION, TJava.Box(Self), canvasStrings_.PAINT, TJava.Box(e));
             end;
         end;
 end;

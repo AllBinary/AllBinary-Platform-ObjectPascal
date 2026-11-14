@@ -60,7 +60,7 @@ constructor TPooledThread.Create(threadPool_: TThreadPool);
 begin
         inherited Create(True);
         InitFields;
-        Self.logUtil.putF(Self.commonStrings.CONSTRUCTOR_, Self, Self.commonStrings.CONSTRUCTOR_);
+        Self.logUtil.putF(Self.commonStrings.CONSTRUCTOR_, TJava.Box(Self), Self.commonStrings.CONSTRUCTOR_);
         Self.threadPool := threadPool_;
 end;
     
@@ -80,11 +80,11 @@ begin
             except
                 on ex: SysUtils.Exception do begin
                 logUtil_ := TLogUtil.getInstance();
-                logUtil_.putF(Self.INTERRUPT_EXCEPTION, Self, Self.commonStrings.RUN);
+                logUtil_.putF(Self.INTERRUPT_EXCEPTION, TJava.Box(Self), Self.commonStrings.RUN);
                 Break;
                 end;
             end;
-            if (task2) = (Self.threadObjectUtil.NULL_PRIORITY_RUNNABLE) then begin
+            if TJava.ToObject(task2) = TJava.ToObject(Self.threadObjectUtil.NULL_PRIORITY_RUNNABLE) then begin
                 Break;
             end;
             try
@@ -94,7 +94,7 @@ begin
             except
                 on e: SysUtils.Exception do begin
                 logUtil_ := TLogUtil.getInstance();
-                logUtil_.put(TStringMaker.Create().append(Self.commonStrings.EXCEPTION_LABEL).append(TStringUtil.getInstance().toString(TJava.ToObject(task2))).toString(), Self, Self.commonStrings.RUN, e);
+                logUtil_.put(TStringMaker.Create().append(Self.commonStrings.EXCEPTION_LABEL).append(TStringUtil.getInstance().toString(TJava.ToObject(task2))).toString(), TJava.Box(Self), Self.commonStrings.RUN, TJava.Box(e));
                 end;
             end;
         end;

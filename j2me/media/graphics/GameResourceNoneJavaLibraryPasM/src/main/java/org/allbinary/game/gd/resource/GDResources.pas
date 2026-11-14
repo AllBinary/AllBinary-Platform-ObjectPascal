@@ -43,7 +43,7 @@ implementation
 
 procedure TGDResources.InitFields;
 begin
-  Self.resourceStringArray := [];
+  Self.resourceStringArray := nil;
   
 end;
 

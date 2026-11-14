@@ -45,7 +45,7 @@ uses
 
 procedure TAboutPaintableFactory.InitFields;
 begin
-  Self.paintableArray := [TNullPaintable.getInstance()];
+  Self.paintableArray := TArray<TPaintable>.Create(TNullPaintable.getInstance());
 end;
     
 
@@ -62,8 +62,8 @@ var
 begin
     inherited Create;
     InitFields;
-        INFO := ['Built with the', 'AllBinary Platform', TStringUtil.getInstance().EMPTY_STRING, 'Comments or Questions:', 'support@allbinary.com'];
-        DEVELOPERS := ['Developed By:', 'Travis Berthelot'];
+        INFO := TArray<string>.Create('Built with the', 'AllBinary Platform', TStringUtil.getInstance().EMPTY_STRING, 'Comments or Questions:', 'support@allbinary.com');
+        DEVELOPERS := TArray<string>.Create('Developed By:', 'Travis Berthelot');
         Self.paintableArray := TAboutPaintable.getInstance(INFO, DEVELOPERS).getPaintableArrayInstance();
 end;
 

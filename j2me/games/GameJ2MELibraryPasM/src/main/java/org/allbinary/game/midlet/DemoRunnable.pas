@@ -72,17 +72,17 @@ end;
 procedure TDemoRunnable.run;
 begin
         try
-            Self.logUtil.putF(TStringMaker.Create().append(TCommonLabels.getInstance().START_LABEL).append('GameCanvasRunnableInterface').toString(), Self, Self.commonStrings.RUN);
+            Self.logUtil.putF(TStringMaker.Create().append(TCommonLabels.getInstance().START_LABEL).append('GameCanvasRunnableInterface').toString(), TJava.Box(Self), Self.commonStrings.RUN);
             Self.demoGameMidlet.commandAction(TMyCommandsFactory.getInstance().SET_DISPLAYABLE, TProgressCanvasFactory.getInstance());
             Self.demoGameMidlet.setGameCanvasRunnableInterface(Self.demoGameMidlet.createDemoGameCanvasRunnableInterface());
             Self.demoGameMidlet.demoSetup();
             TDemoGameMidletEventHandler.getInstance().fireEvent(Self.startDemoGameMidletEvent);
             Self.demoGameMidlet.startGameCanvasRunnableInterface();
             Self.demoGameMidlet.postDemoSetup();
-            Self.logUtil.putF(Self.commonStrings.END_RUNNABLE, Self, Self.commonStrings.RUN);
+            Self.logUtil.putF(Self.commonStrings.END_RUNNABLE, TJava.Box(Self), Self.commonStrings.RUN);
         except
             on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, Self, Self.commonStrings.RUN, e);
+            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.commonStrings.RUN, TJava.Box(e));
             end;
         end;
 end;

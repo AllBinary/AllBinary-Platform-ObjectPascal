@@ -86,7 +86,7 @@ begin
         specialMessage := log_.getSpecialMessage();
         anyType := TJava.Box(log_.getObject());
         functionName := log_.getFunctionName();
-        Self.put(specialMessage, anyType, functionName, exception);
+        Self.put(specialMessage, TJava.Box(anyType), functionName, TJava.Box(exception));
 end;
     
 
@@ -109,7 +109,7 @@ begin
         if (TJava.ToObject(anyType).ClassType.ClassName) <> ('') then begin
             className := TJava.NewString(TJava.ToObject(anyType).ClassType.ClassName);
         end;
-        message := Self.logFormatUtil.get(className, functionName, specialMessage, exception);
+        message := Self.logFormatUtil.get(className, functionName, specialMessage, TJava.Box(exception));
         Write(Self.LOG_SUCCESS);
         WriteLn(message);
 end;

@@ -71,7 +71,7 @@ begin
         except
             on e: SysUtils.Exception do begin
             commonStrings_ := TCommonStrings.getInstance();
-            TPreLogUtil.putOE(commonStrings_.EXCEPTION, Self, 'AbCrypt(alg,key)', e);
+            TPreLogUtil.putOE(commonStrings_.EXCEPTION, TJava.Box(Self), 'AbCrypt(alg,key)', TJava.Box(e));
             end;
         end;
         Self.key := key;
@@ -84,7 +84,7 @@ begin
             Exit(Self.mutilate(array_));
         except
             on e: SysUtils.Exception do begin
-            TPreLogUtil.putOE('Encrypt Failed', Self, 'encrypt', e);
+            TPreLogUtil.putOE('Encrypt Failed', TJava.Box(Self), 'encrypt', TJava.Box(e));
             Exit(TNullUtil.getInstance().NULL_BYTE_ARRAY);
             end;
         end;
@@ -97,7 +97,7 @@ begin
             Exit(Self.mutilate(array_));
         except
             on e: SysUtils.Exception do begin
-            TPreLogUtil.putOE('decrypt Failed', Self, 'decrypt', e);
+            TPreLogUtil.putOE('decrypt Failed', TJava.Box(Self), 'decrypt', TJava.Box(e));
             Exit(TNullUtil.getInstance().NULL_BYTE_ARRAY);
             end;
         end;

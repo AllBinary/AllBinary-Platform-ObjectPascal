@@ -68,16 +68,16 @@ var
 begin
         tookTooLong := False;
         WAITING_FOR := 'Waiting for: ';
-        TPreLogUtil.put(TStringMaker.Create().append(WAITING_FOR).append(TStringUtil.getInstance().toString(visitorInterface)).toString(), Self, Self.commonStrings.VISIT);
+        TPreLogUtil.put(TStringMaker.Create().append(WAITING_FOR).append(TStringUtil.getInstance().toString(visitorInterface)).toString(), TJava.Box(Self), Self.commonStrings.VISIT);
         index := 0;
         while Self.visitBool(visitorInterface) do begin
             if ((index) mod (10)) = (0) then begin
-                TPreLogUtil.put(TStringMaker.Create().append(WAITING_FOR).appendint(index).toString(), Self, Self.commonStrings.VISIT);
+                TPreLogUtil.put(TStringMaker.Create().append(WAITING_FOR).appendint(index).toString(), TJava.Box(Self), Self.commonStrings.VISIT);
             end;
             Inc(index);
             TJava.MonitorEnter(Self);
             try
-                Self.threadObjectUtil.waitObjectFor(Self, 1800);
+                Self.threadObjectUtil.waitObjectFor(TJava.Box(Self), 1800);
             finally
                 TJava.MonitorExit(Self);
             end;
@@ -87,9 +87,9 @@ begin
             end;
         end;
         if tookTooLong then begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, Self, Self.commonStrings.VISIT, SysUtils.Exception.Create(TStringMaker.Create().append('Took Too Long: ').append(TStringUtil.getInstance().toString(visitorInterface)).toString()));
+            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.commonStrings.VISIT, TJava.Box(SysUtils.Exception.Create(TStringMaker.Create().append('Took Too Long: ').append(TStringUtil.getInstance().toString(visitorInterface)).toString())));
         end else begin
-            TPreLogUtil.put(timeDelayHelper_.toString(), Self, Self.commonStrings.VISIT);
+            TPreLogUtil.put(timeDelayHelper_.toString(), TJava.Box(Self), Self.commonStrings.VISIT);
         end;
 end;
     
@@ -99,7 +99,7 @@ procedure TStupidTimer.stopWaiting;
 begin
         TJava.MonitorEnter(Self);
         try
-            Self.threadObjectUtil.notifyObject(Self);
+            Self.threadObjectUtil.notifyObject(TJava.Box(Self));
         finally
             TJava.MonitorExit(Self);
         end;

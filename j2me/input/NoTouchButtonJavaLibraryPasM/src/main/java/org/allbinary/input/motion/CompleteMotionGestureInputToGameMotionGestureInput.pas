@@ -64,7 +64,7 @@ end;
 
 procedure TCompleteMotionGestureInputToGameMotionGestureInput.init;
 begin
-        TPreLogUtil.put('No Touch Button = No Compound Motion Gestures', Self, Self.commonStrings.INIT);
+        TPreLogUtil.put('No Touch Button = No Compound Motion Gestures', TJava.Box(Self), Self.commonStrings.INIT);
 end;
 
 initialization

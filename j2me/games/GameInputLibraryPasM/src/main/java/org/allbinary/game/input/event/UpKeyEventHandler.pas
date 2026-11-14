@@ -115,7 +115,7 @@ end;
 initialization
   {AB:INITIALIZATION}
   TUpKeyEventHandler.instance := TUpKeyEventHandler.Create();
-  TUpKeyEventHandler.instanceArray := [TUpKeyEventHandlerBase.Create(), TUpKeyEventHandlerBase.Create(), TUpKeyEventHandlerBase.Create(), TUpKeyEventHandlerBase.Create(), TUpKeyEventHandlerBase.Create(), TUpKeyEventHandlerBase.Create()];
+  TUpKeyEventHandler.instanceArray := TArray<TUpKeyEventHandlerBase>.Create(TUpKeyEventHandlerBase.Create(), TUpKeyEventHandlerBase.Create(), TUpKeyEventHandlerBase.Create(), TUpKeyEventHandlerBase.Create(), TUpKeyEventHandlerBase.Create(), TUpKeyEventHandlerBase.Create());
   {AB:END}
 
 end.

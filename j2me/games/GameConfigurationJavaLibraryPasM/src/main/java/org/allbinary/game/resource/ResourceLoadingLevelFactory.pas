@@ -55,7 +55,7 @@ begin
   Self.LEVEL := TResourceLoadingLevel.Create('Level', (High(Integer)) - (99));
   Self.MAX_LEVEL := TResourceLoadingLevel.Create('Max Level', (High(Integer)) - (100));
   Self.LOAD_ALL := TResourceLoadingLevel.Create('Load All', -1);
-  Self.RESOURCE_LOADING_LEVEL_ARRAY := [Self.LOAD_ALL, Self.MAX_LEVEL, Self.LEVEL, Self.LOAD_GAME, Self.LOAD_TOUCH, Self.LOAD_EARLY];
+  Self.RESOURCE_LOADING_LEVEL_ARRAY := TArray<TResourceLoadingLevel>.Create(Self.LOAD_ALL, Self.MAX_LEVEL, Self.LEVEL, Self.LOAD_GAME, Self.LOAD_TOUCH, Self.LOAD_EARLY);
 end;
 
 constructor TResourceLoadingLevelFactory.Create;

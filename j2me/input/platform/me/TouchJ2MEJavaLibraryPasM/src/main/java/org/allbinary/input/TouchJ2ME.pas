@@ -75,7 +75,7 @@ begin
         except
             on e: SysUtils.Exception do begin
             commonStrings_ := TCommonStrings.getInstance();
-            Self.logUtil.put(commonStrings_.EXCEPTION, Self, 'pointerDragged', e);
+            Self.logUtil.put(commonStrings_.EXCEPTION, TJava.Box(Self), 'pointerDragged', TJava.Box(e));
             end;
         end;
 end;
@@ -90,7 +90,7 @@ begin
         except
             on e: SysUtils.Exception do begin
             commonStrings_ := TCommonStrings.getInstance();
-            Self.logUtil.put(commonStrings_.EXCEPTION, Self, 'pointerPressed', e);
+            Self.logUtil.put(commonStrings_.EXCEPTION, TJava.Box(Self), 'pointerPressed', TJava.Box(e));
             end;
         end;
 end;
@@ -105,7 +105,7 @@ begin
         except
             on e: SysUtils.Exception do begin
             commonStrings_ := TCommonStrings.getInstance();
-            Self.logUtil.put(commonStrings_.EXCEPTION, Self, 'pointerReleased', e);
+            Self.logUtil.put(commonStrings_.EXCEPTION, TJava.Box(Self), 'pointerReleased', TJava.Box(e));
             end;
         end;
 end;

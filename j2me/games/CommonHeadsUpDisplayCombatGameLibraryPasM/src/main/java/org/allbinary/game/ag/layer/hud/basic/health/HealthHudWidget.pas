@@ -115,7 +115,7 @@ procedure THealthHudWidget.onHealthChange;
 begin
         Self.max := (TJava.Divide(Self.healthInterface.getHealth(), Self.healthScale));
         Self.timeDelayHelper := TNoTimeDelayHelper.SINGLETON;
-        if ((Self.max) <= (1)) and (not (Self.healthInterface.Finished)) then begin
+        if ((Self.max) <= (1)) and (Self.healthInterface.isAlive()) then begin
             Self.max := 1;
             if ((Self.healthScale) - (Self.healthInterface.getHealth())) > ((((Self.healthScale) * (2))) div (3)) then begin
                 Self.timeDelayHelper := Self.slowBeatTimeDelayHelper;

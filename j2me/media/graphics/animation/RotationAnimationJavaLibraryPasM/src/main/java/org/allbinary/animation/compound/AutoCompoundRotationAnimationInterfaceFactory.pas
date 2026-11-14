@@ -50,13 +50,13 @@ end;
 
 function TAutoCompoundRotationAnimationInterfaceFactory.createArray(size: Integer): TArray<TAnimation>;
 begin
-        Exit(TJava.NewArray<TRotationAnimation>(size));
+        Exit(TJava.NewArray<TAnimation>(size));
 end;
     
 
 function TAutoCompoundRotationAnimationInterfaceFactory.createAnimation(animationInterfaceArray: TArray<TAnimation>): TAnimation;
 begin
-        Exit(TAutoCompoundRotationAnimation.Create(TJava.UnboxArray<TRotationAnimation>(TJava.ToObject(animationInterfaceArray)), Self.animationBehaviorFactory.getOrCreateInstance()));
+        Exit(TAutoCompoundRotationAnimation.Create(TArray<TRotationAnimation>(animationInterfaceArray), Self.animationBehaviorFactory.getOrCreateInstance()));
 end;
 
 initialization

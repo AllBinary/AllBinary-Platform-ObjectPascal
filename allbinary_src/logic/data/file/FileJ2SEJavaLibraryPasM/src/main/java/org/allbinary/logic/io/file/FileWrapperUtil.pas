@@ -60,8 +60,8 @@ begin
             Exit(abFileArray);
         except
             on e: SysUtils.Exception do begin
-            TPreLogUtil.putSE('Exception Wrapping Files', 'FileWrapperUtil', 'wrapFiles', e);
-            Exit(TJava.NewArray<TAbFile>(0));
+            TPreLogUtil.putSE('Exception Wrapping Files', 'FileWrapperUtil', 'wrapFiles', TJava.Box(e));
+            Exit(nil);
             end;
         end;
 end;
@@ -73,7 +73,7 @@ begin
             Exit(TAbFile.Create(file_));
         except
             on e: SysUtils.Exception do begin
-            TPreLogUtil.putSE('Exception Wrapping File', 'FileWrapperUtil', 'wrapFile', e);
+            TPreLogUtil.putSE('Exception Wrapping File', 'FileWrapperUtil', 'wrapFile', TJava.Box(e));
             Exit(TAbFile.NULL_FILE);
             end;
         end;

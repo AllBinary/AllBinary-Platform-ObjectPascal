@@ -46,20 +46,20 @@ constructor TCompoundRotationAnimationInterfaceFactory.Create(basicAnimationInte
 begin
         inherited Create(basicAnimationInterfaceFactoryInterfaceArray, animationBehaviorFactory_);
         if (animationBehaviorFactory_) = (TAnimationBehaviorFactory.getInstance()) then begin
-            TForcedLogUtil.log('Using default AnimationBehaviorFactory with IndexedAnimationFactory', Self);
+            TForcedLogUtil.log('Using default AnimationBehaviorFactory with IndexedAnimationFactory', TJava.Box(Self));
         end;
 end;
     
 
 function TCompoundRotationAnimationInterfaceFactory.createArray(size: Integer): TArray<TAnimation>;
 begin
-        Exit(TJava.NewArray<TRotationAnimation>(size));
+        Exit(TJava.NewArray<TAnimation>(size));
 end;
     
 
 function TCompoundRotationAnimationInterfaceFactory.createAnimation(animationInterfaceArray: TArray<TAnimation>): TAnimation;
 begin
-        Exit(TCompoundRotationAnimation.Create(TJava.UnboxArray<TRotationAnimation>(TJava.ToObject(animationInterfaceArray)), Self.animationBehaviorFactory.getOrCreateInstance()));
+        Exit(TCompoundRotationAnimation.Create(TArray<TRotationAnimation>(animationInterfaceArray), Self.animationBehaviorFactory.getOrCreateInstance()));
 end;
 
 initialization

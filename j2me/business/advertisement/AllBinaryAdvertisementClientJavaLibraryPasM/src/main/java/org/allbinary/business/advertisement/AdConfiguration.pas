@@ -66,7 +66,7 @@ end;
 
 function TAdConfiguration.getValidAdSpots: TArray<TDirection>;
 begin
-        Exit(TJava.NewArray<TDirection>(0));
+        Exit(nil);
 end;
     
 

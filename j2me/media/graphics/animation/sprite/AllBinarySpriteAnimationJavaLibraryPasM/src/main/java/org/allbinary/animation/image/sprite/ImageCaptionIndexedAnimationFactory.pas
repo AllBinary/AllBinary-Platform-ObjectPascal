@@ -86,7 +86,7 @@ begin
     inherited Create;
     InitFields;
         if (animationBehaviorFactory_) = (TAnimationBehaviorFactory.getInstance()) then begin
-            TForcedLogUtil.log('Using default AnimationBehaviorFactory with IndexedAnimationFactory', Self);
+            TForcedLogUtil.log('Using default AnimationBehaviorFactory with IndexedAnimationFactory', TJava.Box(Self));
         end;
         Self.captionImage := captionImage;
         Self.spriteMovieImage := spriteMovieImage;

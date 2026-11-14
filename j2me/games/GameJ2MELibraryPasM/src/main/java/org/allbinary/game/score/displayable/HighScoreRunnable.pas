@@ -79,18 +79,18 @@ begin
             stringMaker_ := TStringMaker.Create();
             systemWrapper := TABSystemWrapper.getInstance();
             currentTimeMillis := systemWrapper.currentTimeMillis();
-            logUtil_.putF(stringMaker_.append('HighScoresCanvas - Request repaint to be sure: ').appendlong(currentTimeMillis).toString(), Self, commonStrings_.RUN);
+            logUtil_.putF(stringMaker_.append('HighScoresCanvas - Request repaint to be sure: ').appendlong(currentTimeMillis).toString(), TJava.Box(Self), commonStrings_.RUN);
             highScoresCanvas_.repaintBehavior.onChangeRepaint(highScoresCanvas_);
             if not (isHTML) then begin
                 while not (highScoresCanvas_.hasPainted) do begin
                 end;
             end;
             stringMaker_.delete_(0, stringMaker_.length());
-            logUtil_.putF(stringMaker_.append('HighScoresCanvas - Now that the canvas has completed repaint go ahead and fetch the scores: ').appendlong(currentTimeMillis).toString(), Self, commonStrings_.RUN);
+            logUtil_.putF(stringMaker_.append('HighScoresCanvas - Now that the canvas has completed repaint go ahead and fetch the scores: ').appendlong(currentTimeMillis).toString(), TJava.Box(Self), commonStrings_.RUN);
             highScoresCanvas_.executeUpdate();
         except
             on e: SysUtils.Exception do begin
-            logUtil_.put(commonStrings_.EXCEPTION, Self, commonStrings_.RUN, e);
+            logUtil_.put(commonStrings_.EXCEPTION, TJava.Box(Self), commonStrings_.RUN, TJava.Box(e));
             end;
         end;
 end;

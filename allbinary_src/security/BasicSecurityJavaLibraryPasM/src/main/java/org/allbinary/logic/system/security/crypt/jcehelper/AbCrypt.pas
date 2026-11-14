@@ -83,7 +83,7 @@ begin
                 TSecurity.addProvider(TBouncyCastleProvider.Create());
             except
                 on e: SysUtils.Exception do begin
-                TPreLogUtil.putOE(commonStrings_.EXCEPTION, Self, commonStrings_.INIT, e);
+                TPreLogUtil.putOE(commonStrings_.EXCEPTION, TJava.Box(Self), commonStrings_.INIT, TJava.Box(e));
                 end;
             end;
             key := Self.tsUtil.getByteArray(keyAsString);
@@ -94,7 +94,7 @@ begin
             Self.secretComposite := TSecretComposite.Create(secretKey_, cipher_, key);
         except
             on e: SysUtils.Exception do begin
-            TPreLogUtil.putOE('init Failed', Self, commonStrings_.INIT, e);
+            TPreLogUtil.putOE('init Failed', TJava.Box(Self), commonStrings_.INIT, TJava.Box(e));
             end;
         end;
 end;
@@ -106,7 +106,7 @@ begin
             Exit(Self.secretComposite.encrypt(array_));
         except
             on e: SysUtils.Exception do begin
-            TPreLogUtil.putOE('Encrypt Failed', Self, 'encrypt', e);
+            TPreLogUtil.putOE('Encrypt Failed', TJava.Box(Self), 'encrypt', TJava.Box(e));
             Exit(TNullUtil.getInstance().NULL_BYTE_ARRAY);
             end;
         end;
@@ -119,7 +119,7 @@ begin
             Exit(Self.secretComposite.decrypt(array_));
         except
             on e: SysUtils.Exception do begin
-            TPreLogUtil.putOE('decrypt Failed', Self, 'decrypt', e);
+            TPreLogUtil.putOE('decrypt Failed', TJava.Box(Self), 'decrypt', TJava.Box(e));
             Exit(TNullUtil.getInstance().NULL_BYTE_ARRAY);
             end;
         end;

@@ -105,7 +105,7 @@ begin
         recordStore_ := TNullRecordStore.NULL_RECORD_STORE;
         try
         try
-            Self.logUtil.putF(TStringMaker.Create().append(Self.persistanceStrings.DELETING_WITH_ID).appendint(deleteId).toString(), Self, Self.commonStrings.delete_);
+            Self.logUtil.putF(TStringMaker.Create().append(Self.persistanceStrings.DELETING_WITH_ID).appendint(deleteId).toString(), TJava.Box(Self), Self.commonStrings.delete_);
             recordStore_ := TRecordStore.openRecordStore(Self.getRecordId(abeClientInformation), True);
             recordStore_.deleteRecord(deleteId);
         except
@@ -115,7 +115,7 @@ begin
         end;
         finally
             if (recordStore_) <> (nil) then begin
-                TPreLogUtil.put(Self.persistanceStrings.CLOSING_RECORDSTORE, Self, Self.commonStrings.delete_);
+                TPreLogUtil.put(Self.persistanceStrings.CLOSING_RECORDSTORE, TJava.Box(Self), Self.commonStrings.delete_);
                 recordStore_.closeRecordStore();
             end;
         end;

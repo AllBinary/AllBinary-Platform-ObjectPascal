@@ -81,7 +81,7 @@ var
 begin
         abFile_ := TAbFile.createAbFile(path);
         if abFile_.exists() then begin
-            Self.logUtil.putF(Self.REMOVING_OLD + path, Self, Self.commonStrings.CREATE_);
+            Self.logUtil.putF(Self.REMOVING_OLD + path, TJava.Box(Self), Self.commonStrings.CREATE_);
             abFile_.delete_();
         end else begin
             name := TAbPathData.getInstance().removeNameFromPath(path);
@@ -89,10 +89,10 @@ begin
             if abFileDirectory.exists() then begin
             end else begin
                 stringBuilder := TStringMaker.Create();
-                Self.logUtil.putF(stringBuilder.append(Self.commonStrings.CREATE_).append(Self.commonLabels.COLON_SEP).append(name).toString(), Self, Self.commonStrings.CREATE_);
+                Self.logUtil.putF(stringBuilder.append(Self.commonStrings.CREATE_).append(Self.commonLabels.COLON_SEP).append(name).toString(), TJava.Box(Self), Self.commonStrings.CREATE_);
                 result_ := abFileDirectory.mkdirs();
                 stringBuilder.delete_(0, stringBuilder.length());
-                Self.logUtil.putF(stringBuilder.append(Self.commonLabels.RESULT_).appendboolean(result_).toString(), Self, Self.commonStrings.CREATE_);
+                Self.logUtil.putF(stringBuilder.append(Self.commonLabels.RESULT_).appendboolean(result_).toString(), TJava.Box(Self), Self.commonStrings.CREATE_);
             end;
         end;
         Self.write(abFile_, data);
@@ -108,7 +108,7 @@ var
   result_: Boolean;
 begin
         if abFile_.exists() then begin
-            Self.logUtil.putF(Self.REMOVING_OLD + TJava.ToString(abFile_.getPath()), Self, Self.commonStrings.CREATE_);
+            Self.logUtil.putF(Self.REMOVING_OLD + TJava.ToString(abFile_.getPath()), TJava.Box(Self), Self.commonStrings.CREATE_);
             abFile_.delete_();
         end else begin
             name := TAbPathData.getInstance().removeNameFromPath(abFile_.getAbsolutePath());
@@ -116,10 +116,10 @@ begin
             if abFileDirectory.exists() then begin
             end else begin
                 stringBuilder := TStringMaker.Create();
-                Self.logUtil.putF(stringBuilder.append(Self.commonStrings.CREATE_).append(Self.commonLabels.COLON_SEP).append(name).toString(), Self, Self.commonStrings.CREATE_);
+                Self.logUtil.putF(stringBuilder.append(Self.commonStrings.CREATE_).append(Self.commonLabels.COLON_SEP).append(name).toString(), TJava.Box(Self), Self.commonStrings.CREATE_);
                 result_ := abFileDirectory.mkdirs();
                 stringBuilder.delete_(0, stringBuilder.length());
-                Self.logUtil.putF(stringBuilder.append(Self.commonLabels.RESULT_).appendboolean(result_).toString(), Self, Self.commonStrings.CREATE_);
+                Self.logUtil.putF(stringBuilder.append(Self.commonLabels.RESULT_).appendboolean(result_).toString(), TJava.Box(Self), Self.commonStrings.CREATE_);
             end;
         end;
         Self.write(abFile_, data);

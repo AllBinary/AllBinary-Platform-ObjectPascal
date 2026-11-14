@@ -51,7 +51,7 @@ var
   gameCommandsFactory_: TGameCommandsFactory;
 begin
         gameCommandsFactory_ := TGameCommandsFactory.getInstance();
-        if TAppletUtil.isAppletLoader(canvas) then begin
+        if TAppletUtil.isAppletLoader(TJava.Box(canvas)) then begin
         end else if TJ2MEUtil.isHTML() then begin
         end else begin
             canvas.addCommand(gameCommandsFactory_.EXIT_COMMAND);

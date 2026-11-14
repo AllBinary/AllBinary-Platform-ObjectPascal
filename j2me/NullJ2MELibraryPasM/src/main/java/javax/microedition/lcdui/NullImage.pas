@@ -45,7 +45,7 @@ end;
 
 initialization
   {AB:INITIALIZATION}
-  TNullImage.NULL_IMAGE_ARRAY := TJava.NewArray<TImage>(0);
+  TNullImage.NULL_IMAGE_ARRAY := nil;
   TNullImage.NULL_IMAGE := TImage.Create();
   {AB:END}
 

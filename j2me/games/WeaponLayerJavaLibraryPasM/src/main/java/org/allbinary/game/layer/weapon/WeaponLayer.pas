@@ -365,7 +365,7 @@ end;
 // throws Exception
 procedure TWeaponLayer.set_(gl_: IGL);
 begin
-        Self.initAnimationInterface.set_(TJava.ToObject(gl_));
+        Self.initAnimationInterface.set_(gl_);
 end;
 
 initialization

@@ -110,7 +110,7 @@ begin
                 playerGameInput_.onDownGameKeyEvent(TGameKeyEvent(TJava.ToObject(eventObject)));
             except
                 on e: SysUtils.Exception do begin
-                Self.logUtil.put(Self.commonStrings.EXCEPTION, Self, TEventStrings.getInstance().FIRE_EVENT, e);
+                Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), TEventStrings.getInstance().FIRE_EVENT, TJava.Box(e));
                 end;
             end;
         end;
@@ -149,7 +149,7 @@ begin
                 stringBuffer.append(TJava.ToString(TJava.ToObject(eventListenerInterface_)));
             except
                 on e: SysUtils.Exception do begin
-                Self.logUtil.put(Self.commonStrings.EXCEPTION, Self, Self.commonStrings.TOSTRING, e);
+                Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.commonStrings.TOSTRING, TJava.Box(e));
                 end;
             end;
             Inc(index);

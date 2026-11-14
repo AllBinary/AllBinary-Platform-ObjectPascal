@@ -68,7 +68,7 @@ end;
 // throws Exception
 function TBaseSoundsFactory.getSoundInterfaceArray: TArray<TSound>;
 begin
-        Exit(TJava.NewArray<TSound>(0));
+        Exit(nil);
 end;
     
 

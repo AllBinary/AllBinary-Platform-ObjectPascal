@@ -72,7 +72,7 @@ begin
         tsUtil_ := TTsUtil.getInstance();
         size := System.Length(data);
         for i := 0 to size - 1 do begin
-            stringBuilder.appendint(Integer(Trunc(tsUtil_.hashCode(data[i]))));
+            stringBuilder.appendint(Integer(Trunc(tsUtil_.hashCode(TJava.Box(data[i])))));
             stringBuilder.append(TCommonSeps.getInstance().SPACE);
         end;
         WriteLn(stringBuilder.toString());

@@ -77,12 +77,12 @@ begin
             primaryThreadPool_.runTask(runnable);
         except
             on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, Self, 'exit', e);
+            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), 'exit', TJava.Box(e));
             try
                 processor_.process();
             except
                 on e2: SysUtils.Exception do begin
-                Self.logUtil.put(Self.commonStrings.EXCEPTION, Self, 'exit', e);
+                Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), 'exit', TJava.Box(e));
                 end;
             end;
             end;

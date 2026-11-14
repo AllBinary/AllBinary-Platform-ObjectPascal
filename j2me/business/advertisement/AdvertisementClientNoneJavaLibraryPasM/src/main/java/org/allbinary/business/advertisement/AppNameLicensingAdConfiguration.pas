@@ -28,7 +28,7 @@ uses
 
 constructor TAppNameLicensingAdConfiguration.Create;
 begin
-        inherited Create([TStringUtil.getInstance().EMPTY_STRING, TStringUtil.getInstance().EMPTY_STRING, TStringUtil.getInstance().EMPTY_STRING]);
+        inherited Create(TArray<TObject>.Create(TJava.Box(TStringUtil.getInstance().EMPTY_STRING), TJava.Box(TStringUtil.getInstance().EMPTY_STRING), TJava.Box(TStringUtil.getInstance().EMPTY_STRING)));
 end;
 
 initialization

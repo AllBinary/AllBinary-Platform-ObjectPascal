@@ -74,7 +74,7 @@ begin
         except
             on e: SysUtils.Exception do begin
             commonStrings_ := TCommonStrings.getInstance();
-            Self.logUtil.put(commonStrings_.EXCEPTION, Self, 'updateRectangle', e);
+            Self.logUtil.put(commonStrings_.EXCEPTION, TJava.Box(Self), 'updateRectangle', TJava.Box(e));
             end;
         end;
 end;

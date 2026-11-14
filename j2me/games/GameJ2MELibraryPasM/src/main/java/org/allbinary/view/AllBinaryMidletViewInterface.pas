@@ -9,7 +9,7 @@ unit AllBinaryMidletViewInterface;
 interface
 
 uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, GameInitializedListenerInterface, DemoGameMidletEventListener, MidletCompositeInterface, EmulatorViewInterface;
+  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, GameInitializedListenerInterface, DemoGameMidletEventListener, MidletCompositeInterface, Displayable, MIDlet, DemoGameMidletEvent, AllBinaryEventObject, GameInitializedEvent, EmulatorViewInterface;
 
 type
   {AB:TYPES}
@@ -17,6 +17,14 @@ type
         procedure onResume;
         procedure onPause;
         procedure onDestroy;
+        procedure onEmulatorInitComplete(midletActivity: TObject); overload;
+        procedure onSetDisplayable(displayable_: TDisplayable); overload;
+        procedure setMidlet(midlet_: TMIDlet); overload;
+        procedure onDemoGameMidletEvent(demoGameMidletEvent_: TDemoGameMidletEvent); overload;
+        procedure onDemoStart; overload;
+        procedure onGameStart; overload;
+        procedure onEvent(eventObject: TAllBinaryEventObject); overload;
+        procedure onGameInitialized(gameInitializedEvent_: TGameInitializedEvent); overload;
   end;
   TAllBinaryMidletViewInterface = IAllBinaryMidletViewInterface;
 

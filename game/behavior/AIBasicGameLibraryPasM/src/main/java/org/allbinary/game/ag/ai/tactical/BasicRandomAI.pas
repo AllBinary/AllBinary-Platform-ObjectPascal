@@ -51,7 +51,7 @@ begin
   Self.i_random := 0;
   
   
-  Self.keyArray := [TCanvas.UP, TCanvas.DOWN, TCanvas.LEFT, TCanvas.RIGHT, TCanvas.KEY_NUM1, TCanvas.KEY_NUM7, TCanvas.KEY_NUM9];
+  Self.keyArray := TArray<Integer>.Create(TCanvas.UP, TCanvas.DOWN, TCanvas.LEFT, TCanvas.RIGHT, TCanvas.KEY_NUM1, TCanvas.KEY_NUM7, TCanvas.KEY_NUM9);
   Self.myRandomFactory := TMyRandomFactory.getInstance();
 end;
     
@@ -80,7 +80,7 @@ begin
             Self.i_random := Self.myRandomFactory.getAbsoluteNextInt(Self.inputProbability.getMax());
             repeat_ := False;
             repeatLikelyhoodIntegerArray := Self.inputProbability.getRepeatLikelyhoodIntegerArray();
-            if ((Self.getLastKey()) <> (-1)) and ((repeatLikelyhoodIntegerArray[Self.getLastKey()].intValue()) >= (Self.i_random)) then begin
+            if ((Self.getLastKey()) <> (-1)) and (((repeatLikelyhoodIntegerArray[Self.getLastKey()])) >= (Self.i_random)) then begin
                 repeat_ := True;
             end;
             if not (repeat_) then begin
@@ -92,7 +92,7 @@ begin
                     key := Self.keyArray[index];
                     likelyhoodIntegerKeyArray := likelyhoodIntegerArray[key];
                     if ((System.Length(likelyhoodIntegerArray)) >= (key)) and ((likelyhoodIntegerKeyArray[0]) <> (0)) then begin
-                        if ((Self.i_random) >= (likelyhoodIntegerKeyArray[0].intValue())) and ((Self.i_random) < (likelyhoodIntegerKeyArray[1].intValue())) then begin
+                        if ((Self.i_random) >= ((likelyhoodIntegerKeyArray[0]))) and ((Self.i_random) < ((likelyhoodIntegerKeyArray[1]))) then begin
                             Self.setLastKey(key);
                             Break;
                         end;

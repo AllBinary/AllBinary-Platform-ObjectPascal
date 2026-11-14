@@ -67,7 +67,7 @@ end;
 // throws Exception
 procedure TThreadObjectUtil.waitObjectFor(anyType: TObject; delay: Int64);
 begin
-        TTsUtil.getInstance().waitFor(anyType, delay);
+        TTsUtil.getInstance().waitFor(TJava.Box(anyType), delay);
 end;
     
 

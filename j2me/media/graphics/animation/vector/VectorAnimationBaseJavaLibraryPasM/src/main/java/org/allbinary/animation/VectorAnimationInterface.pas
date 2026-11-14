@@ -23,12 +23,14 @@ unit VectorAnimationInterface;
 interface
 
 uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, ColorCompositeInterface, IndexedAnimationInterface;
+  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, ColorCompositeInterface, BasicColor, IndexedAnimationInterface;
 
 type
   {AB:TYPES}
   IVectorAnimationInterface = interface(IIndexedAnimationInterface) ['IVectorAnimationInterface']
         function getPoints(frame: Integer): TArray<TArray<Integer>>;
+        function getBasicColorP: TBasicColor; overload;
+        procedure setBasicColorP(basicColor_: TBasicColor); overload;
   end;
   TVectorAnimationInterface = IVectorAnimationInterface;
 

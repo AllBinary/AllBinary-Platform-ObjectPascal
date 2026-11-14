@@ -50,11 +50,11 @@ uses
 
 procedure TPrimitiveLongSingleton.InitFields;
 begin
-  Self.UNK := ['U', 'n', 'k'];
-  Self.NUMBER_ARRAY := [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-  Self.NUMBER_CHAR_ARRAY := ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
-  Self.NUMBER_CHAR_ARRAYS := [['0'], ['1'], ['2'], ['3'], ['4'], ['5'], ['6'], ['7'], ['8'], ['9']];
-  Self.ZERO := [Self.NUMBER_CHAR_ARRAY[0]];
+  Self.UNK := TArray<WideChar>.Create('U', 'n', 'k');
+  Self.NUMBER_ARRAY := TArray<ShortInt>.Create(0, 1, 2, 3, 4, 5, 6, 7, 8, 9);
+  Self.NUMBER_CHAR_ARRAY := TArray<WideChar>.Create('0', '1', '2', '3', '4', '5', '6', '7', '8', '9');
+  Self.NUMBER_CHAR_ARRAYS := [TArray<WideChar>.Create('0'), TArray<WideChar>.Create('1'), TArray<WideChar>.Create('2'), TArray<WideChar>.Create('3'), TArray<WideChar>.Create('4'), TArray<WideChar>.Create('5'), TArray<WideChar>.Create('6'), TArray<WideChar>.Create('7'), TArray<WideChar>.Create('8'), TArray<WideChar>.Create('9')];
+  Self.ZERO := TArray<WideChar>.Create(Self.NUMBER_CHAR_ARRAY[0]);
 end;
 
 constructor TPrimitiveLongSingleton.Create;

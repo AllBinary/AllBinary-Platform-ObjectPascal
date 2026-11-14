@@ -76,7 +76,7 @@ var
   gameKeyCompleteMotionGestureInputEvent_: TGameKeyCompleteMotionGestureInputEvent;
   index: Integer;
 begin
-        Self.logUtil.putF(TStringMaker.Create().append(TCommonLabels.getInstance().START_LABEL).appendint(Self.eventList.size()).toString(), Self, 'updateAll');
+        Self.logUtil.putF(TStringMaker.Create().append(TCommonLabels.getInstance().START_LABEL).appendint(Self.eventList.size()).toString(), TJava.Box(Self), 'updateAll');
         for index := (Self.eventList.size()) - (1) downto 0 do begin
             gameKeyCompleteMotionGestureInputEvent_ := TGameKeyCompleteMotionGestureInputEvent(TJava.ToObject(Self.eventList.objectArray[index]));
             gameKeyCompleteMotionGestureInputEvent_.update();

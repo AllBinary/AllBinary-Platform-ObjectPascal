@@ -80,7 +80,7 @@ begin
         inherited Create(location, direction, bufferZone, basicColor_);
         InitFields;
         Self.prependString := prependString;
-        Self.PREPEND_STRING := prependString.toCharArray();
+        Self.PREPEND_STRING := TJava.ToCharArray(prependString);
         Self.valueString := TPrimitiveLongSingleton.getInstance().NUMBER_CHAR_ARRAYS[0];
         Self.primitiveLongUtil := TPrimitiveLongUtil.createPowerOfTen((max) + (1));
         Self.max := max;

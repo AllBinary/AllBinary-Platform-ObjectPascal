@@ -109,10 +109,10 @@ var
   highScoresAsString: string;
   index: Integer;
 begin
-        Self.logUtil.putF(TStringMaker.Create().append(Self.commonStrings.START).append(TStringUtil.getInstance().toString(Self.highScore)).toString(), Self, 'saveHighScore');
+        Self.logUtil.putF(TStringMaker.Create().append(Self.commonStrings.START).append(TStringUtil.getInstance().toString(Self.highScore)).toString(), TJava.Box(Self), 'saveHighScore');
         size := System.Length(Self.highScoresArray);
         if (Self.firstTime) and ((size) = (0)) then begin
-            Self.logUtil.putF('Games canvas did not give us any HighScores', Self, 'saveHighScore');
+            Self.logUtil.putF('Games canvas did not give us any HighScores', TJava.Box(Self), 'saveHighScore');
             Self.highScoresFactoryInterface.fetchHighScores(Self.gameInfo, Self);
             Exit;
         end;
@@ -122,7 +122,7 @@ begin
             highScores_ := Self.highScoresArray[index];
             highScores_.addHighScore(Self.highScore);
             highScoresAsString := highScores_.toString();
-            Self.logUtil.putF(TStringMaker.Create().append('Added/Adding Score: ').append(highScoresAsString).toString(), Self, 'saveHighScore');
+            Self.logUtil.putF(TStringMaker.Create().append('Added/Adding Score: ').append(highScoresAsString).toString(), TJava.Box(Self), 'saveHighScore');
         end;
         Self.highScoresHelper.setHighScoresArray(Self.highScoresArray);
 end;

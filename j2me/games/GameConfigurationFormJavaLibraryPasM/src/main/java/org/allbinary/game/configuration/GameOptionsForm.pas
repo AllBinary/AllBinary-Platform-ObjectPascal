@@ -59,7 +59,7 @@ var
 begin
         inherited Create(commandListener_, title, backgrounBasicColor, foregroundBasicColor);
         InitFields;
-        Self.logUtil.putF(Self.commonStrings.START, Self, Self.commonStrings.CONSTRUCTOR_);
+        Self.logUtil.putF(Self.commonStrings.START, TJava.Box(Self), Self.commonStrings.CONSTRUCTOR_);
         Self.addConfiguration();
         gameFeatureFormUtil_ := TGameFeatureFormUtil.getInstance();
         gameFeatureFormUtil_.addChoiceGroup(Self, TGameFeatureChoiceGroups.getExclusiveInstance().get(), IChoice.EXCLUSIVE);
@@ -144,7 +144,7 @@ begin
         for index := 0 to size - 1 do begin
             gameConfiguration_ := TGameConfiguration(TJava.ToObject(list.objectArray[index]));
             stringMaker_.delete_(0, stringMaker_.length());
-            Self.logUtil.putF(stringMaker_.append(NAME).append(gameConfiguration_.toString()).toString(), Self, METHOD_NAME);
+            Self.logUtil.putF(stringMaker_.append(NAME).append(gameConfiguration_.toString()).toString(), TJava.Box(Self), METHOD_NAME);
             gauge := TGameConfigurationGauge.Create(gameConfiguration_);
             gauge.setDefaultCommand(GAUGE_CHANGE);
             gauge.setItemCommandListener(TGameFeatureItemCommandListener.Create(Self));

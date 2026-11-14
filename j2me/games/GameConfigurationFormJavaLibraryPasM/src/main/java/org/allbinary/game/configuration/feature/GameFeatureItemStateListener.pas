@@ -93,7 +93,7 @@ var
 begin
         try
             itemLabel := item_.getLabel();
-            Self.logUtil.putF(TStringMaker.Create().append(TCommonLabels.getInstance().ITEM_LABEL).append(itemLabel).toString(), Self, 'itemStateChanged');
+            Self.logUtil.putF(TStringMaker.Create().append(TCommonLabels.getInstance().ITEM_LABEL).append(itemLabel).toString(), TJava.Box(Self), 'itemStateChanged');
             if (TJava.ToObject(item_) is TGameConfigurationGauge) then begin
                 TGameConfigurationUtil.getInstance().change(Self.gameOptionsForm, TGameConfigurationGauge(TJava.ToObject(item_)));
             end else if (TJava.ToObject(item_) is TChoiceGroup) then begin
@@ -107,7 +107,7 @@ begin
         except
             on e: SysUtils.Exception do begin
             commonStrings_ := TCommonStrings.getInstance();
-            Self.logUtil.put(commonStrings_.EXCEPTION, Self, 'itemStateChanged', e);
+            Self.logUtil.put(commonStrings_.EXCEPTION, TJava.Box(Self), 'itemStateChanged', TJava.Box(e));
             end;
         end;
 end;

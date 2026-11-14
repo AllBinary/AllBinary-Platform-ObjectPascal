@@ -63,7 +63,7 @@ end;
 procedure TStartIntermissionProcessor.process;
 begin
         if Self.gameCanvas.getStartIntermissionInterface().getTimeDelayHelper().isElapsedTNT(Self.WAIT) then begin
-            Self.logUtil.putF('Intermission End', Self, Self.commonStrings.PROCESS);
+            Self.logUtil.putF('Intermission End', TJava.Box(Self), Self.commonStrings.PROCESS);
             Self.gameCanvas.getStartIntermissionInterface().setEnabled(False);
         end;
 end;

@@ -23,7 +23,7 @@ unit BaseAnimationInterfaceFactoryInterfaceComposite;
 interface
 
 uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, ScaleProperties, Animation, BasicAnimationInterfaceFactoryInterface, AnimationInterfaceFactoryInterface, BasicAnimationInterfaceFactoryInterface;
+  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, ScaleProperties, Animation, BasicAnimationInterfaceFactoryInterface, AnimationInterfaceFactoryInterface;
 
 type
   {AB:TYPES}

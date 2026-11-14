@@ -61,10 +61,10 @@ end;
 
 procedure THealLayer.visit(healthInterface_: IHealthInterface);
 begin
-        if not (healthInterface_.Finished) then begin
+        if healthInterface_.isAlive() then begin
             healthInterface_.healMax();
         end else begin
-            Self.logUtil.putF('Heal attempt on dead: Does not currently occur', Self, 'visit');
+            Self.logUtil.putF('Heal attempt on dead: Does not currently occur', TJava.Box(Self), 'visit');
         end;
 end;
 

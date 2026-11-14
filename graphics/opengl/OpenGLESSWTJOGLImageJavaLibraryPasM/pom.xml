@@ -190,6 +190,7 @@
                                     <argument>G:/mnt/bc/mydev/workingopascal/j2me/media/graphics/layer/AllBinaryLayerJavaLibraryPasM/src/main/java</argument>
                                     <argument>G:/mnt/bc/mydev/working_thirdpartyopascal/embedded/j2me/microemulator/2_0_4/microemu-midpPas/src/main/java</argument>
                                     <argument>G:/mnt/bc/mydev/workingopascal/j2me/SWTToJ2MELibraryPasM/src/main/java</argument>
+                                    <argument>G:/mnt/bc/mydev/AllBinary-Platform-Integrationopascal/j2me/PolyglotOnlyJavaLibraryPasM/src/main/java</argument>
                                     <argument>G:/mnt/bc/mydev/workingopascal/replace_these_stub_projects/allbinary_src/NoneOnlyJavaLibraryPasM/src/main/java</argument>
                                     <argument>G:/mnt/bc/mydev/workingopascal/j2me/TempBaseJavaLibraryPasM/src/main/java</argument>
                                     <argument>G:/mnt/bc/mydev/workingopascal/allbinary_src/LogJ2SEJavaLibraryPasM/src/main/java</argument>
@@ -199,7 +200,6 @@
                                     <argument>G:/mnt/bc/mydev/workingopascal/graphics/opengl/OpenGLESNullImageJavaLibraryPasM/src/main/java</argument>
                                     <argument>G:/mnt/bc/mydev/working_thirdpartyopascal/graphics/swt/org.eclipse.swt.win32.win32.x86_64/src/main/java</argument>
                                     <argument>G:/mnt/bc/mydev/workingopascal/j2me/CommonJavaLibraryPasM/src/main/java</argument>
-                                    <argument>G:/mnt/bc/mydev/AllBinary-Platform-Integrationopascal/j2me/PolyglotOnlyJavaLibraryPasM/src/main/java</argument>
                                     <argument>G:/mnt/bc/mydev/workingopascal/allbinary_src/hardware/NoSystemJavaLibraryPasM/src/main/java</argument>
                                     <argument>G:/mnt/bc/mydev/workingopascal/j2me/games/GameConfigurationJ2MEJavaLibraryPasM/src/main/java</argument>
                                     <argument>G:/mnt/bc/mydev/workingopascal/j2me/statistics/ApplicationStatisticsJ2MELibraryPasM/src/main/java</argument>

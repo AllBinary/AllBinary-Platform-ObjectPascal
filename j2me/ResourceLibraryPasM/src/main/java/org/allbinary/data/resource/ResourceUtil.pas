@@ -71,13 +71,13 @@ end;
 
 procedure TResourceUtil.setLoadingPaths(path: string; ext: string);
 begin
-        Self.logUtil.putF(TCommonStrings.getInstance().NOT_IMPLEMENTED, Self, 'setLoadingPaths');
+        Self.logUtil.putF(TCommonStrings.getInstance().NOT_IMPLEMENTED, TJava.Box(Self), 'setLoadingPaths');
 end;
     
 
 procedure TResourceUtil.setClassLoader(classLoader: TClassLoader);
 begin
-        Self.logUtil.putF(TStringMaker.Create().append('Resource Loader: ').append(TJava.ToObject(classLoader).ClassType.ClassName).toString(), Self, 'setClassLoader');
+        Self.logUtil.putF(TStringMaker.Create().append('Resource Loader: ').append(TJava.ToObject(classLoader).ClassType.ClassName).toString(), TJava.Box(Self), 'setClassLoader');
         TResourceUtil.classLoader := classLoader;
 end;
     

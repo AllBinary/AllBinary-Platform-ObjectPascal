@@ -86,7 +86,7 @@ begin
             Self.repaintProcessor.process();
         except
             on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, Self, Self.commonStrings.CONSTRUCTOR_, e);
+            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.commonStrings.CONSTRUCTOR_, TJava.Box(e));
             end;
         end;
 end;
@@ -99,14 +99,14 @@ end;
 
 procedure TCommandForm.open;
 begin
-        Self.logUtil.putF(Self.commonStrings.START, Self, 'open');
+        Self.logUtil.putF(Self.commonStrings.START, TJava.Box(Self), 'open');
 end;
     
 
 // throws Exception
 procedure TCommandForm.close;
 begin
-        Self.logUtil.putF(Self.commonStrings.START, Self, Self.commonStrings.CLOSE);
+        Self.logUtil.putF(Self.commonStrings.START, TJava.Box(Self), Self.commonStrings.CLOSE);
 end;
     
 

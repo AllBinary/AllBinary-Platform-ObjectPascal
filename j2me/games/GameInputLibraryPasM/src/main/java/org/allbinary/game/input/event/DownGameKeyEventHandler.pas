@@ -120,7 +120,7 @@ end;
 initialization
   {AB:INITIALIZATION}
   TDownGameKeyEventHandler.instance := TDownGameKeyEventHandler.Create();
-  TDownGameKeyEventHandler.instanceArray := [TDownGameKeyEventHandlerBase.Create(), TDownGameKeyEventHandlerBase.Create(), TDownGameKeyEventHandlerBase.Create(), TDownGameKeyEventHandlerBase.Create(), TDownGameKeyEventHandlerBase.Create(), TDownGameKeyEventHandlerBase.Create()];
+  TDownGameKeyEventHandler.instanceArray := TArray<TDownGameKeyEventHandlerBase>.Create(TDownGameKeyEventHandlerBase.Create(), TDownGameKeyEventHandlerBase.Create(), TDownGameKeyEventHandlerBase.Create(), TDownGameKeyEventHandlerBase.Create(), TDownGameKeyEventHandlerBase.Create(), TDownGameKeyEventHandlerBase.Create());
   {AB:END}
 
 end.

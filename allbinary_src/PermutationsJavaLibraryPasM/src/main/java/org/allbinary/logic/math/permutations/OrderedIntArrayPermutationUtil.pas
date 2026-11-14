@@ -128,9 +128,11 @@ begin
         iterations := Self.factorial(System.Length(data));
         Write(Self.TOTAL_ITERATIONS_TABLE);
         WriteLn(iterations);
-        for count := 0 to (iterations) - (1) - 1 do begin
+        count := 0;
+        while (count) < ((iterations) - (1)) do begin
             Self.getNext(data);
             visitor_.visit(Self);
+            Inc(count);
         end;
         WriteLn(Self.FINISHED);
 end;

@@ -61,7 +61,7 @@ begin
     inherited Create;
     InitFields;
         commonStrings_ := TCommonStrings.getInstance();
-        Self.logUtil.putF('Null Gesture Reciever', Self, commonStrings_.CONSTRUCTOR_);
+        Self.logUtil.putF('Null Gesture Reciever', TJava.Box(Self), commonStrings_.CONSTRUCTOR_);
 end;
     
 

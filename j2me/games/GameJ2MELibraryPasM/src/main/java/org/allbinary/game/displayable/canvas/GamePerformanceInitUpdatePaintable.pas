@@ -54,7 +54,7 @@ uses
 procedure TGamePerformanceInitUpdatePaintable.InitFields;
 begin
   Self.halfHeight := TDisplayInfoSingleton.getInstance().getLastHalfHeight();
-  Self.yArray := [(Self.halfHeight) + (30), (Self.halfHeight) + (30), ((Self.halfHeight) + (30)) + (15), ((Self.halfHeight) + (30)) + (15), ((Self.halfHeight) + (30)) + (30), ((Self.halfHeight) + (30)) + (30), ((Self.halfHeight) + (30)) + (45), ((Self.halfHeight) + (30)) + (45)];
+  Self.yArray := TArray<Integer>.Create((Self.halfHeight) + (30), (Self.halfHeight) + (30), ((Self.halfHeight) + (30)) + (15), ((Self.halfHeight) + (30)) + (15), ((Self.halfHeight) + (30)) + (30), ((Self.halfHeight) + (30)) + (30), ((Self.halfHeight) + (30)) + (45), ((Self.halfHeight) + (30)) + (45));
   Self.myFontProcessor := TUpdateMyFontProcessor.Create(Self);
   Self.baseRefreshHelperCharArray := TJava.NewArray2<WideChar>(0, 0);
   

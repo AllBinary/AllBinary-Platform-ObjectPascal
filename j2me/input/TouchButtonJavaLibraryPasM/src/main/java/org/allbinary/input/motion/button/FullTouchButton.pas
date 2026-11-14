@@ -73,7 +73,7 @@ begin
             Self.hintAnimationY := TJava.SignedRightShift((Self.animationY) - (Self.rectangleP.getHeight()), 1);
         except
             on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, Self, 'updateRectangle', e);
+            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), 'updateRectangle', TJava.Box(e));
             end;
         end;
 end;

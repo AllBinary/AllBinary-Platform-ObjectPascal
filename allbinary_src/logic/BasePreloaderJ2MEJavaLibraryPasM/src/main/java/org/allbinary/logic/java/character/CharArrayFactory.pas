@@ -43,7 +43,7 @@ implementation
 
 procedure TCharArrayFactory.InitFields;
 begin
-  Self.zeroCharArray := TJava.NewArray<WideChar>(0);
+  Self.zeroCharArray := nil;
 end;
 
 constructor TCharArrayFactory.Create;

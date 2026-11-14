@@ -153,7 +153,7 @@ var
   touchButtonInput_: TTouchButtonInput;
   index: Integer;
 begin
-        Self.logUtil.putF(TStringMaker.Create().append(TCommonLabels.getInstance().START_LABEL).appendint(list.size()).toString(), Self, 'updateAll');
+        Self.logUtil.putF(TStringMaker.Create().append(TCommonLabels.getInstance().START_LABEL).appendint(list.size()).toString(), TJava.Box(Self), 'updateAll');
         
         for index := (list.size()) - (1) downto 0 do begin
             touchButtonInput_ := TTouchButtonInput(TJava.ToObject(list.objectArray[index]));

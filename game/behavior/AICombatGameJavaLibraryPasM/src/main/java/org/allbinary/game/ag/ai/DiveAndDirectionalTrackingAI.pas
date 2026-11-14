@@ -87,7 +87,7 @@ begin
   Self.list := TBasicArrayListD.Create();
   
   
-  Self.directionToKeyMap := [TCanvas.LEFT, TCanvas.DOWN, TCanvas.UP, TCanvas.RIGHT];
+  Self.directionToKeyMap := TArray<Integer>.Create(TCanvas.LEFT, TCanvas.DOWN, TCanvas.UP, TCanvas.RIGHT);
   
   
   Self.directionOfTarget := TDirection.getInstance(0);
@@ -345,7 +345,7 @@ end;
 
 procedure TDiveAndDirectionalTrackingAI.onEvent(eventObject: TAllBinaryEventObject);
 begin
-        TForcedLogUtil.log(TEventStrings.getInstance().PERFORMANCE_MESSAGE, Self);
+        TForcedLogUtil.log(TEventStrings.getInstance().PERFORMANCE_MESSAGE, TJava.Box(Self));
 end;
     
 

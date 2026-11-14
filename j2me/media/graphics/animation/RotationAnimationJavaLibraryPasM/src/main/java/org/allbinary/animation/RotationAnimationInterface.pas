@@ -23,7 +23,7 @@ unit RotationAnimationInterface;
 interface
 
 uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, DirectionalInterface, AngleInfo, IndexedAnimationInterface;
+  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, DirectionalInterface, AngleInfo, Angle, Direction, IndexedAnimationInterface;
 
 type
   {AB:TYPES}
@@ -31,6 +31,10 @@ type
         function getAngleInfoP: TAngleInfo;
         procedure nextRotation;
         procedure previousRotation;
+        procedure adjustFrame(angle_: SmallInt); overload;
+        procedure adjustFrameToAngle(newAngle: TAngle); overload;
+        procedure setFrameByDirection(direction_: TDirection); overload;
+        procedure setFrameToAngle(angle_: TAngle); overload;
   end;
   TRotationAnimationInterface = IRotationAnimationInterface;
 

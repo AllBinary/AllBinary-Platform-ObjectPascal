@@ -82,7 +82,7 @@ begin
         stringBuffer.append(groupInterface.toString());
         stringBuffer.append(groupCommonFactory_.TO_LABEL);
         stringBuffer.append(TStringUtil.getInstance().toString(Self.groupInterface));
-        Self.logUtil.putF(stringBuffer.toString(), Self, commonStrings_.ADD);
+        Self.logUtil.putF(stringBuffer.toString(), TJava.Box(Self), commonStrings_.ADD);
         Self.list.add(TJava.Box(groupInterface));
 end;
     

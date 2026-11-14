@@ -60,7 +60,7 @@ end;
 
 procedure TGameMidletStateFactory.setCurrentGameState(currentGameState: TGameState);
 begin
-        Self.logUtil.putF(TStringMaker.Create().append(TCommonLabels.getInstance().CURRENT).append(' GameState: ').append(TStringUtil.getInstance().toString(currentGameState)).toString(), Self, 'setCurrentGameState');
+        Self.logUtil.putF(TStringMaker.Create().append(TCommonLabels.getInstance().CURRENT).append(' GameState: ').append(TStringUtil.getInstance().toString(currentGameState)).toString(), TJava.Box(Self), 'setCurrentGameState');
         Self.currentGameState := currentGameState;
 end;
 

@@ -71,7 +71,7 @@ begin
         except
             on e: SysUtils.Exception do begin
             commonStrings_ := TCommonStrings.getInstance();
-            Self.logUtil.put(commonStrings_.EXCEPTION, Self, commonStrings_.CONSTRUCTOR_, e);
+            Self.logUtil.put(commonStrings_.EXCEPTION, TJava.Box(Self), commonStrings_.CONSTRUCTOR_, TJava.Box(e));
             end;
         end;
 end;
@@ -83,7 +83,7 @@ begin
         Self.setFullscreen(True);
         Self.setProgressBarView(False);
         Self.setShowTitleBar(False);
-        Self.logUtil.putF('Read Configuration: ' + Self.toString(), Self, 'read');
+        Self.logUtil.putF('Read Configuration: ' + Self.toString(), TJava.Box(Self), 'read');
 end;
     
 

@@ -1269,7 +1269,7 @@ begin
         METHOD_NAME := 'antiTanDebug';
         TARGET_ANGLE := ' Targeting angle: ';
         stringMaker_ := TStringMaker.Create();
-        TPreLogUtil.put(stringMaker_.append('screenX: ').appendint(screenX).append(' screenY: ').appendint(screenY).append(' targetX: ').appendint(targetX).append(' targetY: ').appendint(targetY).toString(), Self, METHOD_NAME);
+        TPreLogUtil.put(stringMaker_.append('screenX: ').appendint(screenX).append(' screenY: ').appendint(screenY).append(' targetX: ').appendint(targetX).append(' targetY: ').appendint(targetY).toString(), TJava.Box(Self), METHOD_NAME);
         targetX2 := -targetX;
         targetY2 := -targetY;
         screenX2 := -screenX;
@@ -1292,7 +1292,7 @@ begin
                 angleOfTarget := Self.antiTan(dx[index], dy[index2]);
                 angle_ := angleFactory_.getAt(Integer(angleOfTarget));
                 stringMaker_.delete_(0, stringMaker_.length());
-                TPreLogUtil.put(stringMaker_.append(TCommonLabels.getInstance().INDEX_LABEL).appendint(index).append(' index2: ').appendint(index2).append(TPositionStrings.getInstance().DX_LABEL).appendint(dx[index]).append(TPositionStrings.getInstance().DY_LABEL).appendint(dy[index2]).append(TARGET_ANGLE).appendshort(angleOfTarget).append(TCommonSeps.getInstance().EQUALS).appendshort(SmallInt(Trunc(angle_.getValue()))).toString(), Self, METHOD_NAME);
+                TPreLogUtil.put(stringMaker_.append(TCommonLabels.getInstance().INDEX_LABEL).appendint(index).append(' index2: ').appendint(index2).append(TPositionStrings.getInstance().DX_LABEL).appendint(dx[index]).append(TPositionStrings.getInstance().DY_LABEL).appendint(dy[index2]).append(TARGET_ANGLE).appendshort(angleOfTarget).append(TCommonSeps.getInstance().EQUALS).appendshort(SmallInt(Trunc(angle_.getValue()))).toString(), TJava.Box(Self), METHOD_NAME);
             end;
         end;
         angleOfTarget := Self.antiTan(dx[0], dy[0]);

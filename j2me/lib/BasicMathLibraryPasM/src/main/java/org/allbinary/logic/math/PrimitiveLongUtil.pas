@@ -74,7 +74,7 @@ begin
         if ((powerOfTen) mod (10)) <> (0) then begin
             logUtil_ := TLogUtil.getInstance();
             commonStrings_ := TCommonStrings.getInstance();
-            logUtil_.put(commonStrings_.EXCEPTION, primitiveLongUtil_, commonStrings_.CONSTRUCTOR_, SysUtils.Exception.Create('Max must be power of 10'));
+            logUtil_.put(commonStrings_.EXCEPTION, TJava.Box(primitiveLongUtil_), commonStrings_.CONSTRUCTOR_, TJava.Box(SysUtils.Exception.Create('Max must be power of 10')));
         end;
         Exit(primitiveLongUtil_);
 end;

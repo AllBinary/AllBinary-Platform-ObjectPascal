@@ -76,10 +76,10 @@ begin
         try
             osString := TStringMaker.Create().append('OperatingSystem Info: ').append(Self.genericOperatingSystem.toString()).toString();
             WriteLn(osString);
-            Self.logUtil.putF(osString, Self, commonStrings_.GET_INSTANCE);
+            Self.logUtil.putF(osString, TJava.Box(Self), commonStrings_.GET_INSTANCE);
         except
             on e: SysUtils.Exception do begin
-            Self.logUtil.put(commonStrings_.EXCEPTION, Self, commonStrings_.GET_INSTANCE, e);
+            Self.logUtil.put(commonStrings_.EXCEPTION, TJava.Box(Self), commonStrings_.GET_INSTANCE, TJava.Box(e));
             end;
         end;
         Exit(Self.genericOperatingSystem);

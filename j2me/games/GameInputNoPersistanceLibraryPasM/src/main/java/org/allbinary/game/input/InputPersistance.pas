@@ -76,7 +76,7 @@ begin
         while recordEnum.hasNextElement() do begin
             id := recordEnum.nextRecordId();
             stringBuffer.delete_(0, stringBuffer.length());
-            Self.logUtil.putF(stringBuffer.append(Self.persistanceStrings.LOADING_ID).appendint(id).toString(), Self, Self.persistanceStrings.LOAD_ALL);
+            Self.logUtil.putF(stringBuffer.append(Self.persistanceStrings.LOADING_ID).appendint(id).toString(), TJava.Box(Self), Self.persistanceStrings.LOAD_ALL);
             hashtable := TStdUtil.getInstance().createHashtable();
             Self.valueList.add(TJava.Box(hashtable));
             Self.idList.add(TJava.Box(smallIntegerSingletonFactory_.getAt(id)));
@@ -97,7 +97,7 @@ var
   index2: Integer;
   index: Integer;
 begin
-        TPreLogUtil.put(TStringMaker.Create().append(Self.persistanceStrings.NOT_SAVING).append(TStringUtil.getInstance().toString(hashtable)).toString(), Self, Self.commonStrings.SAVE);
+        TPreLogUtil.put(TStringMaker.Create().append(Self.persistanceStrings.NOT_SAVING).append(TStringUtil.getInstance().toString(hashtable)).toString(), TJava.Box(Self), Self.commonStrings.SAVE);
         recordStore_ := TRecordStore.openRecordStore(Self.getRecordId(abeClientInformation), True);
         
         

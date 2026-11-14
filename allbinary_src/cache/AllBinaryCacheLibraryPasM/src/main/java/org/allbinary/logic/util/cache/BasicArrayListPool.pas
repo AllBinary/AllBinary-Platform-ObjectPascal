@@ -79,7 +79,7 @@ begin
         index := usedList.size();
         while (TJava.PreDec(index)) >= (0) do begin
             anyType := (TJava.ToObject(usedList.objectArray[index]) as ICacheableInterface);
-            Self.add(TJava.ToObject(anyType));
+            Self.add(anyType);
         end;
         usedList.clear();
 end;
